@@ -14,7 +14,7 @@ function bodyPanelSwitch(evt, tabName) {
 // Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpen").click();
 
-function preLoadXml(){
+function getXmlForLoad(){
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
@@ -38,11 +38,29 @@ function loadSheetInfo(savedXml){
     cleanXML = new DOMParser().parseFromString(str, "text/xml");
 
     //Get attributes and add to sheet
-    var attsXML = cleanXML.getElementsByTagName('character')[0].childNodes;
-    //document.getElementById("test").innerHTML = attsXML[0].childNodes[0].nodeValue;
+    var attsXML = cleanXML.getElementById('001').childNodes;
+    document.getElementById("test").innerHTML = attsXML[0].childNodes.length;
     for(var i = 0; i < attsXML.length; i++){
         a = document.getElementById(attsXML[i].nodeName);
         a.innerHTML = attsXML[i].childNodes[0].nodeValue;
     }
 }
 
+function getXmlForSave(char_ID){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            saveSheetInfo(this, char_ID);
+        }
+    };
+
+    xhttp.open("GET", "data/xml/character_sheet_save_load.xml", true);
+    xhttp.send();
+}
+
+function saveSheetInfo(loadedXml, char_ID){
+
+    //get xml doc and save as variable
+    var xmlDoc = new XMLSerializer();
+    var attsXML = getElementsById(char_ID)
+}
