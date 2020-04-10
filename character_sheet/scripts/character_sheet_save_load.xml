@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<character name="test">
+    <char_name>Whatever Dude</char_name>
+    <gender>Male</gender>
+    <background>Colonist</background>
+    <race>Human</race>
+    <alignment>Neutral</alignment>
+    <str>12</str>
+    <str_mod>+1</str_mod>
+    <dex>12</dex>
+    <dex_mod>+1</dex_mod>
+    <con>12</con>
+    <con_mod>+1</con_mod>
+    <int>12</int>
+    <int_mod>+1</int_mod>
+    <wis>12</wis>
+    <wis_mod>+1</wis_mod>
+    <cha>12</cha>
+    <cha_mod>+1</cha_mod>
+    <eq_helmet gear_type="helmet">Colonist Envirohelm</eq_helmet>
+    <eq_armor gear_type="armor">Colonist Envirosuit</eq_armor>
+    <eq_boots gear_type="boots">Colonist Enviroboots</eq_boots>
+    <eq_gloves gear_type="gloves">Colonist Envirogloves</eq_gloves>
+    <eq_blade gear_type="blade">Colonist Machete</eq_blade>
+    <eq_gun1 gear_type="gun">Hunting Shotgun</eq_gun1>
+    <eq_gun2 gear_type="gun">MW Certified Pistol</eq_gun2>
+    <eq_misc gear_type="misc">Seed Collection Kit</eq_misc>
+</character>
