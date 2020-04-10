@@ -1,0 +1,244 @@
+body{
+    background-color: black;
+    color: gainsboro;
+}
+
+div{
+    position: relative;
+    border: solid 1px grey;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.row{
+    display: block;
+    width: 95%;
+    min-height: 150px;
+    padding:10px;
+    margin: auto;
+    border: solid 5px none;
+}
+
+.char_menu{
+    width:100%;
+}
+
+.char_menu li{
+    display: inline-block;
+    width: 200px;
+}
+
+.main_menu_item{
+    display: inline;
+}
+
+.character_sheet{
+    width: 100%;
+}
+
+.char_icon{
+    width: 15%;
+    max-width: 175px;
+    max-height: 175px;
+    float:left;
+    text-align: center;
+}
+
+.char_icon img{
+    width: 100%;
+    max-width: 120px;
+    border: solid 2px gainsboro;
+    border-radius: 50%;
+}
+
+.character_name{
+    width: 28%;
+    padding: 10px 2%;
+    float:left;
+    text-align: center;
+    padding-top:50px;
+}
+
+.character_name div{
+    text-align: center;
+    color:gainsboro;
+    font-size: 2.5vw;
+    vertical-align: middle;
+    margin-bottom: 2%;
+}
+
+.character_name span{
+    font-size: 1.5vw;
+    color: rgb(34, 162, 179);
+}
+
+.character_info_row{
+    display: block;
+    float: left;
+    width: 30%;
+    height: 50%;
+    min-height: 150px;
+}
+
+.char_info{
+    width:44%;
+    min-height: 60px;
+    padding: 5px;
+    float: left;
+    text-align: center;
+}
+
+.char_info div{
+    text-align: center;
+    font-size: 1.5vw;
+    margin-bottom: 2%;
+    vertical-align: middle;
+}
+
+.char_info span{
+    font-size: 1.2vw;
+    color: rgb(34, 162, 179);
+}
+
+.health_panel{
+    overflow: hidden;
+}
+
+.attr_item{
+    display: inline-block;
+    text-align: center;
+    width: 10%;
+    top: -15px;
+    max-width: 150px;
+    margin-bottom: 10px;
+}
+
+.attr_item span{
+    font-size: 18pt;
+}
+
+.attr_value{
+    height: 50px;
+    width: 50px;
+    margin: auto;
+    border: solid 5px rgb(34,162,179);
+    border-radius: 50%;
+    text-align: center;
+    font-size: 200%;
+    font-weight: bolder;
+    background-color:none;
+    color: gainsboro;
+    line-height: 150%;
+}
+
+.passive_item{
+    display: inline-block;
+    text-align: center;
+    width: 15%;
+    max-width: 150px;
+    margin-left: 10px;
+}
+
+.passive_item span{
+    font-size: 14pt;
+}
+
+.passive_value{
+    height: 50px;
+    width: 50px;
+    margin: auto;
+    border: solid 5px rgb(34,162,179);
+    border-radius: 50%;
+    text-align: center;
+    font-size: 200%;
+    font-weight: bolder;
+    background-color:none;
+    color: gainsboro;
+    line-height: 150%;
+}
+
+.attr_mod{
+    margin:auto;
+    margin-top: -30px;
+    height: 25px;
+    width: 35px;
+    padding: 4px 0px;
+    background-color: gainsboro;
+    color: black;
+    border: solid 2px rgb(34, 162, 179);
+    border-radius: 50%;
+    text-align: center;
+    font-size: 16pt;
+    font-weight: bold;
+}
+
+.character_body_col{
+    background-color: none;
+    float:left;
+    margin: 0px 25px;
+}
+
+.character_body_col img{
+    height: 900px;
+    opacity: 0.75;
+}
+
+.body_panel_col{
+    background-color: none;
+    min-width: 250px;
+    overflow: hidden;
+}
+
+.body_panel_tab{
+    overflow: hidden;
+}
+
+.body_panel_tab button{
+    background-color: inherit;
+    float: left;
+    border: solid 1px white;
+    border-bottom: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    color: white;
+}
+
+.body_panel_tab button:hover{
+    background-color: white;
+    color: black
+}
+
+.body_panel_tab button.active{
+    background-color: rgb(34, 162, 179);
+}
+
+.body_panel_content{
+    display: none;
+    padding: 6px 12px;
+    border: 5px solid rgb(34, 162, 179);
+}
+
+.equipped_item{
+    margin: 3px;
+    height: 75px;
+    width: 100%;
+    display: inline-block;
+    border: solid 1px rgb(34, 162, 179);
+}
+
+.equipped_item img{
+    float:left;
+    height:73px;
+    width: 73px;
+}
+
+.item_name{
+    overflow: hidden;
+    font-size: 24pt;
+    padding: 0px 20px;
+}
