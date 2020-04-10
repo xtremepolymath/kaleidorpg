@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Kaleido Character Sheet</title>
+  
+  
+  <!--<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'> -->
+  <link rel='local stylesheet' href='style.css'>
+
+
+  
+</head>
+
+<body>
+    <div class="char_menu">
+        <ul>
+            <li>
+                <p>Character Info</p>
+            </li>
+            <li>
+                <p>Actions</p>
+            </li>
+            <li>
+                <p>Skills</p>
+            </li>
+        </ul>
+        <button id="save">SAVE</button>
+    </div>
+
+    <!-- Title -->
+    <div class="character_sheet">
+
+        <!-- Background Info 1-->	
+        <div class="row">
+            <div class="char_icon">
+                <img src="test_icon.jpg">
+            </div>
+            <div class="character_name">
+                <input type="text" id="char_name" maxlength="22" placeholder="max 22 characters">
+                <label for="char_name">CHARACTER NAME</label>
+            </div>
+            <div class="character_info_row">
+                <div class="char_info">
+                    <input type="text" id="class_level" maxlength="16">
+                    <label for="class_level">CLASS & LEVEL</label>
+                </div>
+        
+                <div class="char_info">
+                    <input type="text" id="background" maxlength="16">
+                    <label for="background">BACKGROUND</label>
+                </div>
+            </div>
+            <div class="character_info_row">
+                <div class="char_info">
+                    <input type="text" id="race" maxlength="16">
+                    <label for="race">RACE</label>
+                </div>
+        
+                <div class="char_info">
+                    <input type="text" id="alignment" maxlength="16">
+                    <label for="alignment">ALIGNMENT</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ability Scores -->
+        <div class="row">
+            <div class="attr_col">
+                <div class="attr_item">
+                    <label for="str">STRENGTH</label><br>
+                    <input type="number" id="str" min="0" step="1"><br>
+                    <div class="attr_mod" id="str_mod">
+                        <span>+2</span>
+                    </div>
+                </div>
+
+                <div class="attr_item">
+                    <label for="dex">DEXTERITY</label><br>
+                    <input type="number" id="dex" min="0" step="1"><br>
+                    <div class="attr_mod" id="dex_mod">
+                        <span type="number">+2</span>
+                    </div>
+                </div>		
+
+                <div class="attr_item">
+                    <label for="con">CONSTITUTION</label><br>
+                    <input type="number" id="con" min="0" step="1"><br>
+                    <div class="attr_mod" id="con_mod">
+                        <span type="number">+2</span>
+                    </div>
+                </div>	
+
+                <div class="attr_item">
+                    <label for="int">INTELLIGENCE</label><br>
+                    <input type="number" id="int" min="0" step="1"><br>
+                    <div class="attr_mod" id="int_mod">
+                        <span type="number">+2</span>
+                    </div>
+                </div>			
+
+                <div class="attr_item">
+                    <label for="wis">WISDOM</label><br>
+                    <input type="number" id="wis" min="0" step="1"><br>
+                    <div class="attr_mod" id="wis_mod">
+                        <span type="number">+2</span>
+                    </div>
+                </div>			
+
+                <div class="attr_item">
+                    <label for="cha">CHARISMA</label><br>
+                    <input type="number" id="cha" min="0" step="1"><br>
+                    <div class="attr_mod" id="cha_mod">
+                        <span type="number">+2</span>
+                    </div>
+                </div>	
+            </div>
+            <div class="attr_col">
+                <div class="attr_item">
+                    <label for="str">STRENGTH</label><br>
+                    <input type="number" id="str" min="0" step="1"><br>
+                    <div class="attr_mod" id="str_mod">
+                        <span>+2</span>
+                    </div>
+                </div>
+            </div>
+            <div class="character_body_col">
+                <img src="character_body_generic.png">
+            </div>
+            <div class="body_panel_col">
+                <div class="body_panel_tab">
+                    <button class="body_panel_button" id="defaultOpen" onclick="bodyPanelSwitch(event, 'gear_panel')">Gear</button>
+                    <button class="body_panel_button" onclick="bodyPanelSwitch(event, 'stimplant_panel')">Stimplants</button>
+                    <button class="body_panel_button" onclick="bodyPanelSwitch(event, 'status_panel')">Status</button>
+                </div>
+                <div class="body_panel_content" id="gear_panel">
+                    <div class="equipped_item">
+                        <img src="#">
+                        <div class="item_name">COLONIST ENVIROHELM</div>
+                    </div>
+                    <div class="equipped_item">
+                        <img src="#">
+                        <div class="item_name">COLONIST ENVIROSUIT</div>
+                    </div>
+                    <div class="equipped_item">
+                        <img src="#">
+                        <div class="item_name">COLONIST ENVIROBOOTS</div>
+                    </div>
+                    <div class="equipped_item">
+                        <img src="#">
+                        <div class="item_name">COLONIST ENVIRIOGLOVES</div>
+                    </div>
+                    <div class="equipped_item">
+                        <img src="#">
+                        <div class="item_name">COLONIST MACHETE</div>
+                    </div>
+                    <div class="equipped_item">
+                        <img src="#">
+                        <div class="item_name">HUNTING SHOTGUN</div>
+                    </div>
+                    <div class="equipped_item">
+                        <img src="#">
+                        <div class="item_name">MW CERTIFIED PISTOL</div>
+                    </div>
+                    <div class="equipped_item">
+                        <img src="#">
+                        <div class="item_name">SEED COLLECTION KIT</div>
+                    </div>
+                </div>
+                <div class="body_panel_content" id="stimplant_panel">STIM</div>
+                <div class="body_panel_content" id="status_panel">STATUS</div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="scripts/character_creation.js"></script>
+</body>
+
+</html>
