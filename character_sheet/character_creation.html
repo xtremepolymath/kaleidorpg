@@ -4,20 +4,16 @@
 <head>
   <meta charset="UTF-8">
   <title>Kaleido Character Sheet</title>
-  
-  
   <!--<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'> -->
-  <link rel='local stylesheet' href='style.css'>
-
-
-  
+  <link rel='local stylesheet' href='styles/sheeteditstyle.css'>
+  <script src="scripts/character_creation.js"></script>
 </head>
 
 <body>
     <div class="char_menu">
         <ul>
             <li>
-                <p>Character Info</p>
+                <p id="test">Character Info</p>
             </li>
             <li>
                 <p>Actions</p>
@@ -26,7 +22,8 @@
                 <p>Skills</p>
             </li>
         </ul>
-        <button id="save">SAVE</button>
+
+        <button type="button" id="save" onclick="getXmlForSave(char_ID)">SAVE</button>
     </div>
 
     <!-- Title -->
@@ -35,146 +32,180 @@
         <!-- Background Info 1-->	
         <div class="row">
             <div class="char_icon">
-                <img src="test_icon.jpg">
+                <img src="data/images/test_icon.jpg">
             </div>
             <div class="character_name">
-                <input type="text" id="char_name" maxlength="22" placeholder="max 22 characters">
-                <label for="char_name">CHARACTER NAME</label>
+                <input id="char_name"></input>
+                <label for="char_name">NAME</label>
             </div>
             <div class="character_info_row">
                 <div class="char_info">
-                    <input type="text" id="class_level" maxlength="16">
-                    <label for="class_level">CLASS & LEVEL</label>
+                    <input id="gender"></input>
+                    <label for="gender">GENDER</label>
                 </div>
         
                 <div class="char_info">
-                    <input type="text" id="background" maxlength="16">
+                    <input id="background"></input>
                     <label for="background">BACKGROUND</label>
                 </div>
-            </div>
-            <div class="character_info_row">
                 <div class="char_info">
-                    <input type="text" id="race" maxlength="16">
+                    <input id="race"></input>
                     <label for="race">RACE</label>
                 </div>
         
                 <div class="char_info">
-                    <input type="text" id="alignment" maxlength="16">
+                    <input id="alignment"></input>
                     <label for="alignment">ALIGNMENT</label>
                 </div>
+            </div>
+            <div class="health_panel">
+                <input class="HP_panel" id="current_HP"></input>
+                /
+                <input class="HP_panel" id="base_HP"></input><br>
+                <label for="base_HP">HP</label>
             </div>
         </div>
 
         <!-- Ability Scores -->
         <div class="row">
-            <div class="attr_col">
-                <div class="attr_item">
-                    <label for="str">STRENGTH</label><br>
-                    <input type="number" id="str" min="0" step="1"><br>
-                    <div class="attr_mod" id="str_mod">
-                        <span>+2</span>
-                    </div>
-                </div>
-
-                <div class="attr_item">
-                    <label for="dex">DEXTERITY</label><br>
-                    <input type="number" id="dex" min="0" step="1"><br>
-                    <div class="attr_mod" id="dex_mod">
-                        <span type="number">+2</span>
-                    </div>
-                </div>		
-
-                <div class="attr_item">
-                    <label for="con">CONSTITUTION</label><br>
-                    <input type="number" id="con" min="0" step="1"><br>
-                    <div class="attr_mod" id="con_mod">
-                        <span type="number">+2</span>
-                    </div>
-                </div>	
-
-                <div class="attr_item">
-                    <label for="int">INTELLIGENCE</label><br>
-                    <input type="number" id="int" min="0" step="1"><br>
-                    <div class="attr_mod" id="int_mod">
-                        <span type="number">+2</span>
-                    </div>
-                </div>			
-
-                <div class="attr_item">
-                    <label for="wis">WISDOM</label><br>
-                    <input type="number" id="wis" min="0" step="1"><br>
-                    <div class="attr_mod" id="wis_mod">
-                        <span type="number">+2</span>
-                    </div>
-                </div>			
-
-                <div class="attr_item">
-                    <label for="cha">CHARISMA</label><br>
-                    <input type="number" id="cha" min="0" step="1"><br>
-                    <div class="attr_mod" id="cha_mod">
-                        <span type="number">+2</span>
-                    </div>
-                </div>	
+            <div class="attr_item">
+                <label for="str">STR</label><br>
+                <input id="str"></input><br>
+                <div class="attr_mod" id="str_mod"></div>
             </div>
-            <div class="attr_col">
-                <div class="attr_item">
-                    <label for="str">STRENGTH</label><br>
-                    <input type="number" id="str" min="0" step="1"><br>
-                    <div class="attr_mod" id="str_mod">
-                        <span>+2</span>
-                    </div>
-                </div>
+
+            <div class="attr_item">
+                <label for="dex">DEX</label><br>
+                <input id="dex"></input><br>
+                <div class="attr_mod" id="dex_mod"></div>
+            </div>
+
+            <div class="attr_item">
+                <label for="con">CON</label><br>
+                <input id="con"></input><br>
+                <div class="attr_mod" id="con_mod"></div>
+            </div>
+
+            <div class="attr_item">
+                <label for="int">INT</label><br>
+                <input id="int"></input><br>
+                <div class="attr_mod" id="int_mod"></div>
+            </div>
+
+            <div class="attr_item">
+                <label for="wis">WIS</label><br>
+                <input id="wis"></input><br>
+                <div class="attr_mod" id="wis_mod"></div>
+            </div>
+
+            <div class="attr_item">
+                <label for="cha">CHA</label><br>
+                <input id="cha"></input><br>
+                <div class="attr_mod" id="cha_mod"></div>
+            </div>
+            <div class="passive_item">
+                <label for="ac">Armor<br>Class</label><br>
+                <input id="ac"></input><br>
+            </div>
+            <div class="passive_item">
+                <label for="pp">Passive<br>Perception</label><br>
+                <input class="passive_value" id="pp"></input><br>
             </div>
             <div class="character_body_col">
-                <img src="character_body_generic.png">
+                <img src="data/images/character_body_generic.png">
             </div>
             <div class="body_panel_col">
                 <div class="body_panel_tab">
-                    <button class="body_panel_button" id="defaultOpen" onclick="bodyPanelSwitch(event, 'gear_panel')">Gear</button>
-                    <button class="body_panel_button" onclick="bodyPanelSwitch(event, 'stimplant_panel')">Stimplants</button>
-                    <button class="body_panel_button" onclick="bodyPanelSwitch(event, 'status_panel')">Status</button>
+                    <button class="body_panel_button" id="defaultOpen" onclick="bodyPanelSwitch(event, 'gear_panel')">GEAR</button>
+                    <button class="body_panel_button" onclick="bodyPanelSwitch(event, 'stimplant_panel')">STIMS</button>
+                    <button class="body_panel_button" onclick="bodyPanelSwitch(event, 'status_panel')">STATUS</button>
                 </div>
                 <div class="body_panel_content" id="gear_panel">
                     <div class="equipped_item">
-                        <img src="#">
-                        <div class="item_name">COLONIST ENVIROHELM</div>
+                        <img src="data/images/helmet_test.jpg">
+                        <div class="item_name" id="eq_helmet"></div>
                     </div>
                     <div class="equipped_item">
-                        <img src="#">
-                        <div class="item_name">COLONIST ENVIROSUIT</div>
+                        <img src="data/images/armor_test.jpg">
+                        <div class="item_name" id="eq_armor"></div>
                     </div>
                     <div class="equipped_item">
-                        <img src="#">
-                        <div class="item_name">COLONIST ENVIROBOOTS</div>
+                        <img src="data/images/boot_test.jpg">
+                        <div class="item_name" id="eq_boots"></div>
                     </div>
                     <div class="equipped_item">
-                        <img src="#">
-                        <div class="item_name">COLONIST ENVIRIOGLOVES</div>
+                        <img src="data/images/gloves_test.jpg">
+                        <div class="item_name" id="eq_gloves"></div>
                     </div>
                     <div class="equipped_item">
-                        <img src="#">
-                        <div class="item_name">COLONIST MACHETE</div>
+                        <img src="data/images/blade_test.jpg">
+                        <div class="item_name" id="eq_blade"></div>
                     </div>
                     <div class="equipped_item">
-                        <img src="#">
-                        <div class="item_name">HUNTING SHOTGUN</div>
+                        <img src="data/images/shotgun_test.jpg">
+                        <div class="item_name" id="eq_gun1"></div>
                     </div>
                     <div class="equipped_item">
-                        <img src="#">
-                        <div class="item_name">MW CERTIFIED PISTOL</div>
+                        <img src="data/images/pistol_test.jpg">
+                        <div class="item_name" id="eq_gun2"></div>
                     </div>
                     <div class="equipped_item">
-                        <img src="#">
-                        <div class="item_name">SEED COLLECTION KIT</div>
+                        <img src="data/images/seed_kit_test.jpg">
+                        <div class="item_name" id="eq_misc"></div>
                     </div>
                 </div>
-                <div class="body_panel_content" id="stimplant_panel">STIM</div>
-                <div class="body_panel_content" id="status_panel">STATUS</div>
+                <div class="body_panel_content" id="stimplant_panel">
+                    <div class="stim_item">
+                        <img src="data/images/psyche_icon.png">
+                        <div class="item_name" id="psyche_stim"></div>
+                    </div>
+                    <div class="stim_item">
+                        <img src="data/images/energy_icon.jpg">
+                        <div class="item_name" id="energy_stim"></div>
+                    </div>
+                    <div class="stim_item">
+                        <img src="data/images/fluid_icon.jpg">
+                        <div class="item_name" id="fluid_stim"></div>
+                    </div>
+                    <div class="stim_item">
+                        <img src="data/images/wave_icon.png">
+                        <div class="item_name" id="wave_stim"></div>
+                    </div>
+                    <div class="stim_item">
+                        <img src="data/images/grav_icon.jpg">
+                        <div class="item_name" id="grav_stim"></div>
+                    </div>
+                </div>
+                <div class="body_panel_content" id="status_panel">
+                    <div class="status_item">
+                        <img src="#">
+                        <div class="item_name" id="eq_helmet"></div>
+                    </div>
+                    <div class="status_item">
+                        <img src="#">
+                        <div class="item_name" id="eq_helmet"></div>
+                    </div>
+                    <div class="status_item">
+                        <img src="#">
+                        <div class="item_name" id="eq_helmet"></div>
+                    </div>
+                    <div class="status_item">
+                        <img src="#">
+                        <div class="item_name" id="eq_helmet"></div>
+                    </div>
+                    <div class="status_item">
+                        <img src="#">
+                        <div class="item_name" id="eq_helmet"></div>
+                    </div>
+                </div>
+                
             </div>
         </div>
     </div>
-
-    <script type="text/javascript" src="scripts/character_creation.js"></script>
+    <script>
+        var char_ID = 001;
+        //Set default body tab
+        document.getElementById("defaultOpen").click();
+    </script>
 </body>
-
 </html>
