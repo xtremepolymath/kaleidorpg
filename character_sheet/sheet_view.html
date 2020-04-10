@@ -10,7 +10,6 @@
 </head>
 
 <body>
-    
     <div class="char_menu">
         <ul>
             <li>
@@ -37,7 +36,7 @@
             </div>
             <div class="character_name">
                 <div id="char_name"></div>
-                <span>CHARACTER NAME</span>
+                <span>NAME</span>
             </div>
             <div class="character_info_row">
                 <div class="char_info">
@@ -60,8 +59,10 @@
                 </div>
             </div>
             <div class="health_panel">
-                <div id="HP"><span>s</span> / <span>50</span></div>
-                <div id="status"></div>
+                <div class="HP_panel" id="current_HP">45</div>
+                /
+                <div class="HP_panel" id="base_HP">50</div><br>
+                <span>HP</span>
             </div>
         </div>
 
@@ -105,57 +106,100 @@
 
             <div class="passive_item">
                 <span>Armor<br>Class</span><br>
-                <div class="attr_value" id="ac"></div><br>
+                <div class="passive_value" id="ac"></div><br>
             </div>
             <div class="passive_item">
                 <span>Passive<br>Perception</span><br>
-                <div class="attr_value" id="ac"></div><br>
+                <div class="passive_value" id="pp"></div><br>
             </div>
             <div class="character_body_col">
                 <img src="data/images/character_body_generic.png">
             </div>
             <div class="body_panel_col">
                 <div class="body_panel_tab">
-                    <button class="body_panel_button" id="defaultOpen" onclick="bodyPanelSwitch(event, 'gear_panel')">Gear</button>
-                    <button class="body_panel_button" onclick="bodyPanelSwitch(event, 'stimplant_panel')">Stimplants</button>
-                    <button class="body_panel_button" onclick="bodyPanelSwitch(event, 'status_panel')">Status</button>
+                    <button class="body_panel_button" id="defaultOpen" onclick="bodyPanelSwitch(event, 'gear_panel')">GEAR</button>
+                    <button class="body_panel_button" onclick="bodyPanelSwitch(event, 'stimplant_panel')">STIMS</button>
+                    <button class="body_panel_button" onclick="bodyPanelSwitch(event, 'status_panel')">STATUS</button>
                 </div>
                 <div class="body_panel_content" id="gear_panel">
                     <div class="equipped_item">
-                        <img src="#">
+                        <img src="data/images/helmet_test.jpg">
                         <div class="item_name" id="eq_helmet"></div>
                     </div>
                     <div class="equipped_item">
-                        <img src="#">
+                        <img src="data/images/armor_test.jpg">
                         <div class="item_name" id="eq_armor"></div>
                     </div>
                     <div class="equipped_item">
-                        <img src="#">
+                        <img src="data/images/boot_test.jpg">
                         <div class="item_name" id="eq_boots"></div>
                     </div>
                     <div class="equipped_item">
-                        <img src="#">
+                        <img src="data/images/gloves_test.jpg">
                         <div class="item_name" id="eq_gloves"></div>
                     </div>
                     <div class="equipped_item">
-                        <img src="#">
+                        <img src="data/images/blade_test.jpg">
                         <div class="item_name" id="eq_blade"></div>
                     </div>
                     <div class="equipped_item">
-                        <img src="#">
+                        <img src="data/images/shotgun_test.jpg">
                         <div class="item_name" id="eq_gun1"></div>
                     </div>
                     <div class="equipped_item">
-                        <img src="#">
+                        <img src="data/images/pistol_test.jpg">
                         <div class="item_name" id="eq_gun2"></div>
                     </div>
                     <div class="equipped_item">
-                        <img src="#">
+                        <img src="data/images/seed_kit_test.jpg">
                         <div class="item_name" id="eq_misc"></div>
                     </div>
                 </div>
-                <div class="body_panel_content" id="stimplant_panel">STIM</div>
-                <div class="body_panel_content" id="status_panel">STATUS</div>
+                <div class="body_panel_content" id="stimplant_panel">
+                    <div class="stim_item">
+                        <img src="data/images/psyche_icon.png">
+                        <div class="item_name" id="psyche_stim"></div>
+                    </div>
+                    <div class="stim_item">
+                        <img src="data/images/energy_icon.jpg">
+                        <div class="item_name" id="energy_stim"></div>
+                    </div>
+                    <div class="stim_item">
+                        <img src="data/images/fluid_icon.jpg">
+                        <div class="item_name" id="fluid_stim"></div>
+                    </div>
+                    <div class="stim_item">
+                        <img src="data/images/wave_icon.png">
+                        <div class="item_name" id="wave_stim"></div>
+                    </div>
+                    <div class="stim_item">
+                        <img src="data/images/grav_icon.jpg">
+                        <div class="item_name" id="grav_stim"></div>
+                    </div>
+                </div>
+                <div class="body_panel_content" id="status_panel">
+                    <div class="status_item">
+                        <img src="#">
+                        <div class="item_name" id="eq_helmet"></div>
+                    </div>
+                    <div class="status_item">
+                        <img src="#">
+                        <div class="item_name" id="eq_helmet"></div>
+                    </div>
+                    <div class="status_item">
+                        <img src="#">
+                        <div class="item_name" id="eq_helmet"></div>
+                    </div>
+                    <div class="status_item">
+                        <img src="#">
+                        <div class="item_name" id="eq_helmet"></div>
+                    </div>
+                    <div class="status_item">
+                        <img src="#">
+                        <div class="item_name" id="eq_helmet"></div>
+                    </div>
+                </div>
+                
             </div>
         </div>
     </div>
