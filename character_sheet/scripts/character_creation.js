@@ -52,7 +52,7 @@ function loadSheetInfo(savedXml, char_ID){
     //Insert XML values into appropriate HMTL spots
     for(var i = 0; i < attsXML.length; i++){
         a = document.getElementById(xmlToLoad[i].nodeName);
-        a.innerHTML = xmlToLoad[0].childNodes[0].nodeValue;
+        a.innerHTML = xmlToLoad[i].childNodes[0].nodeValue;
     }
 }
 
