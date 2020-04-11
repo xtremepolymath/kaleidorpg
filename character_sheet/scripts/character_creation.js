@@ -47,7 +47,7 @@ function loadSheetInfo(savedXml, char_ID){
     }
 
     //Test resulting XML list
-    document.getElementById("test").innerHTML = "test";
+    document.getElementById("test").innerHTML = xmlToLoad.length;
 
     //Insert XML values into appropriate HMTL spots
     for(var i = 0; i < attsXML.length; i++){
