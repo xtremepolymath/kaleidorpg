@@ -16,7 +16,7 @@ function getXmlForLoad(char_ID){
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            loadSheetInfo(this, char_ID);
+            loadSheetInfo(this, 000);
         }
     };
 
@@ -47,7 +47,7 @@ function loadSheetInfo(savedXml, char_ID){
     }
 
     //Test resulting XML list
-    document.getElementById("test").innerHTML = xmlToLoad.length;
+    document.getElementById("test").innerHTML = "test";
 
     //Insert XML values into appropriate HMTL spots
     for(var i = 0; i < attsXML.length; i++){
