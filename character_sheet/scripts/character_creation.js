@@ -36,7 +36,7 @@ function loadSheetInfo(savedXml, char_ID){
     cleanXML = new DOMParser().parseFromString(str, "text/xml");
 
     //Get attributes and add to sheet
-    var attsXML = cleanXML.getElementById(char_ID).childNodes;
+    var attsXML = cleanXML.getElementByTagName("character").childNodes;
     document.getElementById("test").innerHTML = attsXML[0].childNodes.length;
     for(var i = 0; i < attsXML.length; i++){
         a = document.getElementById(attsXML[i].nodeName);
