@@ -37,7 +37,14 @@ function loadSheetInfo(savedXml, char_ID){
 
     //Get attributes and add to sheet
     var attsXML = cleanXML.getElementsByTagName('character');
-    document.getElementById("test").innerHTML = attsXML[0].childNodes.length;
+
+    for(var i = 0; i < attsXML.length; i++){
+        if(attsXML[i].attributes[0].value == char_ID){
+            var xmlToLoad = attsXML[i].childNodes;
+        }
+    }
+
+    document.getElementById("test").innerHTML = xmlToLoad.length;
     for(var i = 0; i < attsXML.length; i++){
         a = document.getElementById(attsXML[i].nodeName);
         a.innerHTML = attsXML[i].childNodes[0].nodeValue;
