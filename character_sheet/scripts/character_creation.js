@@ -16,7 +16,7 @@ function getXmlForLoad(char_ID){
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            loadSheetInfo(this, 000);
+            loadSheetInfo(this, char_ID);
         }
     };
 
