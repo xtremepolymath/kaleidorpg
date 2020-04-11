@@ -26,6 +26,7 @@ function getXmlForLoad(char_ID){
 
 function loadSheetInfo(savedXml, char_ID){
 
+    //Retrieve loaded XML doc
     xmlDoc = savedXml.responseXML;
 
     //Remove whitespace from XML before using it
@@ -35,19 +36,23 @@ function loadSheetInfo(savedXml, char_ID){
     str = str.replace(/\s*</g, '<');  // Replace "< " with "<"
     cleanXML = new DOMParser().parseFromString(str, "text/xml");
 
-    //Get attributes and add to sheet
+    //Save cleaned up list of characters as an array
     var attsXML = cleanXML.getElementsByTagName('character');
 
+    //Find character based on char_ID variable
     for(var i = 0; i < attsXML.length; i++){
         if(attsXML[i].attributes[0].value == char_ID){
             var xmlToLoad = attsXML[i].childNodes;
         }
     }
 
+    //Test resulting XML list
     document.getElementById("test").innerHTML = xmlToLoad.length;
+
+    //Insert XML values into appropriate HMTL spots
     for(var i = 0; i < attsXML.length; i++){
-        a = document.getElementById(attsXML[i].nodeName);
-        a.innerHTML = attsXML[i].childNodes[0].nodeValue;
+        a = document.getElementById(xmlToLoad[i].nodeName);
+        a.innerHTML = xmlToLoad[0].childNodes[0].nodeValue;
     }
 }
 
