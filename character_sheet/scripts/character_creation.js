@@ -50,7 +50,7 @@ function loadSheetInfo(savedXml, char_ID){
     document.getElementById("test").innerHTML = xmlToLoad.length;
 
     //Insert XML values into appropriate HMTL spots
-    for(var i = 0; i < attsXML.length; i++){
+    for(var i = 0; i < xmlToLoad.length; i++){
         a = document.getElementById(xmlToLoad[i].nodeName);
         a.innerHTML = xmlToLoad[i].childNodes[0].nodeValue;
     }
