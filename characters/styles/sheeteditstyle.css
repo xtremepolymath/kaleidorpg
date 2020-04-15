@@ -8,17 +8,6 @@ Black: Black
 
 */
 
-body{
-    background-color: black;
-    color: gainsboro;
-}
-
-div{
-    position: relative;
-    /*Use this to see borders of all div elements and see layout more clearly*/
-    border: solid 1px grey;
-}
-
 input{
     position: relative;
 }
@@ -29,37 +18,69 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-.character_sheet{
+#save{
+    position: fixed;
+    height: 50px;
+    width: 400px;
+    text-align: center;
+    background-color: firebrick;
+    font-size: 22pt;
+    color: white;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 1;
+}
+
+.character_menu{
+    width: 100%;
+    overflow: hidden;
+}
+
+.char_menu_tab{
     background-color: #1C2429;
+    width: 50%;
+    min-width: 600px;
+    max-width: 1200px;
+    margin:auto;
+}
+
+.char_menu_tab button{
     margin: auto;
-    width: 95%;
+    background-color: #E8903B ;
+    float: left;
+    border: solid 1px gainsboro;
+    border-bottom: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 12pt;
+}
+
+.char_menu_tab button:hover{
+    background-color: gainsboro;
+    color: #1C2429;
+}
+
+.char_menu_tab button.active{
+    border: solid 1px #E8903B;
+}
+
+.char_content{
+    display: none;
+    width: 50%;
+    min-width: 850px;
+    max-width: 1200px;
     min-height: 1100px;
-    min-width: 800px;
-    max-width: 1100px;
-    
+    margin: auto;
+    background-color: #1C2429;
 }
 
 .row{
     display: block;
     border: solid 5px none;
     padding:10px;
-}
-
-.char_menu{
-    width:100%;
-}
-
-.char_menu li{
-    display: inline-block;
-    width: 200px;
-}
-
-.main_menu_item{
-    display: inline;
-}
-
-.character_sheet{
-    width: 100%;
+    margin-top: 20px;
 }
 
 .char_icon{
@@ -134,6 +155,8 @@ input::-webkit-inner-spin-button {
 }
 
 .health_panel{
+    position: relative;
+    padding: 1px;
     overflow: hidden;
     min-height: 150px;
     text-align: center;
@@ -152,10 +175,13 @@ input::-webkit-inner-spin-button {
 }
 
 .attr_item{
+    position: relative;
     display: inline-block;
     text-align: center;
     width: 10%;
+    top: -15px;
     max-width: 150px;
+    margin-bottom: 20px;
 }
 
 .attr_item label{
@@ -230,6 +256,7 @@ input::-webkit-inner-spin-button {
 
 .character_body_col img{
     opacity: 0.75;
+    margin-top: 15%;
 }
 
 .body_panel_col{
@@ -271,7 +298,8 @@ input::-webkit-inner-spin-button {
 
 .equipped_item{
     margin: 3px;
-    height: 75px;
+    margin-bottom: 10px;
+    height: 65px;
     width: 100%;
     display: inline-block;
     border: solid 1px #E8903B;
@@ -279,14 +307,15 @@ input::-webkit-inner-spin-button {
 
 .equipped_item img{
     float:left;
-    height:73px;
-    width: 73px;
+    height:65px;
+    width: 65px;
 }
 
-.item_name{
+.equipped_item input{
     overflow: hidden;
     font-size: 18pt;
     padding: 0px 20px;
+    margin-left: 20px;
     top: 50%;
     transform: translate(0, -50%);
 }
@@ -319,16 +348,155 @@ input::-webkit-inner-spin-button {
     width: 73px;
 }
 
-#save{
-    position: fixed;
-    height: 50px;
-    width: 100px;
-    text-align: center;
-    background-color: firebrick;
-    font-size: 22pt;
-    color: white;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%, 0);
-    z-index: 1;
+.panel_title{
+    position: relative;
+    float:left;
+    margin: 20px;
+    font-size: 24pt;
+    color: rgb(34,162,179);
 }
+
+.skill_points{
+    overflow: hidden;
+    position: relative;
+    float: right;
+    margin-right: 25px;
+    margin-top: 25px;
+}
+
+.skill_points label{
+
+}
+
+.skill_points input{
+    height: 25px;
+    width: 50px;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 16pt;
+}
+
+.skill_header{
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 40px;
+}
+
+.skill_header div{
+    position: relative;
+    float: left;
+    height: 100%;
+    color: #823b8a;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.skill_row{
+    position: relative;
+    float:left;
+    width: 100%;
+    border: solid 1px rgb(34, 162, 179);
+    height: 50px;
+}
+
+.skill_row > *{
+    float: left;
+    vertical-align: center;
+}
+
+.skill_row button{
+    height: 20px;
+    width: 20px;
+    background-color: #E8903B;
+    margin-left: 10px;
+    margin-top: 15px;
+}
+.skill_level_value{
+    width: 25px;
+    margin: 0px 10px;
+    margin-top: 10px;
+    height: 60%;
+    background-color: gainsboro;
+    text-align: center;
+}
+
+.skill_level_value div{
+    position: relative;
+    top: 50%;
+    transform: translate(0, -50%);
+    color: #1C2429;
+}
+
+.skill_name{
+    width: 12%;
+    min-width: 80px;
+    margin-left: 20px;
+    height: 100%;
+}
+
+.skill_name div{
+    position: relative;
+    top: 50%;
+    transform: translate(0, -50%);
+    color: gainsboro;
+    font-weight: bolder;
+}
+
+.skill_mod{
+    width: 15px;
+    margin-right: 20px;
+    height: 100%;
+
+}
+
+.skill_mod div{
+    position: relative;
+    top: 50%;
+    transform: translate(0, -50%);
+    color: rgb(148, 148, 148);
+}
+
+.skill_level_chart{
+    height: 100%;
+}
+
+.skill_checkpoint{
+    position: relative;
+    float: left;
+    width: 12px;
+    height: 20px;
+    border: solid 1px rgb(148, 148, 148);
+    border-radius: 20%;
+    top: 50%;
+    transform: translate(0, -50%);
+    background-color: none;
+    margin-right: 3px;
+}
+
+.skill_mark{
+    position: relative;
+    float: left;
+    width: 5px;
+    height: 20px;
+    border: solid 1px rgb(148, 148, 148);
+    border-radius: 20%;
+    top: 50%;
+    transform: translate(0, -50%);
+    background-color: none;
+    margin-right: 3px;
+}
+
+.expertise{
+    overflow: hidden;
+    margin-left: 10px;
+    height: 100%;
+}
+
+.expertise div{
+    position: relative;
+    top: 50%;
+    transform: translate(0, -50%);
+    color: #E8903B;
+}
+
