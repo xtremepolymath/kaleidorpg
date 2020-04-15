@@ -1,6 +1,4 @@
-
-
-
+//XML Functions
 function getXmlForLoad(char_ID){
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
@@ -90,7 +88,7 @@ function saveSheetInfo(loadedXml, char_ID){
 }
 
 function outputSave(outputData){
-    var textToBLOB = new Blob([outputData], {type: 'text/xml'});
+    var textToBLOB = new Blob([outputData], {type: 'text/plain'});
     var sFileName = 'saveOutput.txt';
     var newLink = document.createElement("a");
     newLink.download = sFileName;
@@ -108,6 +106,8 @@ function outputSave(outputData){
     newLink.click();
 }
 
+
+//General viewing functions
 function bodyPanelSwitch(evt, tabName) {
     var i, tabLinks;
     tabContent = document.getElementsByClassName("body_panel_content");
@@ -192,4 +192,10 @@ function decreaseSkill(skillVal){
     updateSkillChart();
 
     document.getElementById('skill_points_avail').value = ptsAvail;
+}
+
+
+//Automated calculations
+function updateAttrMod(attr){
+
 }
