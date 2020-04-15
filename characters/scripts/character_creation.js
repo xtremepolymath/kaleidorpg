@@ -86,9 +86,7 @@ function saveSheetInfo(loadedXml, char_ID){
         eleArray[i] = document.getElementById(charNodes[i].nodeName).value;
     }
 
-    outputXML = new DOMParser().parseFromString(eleArray, "text/xml");
-
-    outputSave(xmlDoc);
+    outputSave(eleArray);
 }
 
 function outputSave(outputData){
