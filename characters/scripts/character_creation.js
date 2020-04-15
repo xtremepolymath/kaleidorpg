@@ -1,16 +1,5 @@
-function bodyPanelSwitch(evt, tabName) {
-    var i, bodyPanelContent, tabLinks;
-    tabContent = document.getElementsByClassName("body_panel_content");
-    for (i = 0; i < tabContent.length; i++) {
-        tabContent[i].style.display = "none";
-    }
-    tabLinks = document.getElementsByClassName("body_panel_button");
-    for (i = 0; i < tabLinks.length; i++) {
-        tabLinks[i].className = tabLinks[i].className.replace(" active", "");
-    }
-    document.getElementById(tabName).style.display = "block";
-    evt.currentTarget.className += " active";
-}
+
+
 
 function getXmlForLoad(char_ID){
     var xhttp = new XMLHttpRequest();
@@ -47,7 +36,7 @@ function loadSheetInfo(savedXml, char_ID){
     }
 
     //Test resulting XML list
-    document.getElementById("test").innerHTML = xmlToLoad.length;
+    
 
     //Insert XML values into appropriate HMTL spots
     for(var i = 0; i < xmlToLoad.length; i++){
@@ -70,7 +59,139 @@ function getXmlForSave(char_ID){
 
 function saveSheetInfo(loadedXml, char_ID){
 
-    //get xml doc and save as variable
-    var xmlDoc = new XMLSerializer();
-    var attsXML = getElementsById(char_ID)
+    //Retrieve loaded xml
+    xmlDoc = loadedXml.responseXML;
+
+    //Remove whitespace from XML before using it
+    var s = new XMLSerializer();
+    var str = s.serializeToString(xmlDoc);
+    str = str.replace(/>\s*/g, '>');  // Replace "> " with ">"
+    str = str.replace(/\s*</g, '<');  // Replace "< " with "<"
+    cleanXML = new DOMParser().parseFromString(str, "text/xml");
+
+    //Save cleaned up list of characters as an array
+    var charArray = cleanXML.getElementsByTagName('character');
+    
+    //Get child nodes for current character
+    for(var i = 0; i < charArray.length; i++){
+        if(charArray[i].attributes[0].value == char_ID){
+            charNodes = charArray[i].childNodes;
+        }
+    }
+
+    var eleArray = [];
+
+    //Find corresponding HTML elements
+    for(var i = 0; i < charNodes.length; i++){
+        eleArray[i] = document.getElementById(charNodes[i].nodeName).value;
+    }
+
+    outputXML = new DOMParser().parseFromString(eleArray, "text/xml");
+
+    outputSave(xmlDoc);
+}
+
+function outputSave(outputData){
+    var textToBLOB = new Blob([outputData], {type: 'text/xml'});
+    var sFileName = 'saveOutput.txt';
+    var newLink = document.createElement("a");
+    newLink.download = sFileName;
+
+    if (window.webkitURL != null){
+        newLink.href = window.webkitURL.createObjectURL(textToBLOB);
+    }
+
+    else{
+        newLink.href = window.URL.createObjectURL(textToBLOB);
+        newLink.style.display = "none";
+        document.body.appendChild(newLink);
+    }
+
+    newLink.click();
+}
+
+function bodyPanelSwitch(evt, tabName) {
+    var i, tabLinks;
+    tabContent = document.getElementsByClassName("body_panel_content");
+    for (i = 0; i < tabContent.length; i++) {
+        tabContent[i].style.display = "none";
+    }
+    tabLinks = document.getElementsByClassName("body_panel_button");
+    for (i = 0; i < tabLinks.length; i++) {
+        tabLinks[i].className = tabLinks[i].className.replace(" active", "");
+    }
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+function charPanelSwitch(evt, tabName) {
+    var i, tabLinks;
+    tabContent = document.getElementsByClassName("char_content");
+    for (i = 0; i < tabContent.length; i++) {
+        tabContent[i].style.display = "none";
+    }
+    tabLinks = document.getElementsByClassName("char_button");
+    for (i = 0; i < tabLinks.length; i++) {
+        tabLinks[i].className = tabLinks[i].className.replace(" active", "");
+    }
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+function updateSkillChart(){
+    var skillValNodes = document.getElementsByClassName("skill_level_value");
+    var skillCharts = document.getElementsByClassName("skill_level_chart");
+    var skillVals = [];
+
+    for(var i = 0; i < skillValNodes.length; i++){
+        skillVals[i] = skillValNodes[i].children[0].innerHTML;
+    }
+
+    //document.getElementById('save').innerHTML = skillCharts.length;
+
+    for(var i=0; i < skillCharts.length; i++){
+        for(var j=0; j < skillCharts[0].children.length; j++){
+            skillCharts[i].children[j].style.backgroundColor = "";
+        }
+    }
+
+    for(var x=0; x < skillVals.length; x++){
+        var skillLvl = skillVals[x];
+        for(var y=0; y < skillLvl; y++){
+            skillCharts[x].children[y].style.backgroundColor = "red";
+        }
+    }
+
+}
+
+function increaseSkill(skillVal){
+    var ptsAvail = document.getElementById('skill_points_avail').value;
+    if(ptsAvail > 0){
+        var skillInt = parseInt(document.getElementById(skillVal).innerHTML);
+        var newLvl = skillInt + 1;
+
+        if(skillInt != 41){
+            document.getElementById(skillVal).innerHTML = newLvl;
+            ptsAvail = ptsAvail - 1;
+        }
+
+        updateSkillChart();
+    }
+
+    document.getElementById('skill_points_avail').value = ptsAvail;
+}
+
+function decreaseSkill(skillVal){
+    var ptsAvail = parseInt(document.getElementById('skill_points_avail').value);
+    var skillInt = parseInt(document.getElementById(skillVal).innerHTML);
+    var newLvl = skillInt - 1;
+
+    if(skillInt != 0){
+        document.getElementById(skillVal).innerHTML = newLvl;
+        ptsAvail = ptsAvail + 1;
+    }
+
+    updateSkillChart();
+
+    document.getElementById('skill_points_avail').value = ptsAvail;
 }
