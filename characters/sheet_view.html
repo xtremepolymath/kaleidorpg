@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Kaleido Character Sheet</title>
+  <title>Kaleido RPG</title>
 
   <link rel='local stylesheet' href='styles/sheetviewstyle.css'>
   <script src="scripts/character_creation.js"></script>
@@ -12,7 +12,6 @@
 </head>
 
 <body>
-
     <!--Main Menu-->
     <div class="main_menu">
         <img id="logo" src="https://res.cloudinary.com/teepublic/image/private/s--jGfS3rOf--/c_fit,g_north_west,h_774,w_840/co_36538b,e_outline:40/co_36538b,e_outline:inner_fill:1/co_ffffff,e_outline:40/co_ffffff,e_outline:inner_fill:1/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_jpg,h_630,q_90,w_630/v1475865828/production/designs/720040_1.jpg">
@@ -45,10 +44,20 @@
                 <a href="https://kaleidorpg.com/contact.html">Contact</a>
             </div>
         </div>
+        <div class="menu_overflow"></div>
+    </div>
+
+    <!-- Character Menu -->
+    <div class="character_menu">
+        <div class="char_menu_tab">
+            <button class="char_menu_button" id="defaultOpen_char" onclick="charPanelSwitch(event, 'main_panel')">Main</button>
+            <button class="char_menu_button" onclick="charPanelSwitch(event, 'actions_panel')">Actions</button>
+            <button class="char_menu_button" onclick="charPanelSwitch(event, 'skills_panel')">Skills</button>
+        </div>
     </div>
 
     <!-- Title -->
-    <div class="character_sheet">
+    <div class="char_content" id="main_panel">
         <!-- Background Info 1-->	
         <div class="row">
             <div class="char_icon">
@@ -132,44 +141,53 @@
                 <span>Passive<br>Perception</span><br>
                 <div class="passive_value" id="pp"></div><br>
             </div>
+    
             <div class="character_body_col">
                 <img src="data/images/character_body_generic.png">
             </div>
             <div class="body_panel_col">
                 <div class="body_panel_tab">
-                    <button class="body_panel_button" id="defaultOpen" onclick="bodyPanelSwitch(event, 'gear_panel')">GEAR</button>
+                    <button class="body_panel_button" id="defaultOpen_body" onclick="bodyPanelSwitch(event, 'gear_panel')">GEAR</button>
                     <button class="body_panel_button" onclick="bodyPanelSwitch(event, 'stimplant_panel')">STIMS</button>
                     <button class="body_panel_button" onclick="bodyPanelSwitch(event, 'status_panel')">STATUS</button>
                 </div>
                 <div class="body_panel_content" id="gear_panel">
+                    <span>HEAD</span>
                     <div class="equipped_item">
                         <img src="data/images/helmet_test.jpg">
                         <div class="item_name" id="eq_helmet"></div>
                     </div>
+                    <span>BODY</span>
                     <div class="equipped_item">
                         <img src="data/images/armor_test.jpg">
                         <div class="item_name" id="eq_armor"></div>
                     </div>
+                    <span>FEET</span>
                     <div class="equipped_item">
                         <img src="data/images/boot_test.jpg">
                         <div class="item_name" id="eq_boots"></div>
                     </div>
+                    <span>HANDS</span>
                     <div class="equipped_item">
                         <img src="data/images/gloves_test.jpg">
                         <div class="item_name" id="eq_gloves"></div>
                     </div>
+                    <span>BLADE</span>
                     <div class="equipped_item">
                         <img src="data/images/blade_test.jpg">
                         <div class="item_name" id="eq_blade"></div>
                     </div>
+                    <span>GUN 1</span>
                     <div class="equipped_item">
                         <img src="data/images/shotgun_test.jpg">
                         <div class="item_name" id="eq_gun1"></div>
                     </div>
+                    <span>GUN 2</span>
                     <div class="equipped_item">
                         <img src="data/images/pistol_test.jpg">
                         <div class="item_name" id="eq_gun2"></div>
                     </div>
+                    <span>MISC.</span>
                     <div class="equipped_item">
                         <img src="data/images/seed_kit_test.jpg">
                         <div class="item_name" id="eq_misc"></div>
@@ -223,10 +241,1243 @@
             </div>
         </div>
     </div>
+    <div class="char_content" id="actions_panel">
+        <div class="row">
+            <div class="char_icon">
+                <img src="data/images/test_icon.jpg">
+            </div>
+            <div class="character_name">
+                <div id="char_name"></div>
+                <span>NAME</span>
+            </div>
+            <div class="character_info_row">
+                <div class="char_info">
+                    <div id="gender"></div>
+                    <span>GENDER</span>
+                </div>
+        
+                <div class="char_info">
+                    <div id="background"></div>
+                    <span>BACKGROUND</span>
+                </div>
+                <div class="char_info">
+                    <div id="race"></div>
+                    <span>RACE</span>
+                </div>
+        
+                <div class="char_info">
+                    <div id="alignment"></div>
+                    <span>ALIGNMENT</span>
+                </div>
+            </div>
+            <div class="health_panel">
+                <div class="HP_panel" id="current_HP"></div>
+                /
+                <div class="HP_panel" id="base_HP"></div><br>
+                <span>HP</span>
+            </div>
+        </div>
+    </div>
+    <div class="char_content" id="skills_panel">
+        <div class="panel_title">SKILLS</div>
+        <div class="skill_points">
+            <label for="skill_points_avail">Skill Points:</label>
+            <input id="skill_points_avail" type="number" value="0">
+        </div>
+        <div class="skill_header">
+            <div style="margin-left: 20px;">Skill<br>Name</div>
+            <div style="margin-left: 65px;">Main<br>Attr</div>
+            <div style="margin-left: 55px;">Skill<br>Level</div>
+            <div style="margin-left: 200px;"><br>Perks</div>
+            <div style="margin-left: 250px;"><br>Expertise</div>
+        </div>
+        <div class="skill_row" id="armor_row">
+            <div class="skill_name">
+                <div>Armor</div>
+            </div>
+            <div class="skill_mod">
+                <div>Con</div>
+            </div>
+            <button class="minus_skill" onclick="decreaseSkill('armor_level')">-</button>
+            <button class="plus_skill" onclick="increaseSkill('armor_level')">+</button>
+            <div class="skill_level_value">
+                <div id="armor_level">0</div>
+            </div>
+            <div class="skill_level_chart" id="armor_chart">
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+            </div>
+            <div class="expertise">
+                <div>Light Armor</div>
+            </div>
+        </div>
+        <div class="skill_row" id="assault_weapon_row">
+            <div class="skill_name">
+                <div>Assault Weapons</div>
+            </div>
+            <div class="skill_mod">
+                <div>Con</div>
+            </div>
+            <button class="minus_skill" onclick="decreaseSkill('assault_weapon_level')">-</button>
+            <button class="plus_skill" onclick="increaseSkill('assault_weapon_level')">+</button>
+            <div class="skill_level_value">
+                <div id="assault_weapon_level">0</div>
+            </div>
+            <div class="skill_level_chart" id="assault_weapon_chart">
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+            </div>
+            <div class="expertise">
+                <div>Spec Ops</div>
+            </div>
+        </div>
+        <div class="skill_row" id="astrobiology_row">
+            <div class="skill_name">
+                <div>Astro-<br>Biology</div>
+            </div>
+            <div class="skill_mod">
+                <div>Con</div>
+            </div>
+            <button class="minus_skill" onclick="decreaseSkill('astrobiology_level')">-</button>
+            <button class="plus_skill" onclick="increaseSkill('astrobiology_level')">+</button>
+            <div class="skill_level_value">
+                <div id="astrobiology_level">0</div>
+            </div>
+            <div class="skill_level_chart" id="astrobiology_chart">
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+            </div>
+            <div class="expertise">
+                <div>Light Armor</div>
+            </div>
+        </div>
+        <div class="skill_row" id="athletics_row">
+            <div class="skill_name">
+                <div>Athletics</div>
+            </div>
+            <div class="skill_mod">
+                <div>Con</div>
+            </div>
+            <button class="minus_skill" onclick="decreaseSkill('athletics_level')">-</button>
+            <button class="plus_skill" onclick="increaseSkill('athletics_level')">+</button>
+            <div class="skill_level_value">
+                <div id="athletics_level">0</div>
+            </div>
+            <div class="skill_level_chart" id="athletics_chart">
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+            </div>
+            <div class="expertise">
+                <div>Light Armor</div>
+            </div>
+        </div>
+        <div class="skill_row" id="blade_row">
+            <div class="skill_name">
+                <div>Blade</div>
+            </div>
+            <div class="skill_mod">
+                <div>Con</div>
+            </div>
+            <button class="minus_skill" onclick="decreaseSkill('blade_level')">-</button>
+            <button class="plus_skill" onclick="increaseSkill('blade_level')">+</button>
+            <div class="skill_level_value">
+                <div id="blade_level">0</div>
+            </div>
+            <div class="skill_level_chart" id="blade_chart">
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+            </div>
+            <div class="expertise">
+                <div>Spec Ops</div>
+            </div>
+        </div>
+        <div class="skill_row" id="blunt_row">
+            <div class="skill_name">
+                <div>Blunt</div>
+            </div>
+            <div class="skill_mod">
+                <div>Con</div>
+            </div>
+            <button class="minus_skill" onclick="decreaseSkill('blunt_level')">-</button>
+            <button class="plus_skill" onclick="increaseSkill('blunt_level')">+</button>
+            <div class="skill_level_value">
+                <div id="blunt_level">0</div>
+            </div>
+            <div class="skill_level_chart" id="blunt_chart">
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+            </div>
+            <div class="expertise">
+                <div>Light Armor</div>
+            </div>
+        </div>
+        <div class="skill_row" id="energy_row">
+            <div class="skill_name">
+                <div>Energy</div>
+            </div>
+            <div class="skill_mod">
+                <div>Con</div>
+            </div>
+            <button class="minus_skill" onclick="decreaseSkill('energy_level')">-</button>
+            <button class="plus_skill" onclick="increaseSkill('energy_level')">+</button>
+            <div class="skill_level_value">
+                <div id="energy_level">0</div>
+            </div>
+            <div class="skill_level_chart" id="energy_chart">
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+            </div>
+            <div class="expertise">
+                <div>Spec Ops</div>
+            </div>
+        </div>
+        <div class="skill_row" id="espionage_row">
+            <div class="skill_name">
+                <div>Espionage</div>
+            </div>
+            <div class="skill_mod">
+                <div>Con</div>
+            </div>
+            <button class="minus_skill" onclick="decreaseSkill('espionage_level')">-</button>
+            <button class="plus_skill" onclick="increaseSkill('espionage_level')">+</button>
+            <div class="skill_level_value">
+                <div id="espionage_level">0</div>
+            </div>
+            <div class="skill_level_chart" id="espionage_chart">
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+            </div>
+            <div class="expertise">
+                <div>Light Armor</div>
+            </div>
+        </div>
+        <div class="skill_row" id="explosives_row">
+            <div class="skill_name">
+                <div>Explosives</div>
+            </div>
+            <div class="skill_mod">
+                <div>Con</div>
+            </div>
+            <button class="minus_skill" onclick="decreaseSkill('explosives_level')">-</button>
+            <button class="plus_skill" onclick="increaseSkill('explosives_level')">+</button>
+            <div class="skill_level_value">
+                <div id="explosives_level">0</div>
+            </div>
+            <div class="skill_level_chart" id="explosives_chart">
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+            </div>
+            <div class="expertise">
+                <div>Spec Ops</div>
+            </div>
+        </div>
+        <div class="skill_row" id="fluids_row">
+            <div class="skill_name">
+                <div>Fluids</div>
+            </div>
+            <div class="skill_mod">
+                <div>Con</div>
+            </div>
+            <button class="minus_skill" onclick="decreaseSkill('fluids_level')">-</button>
+            <button class="plus_skill" onclick="increaseSkill('fluids_level')">+</button>
+            <div class="skill_level_value">
+                <div id="fluids_level">0</div>
+            </div>
+            <div class="skill_level_chart" id="fluids_chart">
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+            </div>
+            <div class="expertise">
+                <div>Light Armor</div>
+            </div>
+        </div>
+        <div class="skill_row" id="gravity_row">
+            <div class="skill_name">
+                <div>Gravity</div>
+            </div>
+            <div class="skill_mod">
+                <div>Con</div>
+            </div>
+            <button class="minus_skill" onclick="decreaseSkill('gravity_level')">-</button>
+            <button class="plus_skill" onclick="increaseSkill('gravity_level')">+</button>
+            <div class="skill_level_value">
+                <div id="gravity_level">0</div>
+            </div>
+            <div class="skill_level_chart" id="gravity_chart">
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+            </div>
+            <div class="expertise">
+                <div>Spec Ops</div>
+            </div>
+        </div>
+        <div class="skill_row" id="long_range_row">
+            <div class="skill_name">
+                <div>Long Range</div>
+            </div>
+            <div class="skill_mod">
+                <div>Con</div>
+            </div>
+            <button class="minus_skill" onclick="decreaseSkill('long_range_level')">-</button>
+            <button class="plus_skill" onclick="increaseSkill('long_range_level')">+</button>
+            <div class="skill_level_value">
+                <div id="long_range_level">0</div>
+            </div>
+            <div class="skill_level_chart" id="long_range_chart">
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+            </div>
+            <div class="expertise">
+                <div>Light Armor</div>
+            </div>
+        </div>
+        <div class="skill_row" id="negotiation_row">
+            <div class="skill_name">
+                <div>Negotiation</div>
+            </div>
+            <div class="skill_mod">
+                <div>Con</div>
+            </div>
+            <button class="minus_skill" onclick="decreaseSkill('negotiation_level')">-</button>
+            <button class="plus_skill" onclick="increaseSkill('negotiation_level')">+</button>
+            <div class="skill_level_value">
+                <div id="negotiation_level">0</div>
+            </div>
+            <div class="skill_level_chart" id="negotiation_chart">
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+            </div>
+            <div class="expertise">
+                <div>Spec Ops</div>
+            </div>
+        </div>
+        <div class="skill_row" id="observation_row">
+            <div class="skill_name">
+                <div>Observation</div>
+            </div>
+            <div class="skill_mod">
+                <div>Con</div>
+            </div>
+            <button class="minus_skill" onclick="decreaseSkill('observation_level')">-</button>
+            <button class="plus_skill" onclick="increaseSkill('observation_level')">+</button>
+            <div class="skill_level_value">
+                <div id="observation_level">0</div>
+            </div>
+            <div class="skill_level_chart" id="observation_chart">
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+            </div>
+            <div class="expertise">
+                <div>Light Armor</div>
+            </div>
+        </div>
+        <div class="skill_row" id="pistol_row">
+            <div class="skill_name">
+                <div>Pistol</div>
+            </div>
+            <div class="skill_mod">
+                <div>Con</div>
+            </div>
+            <button class="minus_skill" onclick="decreaseSkill('pistol_level')">-</button>
+            <button class="plus_skill" onclick="increaseSkill('pistol_level')">+</button>
+            <div class="skill_level_value">
+                <div id="pistol_level">0</div>
+            </div>
+            <div class="skill_level_chart" id="pistol_chart">
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+            </div>
+            <div class="expertise">
+                <div>Spec Ops</div>
+            </div>
+        </div>
+        <div class="skill_row" id="psyche_row">
+            <div class="skill_name">
+                <div>Psyche</div>
+            </div>
+            <div class="skill_mod">
+                <div>Con</div>
+            </div>
+            <button class="minus_skill" onclick="decreaseSkill('psyche_level')">-</button>
+            <button class="plus_skill" onclick="increaseSkill('psyche_level')">+</button>
+            <div class="skill_level_value">
+                <div id="psyche_level">0</div>
+            </div>
+            <div class="skill_level_chart" id="psyche_chart">
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+            </div>
+            <div class="expertise">
+                <div>Light Armor</div>
+            </div>
+        </div>
+        <div class="skill_row" id="tech_row">
+            <div class="skill_name">
+                <div>Tech</div>
+            </div>
+            <div class="skill_mod">
+                <div>Con</div>
+            </div>
+            <button class="minus_skill" onclick="decreaseSkill('tech_level')">-</button>
+            <button class="plus_skill" onclick="increaseSkill('tech_level')">+</button>
+            <div class="skill_level_value">
+                <div id="tech_level">0</div>
+            </div>
+            <div class="skill_level_chart" id="tech_chart">
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+            </div>
+            <div class="expertise">
+                <div>Spec Ops</div>
+            </div>
+        </div>
+        <div class="skill_row" id="unarmed_row">
+            <div class="skill_name">
+                <div>Unarmed</div>
+            </div>
+            <div class="skill_mod">
+                <div>Con</div>
+            </div>
+            <button class="minus_skill" onclick="decreaseSkill('unarmed_level')">-</button>
+            <button class="plus_skill" onclick="increaseSkill('unarmed_level')">+</button>
+            <div class="skill_level_value">
+                <div id="unarmed_level">0</div>
+            </div>
+            <div class="skill_level_chart" id="unarmed_chart">
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+            </div>
+            <div class="expertise">
+                <div>Light Armor</div>
+            </div>
+        </div>
+        <div class="skill_row" id="vehicles_row">
+            <div class="skill_name">
+                <div>Vehicles</div>
+            </div>
+            <div class="skill_mod">
+                <div>Con</div>
+            </div>
+            <button class="minus_skill" onclick="decreaseSkill('vehicles_level')">-</button>
+            <button class="plus_skill" onclick="increaseSkill('vehicles_level')">+</button>
+            <div class="skill_level_value">
+                <div id="vehicles_level">0</div>
+            </div>
+            <div class="skill_level_chart" id="vehicles_chart">
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+            </div>
+            <div class="expertise">
+                <div>Spec Ops</div>
+            </div>
+        </div>
+        <div class="skill_row" id="wave_row">
+            <div class="skill_name">
+                <div>Wave</div>
+            </div>
+            <div class="skill_mod">
+                <div>Con</div>
+            </div>
+            <button class="minus_skill" onclick="decreaseSkill('wave_level')">-</button>
+            <button class="plus_skill" onclick="increaseSkill('wave_level')">+</button>
+            <div class="skill_level_value">
+                <div id="wave_level">0</div>
+            </div>
+            <div class="skill_level_chart" id="wave_chart">
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint"></div>
+            </div>
+            <div class="expertise">
+                <div>Spec Ops</div>
+            </div>
+        </div>
+    </div>
     <script>
         //Set default body tab
-        document.getElementById("defaultOpen").click();
+        document.getElementById("defaultOpen_body").click();
+        document.getElementById("defaultOpen_char").click();
         getXmlForLoad(001);
+        updateSkillChart();
     </script>
 </body>
 </html>
