@@ -47,6 +47,8 @@
         <div class="menu_overflow"></div>
     </div>
 
+    <button id="save">SAVE</button>
+
     <!-- Character Menu -->
     <div class="character_menu">
         <div class="char_menu_tab">
@@ -1473,11 +1475,13 @@
         </div>
     </div>
     <script>
-        //Set default body tab
+        //Load at beginning
         document.getElementById("defaultOpen_body").click();
         document.getElementById("defaultOpen_char").click();
-        getXmlForLoad(001);
-        updateSkillChart();
+
+        //Retrieve saved key
+        var char_id = localStorage.getItem("char_ID");
+        getXmlForLoad(char_id);
     </script>
 </body>
 </html>
