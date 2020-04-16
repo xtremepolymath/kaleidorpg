@@ -9,17 +9,11 @@
         <current_HP>45</current_HP>
         <base_HP>50</base_HP>
         <str>12</str>
-        <str_mod>+1</str_mod>
         <dex>12</dex>
-        <dex_mod>+1</dex_mod>
         <con>12</con>
-        <con_mod>+1</con_mod>
         <int>12</int>
-        <int_mod>+1</int_mod>
         <wis>12</wis>
-        <wis_mod>+1</wis_mod>
         <cha>12</cha>
-        <cha_mod>+1</cha_mod>
         <ac>14</ac>
         <pp>15</pp>
         <eq_helmet gear_type="helmet">Colonist Envirohelm</eq_helmet>
@@ -44,18 +38,12 @@
         <alignment>Chaotic Evil</alignment>
         <current_HP>45</current_HP>
         <base_HP>50</base_HP>
-        <str>12</str>
-        <str_mod>+1</str_mod>
-        <dex>12</dex>
-        <dex_mod>+1</dex_mod>
+        <str>20</str>
+        <dex>5</dex>
         <con>12</con>
-        <con_mod>+1</con_mod>
         <int>12</int>
-        <int_mod>+1</int_mod>
         <wis>12</wis>
-        <wis_mod>+1</wis_mod>
         <cha>12</cha>
-        <cha_mod>+1</cha_mod>
         <ac>14</ac>
         <pp>15</pp>
         <eq_helmet gear_type="helmet">Colonist Envirohelm</eq_helmet>
