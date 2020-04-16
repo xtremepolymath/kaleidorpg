@@ -6,7 +6,7 @@ function getXmlForLoad(char_ID){
             loadSheetInfo(this, char_ID);
         }
     };
-
+    
     xhttp.open("GET", "data/xml/character_sheet_save_load.xml", true);
     xhttp.send();
 }
@@ -41,6 +41,10 @@ function loadSheetInfo(savedXml, char_ID){
         a = document.getElementById(xmlToLoad[i].nodeName);
         a.innerHTML = xmlToLoad[i].childNodes[0].nodeValue;
     }
+
+    //Update sheet calculations
+    updateSkillChart();
+    updateAttrModView();
 }
 
 function getXmlForSave(char_ID){
@@ -79,6 +83,8 @@ function saveSheetInfo(loadedXml, char_ID){
 
     var eleArray = [];
 
+    document.getElementById('save').innerHTML = document.getElementById(charNodes[7].nodeName).tagName;
+
     //Find corresponding HTML elements
     for(var i = 0; i < charNodes.length; i++){
         eleArray[i] = document.getElementById(charNodes[i].nodeName).value;
@@ -89,7 +95,7 @@ function saveSheetInfo(loadedXml, char_ID){
 
 function outputSave(outputData){
     var textToBLOB = new Blob([outputData], {type: 'text/plain'});
-    var sFileName = 'saveOutput.txt';
+    var sFileName = 'KaleidoRPG_save' + toString(char_ID) + '.txt';
     var newLink = document.createElement("a");
     newLink.download = sFileName;
 
@@ -196,6 +202,105 @@ function decreaseSkill(skillVal){
 
 
 //Automated calculations
-function updateAttrMod(attr){
+function updateAttrMod(attVal, mod){
 
+    if(attVal == 2|| attVal == 3){
+        document.getElementById(mod).innerHTML = -4;
+    }
+    else if(attVal == 4|| attVal == 5){
+        document.getElementById(mod).innerHTML = -3;
+    }
+    else if(attVal == 6|| attVal == 7){
+        document.getElementById(mod).innerHTML = -2;
+    }
+    else if(attVal == 8|| attVal == 9){
+        document.getElementById(mod).innerHTML = -1;
+    }
+    else if(attVal == 10|| attVal == 11){
+        document.getElementById(mod).innerHTML = -0;
+    }
+    else if(attVal == 12|| attVal == 13){
+        document.getElementById(mod).innerHTML = 1;
+    }
+    else if(attVal == 14|| attVal == 15){
+        document.getElementById(mod).innerHTML = 2;
+    }
+    else if(attVal == 16|| attVal == 17){
+        document.getElementById(mod).innerHTML = 3;
+    }
+    else if(attVal == 18|| attVal == 19){
+        document.getElementById(mod).innerHTML = 4;
+    }
+    else if(attVal == 20|| attVal == 21){
+        document.getElementById(mod).innerHTML = 5;
+    }
+    else if(attVal == 22|| attVal == 23){
+        document.getElementById(mod).innerHTML = 6;
+    }
+    else if(attVal == 24|| attVal == 25){
+        document.getElementById(mod).innerHTML = 7;
+    }
+    else if(attVal == 26|| attVal == 27){
+        document.getElementById(mod).innerHTML = 8;
+    }
+    else if(attVal == 28|| attVal == 29){
+        document.getElementById(mod).innerHTML = 9;
+    }
+    else if(attVal == 30){
+        document.getElementById(mod).innerHTML = 10;
+    }
+}
+
+function updateAttrModView(){
+    atts = document.getElementsByClassName("attr_value");
+
+    for(var i = 0; i < atts.length; i++){
+        attVal = atts[i].innerHTML;
+
+        if(attVal == 2|| attVal == 3){
+            document.getElementsByClassName("attr_mod")[i].innerHTML = -4;
+        }
+        else if(attVal == 4|| attVal == 5){
+            document.getElementsByClassName("attr_mod")[i].innerHTML = -3;
+        }
+        else if(attVal == 6|| attVal == 7){
+            document.getElementsByClassName("attr_mod")[i].innerHTML = -2;
+        }
+        else if(attVal == 8|| attVal == 9){
+            document.getElementsByClassName("attr_mod")[i].innerHTML = -1;
+        }
+        else if(attVal == 10|| attVal == 11){
+            document.getElementsByClassName("attr_mod")[i].innerHTML = -0;
+        }
+        else if(attVal == 12|| attVal == 13){
+            document.getElementsByClassName("attr_mod")[i].innerHTML = 1;
+        }
+        else if(attVal == 14|| attVal == 15){
+            document.getElementsByClassName("attr_mod")[i].innerHTML = 2;
+        }
+        else if(attVal == 16|| attVal == 17){
+            document.getElementsByClassName("attr_mod")[i].innerHTML = 3;
+        }
+        else if(attVal == 18|| attVal == 19){
+            document.getElementsByClassName("attr_mod")[i].innerHTML = 4;
+        }
+        else if(attVal == 20|| attVal == 21){
+            document.getElementsByClassName("attr_mod")[i].innerHTML = 5;
+        }
+        else if(attVal == 22|| attVal == 23){
+            document.getElementsByClassName("attr_mod")[i].innerHTML = 6;
+        }
+        else if(attVal == 24|| attVal == 25){
+            document.getElementsByClassName("attr_mod")[i].innerHTML = 7;
+        }
+        else if(attVal == 26|| attVal == 27){
+            document.getElementsByClassName("attr_mod")[i].innerHTML = 8;
+        }
+        else if(attVal == 28|| attVal == 29){
+            document.getElementsByClassName("attr_mod")[i].innerHTML = 9;
+        }
+        else if(attVal == 30){
+            document.getElementsByClassName("attr_mod")[i].innerHTML = 10;
+        }
+    }
 }
