@@ -1,0 +1,221 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#save{
+    position: fixed;
+    height: 50px;
+    width: 400px;
+    text-align: center;
+    background-color: firebrick;
+    font-size: 22pt;
+    color: white;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 1;
+}
+
+.character_menu{
+    width: 100%;
+    overflow: hidden;
+}
+
+.char_menu_tab{
+    background-color: #1C2429;
+    width: 50%;
+    min-width: 600px;
+    max-width: 1200px;
+    margin:auto;
+}
+
+.char_menu_tab button{
+    margin: auto;
+    background-color: #E8903B ;
+    float: left;
+    border: solid 1px gainsboro;
+    border-bottom: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 12pt;
+}
+
+.char_menu_tab button:hover{
+    background-color: gainsboro;
+    color: #1C2429;
+}
+
+.char_menu_tab button.active{
+    border: solid 1px #E8903B;
+}
+
+.char_list_content{
+    width: 50%;
+    min-width: 850px;
+    max-width: 1200px;
+    min-height: 1100px;
+    margin: auto;
+    background-color: #1C2429;
+}
+
+.panel_title{
+    position: relative;
+    float:left;
+    width: 100%;
+    margin: 20px;
+    font-size: 24pt;
+    color: rgb(34,162,179);
+}
+
+.new_char_button{
+    position: relative;
+    float: right;
+    width: 200px;
+    height: 50px;
+    margin-right: 25px;
+    margin-bottom: 25px;
+    margin-top: -25px;
+    background-color: #2059EB;
+    font-size: 14pt;
+    color: gainsboro;
+    font-weight: bolder;
+}
+
+.char_list_row{
+    position: relative;
+    float:left;
+    margin: 20px;
+    width: 100%;
+    height: 120px;
+}
+
+.char_list_row > *{
+    float: left;
+    vertical-align: center;
+}
+
+.view_but{
+    float: left;
+    width: 150px;
+    height: 40px;
+    background-color: rgb(34,162,179);
+    margin-left: 10px;
+    font-size: 14pt;
+    font-weight: bold;
+}
+
+.edit_but{
+    float: left;
+    width: 150px;
+    height: 40px;
+    background-color:#E8903B;
+    margin-left: 10px;
+    font-size: 14pt;
+    font-weight: bold;
+}
+
+.delete_but{
+    float: left;
+    width: 150px;
+    height: 40px;
+    background-color: firebrick;
+    margin-left: 10px;
+    font-size: 14pt;
+    font-weight: bold;
+}
+
+.char_info_block{
+    position: relative;
+    float:left;
+    width: 60%;
+    height: 100%;
+    border: solid 1px gainsboro;
+    border-left: none;
+    margin-bottom: 20px;
+}
+
+.char_icon{
+    position: relative;
+    height: 100px;
+    float:left;
+    text-align: center;
+    padding: 10px;
+    border: solid 1px gainsboro;
+    border-right: none;
+    margin-left: 2%;
+}
+
+.char_icon img{
+    position: relative;
+    height: 100%;
+    border: solid 2px #E8903B;
+    border-radius: 50%;
+}
+
+.character_name{
+    float: left;
+    padding: 5px;
+    height: 35px;
+    width: 235px;
+    text-align: center;
+    color:gainsboro;
+    font-size: 18pt;
+    border: solid px #E8903B;
+    border-radius: 20%;
+    margin: 10px;
+    font-weight: bolder;
+}
+
+.character_info{
+    float: left;
+    height: 30px;
+    font-size: 14pt;
+    margin-left: 10px;
+    color: rgb(34,162,179);
+}
+
+#gender {
+    margin-left: 70px;
+}
+
+.character_hp{
+    float: left;
+    width: 20px;
+    height: 20px;
+    padding: 10px;
+    font-size: 16pt;
+    margin-top: 30px;
+    color: rgb(34,162,179);
+}
+
+.HP_label{
+    margin-left: 120px;
+}
+
+.slash{
+    float: left;
+    width: 10px;
+    margin-top: 40px;
+    text-align: center;
+    font-size: 16pt;
+}
+
+.top_skills{
+    float: right;
+    margin-top: 20px;
+    padding-right: 5px;
+}
+
+.top_skills span{
+    color: #E8903B;
+
+}
+
+.top_skills div{
+    display: block;
+    margin: 5px;
+    font-size: 12pt;
+}
