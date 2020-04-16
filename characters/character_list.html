@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Kaleido RPG</title>
+
+  <link rel='local stylesheet' href='styles/charliststyle.css'>
+  <script src="scripts/character_list.js"></script>
+
+  <link rel='local stylesheet' href="../main_menu.css">
+</head>
+
+<body>
+    <!--Main Menu-->
+    <div class="main_menu">
+        <img id="logo" src="https://res.cloudinary.com/teepublic/image/private/s--jGfS3rOf--/c_fit,g_north_west,h_774,w_840/co_36538b,e_outline:40/co_36538b,e_outline:inner_fill:1/co_ffffff,e_outline:40/co_ffffff,e_outline:inner_fill:1/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_jpg,h_630,q_90,w_630/v1475865828/production/designs/720040_1.jpg">
+        <a class="no_submenu" href="https://kaleidorpg.com">HOME</a>
+        <div class="submenu_container">
+            <button class="submenu_button">CAMPAIGNS</button>
+            <div class="submenu_items">
+                <a href="https://kaleidorpg.com/campaigns/create_campaign.html">New Campaign</a>
+                <a href="https://kaleidorpg.com/campaigns/current_campaigns.html">Current Campaigns</a>
+            </div>
+        </div>
+        <div class="submenu_container">
+            <button class="submenu_button">CHARACTERS</button>
+            <div class="submenu_items">
+                <a href="https://kaleidorpg.com/characters/character_creation.html">Create Character</a>
+                <a href="https://kaleidorpg.com/characters/view_sheet.html">Current Characters</a>
+            </div>
+        </div>
+        <div class="submenu_container">
+            <button class="submenu_button">ARCHIVE</button>
+            <div class="submenu_items">
+                <a href="https://kaleidorpg.com/codex/codex.html">Codex</a>
+                <a href="https://kaleidorpg.com/codex/starmap.html">Starmap</a>
+            </div>
+        </div>
+        <div class="submenu_container">
+            <button class="submenu_button">ABOUT</button>
+            <div class="submenu_items">
+                <a href="https://kaleidorpg.com/about.html">About</a>
+                <a href="https://kaleidorpg.com/contact.html">Contact</a>
+            </div>
+        </div>
+        <div class="menu_overflow"></div>
+    </div>
+
+    <button id="save">Save</button>
+
+    <div class="char_list_content" id="saved_characters">
+        <div class="panel_title">Characters</div>
+        <button class="new_char_button">CREATE CHARACTER</button>
+        <div class="char_list_row" id="000">
+            <div class="char_icon">
+                <img src="data/images/test_icon.jpg" id="icon_pic">
+            </div>
+            <div class="char_info_block">
+                <div class="character_name" id="char_name"></div>
+                <div class="character_hp" id="current_HP"></div>
+                <div class="slash">/</div>
+                <div class="character_hp" id="base_HP"></div>
+                <div class="top_skills">
+                    <span>Top Skills:</span>
+                    <div>Armor</div>
+                    <div>Assault Weapons</div>
+                    <div>Astroanthropology</div>
+                </div>
+                <div class="character_info" id="gender"></div>
+                <div class="character_info" id="race"></div>
+                <span class="HP_label">HP</span>
+            </div>
+            <button class="view_but" id="view_button" onclick="loadSheetView(event)">View/Play</button>
+            <button class="edit_but" id="edit_button">Edit</button>
+            <button class="delete_but" id="delete_button">Delete</button>
+        </div>
+
+        <div class="char_list_row" id="001">
+            <div class="char_icon">
+                <img src="data/images/test_icon.jpg" id="icon_pic">
+            </div>
+            <div class="char_info_block">
+                <div class="character_name" id="char_name"></div>
+                <div class="character_hp" id="current_HP"></div>
+                <div class="slash">/</div>
+                <div class="character_hp" id="base_HP"></div>
+                <div class="top_skills">
+                    <span>Top Skills:</span>
+                    <div>Armor</div>
+                    <div>Assault Weapons</div>
+                    <div>Astroanthropology</div>
+                </div>
+                <div class="character_info" id="gender"></div>
+                <div class="character_info" id="race"></div>
+            </div>
+            <button class="view_but" id="view_button" onclick="loadSheetView(event)">View/Play</button>
+            <button class="edit_but" id="edit_button">Edit</button>
+            <button class="delete_but" id="delete_button">Delete</button>
+        </div>
+    </div>
+    <script>
+        //Load at beginning
+        loadXML();
+    </script>
+</body>
+</html>
