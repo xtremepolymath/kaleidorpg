@@ -55,7 +55,7 @@ input::-webkit-inner-spin-button {
 .char_content{
     display: none;
     width: 50%;
-    min-width: 850px;
+    min-width: 900px;
     max-width: 1200px;
     min-height: 1100px;
     margin: auto;
@@ -462,7 +462,7 @@ input::-webkit-inner-spin-button {
 .skill_mark{
     position: relative;
     float: left;
-    width: 5px;
+    width: 3px;
     height: 20px;
     border: solid 1px rgb(148, 148, 148);
     border-radius: 20%;
@@ -473,14 +473,17 @@ input::-webkit-inner-spin-button {
 }
 
 .expertise{
-    overflow: hidden;
-    margin-left: 10px;
-    height: 100%;
+    float: right;
+    height: 40px;
+    width: 100px;
+    margin: 5px 0px;
+    margin-right: 20px;
+    background-color: gainsboro;
+    color: #1C2429;
+    text-align: center;
 }
 
 .expertise div{
-    position: relative;
-    top: 50%;
-    transform: translate(0, -50%);
-    color: #E8903B;
+    top: -50%;
+    transform: translate(0, 50%);
 }
