@@ -31,33 +31,33 @@
         <grav_stim>None</grav_stim>
     </character>
     <character id="001">
-        <char_name>Number 2</char_name>
-        <race>Human</race>
-        <gender>Female</gender>
-        <background>Bounty Hunter</background>
-        <alignment>Chaotic Evil</alignment>
-        <current_HP>45</current_HP>
-        <base_HP>50</base_HP>
-        <str>20</str>
-        <dex>5</dex>
-        <con>12</con>
+        <char_name>Baby Yoda</char_name>
+        <race>Unknown</race>
+        <gender>Unknown</gender>
+        <background>Force User</background>
+        <alignment>Chaotic Good</alignment>
+        <current_HP>25</current_HP>
+        <base_HP>25</base_HP>
+        <str>4</str>
+        <dex>4</dex>
+        <con>8</con>
         <int>12</int>
-        <wis>12</wis>
-        <cha>12</cha>
-        <ac>14</ac>
-        <pp>15</pp>
-        <eq_helmet gear_type="helmet">Colonist Envirohelm</eq_helmet>
-        <eq_armor gear_type="armor">Colonist Envirosuit</eq_armor>
-        <eq_boots gear_type="boots">Colonist Enviroboots</eq_boots>
-        <eq_gloves gear_type="gloves">Colonist Envirogloves</eq_gloves>
+        <wis>24</wis>
+        <cha>20</cha>
+        <ac>10</ac>
+        <pp>16</pp>
+        <eq_helmet gear_type="helmet"></eq_helmet>
+        <eq_armor gear_type="armor">Brown Baby Cloak</eq_armor>
+        <eq_boots gear_type="boots"></eq_boots>
+        <eq_gloves gear_type="gloves"></eq_gloves>
         <eq_blade gear_type="blade">Colonist Machete</eq_blade>
-        <eq_gun1 gear_type="gun">Hunting Shotgun</eq_gun1>
-        <eq_gun2 gear_type="gun">MW Certified Pistol</eq_gun2>
-        <eq_misc gear_type="misc">Seed Collection Kit</eq_misc>
-        <psyche_stim>None</psyche_stim>
-        <energy_stim>Veith Elder Artifact</energy_stim>
-        <fluid_stim>None</fluid_stim>
-        <wave_stim>None</wave_stim>
-        <grav_stim>MW Grav Trooper Consignment</grav_stim>
+        <eq_gun1 gear_type="gun"></eq_gun1>
+        <eq_gun2 gear_type="gun"></eq_gun2>
+        <eq_misc gear_type="misc">Ship Level Knob</eq_misc>
+        <psyche_stim>Jedi Mind Tricks</psyche_stim>
+        <energy_stim></energy_stim>
+        <fluid_stim></fluid_stim>
+        <wave_stim></wave_stim>
+        <grav_stim>Force Sensitivity</grav_stim>
     </character>
 </saved_characters>
