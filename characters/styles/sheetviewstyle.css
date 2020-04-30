@@ -349,10 +349,6 @@ input::-webkit-inner-spin-button {
     margin-top: 25px;
 }
 
-.skill_points label{
-
-}
-
 .skill_points input{
     height: 25px;
     width: 50px;
@@ -457,6 +453,31 @@ input::-webkit-inner-spin-button {
     transform: translate(0, -50%);
     background-color: none;
     margin-right: 3px;
+}
+
+#perk_info_box{
+    display: none;
+    width: 300px;
+    height: 400px;
+    background-color: black;
+    color: gainsboro;
+    z-index: 1;
+    padding: 0px 20px;
+    border: solid 1px rgb(148, 148, 148);
+}
+
+#perk_info_box h1{
+    color: #E8903B;
+}
+
+#perk_info_box p{
+    color: rgb(34, 162, 179);
+    font-weight: bold;
+}
+
+#perk_info_box span{
+    color: gainsboro;
+    font-weight: normal;
 }
 
 .skill_mark{
