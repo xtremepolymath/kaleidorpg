@@ -331,7 +331,7 @@
             <perk>
                 <pk_name>Counter Strike</pk_name>
                 <lvl_req>15</lvl_req>
-                <pk_desc>If an enemy misses a melee hit against you, you may roll against their Dex to counter-attack with a single hit die.</pk_desc>
+                <pk_desc>If an enemy misses a melee hit against you, you may roll against their DEX to counter-attack with a single damage die.</pk_desc>
                 <action_desc></action_desc>
                 <action_type></action_type>
             </perk>
