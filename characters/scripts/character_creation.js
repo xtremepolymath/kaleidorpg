@@ -47,6 +47,42 @@ function loadSheetInfo(savedXml, char_ID){
     updateAttrModView();
 }
 
+//Load skill and perk xml
+function getPerkActionXML(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            loadSkillPerks(this);
+        }
+    };
+    
+    xhttp.open("GET", "data/xml/skills_perks.xml", true);
+    xhttp.send();
+}
+
+var skillXML;
+
+function loadSkillPerks(savedXml){
+
+    //Retrieve loaded XML doc
+    xmlDoc = savedXml.responseXML;
+
+    //Remove whitespace from XML before using it
+    var s = new XMLSerializer();
+    var str = s.serializeToString(xmlDoc);
+    str = str.replace(/>\s*/g, '>');  // Replace "> " with ">"
+    str = str.replace(/\s*</g, '<');  // Replace "< " with "<"
+    cleanXML = new DOMParser().parseFromString(str, "text/xml");
+
+    //Save cleaned up list of characters as an array
+    var skillList = cleanXML.getElementsByTagName('skill');
+
+    skillXML = skillList;
+}
+
+
+
+//Contact character list XML
 function getXmlForSave(char_ID){
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
@@ -58,7 +94,7 @@ function getXmlForSave(char_ID){
     xhttp.open("GET", "data/xml/character_sheet_save_load.xml", true);
     xhttp.send();
 }
-
+//Get HTML info based on XML nodes
 function saveSheetInfo(loadedXml, char_ID){
 
     //Retrieve loaded xml
@@ -92,7 +128,7 @@ function saveSheetInfo(loadedXml, char_ID){
 
     outputSave(eleArray);
 }
-
+//Download a text file with new save info
 function outputSave(outputData){
     var textToBLOB = new Blob([outputData], {type: 'text/plain'});
     var sFileName = 'KaleidoRPG_save' + toString(char_ID) + '.txt';
@@ -198,6 +234,52 @@ function decreaseSkill(skillVal){
     updateSkillChart();
 
     document.getElementById('skill_points_avail').value = ptsAvail;
+}
+
+function showPerkInfo(evt, skill, lvl){
+
+    //Show perk info box and move its location to mouse location
+    var pib = document.getElementById("perk_info_box");
+    pib.style.display = "block";
+    pib.style.position = "absolute";
+    pib.style.left = evt.clientX+"px";
+    pib.style.top = evt.clientY+"px";
+
+    //Find current skill based on skill input and save it in the s variable
+    var s;
+    for(var i=0;i<skillXML.length;i++){
+        if(skillXML[i].childNodes[0].childNodes[0].nodeValue == skill){
+            s = skillXML[i].childNodes;
+        }
+    }
+
+    //Find the current perk based on lvl input and save it in the perk variable
+    var perk;
+    var p_list = s[5].childNodes;
+    for(var p=0; p<p_list.length;p++){
+        if(p_list[p].childNodes[1].childNodes[0].nodeValue == lvl){
+            perk = p_list[p].childNodes;
+        }
+    }
+
+    //Clear any old information
+    for(var i=0;i<perk.length;i++){
+        var ele = document.getElementById(perk[i].nodeName);
+        ele.innerHTML = "";
+    }
+    //Insert updated perk information into the perk info window
+    for(var i=0;i<perk.length;i++){
+        var ele = document.getElementById(perk[i].nodeName);
+        ele.innerHTML = perk[i].childNodes[0].nodeValue;
+    }
+
+
+    //document.getElementById("save").innerHTML = skillXML[0].childNodes[0].childNodes[0].nodeValue;
+    document.getElementById("save").innerHTML = perk[0].nodeName;
+}
+
+function hidePerkInfo(){
+    document.getElementById("perk_info_box").style.display = "none";
 }
 
 
