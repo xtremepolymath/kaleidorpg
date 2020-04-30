@@ -1640,11 +1640,13 @@
         document.getElementById("defaultOpen_char").click();
 
         //Retrieve saved key
-        //var char_id = localStorage.getItem("char_ID");
-        getXmlForLoad(000);
+        var char_id = localStorage.getItem("char_ID");
+        getXmlForLoad(char_id);
 
         var skillXML;
         getPerkActionXML();
+
+
         
     </script>
 </body>
