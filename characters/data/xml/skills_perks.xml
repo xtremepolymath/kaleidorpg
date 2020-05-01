@@ -458,14 +458,14 @@
                 <lvl_req>1</lvl_req>
                 <pk_desc>Base skill mod is now 0.</pk_desc>
                 <action_desc>You may pick a 3-foot sphere of space you can see within 30 feet to ignite. Fire may spread to other nearby objects. Can be used as an attack, target will take 1d4 burn damage per turn for 3 turns. Cannot stack.</action_desc>
-                <action_type>Major/Non-Combat</action_type>
+                <action_type>Non-Combat</action_type>
             </perk>
             <perk>
                 <pk_name>Bolt</pk_name>
                 <lvl_req>5</lvl_req>
                 <pk_desc>Gain access to the Bolt action.</pk_desc>
                 <action_desc>Fire a bolt of electricity that deals 2d6 damage.</action_desc>
-                <action_type></action_type>
+                <action_type>Major</action_type>
             </perk>
             <perk>
                 <pk_name>Hot Blooded</pk_name>
@@ -479,7 +479,7 @@
                 <lvl_req>15</lvl_req>
                 <pk_desc>Gain access to the Energize action.</pk_desc>
                 <action_desc>You focus in place on absorbing heat or UV energy from a specific nearby source, including solar energy. Gain a stack of Energize. The next Energy-based action you take is enerigized, meaning damage or effectiveness is multiplied based on your current number of stacks. You may take an action to recharge a stimplant for up to the number of stacks you have. All stacks are used up on any use.</action_desc>
-                <action_type>Major/Non-Combat</action_type>
+                <action_type>Non-Combat</action_type>
             </perk>
             <perk>
                 <pk_name>Discharge</pk_name>
