@@ -48,19 +48,19 @@ function loadSheetInfo(savedXml, char_ID){
 }
 
 //Load skill and perk xml
+var skillXML;
+
 function getPerkActionXML(){
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            loadSkillPerks(this);
+            skillXML = loadSkillPerks(this);
         }
     };
     
     xhttp.open("GET", "data/xml/skills_perks.xml", true);
     xhttp.send();
 }
-
-var skillXML;
 
 function loadSkillPerks(savedXml){
 
@@ -77,10 +77,8 @@ function loadSkillPerks(savedXml){
     //Save cleaned up list of characters as an array
     var skillList = cleanXML.getElementsByTagName('skill');
 
-    skillXML = skillList;
+    return skillList;
 }
-
-
 
 //Contact character list XML
 function getXmlForSave(char_ID){
@@ -119,7 +117,7 @@ function saveSheetInfo(loadedXml, char_ID){
 
     var eleArray = [];
 
-    document.getElementById('save').innerHTML = document.getElementById(charNodes[7].nodeName).tagName;
+    //document.getElementById('save').innerHTML = document.getElementById(charNodes[7].nodeName).tagName;
 
     //Find corresponding HTML elements
     for(var i = 0; i < charNodes.length; i++){
@@ -147,6 +145,123 @@ function outputSave(outputData){
 
     newLink.click();
 }
+
+//Automated calculations
+function updateAttrMod(attVal, mod){
+
+    if(attVal == 2|| attVal == 3){
+        document.getElementById(mod).innerHTML = -4;
+    }
+    else if(attVal == 4|| attVal == 5){
+        document.getElementById(mod).innerHTML = -3;
+    }
+    else if(attVal == 6|| attVal == 7){
+        document.getElementById(mod).innerHTML = -2;
+    }
+    else if(attVal == 8|| attVal == 9){
+        document.getElementById(mod).innerHTML = -1;
+    }
+    else if(attVal == 10|| attVal == 11){
+        document.getElementById(mod).innerHTML = -0;
+    }
+    else if(attVal == 12|| attVal == 13){
+        document.getElementById(mod).innerHTML = 1;
+    }
+    else if(attVal == 14|| attVal == 15){
+        document.getElementById(mod).innerHTML = 2;
+    }
+    else if(attVal == 16|| attVal == 17){
+        document.getElementById(mod).innerHTML = 3;
+    }
+    else if(attVal == 18|| attVal == 19){
+        document.getElementById(mod).innerHTML = 4;
+    }
+    else if(attVal == 20|| attVal == 21){
+        document.getElementById(mod).innerHTML = 5;
+    }
+    else if(attVal == 22|| attVal == 23){
+        document.getElementById(mod).innerHTML = 6;
+    }
+    else if(attVal == 24|| attVal == 25){
+        document.getElementById(mod).innerHTML = 7;
+    }
+    else if(attVal == 26|| attVal == 27){
+        document.getElementById(mod).innerHTML = 8;
+    }
+    else if(attVal == 28|| attVal == 29){
+        document.getElementById(mod).innerHTML = 9;
+    }
+    else if(attVal == 30){
+        document.getElementById(mod).innerHTML = 10;
+    }
+}
+
+function updateAttrModView(){
+    atts = document.getElementsByClassName("attr_value");
+
+    for(var i = 0; i < atts.length; i++){
+        attVal = atts[i].innerHTML;
+
+        if(attVal == 2|| attVal == 3){
+            document.getElementsByClassName("attr_mod")[i].innerHTML = -4;
+        }
+        else if(attVal == 4|| attVal == 5){
+            document.getElementsByClassName("attr_mod")[i].innerHTML = -3;
+        }
+        else if(attVal == 6|| attVal == 7){
+            document.getElementsByClassName("attr_mod")[i].innerHTML = -2;
+        }
+        else if(attVal == 8|| attVal == 9){
+            document.getElementsByClassName("attr_mod")[i].innerHTML = -1;
+        }
+        else if(attVal == 10|| attVal == 11){
+            document.getElementsByClassName("attr_mod")[i].innerHTML = -0;
+        }
+        else if(attVal == 12|| attVal == 13){
+            document.getElementsByClassName("attr_mod")[i].innerHTML = 1;
+        }
+        else if(attVal == 14|| attVal == 15){
+            document.getElementsByClassName("attr_mod")[i].innerHTML = 2;
+        }
+        else if(attVal == 16|| attVal == 17){
+            document.getElementsByClassName("attr_mod")[i].innerHTML = 3;
+        }
+        else if(attVal == 18|| attVal == 19){
+            document.getElementsByClassName("attr_mod")[i].innerHTML = 4;
+        }
+        else if(attVal == 20|| attVal == 21){
+            document.getElementsByClassName("attr_mod")[i].innerHTML = 5;
+        }
+        else if(attVal == 22|| attVal == 23){
+            document.getElementsByClassName("attr_mod")[i].innerHTML = 6;
+        }
+        else if(attVal == 24|| attVal == 25){
+            document.getElementsByClassName("attr_mod")[i].innerHTML = 7;
+        }
+        else if(attVal == 26|| attVal == 27){
+            document.getElementsByClassName("attr_mod")[i].innerHTML = 8;
+        }
+        else if(attVal == 28|| attVal == 29){
+            document.getElementsByClassName("attr_mod")[i].innerHTML = 9;
+        }
+        else if(attVal == 30){
+            document.getElementsByClassName("attr_mod")[i].innerHTML = 10;
+        }
+    }
+}
+
+function newAction(name, description, category){
+    var action = document.createElement('tr');
+    action.innerHTML = '<td class="action_name" style="padding: 10px 20px;font-weight:bold; width: 50px;font-size:10pt;">'+name+'</td><td class="action_description" style="padding: 10px 20px;font-size:10pt;">'+description+'</td>';
+
+    return action;
+}
+
+var majorActions = [];
+var minorActions = [];
+var moveActions = [];
+var noncombatActions = [];
+var extraActions = [];
 
 
 //General viewing functions
@@ -275,7 +390,6 @@ function showPerkInfo(evt, skill, lvl){
 
 
     //document.getElementById("save").innerHTML = skillXML[0].childNodes[0].childNodes[0].nodeValue;
-    document.getElementById("save").innerHTML = perk[0].nodeName;
 }
 
 function hidePerkInfo(){
@@ -384,5 +498,120 @@ function updateAttrModView(){
         else if(attVal == 30){
             document.getElementsByClassName("attr_mod")[i].innerHTML = 10;
         }
+    }
+}
+
+function setDefaultActions(){
+    //Major Actions
+    majorActions.push(newAction("Melee Attack", "Attack with a currently equipped melee weapon"));
+    majorActions.push(newAction("Ranged Attack", "Attack with a currently equipped ranged weapon"));
+
+    //Minor Actions
+    minorActions.push(newAction("Take Cover", "Hide behind some adjacent obstacle to prevent being attacked. You are unable to attack or be attacked while in cover unless there is direct line of sight."));
+    minorActions.push(newAction("Reload", "Discard your current gun magazine and replace it with a fresh one."));
+    minorActions.push(newAction("Weapon Swap", "Switch the currently equipped weapon in either hand for a different weapon in your inventory."));
+
+    //Move Actions
+    moveActions.push(newAction("Walk", "You may move up a number of meters equal to your current movement available. This can be broken up between other actions as desired."));
+    moveActions.push(newAction("Run", "You may move up a number of meters equal to twice your current movement available. You cannot reload or swap weapons and run in the same turn. Ranged attacks are at a disadvantage any turn you run unless otherwise stated."));
+    moveActions.push(newAction("Get Up", "If knocked prone, you use 7 movement to get back up."));
+
+    //Extra Actions
+    extraActions.push(newAction("Bash", "After successfully dealing damage with a blunt weapon, target rolls a Con saving throw of 10 plus your skill mod. On a failure, they are staggered for a turn."));
+    extraActions.push(newAction("Bleed", "After dealing damage with a blade, target rolls a DEX saving throw of 10+ your skill mod. If successful, target now takes 1d4 bleed damage for 2 turns. This effect may stack."));
+    extraActions.push(newAction("Spray", "After successfully rolling a hit with an assault weapon, roll a d4. On a 0, you deal no damage, on a 1 you deal half damage, on a 2 or 3 you deal normal damage, on a 4 you deal 1.5 times damage (rounded down). Each subsequent spray roll, you must subtract an additional -1 from the result."));
+    extraActions.push(newAction("Proximity", "Roll a d20 + skill mod to determine a DEX saving throw number for everything within the explosive's radius. Every failure is dealt damage based on their proximity to the explosion and every success takes no damage, but must move to a space outside of the explosive radius."));
+}
+
+function updateSkillActions(){
+
+    var currentActions = [];
+    
+    for(var i=0; i<document.getElementsByClassName("action_name").length; i++){
+        currentActions[i] = document.getElementsByClassName("action_name")[i].innerHTML;
+    }
+
+    //document.getElementById("save").innerHTML = currentActions.includes("Melee Attack");
+
+    var skillLvls = document.getElementsByClassName("skill_level_value");
+
+    //Run through skill level values in character sheet
+    for(var i=0; i< skillLvls.length; i++){
+
+        //We don't care about skills that are at zero
+        if(skillLvls[i].children[0].innerHTML != 0){
+
+            //Number of perks unlocked is equal to skill level divided by 5, rounded down, plus 1
+            var numPerks = Math.floor(skillLvls[i].children[0].innerHTML / 5) + 1;
+
+            //Run through the unlocked perks of the current skill
+            for(var j=0; j<numPerks;j++){
+                var perk = skillXML[i].childNodes[5].childNodes[j];
+                var actionName = perk.childNodes[0].childNodes[0].nodeValue;
+
+                //Check to see if we've already added the current action
+                if(currentActions.includes(actionName) == false){
+                    var actionCheck = perk.childNodes[3];
+                    //Make sure we're looking at an action, not a regular perk.
+                    if(actionCheck.hasChildNodes()){
+                        var actionDesc = actionCheck.childNodes[0].nodeValue;
+                        var actionCat = perk.childNodes[4].childNodes[0].nodeValue;
+                        pushNewAction(actionName, actionDesc, actionCat);
+                    }
+                }
+            }
+        }
+    }
+
+    //Re-display all actions
+    showAvailableActions();
+}
+
+function pushNewAction(name, desc, category){
+    if(category == "Major"){
+        majorActions.push(newAction(name, desc));
+    }
+    else if(category == "Minor"){
+        minorActions.push(newAction(name, desc));
+    }
+    else if(category == "Move"){
+        moveActions.push(newAction(name, desc));
+    }
+    else if(category == "Extra"){
+        extraActions.push(newAction(name, desc));
+    }
+    else if(category == "Non-Combat"){
+        noncombatActions.push(newAction(name, desc));
+    }
+    else{
+        majorActions.push(newAction(name, desc));
+    }
+}
+
+function showAvailableActions(){
+
+    for(var i=0; i < majorActions.length; i++){
+        var act = majorActions[i];
+        document.getElementById('major_action_table').appendChild(act);
+    }
+
+    for(var i=0; i < minorActions.length; i++){
+        var act = minorActions[i];
+        document.getElementById('minor_action_table').appendChild(act);
+    }
+
+    for(var i=0; i < moveActions.length; i++){
+        var act = moveActions[i];
+        document.getElementById('move_action_table').appendChild(act);
+    }
+
+    for(var i=0; i < extraActions.length; i++){
+        var act = extraActions[i];
+        document.getElementById('extra_action_table').appendChild(act);
+    }
+
+    for(var i=0; i < noncombatActions.length; i++){
+        var act = noncombatActions[i];
+        document.getElementById('noncombat_action_table').appendChild(act);
     }
 }
