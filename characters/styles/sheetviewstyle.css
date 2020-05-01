@@ -59,6 +59,8 @@ input::-webkit-inner-spin-button {
     max-width: 1200px;
     min-height: 1100px;
     margin: auto;
+    margin-bottom: 100px;
+    padding-bottom: 50px;
     background-color: #1C2429;
 }
 
@@ -507,4 +509,57 @@ input::-webkit-inner-spin-button {
 .expertise div{
     top: -50%;
     transform: translate(0, 50%);
+}
+
+#update_actions{
+    height: 25px;
+    width: 70px;
+    margin-left: 25px;
+    margin-top: 25px;
+    background-color: #823b8a;
+    color: gainsboro;
+}
+
+.action_filter{
+    overflow: hidden;
+    position: relative;
+    float: right;
+    margin-right: 25px;
+    margin-top: 25px;
+}
+
+.action_category{
+    display: table;
+    width: 100%;
+    padding: 0 20px;
+    margin-bottom:20px;
+}
+
+.action_table_title{
+    border: none;
+    font-weight: bold;
+    font-size: 14pt;
+    color: #E8903B;
+}
+
+.inv_filter{
+    overflow: hidden;
+    position: relative;
+    float: right;
+    margin-right: 25px;
+    margin-top: 25px;
+}
+
+.inv_category{
+    display: table;
+    width: 100%;
+    padding: 0 20px;
+    margin-bottom:20px;
+}
+
+.inv_table_title{
+    border: none;
+    font-weight: bold;
+    font-size: 12pt;
+    color: #E8903B;
 }
