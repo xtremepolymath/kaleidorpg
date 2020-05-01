@@ -48,7 +48,7 @@
         <div class="menu_overflow"></div>
     </div>
 
-    <!--<button id="save">SAVE</button>-->
+    <!-- <button id="save" onclick="updateSkillActions()">Test</button> -->
 
     <!-- Character Menu -->
     <div class="character_menu">
@@ -56,10 +56,11 @@
             <button class="char_menu_button" id="defaultOpen_char" onclick="charPanelSwitch(event, 'main_panel')">Main</button>
             <button class="char_menu_button" onclick="charPanelSwitch(event, 'actions_panel')">Actions</button>
             <button class="char_menu_button" onclick="charPanelSwitch(event, 'skills_panel')">Skills</button>
+            <button class="char_menu_button" onclick="charPanelSwitch(event, 'inventory_panel')">Inventory</button>
         </div>
     </div>
 
-    <!-- Title -->
+    <!-- MAIN -->
     <div class="char_content" id="main_panel">
         <!-- Background Info 1-->	
         <div class="row">
@@ -244,23 +245,63 @@
             </div>
         </div>
     </div>
+
+    <!-- ACTIONS -->
     <div class="char_content" id="actions_panel">
         <div class="panel_title">ACTIONS</div>
-      <div class="row">We're warming up the engines for this section! Sit tight!</div>
+        <button id="update_actions" onclick="updateSkillActions()">Update</button>
+        <div class="action_filter">
+            <label for="action_filter">Filter: </label>
+            <input id="action_filter" type="number" value="0">
+        </div>
+        <div id="action_container">
+            <table class="action_category" id="major_action_table">
+                <tr>
+                    <td class="action_table_title">
+                        MAJOR
+                    </td>
+                </tr>
+            </table>
+            <table class="action_category" id="minor_action_table">
+                <tr>
+                    <td class="action_table_title">
+                        MINOR
+                    </td>
+                </tr>
+            </table>
+            <table class="action_category" id="move_action_table">
+                <tr>
+                    <td class="action_table_title">
+                        MOVEMENT
+                    </td>
+                </tr>
+            </table>
+            <table class="action_category" id="extra_action_table">
+                <tr>
+                    <td class="action_table_title">
+                        EXTRA
+                    </td>
+                </tr>
+            </table>
+            <table class="action_category" id="noncombat_action_table">
+                <tr>
+                    <td class="action_table_title">
+                        NON-COMBAT
+                    </td>
+                </tr>
+            </table>
+        </div>
     </div>
+
+    <!-- SKILLS -->
     <div class="char_content" id="skills_panel">
         <div class="panel_title">SKILLS</div>
         <div class="skill_points">
             <label for="skill_points_avail">Skill Points:</label>
             <input id="skill_points_avail" type="number" value="0">
         </div>
-        <div class="skill_header">
-            <div style="margin-left: 20px;">Skill<br>Name</div>
-            <div style="margin-left: 65px;">Main<br>Attr</div>
-            <div style="margin-left: 55px;">Skill<br>Level</div>
-            <div style="margin-left: 200px;"><br>Perks</div>
-            <div style="margin-left: 310px;"><br>Expertise</div>
-        </div>
+
+        <!-- Pop-Up with Perk Info -->
         <div id="perk_info_box">
             <h1 id="pk_name">Perk Name</h1>
             <p>Skill Level Requirement&#58; <span id="lvl_req">Level Requirement</span></p>
@@ -271,6 +312,15 @@
                 <span id="action_desc"></span>
             </p>
             <p>Action Type&#58; <span id="action_type"></span></p>
+        </div>
+
+        <!-- Skill List -->
+        <div class="skill_header">
+            <div style="margin-left: 20px;">Skill<br>Name</div>
+            <div style="margin-left: 65px;">Main<br>Attr</div>
+            <div style="margin-left: 55px;">Skill<br>Level</div>
+            <div style="margin-left: 200px;"><br>Perks</div>
+            <div style="margin-left: 310px;"><br>Expertise</div>
         </div>
         <div class="skill_row" id="armor_row">
             <div class="skill_name">
@@ -419,7 +469,7 @@
             <button class="minus_skill" onclick="decreaseSkill('astrobiology_level')">-</button>
             <button class="plus_skill" onclick="increaseSkill('astrobiology_level')">+</button>
             <div class="skill_level_value">
-                <div id="astrobiology_level">0</div>
+                <div id="astrobiology_level">15</div>
             </div>
             <div class="skill_level_chart" id="astrobiology_chart">
                 <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Astrobiology', 1)" onmouseout="hidePerkInfo()"></div>
@@ -1634,6 +1684,52 @@
             </div>
         </div>
     </div>
+
+    <!-- Inventory -->
+    <div class="char_content" id="inventory_panel">
+        <div class="panel_title">INVENTORY</div>
+        <div class="inv_filter">
+            <label for="inv_filter">Filter: </label>
+            <input id="inv_filter" type="number" value="0">
+        </div>
+        <table class="inv_category" id="weapons_inv_table">
+            <tr>
+                <td class="inv_table_title">
+                    WEAPONS
+                </td>
+            </tr>
+        </table>
+        <table class="inv_category" id="ammo_inv_table">
+            <tr>
+                <td class="inv_table_title">
+                    AMMO/CHARGES
+                </td>
+            </tr>
+        </table>
+        <table class="inv_category" id="armor_inv_table">
+            <tr>
+                <td class="inv_table_title">
+                    ARMOR
+                </td>
+            </tr>
+        </table>
+        <table class="inv_category" id="misc_inv_table">
+            <tr>
+                <td class="inv_table_title">
+                    MISC.
+                </td>
+            </tr>
+        </table>
+        <table class="inv_category" id="component_inv_table">
+            <tr>
+                <td class="inv_table_title">
+                    COMPONENTS
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
     <script>
         //Load at beginning
         document.getElementById("defaultOpen_body").click();
@@ -1643,11 +1739,12 @@
         var char_id = localStorage.getItem("char_ID");
         getXmlForLoad(char_id);
 
-        var skillXML;
+        //Set skills from saved info
+        updateSkillChart();
         getPerkActionXML();
 
-
-        
+        setDefaultActions();
+        showAvailableActions();
     </script>
 </body>
 </html>
