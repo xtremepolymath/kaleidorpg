@@ -1,0 +1,338 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#save{
+    position: fixed;
+    height: 50px;
+    width: 400px;
+    text-align: center;
+    background-color: firebrick;
+    font-size: 22pt;
+    color: white;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 1;
+}
+
+.character_menu{
+    width: 100%;
+    overflow: hidden;
+}
+
+.char_menu_tab{
+    background-color: #1C2429;
+    width: 50%;
+    min-width: 600px;
+    max-width: 1200px;
+    margin:auto;
+}
+
+.char_menu_tab button{
+    margin: auto;
+    background-color: #E8903B ;
+    float: left;
+    border: solid 1px gainsboro;
+    border-bottom: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 12pt;
+}
+
+.char_menu_tab button:hover{
+    background-color: gainsboro;
+    color: #1C2429;
+}
+
+.char_menu_tab button.active{
+    border: solid 1px #E8903B;
+}
+
+.char_content{
+    display: none;
+    width: 50%;
+    min-width: 900px;
+    max-width: 1200px;
+    min-height: 1100px;
+    margin: auto;
+    margin-bottom: 100px;
+    padding-bottom: 50px;
+    background-color: #1C2429;
+}
+
+.race_menu{
+    float: left;
+    width: 200px;
+    margin: 10px;
+    margin-right:0px;
+    background-color: #823b8a;
+}
+
+.race_item{
+    display: block;
+    position: relative;
+    height: 40px;
+    border: solid 0.5px rgb(148, 148, 148);
+    text-align: center;
+    padding-top:20px;
+    font-size: 18pt;
+}
+
+.race_item:hover{
+    background-color: rgb(34, 162, 179);
+    color: #1C2429;
+}
+
+.race_panel{
+    float: left;
+    overflow: hidden;
+    position: absolute;
+    height: 0px;
+    min-width: 680px;
+    background-color: gainsboro;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-left:210px;
+    font-size: 24pt;
+    color: #1C2429;
+    font-weight: bold;
+}
+
+.race_panel_title{
+    width: 100%;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.panel_title{
+    position: relative;
+    float:left;
+    margin: 20px;
+    font-size: 24pt;
+    color: rgb(34,162,179);
+}
+
+.skill_points{
+    overflow: hidden;
+    position: relative;
+    float: right;
+    margin-right: 25px;
+    margin-top: 25px;
+}
+
+.skill_points input{
+    height: 25px;
+    width: 50px;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 16pt;
+}
+
+.skill_header{
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 40px;
+}
+
+.skill_header div{
+    position: relative;
+    float: left;
+    height: 100%;
+    color: #823b8a;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.skill_row{
+    position: relative;
+    float:left;
+    width: 100%;
+    border: solid 1px rgb(34, 162, 179);
+    height: 50px;
+}
+
+.skill_row > *{
+    float: left;
+    vertical-align: center;
+}
+
+.skill_row button{
+    height: 20px;
+    width: 20px;
+    background-color: #E8903B;
+    margin-left: 10px;
+    margin-top: 15px;
+}
+.skill_level_value{
+    width: 25px;
+    margin: 0px 10px;
+    margin-top: 10px;
+    height: 60%;
+    background-color: gainsboro;
+    text-align: center;
+}
+
+.skill_level_value div{
+    position: relative;
+    top: 50%;
+    transform: translate(0, -50%);
+    color: #1C2429;
+}
+
+.skill_name{
+    width: 12%;
+    min-width: 80px;
+    margin-left: 20px;
+    height: 100%;
+}
+
+.skill_name div{
+    position: relative;
+    top: 50%;
+    transform: translate(0, -50%);
+    color: gainsboro;
+    font-weight: bolder;
+}
+
+.skill_mod{
+    width: 15px;
+    margin-right: 20px;
+    height: 100%;
+
+}
+
+.skill_mod div{
+    position: relative;
+    top: 50%;
+    transform: translate(0, -50%);
+    color: rgb(148, 148, 148);
+}
+
+.skill_level_chart{
+    height: 100%;
+}
+
+.skill_checkpoint{
+    position: relative;
+    float: left;
+    width: 12px;
+    height: 20px;
+    border: solid 1px rgb(148, 148, 148);
+    border-radius: 20%;
+    top: 50%;
+    transform: translate(0, -50%);
+    background-color: none;
+    margin-right: 3px;
+}
+
+#perk_info_box{
+    display: none;
+    width: 300px;
+    height: 400px;
+    background-color: black;
+    color: gainsboro;
+    z-index: 1;
+    padding: 0px 20px;
+    border: solid 1px rgb(148, 148, 148);
+}
+
+#perk_info_box h1{
+    color: #E8903B;
+}
+
+#perk_info_box p{
+    color: rgb(34, 162, 179);
+    font-weight: bold;
+}
+
+#perk_info_box span{
+    color: gainsboro;
+    font-weight: normal;
+}
+
+.skill_mark{
+    position: relative;
+    float: left;
+    width: 3px;
+    height: 20px;
+    border: solid 1px rgb(148, 148, 148);
+    border-radius: 20%;
+    top: 50%;
+    transform: translate(0, -50%);
+    background-color: none;
+    margin-right: 3px;
+}
+
+.expertise{
+    float: right;
+    height: 40px;
+    width: 100px;
+    margin: 5px 0px;
+    margin-right: 20px;
+    background-color: gainsboro;
+    color: #1C2429;
+    text-align: center;
+}
+
+.expertise div{
+    top: -50%;
+    transform: translate(0, 50%);
+}
+
+#update_actions{
+    height: 25px;
+    width: 70px;
+    margin-left: 25px;
+    margin-top: 25px;
+    background-color: #823b8a;
+    color: gainsboro;
+}
+
+.action_filter{
+    overflow: hidden;
+    position: relative;
+    float: right;
+    margin-right: 25px;
+    margin-top: 25px;
+}
+
+.action_category{
+    display: table;
+    width: 100%;
+    padding: 0 20px;
+    margin-bottom:20px;
+}
+
+.action_table_title{
+    border: none;
+    font-weight: bold;
+    font-size: 14pt;
+    color: #E8903B;
+}
+
+.inv_filter{
+    overflow: hidden;
+    position: relative;
+    float: right;
+    margin-right: 25px;
+    margin-top: 25px;
+}
+
+.inv_category{
+    display: table;
+    width: 100%;
+    padding: 0 20px;
+    margin-bottom:20px;
+}
+
+.inv_table_title{
+    border: none;
+    font-weight: bold;
+    font-size: 12pt;
+    color: #E8903B;
+}
