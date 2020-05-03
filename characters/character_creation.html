@@ -5,8 +5,9 @@
   <meta charset="UTF-8">
   <title>Kaleido RPG</title>
   <!--<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'> -->
-  <link rel='local stylesheet' href='styles/sheeteditstyle.css'>
+  <link rel='local stylesheet' href='styles/charcreationstyle.css'>
   <script src="scripts/character_creation.js"></script>
+  <script src="scripts/character_creator.js"></script>
 
   <link rel='local stylesheet' href="../main_menu.css">
 </head>
@@ -50,233 +51,70 @@
     <!-- Character Menu -->
     <div class="character_menu">
         <div class="char_menu_tab">
-            <button class="char_menu_button" id="defaultOpen_char" onclick="charPanelSwitch(event, 'main_panel')">Main</button>
-            <button class="char_menu_button" onclick="charPanelSwitch(event, 'actions_panel')">Actions</button>
-            <button class="char_menu_button" onclick="charPanelSwitch(event, 'skills_panel')">Skills</button>
+            <button class="char_menu_button" id="defaultOpen_char" onclick="charPanelSwitch(event, 'main_panel')">RACE</button>
+            <button class="char_menu_button" onclick="charPanelSwitch(event, 'actions_panel')">INFO</button>
+            <button class="char_menu_button" onclick="charPanelSwitch(event, 'skills_panel')">SKILLS</button>
+            <button class="char_menu_button" onclick="charPanelSwitch(event, 'skills_panel')">ACTIONS</button>
+            <button class="char_menu_button" onclick="charPanelSwitch(event, 'skills_panel')">INVENTORY</button>
         </div>
     </div>
 
-    <!-- Title -->
+    <!-- RACE -->
     <div class="char_content" id="main_panel">
 
         <!-- Background Info 1-->	
-        <div class="row">
-            <div class="char_icon">
-                <img src="data/images/test_icon.jpg">
-            </div>
-            <div class="character_name">
-                <input type="texT" id="char_name"></input>
-                <label for="char_name">NAME</label>
-            </div>
-            <div class="character_info_row">
-                <div class="char_info">
-                    <input id="gender"></input>
-                    <label for="gender">GENDER</label>
-                </div>
-        
-                <div class="char_info">
-                    <input id="background"></input>
-                    <label for="background">BACKGROUND</label>
-                </div>
-                <div class="char_info">
-                    <input id="race"></input>
-                    <label for="race">RACE</label>
-                </div>
-        
-                <div class="char_info">
-                    <input id="alignment"></input>
-                    <label for="alignment">ALIGNMENT</label>
-                </div>
-            </div>
-            <div class="health_panel">
-                <input class="HP_panel" id="current_HP"></input>
-                /
-                <input class="HP_panel" id="base_HP"></input><br>
-                <label for="base_HP">HP</label>
-            </div>
+        <div class="race_menu">
+            <div class="race_item" onmousedown="switchRacePanel('human')">HUMAN</div>
+            <div class="race_item" onmousedown="switchRacePanel('cyborg')">CYBORG</div>
+            <div class="race_item" onmousedown="switchRacePanel('quexi')">QUEXI</div>
+            <div class="race_item" onmousedown="switchRacePanel('aerhza')">AERHZA</div>
+            <div class="race_item" onmousedown="switchRacePanel('muhmin')">MUHMIN</div>
+            <div class="race_item" onmousedown="switchRacePanel('kozaid')">KOZ'AID</div>
+            <div class="race_item" onmousedown="switchRacePanel('veith')">VEITH</div>
+            <div class="race_item" onmousedown="switchRacePanel('tstsen')">TS'TSEN</div>
         </div>
 
         <!-- Ability Scores -->
-        <div class="row">
-            <div class="attr_item">
-                <label for="str">STR</label><br>
-                <input id="str" onchange="updateAttrMod(this.value, 'str_mod')"></input><br>
-                <div class="attr_mod" id="str_mod"></div>
+        <div class="race_panel" id="human">
+            <div class="race_panel_title">HUMAN</div>
+            <div class="race_info_row">
+                <div class="race_info_type">Size</div>
+                <div class="race_info_content">
+                    Males:  1.70 - 1.95m<br>
+                    Females:  1.55 - 1.8m
+                </div>
             </div>
-
-            <div class="attr_item">
-                <label for="dex">DEX</label><br>
-                <input id="dex" onchange="updateAttrMod(this.value, 'dex_mod')"></input><br>
-                <div class="attr_mod" id="dex_mod"></div>
-            </div>
-
-            <div class="attr_item">
-                <label for="con">CON</label><br>
-                <input id="con" onchange="updateAttrMod(this.value, 'con_mod')"></input><br>
-                <div class="attr_mod" id="con_mod"></div>
-            </div>
-
-            <div class="attr_item">
-                <label for="int">INT</label><br>
-                <input id="int" onchange="updateAttrMod(this.value, 'int_mod')"></input><br>
-                <div class="attr_mod" id="int_mod"></div>
-            </div>
-
-            <div class="attr_item">
-                <label for="wis">WIS</label><br>
-                <input id="wis" onchange="updateAttrMod(this.value, 'wis_mod')"></input><br>
-                <div class="attr_mod" id="wis_mod"></div>
-            </div>
-
-            <div class="attr_item">
-                <label for="cha">CHA</label><br>
-                <input id="cha" onchange="updateAttrMod(this.value, 'cha_mod')"></input><br>
-                <div class="attr_mod" id="cha_mod"></div>
-            </div>
-            <div class="passive_item">
-                <label for="ac">Armor<br>Class</label><br>
-                <input id="ac"></input><br>
-            </div>
-            <div class="passive_item">
-                <label for="pp">Passive<br>Perception</label><br>
-                <input class="passive_value" id="pp"></input><br>
-            </div>
-            <div class="character_body_col">
-                <img src="data/images/character_body_generic.png">
+            <div class="race_info_row">
+                <div class="race_info_type"></div>
+                <div class="race_info_content">
+                    Males:  1.7 - 1.9 m<br>
+                    Females
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="body_panel_col">
-                <div class="body_panel_tab">
-                    <button class="body_panel_button" id="defaultOpen_body" onclick="bodyPanelSwitch(event, 'gear_panel')">GEAR</button>
-                    <button class="body_panel_button" onclick="bodyPanelSwitch(event, 'stimplant_panel')">STIMS</button>
-                    <button class="body_panel_button" onclick="bodyPanelSwitch(event, 'status_panel')">STATUS</button>
-                </div>
-                <div class="body_panel_content" id="gear_panel">
-                    <span>HEAD</span>
-                    <div class="equipped_item">
-                        <img src="data/images/helmet_test.jpg">
-                        <input class="item_name" id="eq_helmet"></input>
-                    </div>
-                    <span>BODY</span>
-                    <div class="equipped_item">
-                        <img src="data/images/armor_test.jpg">
-                        <input class="item_name" id="eq_armor"></input>
-                    </div>
-                    <span>FEET</span>
-                    <div class="equipped_item">
-                        <img src="data/images/boot_test.jpg">
-                        <input class="item_name" id="eq_boots"></input>
-                    </div>
-                    <span>HANDS</span>
-                    <div class="equipped_item">
-                        <img src="data/images/gloves_test.jpg">
-                        <input class="item_name" id="eq_gloves"></input>
-                    </div>
-                    <span>BLADE</span>
-                    <div class="equipped_item">
-                        <img src="data/images/blade_test.jpg">
-                        <input class="item_name" id="eq_blade"></input>
-                    </div>
-                    <span>GUN 1</span>
-                    <div class="equipped_item">
-                        <img src="data/images/shotgun_test.jpg">
-                        <input class="item_name" id="eq_gun1"></input>
-                    </div>
-                    <span>GUN 2</span>
-                    <div class="equipped_item">
-                        <img src="data/images/pistol_test.jpg">
-                        <input class="item_name" id="eq_gun2"></input>
-                    </div>
-                    <span>MISC.</span>
-                    <div class="equipped_item">
-                        <img src="data/images/seed_kit_test.jpg">
-                        <input class="item_name" id="eq_misc"></input>
-                    </div>
-                </div>
-                <div class="body_panel_content" id="stimplant_panel">
-                    <div class="stim_item">
-                        <img src="data/images/psyche_icon.png">
-                        <div class="item_name" id="psyche_stim"></div>
-                    </div>
-                    <div class="stim_item">
-                        <img src="data/images/energy_icon.jpg">
-                        <div class="item_name" id="energy_stim"></div>
-                    </div>
-                    <div class="stim_item">
-                        <img src="data/images/fluid_icon.jpg">
-                        <div class="item_name" id="fluid_stim"></div>
-                    </div>
-                    <div class="stim_item">
-                        <img src="data/images/wave_icon.png">
-                        <div class="item_name" id="wave_stim"></div>
-                    </div>
-                    <div class="stim_item">
-                        <img src="data/images/grav_icon.jpg">
-                        <div class="item_name" id="grav_stim"></div>
-                    </div>
-                </div>
-                <div class="body_panel_content" id="status_panel">
-                    <div class="status_item">
-                        <img src="#">
-                        <div class="item_name" id="eq_helmet"></div>
-                    </div>
-                    <div class="status_item">
-                        <img src="#">
-                        <div class="item_name" id="eq_helmet"></div>
-                    </div>
-                    <div class="status_item">
-                        <img src="#">
-                        <div class="item_name" id="eq_helmet"></div>
-                    </div>
-                    <div class="status_item">
-                        <img src="#">
-                        <div class="item_name" id="eq_helmet"></div>
-                    </div>
-                    <div class="status_item">
-                        <img src="#">
-                        <div class="item_name" id="eq_helmet"></div>
-                    </div>
-                </div>
-            </div>
+        <div class="race_panel" id="cyborg">
+            <div class="race_panel_title">CYBORG</div>
+        </div>
+        <div class="race_panel" id="quexi">
+            <div class="race_panel_title">QUEXI</div>
+        </div>
+        <div class="race_panel" id="aerhza">
+            <div class="race_panel_title">AERHZA</div>
+        </div>
+        <div class="race_panel" id="muhmin">
+            <div class="race_panel_title">MUHMIN</div>
+        </div>
+        <div class="race_panel" id="kozaid">
+            <div class="race_panel_title">KOZ'AID</div>
+        </div>
+        <div class="race_panel" id="veith">
+            <div class="race_panel_title">VEITH</div>
+        </div>
+        <div class="race_panel" id="tstsen">
+            <div class="race_panel_title">TS'TSEN</div>
         </div>
     </div>
     <div class="char_content" id="actions_panel">
-        <div class="row">
-            <div class="char_icon">
-                <img src="data/images/test_icon.jpg">
-            </div>
-            <div class="character_name">
-                <div id="char_name"></div>
-                <span>NAME</span>
-            </div>
-            <div class="character_info_row">
-                <div class="char_info">
-                    <div id="gender"></div>
-                    <span>GENDER</span>
-                </div>
-        
-                <div class="char_info">
-                    <div id="background"></div>
-                    <span>BACKGROUND</span>
-                </div>
-                <div class="char_info">
-                    <div id="race"></div>
-                    <span>RACE</span>
-                </div>
-        
-                <div class="char_info">
-                    <div id="alignment"></div>
-                    <span>ALIGNMENT</span>
-                </div>
-            </div>
-            <div class="health_panel">
-                <div class="HP_panel" id="current_HP"></div>
-                /
-                <div class="HP_panel" id="base_HP"></div><br>
-                <span>HP</span>
-            </div>
-        </div>
     </div>
     <div class="char_content" id="skills_panel">
         <div class="panel_title">SKILLS</div>
