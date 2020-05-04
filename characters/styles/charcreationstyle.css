@@ -108,6 +108,29 @@ input::-webkit-inner-spin-button {
     margin-top: 15px;
 }
 
+.race_info_row{
+    display: block;
+    width: 100%;
+    font-size: 14pt;
+    padding: 20px;
+    
+}
+
+.race_info_type{
+    float: left;
+    width: 200px;
+    padding-left: 20px;
+    color: rgb(34,162,179);
+    margin-top: 20px;
+}
+
+.race_info_content{
+    float: left;
+    width: 420px;
+    font-weight: normal;
+    margin-top: 20px;
+}
+
 .panel_title{
     position: relative;
     float:left;
