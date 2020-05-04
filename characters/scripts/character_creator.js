@@ -4,6 +4,6 @@ function switchRacePanel(race){
         racePans[i].style.height = "0px";
     }
 
-    document.getElementById(race).style.height = "680px";
+    document.getElementById(race).style.height = "700px";
 
 }
