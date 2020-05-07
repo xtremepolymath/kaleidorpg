@@ -16,19 +16,58 @@
         <cha>14</cha>
         <ac>18</ac>
         <pp>10</pp>
-        <eq_helmet gear_type="helmet">Alcohol Intake Module</eq_helmet>
-        <eq_armor gear_type="armor">20% Titanium Armor</eq_armor>
-        <eq_boots gear_type="boots">Strut Boots</eq_boots>
-        <eq_gloves gear_type="gloves">Pickpocketing Grabbers</eq_gloves>
-        <eq_blade gear_type="blade">Energy Baton</eq_blade>
-        <eq_gun1 gear_type="gun">Human Destroyer</eq_gun1>
-        <eq_gun2 gear_type="gun"></eq_gun2>
-        <eq_misc gear_type="misc">Cigar</eq_misc>
-        <psyche_stim>None</psyche_stim>
+        <eq_helmet gear_type="helmet">None</eq_helmet>
+        <eq_armor gear_type="armor">Brown Baby Cloak</eq_armor>
+        <eq_boots gear_type="boots">None</eq_boots>
+        <eq_gloves gear_type="gloves">None</eq_gloves>
+        <eq_mainhand gear_type="gun">None</eq_mainhand>
+        <eq_offhand gear_type="gun">None</eq_offhand>
+        <eq_misc gear_type="misc">Ship Lever Knob</eq_misc>
+        <psyche_stim>Jedi Mind Tricks</psyche_stim>
         <energy_stim>None</energy_stim>
         <fluid_stim>None</fluid_stim>
         <wave_stim>None</wave_stim>
-        <grav_stim>None</grav_stim>
+        <grav_stim>Force Sensitivity</grav_stim>
+        <armor_level>0</armor_level>
+        <armor_expertise>None</armor_expertise>
+        <assault_weapon_level>0</assault_weapon_level>
+        <assault_weapon_expertise>None</assault_weapon_expertise>
+        <astrobiology_level>0</astrobiology_level>
+        <astrobiology_expertise>None</astrobiology_expertise>
+        <athletics_level>0</athletics_level>
+        <athletics_expertise>None</athletics_expertise>
+        <blade_level>0</blade_level>
+        <blade_expertise>None</blade_expertise>
+        <blunt_level>0</blunt_level>
+        <blunt_expertise>None</blunt_expertise>
+        <energy_level>0</energy_level>
+        <energy_expertise>None</energy_expertise>
+        <espionage_level>0</espionage_level>
+        <espionage_expertise>None</espionage_expertise>
+        <explosives_level>0</explosives_level>
+        <explosives_expertise>None</explosives_expertise>
+        <fluids_level>0</fluids_level>
+        <fluids_expertise>None</fluids_expertise>
+        <gravity_level>0</gravity_level>
+        <gravity_expertise>None</gravity_expertise>
+        <long_range_level>0</long_range_level>
+        <long_range_expertise>None</long_range_expertise>
+        <negotiation_level>0</negotiation_level>
+        <negotiation_expertise>None</negotiation_expertise>
+        <observation_level>0</observation_level>
+        <observation_expertise>None</observation_expertise>
+        <pistol_level>0</pistol_level>
+        <pistol_expertise>None</pistol_expertise>
+        <psyche_level>0</psyche_level>
+        <psyche_expertise>None</psyche_expertise>
+        <tech_level>0</tech_level>
+        <tech_expertise>None</tech_expertise>
+        <unarmed_level>0</unarmed_level>
+        <unarmed_expertise>None</unarmed_expertise>
+        <vehicles_level>0</vehicles_level>
+        <vehicles_expertise>None</vehicles_expertise>
+        <wave_level>0</wave_level>
+        <wave_expertise>None</wave_expertise>
     </character>
     <character id="001">
         <char_name>Baby Yoda</char_name>
@@ -46,18 +85,57 @@
         <cha>20</cha>
         <ac>10</ac>
         <pp>16</pp>
-        <eq_helmet gear_type="helmet"></eq_helmet>
+        <eq_helmet gear_type="helmet">None</eq_helmet>
         <eq_armor gear_type="armor">Brown Baby Cloak</eq_armor>
-        <eq_boots gear_type="boots"></eq_boots>
-        <eq_gloves gear_type="gloves"></eq_gloves>
-        <eq_blade gear_type="blade">Colonist Machete</eq_blade>
-        <eq_gun1 gear_type="gun"></eq_gun1>
-        <eq_gun2 gear_type="gun"></eq_gun2>
-        <eq_misc gear_type="misc">Ship Level Knob</eq_misc>
+        <eq_boots gear_type="boots">None</eq_boots>
+        <eq_gloves gear_type="gloves">None</eq_gloves>
+        <eq_mainhand gear_type="gun">None</eq_mainhand>
+        <eq_offhand gear_type="gun">None</eq_offhand>
+        <eq_misc gear_type="misc">Ship Lever Knob</eq_misc>
         <psyche_stim>Jedi Mind Tricks</psyche_stim>
-        <energy_stim></energy_stim>
-        <fluid_stim></fluid_stim>
-        <wave_stim></wave_stim>
+        <energy_stim>None</energy_stim>
+        <fluid_stim>None</fluid_stim>
+        <wave_stim>None</wave_stim>
         <grav_stim>Force Sensitivity</grav_stim>
+        <armor_level>0</armor_level>
+        <armor_expertise>Light Armor</armor_expertise>
+        <assault_weapon_level>0</assault_weapon_level>
+        <assault_weapon_expertise>Bullet Hell</assault_weapon_expertise>
+        <astrobiology_level>5</astrobiology_level>
+        <astrobiology_expertise>Botanist</astrobiology_expertise>
+        <athletics_level>0</athletics_level>
+        <athletics_expertise>Sprinter</athletics_expertise>
+        <blade_level>1</blade_level>
+        <blade_expertise>Fencer</blade_expertise>
+        <blunt_level>0</blunt_level>
+        <blunt_expertise>Bruiser</blunt_expertise>
+        <energy_level>5</energy_level>
+        <energy_expertise>Fire</energy_expertise>
+        <espionage_level>0</espionage_level>
+        <espionage_expertise>Operative</espionage_expertise>
+        <explosives_level>0</explosives_level>
+        <explosives_expertise>Pyromaniac</explosives_expertise>
+        <fluids_level>0</fluids_level>
+        <fluids_expertise>Flood</fluids_expertise>
+        <gravity_level>25</gravity_level>
+        <gravity_expertise>Singularity</gravity_expertise>
+        <long_range_level>0</long_range_level>
+        <long_range_expertise>Sniper</long_range_expertise>
+        <negotiation_level>0</negotiation_level>
+        <negotiation_expertise>Hustler</negotiation_expertise>
+        <observation_level>0</observation_level>
+        <observation_expertise>Insight</observation_expertise>
+        <pistol_level>0</pistol_level>
+        <pistol_expertise>Duelist</pistol_expertise>
+        <psyche_level>10</psyche_level>
+        <psyche_expertise>Manipulator</psyche_expertise>
+        <tech_level>0</tech_level>
+        <tech_expertise>Hacker</tech_expertise>
+        <unarmed_level>0</unarmed_level>
+        <unarmed_expertise>Brawler</unarmed_expertise>
+        <vehicles_level>0</vehicles_level>
+        <vehicles_expertise>Driver</vehicles_expertise>
+        <wave_level>0</wave_level>
+        <wave_expertise>Light</wave_expertise>
     </character>
 </saved_characters>
