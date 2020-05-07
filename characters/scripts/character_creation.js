@@ -33,9 +33,6 @@ function loadSheetInfo(savedXml, char_ID){
         }
     }
 
-    //Test resulting XML list
-    
-
     //Insert XML values into appropriate HMTL spots
     for(var i = 0; i < xmlToLoad.length; i++){
         a = document.getElementById(xmlToLoad[i].nodeName);
@@ -147,58 +144,10 @@ function outputSave(outputData){
 }
 
 //Automated calculations
-function updateAttrMod(attVal, mod){
-
-    if(attVal == 2|| attVal == 3){
-        document.getElementById(mod).innerHTML = -4;
-    }
-    else if(attVal == 4|| attVal == 5){
-        document.getElementById(mod).innerHTML = -3;
-    }
-    else if(attVal == 6|| attVal == 7){
-        document.getElementById(mod).innerHTML = -2;
-    }
-    else if(attVal == 8|| attVal == 9){
-        document.getElementById(mod).innerHTML = -1;
-    }
-    else if(attVal == 10|| attVal == 11){
-        document.getElementById(mod).innerHTML = -0;
-    }
-    else if(attVal == 12|| attVal == 13){
-        document.getElementById(mod).innerHTML = 1;
-    }
-    else if(attVal == 14|| attVal == 15){
-        document.getElementById(mod).innerHTML = 2;
-    }
-    else if(attVal == 16|| attVal == 17){
-        document.getElementById(mod).innerHTML = 3;
-    }
-    else if(attVal == 18|| attVal == 19){
-        document.getElementById(mod).innerHTML = 4;
-    }
-    else if(attVal == 20|| attVal == 21){
-        document.getElementById(mod).innerHTML = 5;
-    }
-    else if(attVal == 22|| attVal == 23){
-        document.getElementById(mod).innerHTML = 6;
-    }
-    else if(attVal == 24|| attVal == 25){
-        document.getElementById(mod).innerHTML = 7;
-    }
-    else if(attVal == 26|| attVal == 27){
-        document.getElementById(mod).innerHTML = 8;
-    }
-    else if(attVal == 28|| attVal == 29){
-        document.getElementById(mod).innerHTML = 9;
-    }
-    else if(attVal == 30){
-        document.getElementById(mod).innerHTML = 10;
-    }
-}
 
 function updateAttrModView(){
     atts = document.getElementsByClassName("attr_value");
-
+    
     for(var i = 0; i < atts.length; i++){
         attVal = atts[i].innerHTML;
 
@@ -396,111 +345,24 @@ function hidePerkInfo(){
     document.getElementById("perk_info_box").style.display = "none";
 }
 
+function filterActions(event, table){
+    document.getElementById("current_filter").innerHTML = event.innerHTML;
+
+    var cats = document.getElementsByClassName('action_category');
+    
+    for(var i=0;i<cats.length;i++){
+        if(table == "all"){
+            cats[i].style.display = "table";
+        }
+        else{
+            cats[i].style.display = "none";
+            document.getElementById(table).style.display = "table";
+        }
+    }
+}
+
 
 //Automated calculations
-function updateAttrMod(attVal, mod){
-
-    if(attVal == 2|| attVal == 3){
-        document.getElementById(mod).innerHTML = -4;
-    }
-    else if(attVal == 4|| attVal == 5){
-        document.getElementById(mod).innerHTML = -3;
-    }
-    else if(attVal == 6|| attVal == 7){
-        document.getElementById(mod).innerHTML = -2;
-    }
-    else if(attVal == 8|| attVal == 9){
-        document.getElementById(mod).innerHTML = -1;
-    }
-    else if(attVal == 10|| attVal == 11){
-        document.getElementById(mod).innerHTML = -0;
-    }
-    else if(attVal == 12|| attVal == 13){
-        document.getElementById(mod).innerHTML = 1;
-    }
-    else if(attVal == 14|| attVal == 15){
-        document.getElementById(mod).innerHTML = 2;
-    }
-    else if(attVal == 16|| attVal == 17){
-        document.getElementById(mod).innerHTML = 3;
-    }
-    else if(attVal == 18|| attVal == 19){
-        document.getElementById(mod).innerHTML = 4;
-    }
-    else if(attVal == 20|| attVal == 21){
-        document.getElementById(mod).innerHTML = 5;
-    }
-    else if(attVal == 22|| attVal == 23){
-        document.getElementById(mod).innerHTML = 6;
-    }
-    else if(attVal == 24|| attVal == 25){
-        document.getElementById(mod).innerHTML = 7;
-    }
-    else if(attVal == 26|| attVal == 27){
-        document.getElementById(mod).innerHTML = 8;
-    }
-    else if(attVal == 28|| attVal == 29){
-        document.getElementById(mod).innerHTML = 9;
-    }
-    else if(attVal == 30){
-        document.getElementById(mod).innerHTML = 10;
-    }
-}
-
-function updateAttrModView(){
-    atts = document.getElementsByClassName("attr_value");
-
-    for(var i = 0; i < atts.length; i++){
-        attVal = atts[i].innerHTML;
-
-        if(attVal == 2|| attVal == 3){
-            document.getElementsByClassName("attr_mod")[i].innerHTML = -4;
-        }
-        else if(attVal == 4|| attVal == 5){
-            document.getElementsByClassName("attr_mod")[i].innerHTML = -3;
-        }
-        else if(attVal == 6|| attVal == 7){
-            document.getElementsByClassName("attr_mod")[i].innerHTML = -2;
-        }
-        else if(attVal == 8|| attVal == 9){
-            document.getElementsByClassName("attr_mod")[i].innerHTML = -1;
-        }
-        else if(attVal == 10|| attVal == 11){
-            document.getElementsByClassName("attr_mod")[i].innerHTML = -0;
-        }
-        else if(attVal == 12|| attVal == 13){
-            document.getElementsByClassName("attr_mod")[i].innerHTML = 1;
-        }
-        else if(attVal == 14|| attVal == 15){
-            document.getElementsByClassName("attr_mod")[i].innerHTML = 2;
-        }
-        else if(attVal == 16|| attVal == 17){
-            document.getElementsByClassName("attr_mod")[i].innerHTML = 3;
-        }
-        else if(attVal == 18|| attVal == 19){
-            document.getElementsByClassName("attr_mod")[i].innerHTML = 4;
-        }
-        else if(attVal == 20|| attVal == 21){
-            document.getElementsByClassName("attr_mod")[i].innerHTML = 5;
-        }
-        else if(attVal == 22|| attVal == 23){
-            document.getElementsByClassName("attr_mod")[i].innerHTML = 6;
-        }
-        else if(attVal == 24|| attVal == 25){
-            document.getElementsByClassName("attr_mod")[i].innerHTML = 7;
-        }
-        else if(attVal == 26|| attVal == 27){
-            document.getElementsByClassName("attr_mod")[i].innerHTML = 8;
-        }
-        else if(attVal == 28|| attVal == 29){
-            document.getElementsByClassName("attr_mod")[i].innerHTML = 9;
-        }
-        else if(attVal == 30){
-            document.getElementsByClassName("attr_mod")[i].innerHTML = 10;
-        }
-    }
-}
-
 function setDefaultActions(){
     //Major Actions
     majorActions.push(newAction("Melee Attack", "Attack with a currently equipped melee weapon"));
