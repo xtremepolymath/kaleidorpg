@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<skill_list>
+    <skill>
+        <name>Armor</name>
+        <main_atr>CON</main_atr>
+        <description>Boosting defense and adding utility to equipped armor.</description>
+        <expertise_1>
+            <ex_name>Light Armor</ex_name>
+            <ex_atr>DEX</ex_atr>
+            <ex_focus>Movement and evasion</ex_focus>
+        </expertise_1>
+        <expertise_2>
+            <ex_name>Heavy Armor</ex_name>
+            <ex_atr>STR</ex_atr>
+            <ex_focus>Increasing AC</ex_focus>
+        </expertise_2>
+        <perk_list>
+            <perk>
+                <pk_name>Hunker</pk_name>
+                <lvl_req>1</lvl_req>
+                <pk_desc>Base skill mod is now 0. You can now perform the Hunker action.</pk_desc>
+                <ex_req></ex_req>
+                <action>Hunker</action>
+                <action_desc>Gain +2 AC until next turn.</action_desc>
+            </perk>
+            <perk>
+                <pk_name>Geared Up</pk_name>
+                <lvl_req>5</lvl_req>
+                <pk_desc>Gain +1 AC when wearing full set of armor.</pk_desc>
+                <ex_req></ex_req>
+                <action></action>
+                <action_desc></action_desc>
+            </perk>
+            <perk>
+                <pk_name>Endurance Training</pk_name>
+                <lvl_req>10</lvl_req>
+                <pk_desc>Able to carry extra 10kg.</pk_desc>
+                <ex_req></ex_req>
+                <action></action>
+                <action_desc></action_desc>
+            </perk>
+            <perk>
+                <pk_name>Manufacturer's Reccomendation</pk_name>
+                <lvl_req>15</lvl_req>
+                <pk_desc>Gain +1 AC when wearing matching set of armor.</pk_desc>
+                <ex_req></ex_req>
+                <action></action>
+                <action_desc></action_desc>
+            </perk>
+            <perk>
+                <pk_name>Protective Coating</pk_name>
+                <lvl_req>20</lvl_req>
+                <pk_desc>+1 to all saving throws involving or following physical damage. For example, damage amounts or status effects.</pk_desc>
+                <ex_req></ex_req>
+                <action></action>
+                <action_desc></action_desc>
+            </perk>
+            <perk>
+                <pk_name>Light Armor Specialist</pk_name>
+                <lvl_req>25</lvl_req>
+                <pk_desc>Also add DEX modifier to the skill modifier.</pk_desc>
+                <ex_req>Light Armor</ex_req>
+                <action></action>
+                <action_desc></action_desc>
+            </perk>
+            <perk>
+                <pk_name>Heavy Armor Specialist</pk_name>
+                <lvl_req>25</lvl_req>
+                <pk_desc>Also add STR modifier to the skill modifier.</pk_desc>
+                <ex_req>Heavy Armor</ex_req>
+                <action></action>
+                <action_desc></action_desc>
+            </perk>
+            <perk>
+                <pk_name>Lightweight Materials</pk_name>
+                <lvl_req>30</lvl_req>
+                <pk_desc>Equipped light armor no longer weighs anything.</pk_desc>
+                <ex_req>Light Armor</ex_req>
+                <action></action>
+                <action_desc></action_desc>
+            </perk>
+            <perk>
+                <pk_name>Ergonomic Joints</pk_name>
+                <lvl_req>30</lvl_req>
+                <pk_desc>Heavy armor no longer affects movement or athletic checks</pk_desc>
+                <ex_req>Heavy Armor</ex_req>
+                <action></action>
+                <action_desc></action_desc>
+            </perk>
+        </perk_list>
+    </skill>
+</skill_list>
