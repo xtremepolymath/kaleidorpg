@@ -8,11 +8,43 @@
             <ex_name>Light Armor</ex_name>
             <ex_atr>DEX</ex_atr>
             <ex_focus>Movement and evasion</ex_focus>
+            <ex_1_perks>
+                <perk>
+                    <pk_name>Light Armor Expertise</pk_name>
+                    <lvl_req>25</lvl_req>
+                    <pk_desc>Also add DEX attribute modifier to your skill modifier.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+                <perk>
+                    <pk_name>Lightweight Materials</pk_name>
+                    <lvl_req>30</lvl_req>
+                    <pk_desc>Equipped light armor no longer weighs anything.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+            </ex_1_perks>
         </expertise_1>
         <expertise_2>
             <ex_name>Heavy Armor</ex_name>
             <ex_atr>STR</ex_atr>
             <ex_focus>Increasing AC</ex_focus>
+            <ex_2_perks>
+                <perk>
+                    <pk_name>Heavy Armor Expertise</pk_name>
+                    <lvl_req>25</lvl_req>
+                    <pk_desc>Also add STR attribute modifier to your skill modifier.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+                <perk>
+                    <pk_name>Ergonomic Joints</pk_name>
+                    <lvl_req>30</lvl_req>
+                    <pk_desc>Heavy armor no longer affects movement or athletic checks</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+            </ex_2_perks>
         </expertise_2>
         <perk_list>
             <perk>
@@ -50,27 +82,6 @@
                 <action_desc></action_desc>
                 <action_type></action_type>
             </perk>
-            <perk>
-                <pk_name>Expertise</pk_name>
-                <lvl_req>25</lvl_req>
-                <pk_desc>Choose an expertise and add the appropriate attribute modifier to your skill modifier.</pk_desc>
-                <action_desc></action_desc>
-                <action_type></action_type>
-            </perk>
-            <perk>
-                <pk_name>Lightweight Materials</pk_name>
-                <lvl_req>30</lvl_req>
-                <pk_desc>Equipped light armor no longer weighs anything.</pk_desc>
-                <action_desc></action_desc>
-                <action_type></action_type>
-            </perk>
-            <perk>
-                <pk_name>Ergonomic Joints</pk_name>
-                <lvl_req>30</lvl_req>
-                <pk_desc>Heavy armor no longer affects movement or athletic checks</pk_desc>
-                <action_desc></action_desc>
-                <action_type></action_type>
-            </perk>
         </perk_list>
     </skill>
     <skill>
@@ -81,11 +92,43 @@
             <ex_name>Bullet Hell</ex_name>
             <ex_atr>DEX</ex_atr>
             <ex_focus>More attacks but still hindered by spray roll</ex_focus>
+            <ex_1_perks>
+                <perk>
+                    <pk_name>Bullet Hell Expertise</pk_name>
+                    <lvl_req>25</lvl_req>
+                    <pk_desc>Also add DEX attribute modifier to your skill modifier.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+                <perk>
+                    <pk_name>Trigger Happy</pk_name>
+                    <lvl_req>30</lvl_req>
+                    <pk_desc>Attacks per turn increases by 2 when using assault weapons.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+            </ex_1_perks>
         </expertise_1>
         <expertise_2>
             <ex_name>Special Ops</ex_name>
             <ex_atr>WIS</ex_atr>
             <ex_focus>Improving spray rolls</ex_focus>
+            <ex_2_perks>
+                <perk>
+                    <pk_name>Special Ops Expertise</pk_name>
+                    <lvl_req>25</lvl_req>
+                    <pk_desc>Also add WIS attribute modifier to your skill modifier.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+                <perk>
+                    <pk_name>Grouping</pk_name>
+                    <lvl_req>30</lvl_req>
+                    <pk_desc>After rolling spray dice, you may choose to keep same result for any following rolls or roll again.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+            </ex_2_perks>
         </expertise_2>
         <perk_list>
             <perk>
@@ -123,27 +166,6 @@
                 <action_desc></action_desc>
                 <action_type></action_type>
             </perk>
-            <perk>
-                <pk_name>Expertise</pk_name>
-                <lvl_req>25</lvl_req>
-                <pk_desc>Choose an expertise and add the appropriate attribute modifier to your skill modifier.</pk_desc>
-                <action_desc></action_desc>
-                <action_type></action_type>
-            </perk>
-            <perk>
-                <pk_name>Trigger Happy</pk_name>
-                <lvl_req>30</lvl_req>
-                <pk_desc>Attacks per turn increases by 2 when using assault weapons.</pk_desc>
-                <action_desc></action_desc>
-                <action_type></action_type>
-            </perk>
-            <perk>
-                <pk_name>Grouping</pk_name>
-                <lvl_req>30</lvl_req>
-                <pk_desc>After rolling spray dice, you may choose to keep same result for any following rolls or roll again.</pk_desc>
-                <action_desc></action_desc>
-                <action_type></action_type>
-            </perk>
         </perk_list>
     </skill>
     <skill>
@@ -154,11 +176,43 @@
             <ex_name>Botanist</ex_name>
             <ex_atr>CON</ex_atr>
             <ex_focus>Growing plants and extracting compounds from them.</ex_focus>
+            <ex_1_perks>
+                <perk>
+                    <pk_name>Botanist Expertise</pk_name>
+                    <lvl_req>25</lvl_req>
+                    <pk_desc>Also add CON attribute modifier to your skill modifier.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+                <perk>
+                    <pk_name>Snaring Vines</pk_name>
+                    <lvl_req>30</lvl_req>
+                    <pk_desc>Gain access to the Snaring Vines action.</pk_desc>
+                    <action_desc>At your current location, you lay down snaring vine starters. The next character (hostile or friendly) to step on that location will be snared by vines. Each turn, they are unable to move until they succeed a Str saving throw of 10 plus your skill mod.</action_desc>
+                    <action_type>Major</action_type>
+                </perk>
+            </ex_1_perks>
         </expertise_1>
         <expertise_2>
             <ex_name>Zoologist</ex_name>
             <ex_atr>CHA</ex_atr>
             <ex_focus>Interactions with alien creatures.</ex_focus>
+            <ex_2_perks>
+                <perk>
+                    <pk_name>Zoologist Expertise</pk_name>
+                    <lvl_req>25</lvl_req>
+                    <pk_desc>Also add CHA attribute modifier to your skill modifier.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+                <perk>
+                    <pk_name>Companion Creature</pk_name>
+                    <lvl_req>30</lvl_req>
+                    <pk_desc>Gain access to the Companion Creature action.</pk_desc>
+                    <action_desc>Roll against nearby, non-hostile creature's Wis. On a success, creature will follow player until dismissed. Creature may or may not engage in combat.</action_desc>
+                    <action_type>Non-Combat</action_type>
+                </perk>
+            </ex_2_perks>
         </expertise_2>
         <perk_list>
             <perk>
@@ -196,27 +250,6 @@
                 <action_desc></action_desc>
                 <action_type></action_type>
             </perk>
-            <perk>
-                <pk_name>Expertise</pk_name>
-                <lvl_req>25</lvl_req>
-                <pk_desc>Choose an expertise and add the appropriate attribute modifier to your skill modifier.</pk_desc>
-                <action_desc></action_desc>
-                <action_type></action_type>
-            </perk>
-            <perk>
-                <pk_name>Snaring Vines</pk_name>
-                <lvl_req>30</lvl_req>
-                <pk_desc>Gain access to the Snaring Vines action.</pk_desc>
-                <action_desc>At your current location, you lay down snaring vine starters. The next character (hostile or friendly) to step on that location will be snared by vines. Each turn, they are unable to move until they succeed a Str saving throw of 10 plus your skill mod.</action_desc>
-                <action_type>Major</action_type>
-            </perk>
-            <perk>
-                <pk_name>Companion Creature</pk_name>
-                <lvl_req>30</lvl_req>
-                <pk_desc>Gain access to the Companion Creature action.</pk_desc>
-                <action_desc>Roll against nearby, non-hostile creature's Wis. On a success, creature will follow player until dismissed. Creature may or may not engage in combat.</action_desc>
-                <action_type>Non-Combat</action_type>
-            </perk>
         </perk_list>
     </skill>
     <skill>
@@ -227,11 +260,43 @@
             <ex_name>Sprinter</ex_name>
             <ex_atr>DEX</ex_atr>
             <ex_focus>Fast movement</ex_focus>
+            <ex_1_perks>
+                <perk>
+                    <pk_name>Sprinter Expertise</pk_name>
+                    <lvl_req>25</lvl_req>
+                    <pk_desc>Also add DEX attribute modifier to your skill modifier.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+                <perk>
+                    <pk_name>Nimble</pk_name>
+                    <lvl_req>30</lvl_req>
+                    <pk_desc>Enemies do not get an attack of opportunity when you move past or away from them.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+            </ex_1_perks>
         </expertise_1>
         <expertise_2>
             <ex_name>Bodybuilder</ex_name>
             <ex_atr>CON</ex_atr>
             <ex_focus>More strength and HP</ex_focus>
+            <ex_2_perks>
+                <perk>
+                    <pk_name>Bodybuilder Expertise</pk_name>
+                    <lvl_req>25</lvl_req>
+                    <pk_desc>Also add CON attribute modifier to your skill modifier.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+                <perk>
+                    <pk_name>Shove</pk_name>
+                    <lvl_req>30</lvl_req>
+                    <pk_desc>Gain access to the Shove action.</pk_desc>
+                    <action_desc>An adjacent target makes a STR saving throw of 12+ your skill mod. On a failure, you may shove them prone to a space up to 6 feet away.</action_desc>
+                    <action_type>Major</action_type>
+                </perk>
+            </ex_2_perks>
         </expertise_2>
         <perk_list>
             <perk>
@@ -269,27 +334,6 @@
                 <action_desc></action_desc>
                 <action_type></action_type>
             </perk>
-            <perk>
-                <pk_name>Expertise</pk_name>
-                <lvl_req>25</lvl_req>
-                <pk_desc>Choose an expertise and add the appropriate attribute modifier to your skill modifier.</pk_desc>
-                <action_desc></action_desc>
-                <action_type></action_type>
-            </perk>
-            <perk>
-                <pk_name>Nimble</pk_name>
-                <lvl_req>30</lvl_req>
-                <pk_desc>Enemies do not get an attack of opportunity when you move past or away from them.</pk_desc>
-                <action_desc></action_desc>
-                <action_type></action_type>
-            </perk>
-            <perk>
-                <pk_name>Shove</pk_name>
-                <lvl_req>30</lvl_req>
-                <pk_desc>Gain access to the Shove action.</pk_desc>
-                <action_desc>An adjacent target makes a STR saving throw of 12+ your skill mod. On a failure, you may shove them prone to a space up to 6 feet away.</action_desc>
-                <action_type>Major</action_type>
-            </perk>
         </perk_list>
     </skill>
     <skill>
@@ -300,11 +344,43 @@
             <ex_name>Fencer</ex_name>
             <ex_atr>CHA</ex_atr>
             <ex_focus>One-handed, quick movements, reading the opponent.</ex_focus>
+            <ex_1_perks>
+                <perk>
+                    <pk_name>Fencer Expertise</pk_name>
+                    <lvl_req>25</lvl_req>
+                    <pk_desc>Also add CHA attribute modifier to your skill modifier.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+                <perk>
+                    <pk_name>Swift Strikes</pk_name>
+                    <lvl_req>30</lvl_req>
+                    <pk_desc>May attack twice. Can only add 1 stack of bleed damage per turn.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+            </ex_1_perks>
         </expertise_1>
         <expertise_2>
             <ex_name>Knight</ex_name>
             <ex_atr>INT</ex_atr>
             <ex_focus>Sword and shield. Lower damage, higher survivability.</ex_focus>
+            <ex_2_perks>
+                <perk>
+                    <pk_name>Knight Expertise</pk_name>
+                    <lvl_req>25</lvl_req>
+                    <pk_desc>Also add INT attribute modifier to your skill modifier.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+                <perk>
+                    <pk_name>Shield Bash</pk_name>
+                    <lvl_req>30</lvl_req>
+                    <pk_desc>Gain access to the Shield Bash action.</pk_desc>
+                    <action_desc>If shield is equipped, may attack with it for 1d8 damage. Enemy must make a Con saving throw of 12 plus your skill mod, on faliure they are staggered for 1 turn.</action_desc>
+                    <action_type>Major</action_type>
+                </perk>
+            </ex_2_perks>
         </expertise_2>
         <perk_list>
             <perk>
@@ -342,27 +418,6 @@
                 <action_desc></action_desc>
                 <action_type></action_type>
             </perk>
-            <perk>
-                <pk_name>Expertise</pk_name>
-                <lvl_req>25</lvl_req>
-                <pk_desc>Choose an expertise and add the appropriate attribute modifier to your skill modifier.</pk_desc>
-                <action_desc></action_desc>
-                <action_type></action_type>
-            </perk>
-            <perk>
-                <pk_name>Swift Strikes</pk_name>
-                <lvl_req>30</lvl_req>
-                <pk_desc>May attack twice. Can only add 1 stack of bleed damage per turn.</pk_desc>
-                <action_desc></action_desc>
-                <action_type></action_type>
-            </perk>
-            <perk>
-                <pk_name>Shield Bash</pk_name>
-                <lvl_req>30</lvl_req>
-                <pk_desc>Gain access to the Shield Bash action.</pk_desc>
-                <action_desc>If shield is equipped, may attack with it for 1d8 damage. Enemy must make a Con saving throw of 12 plus your skill mod, on faliure they are staggered for 1 turn.</action_desc>
-                <action_type>Major</action_type>
-            </perk>
         </perk_list>
     </skill>
     <skill>
@@ -373,11 +428,43 @@
             <ex_name>Bruiser</ex_name>
             <ex_atr>CON</ex_atr>
             <ex_focus>Heavy hitting and stunning.</ex_focus>
+            <ex_1_perks>
+                <perk>
+                    <pk_name>Bruiser Expertise</pk_name>
+                    <lvl_req>25</lvl_req>
+                    <pk_desc>Also add CON attribute modifier to your skill modifier.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+                <perk>
+                    <pk_name>Sweeping Blow</pk_name>
+                    <lvl_req>30</lvl_req>
+                    <pk_desc>Gain access to the Sweeping Blow action.</pk_desc>
+                    <action_desc>You swing your weapon in an arc in front of you. Roll to hit each enemy within 6 feet. Damage dealt on successful hits is cut in half, but you may still stagger each opponent.</action_desc>
+                    <action_type>Major</action_type>
+                </perk>
+            </ex_1_perks>
         </expertise_1>
         <expertise_2>
             <ex_name>Warder</ex_name>
             <ex_atr>INT</ex_atr>
             <ex_focus>Deflecting and disabling</ex_focus>
+            <ex_2_perks>
+                <perk>
+                    <pk_name>Warder Expertise</pk_name>
+                    <lvl_req>25</lvl_req>
+                    <pk_desc>Also add INT attribute modifier to your skill modifier.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+                <perk>
+                    <pk_name>Shield Bash</pk_name>
+                    <lvl_req>30</lvl_req>
+                    <pk_desc>Gain access to the Shield Bash action.</pk_desc>
+                    <action_desc>If shield is equipped, may attack with it for 1d8 damage. Enemy must make a Con saving throw of 12 plus your skill mod, on faliure they are staggered for 1 turn.</action_desc>
+                    <action_type>Major</action_type>
+                </perk>
+            </ex_2_perks>
         </expertise_2>
         <perk_list>
             <perk>
@@ -409,32 +496,11 @@
                 <action_type></action_type>
             </perk>
             <perk>
-                <pk_name>Katanas</pk_name>
+                <pk_name>Warhammers</pk_name>
                 <lvl_req>20</lvl_req>
                 <pk_desc>Damage die is now a d8. Able to use warhammers.</pk_desc>
                 <action_desc></action_desc>
                 <action_type></action_type>
-            </perk>
-            <perk>
-                <pk_name>Expertise</pk_name>
-                <lvl_req>25</lvl_req>
-                <pk_desc>Choose an expertise and add the appropriate attribute modifier to your skill modifier.</pk_desc>
-                <action_desc></action_desc>
-                <action_type></action_type>
-            </perk>
-            <perk>
-                <pk_name>Sweeping Blow</pk_name>
-                <lvl_req>30</lvl_req>
-                <pk_desc>Gain access to the Sweeping Blow action.</pk_desc>
-                <action_desc>You swing your weapon in an arc in front of you. Roll to hit each enemy within 6 feet. Damage dealt on successful hits is cut in half, but you may still stagger each opponent.</action_desc>
-                <action_type>Major</action_type>
-            </perk>
-            <perk>
-                <pk_name>Shield Bash</pk_name>
-                <lvl_req>30</lvl_req>
-                <pk_desc>Gain access to the Shield Bash action.</pk_desc>
-                <action_desc>If shield is equipped, may attack with it for 1d8 damage. Enemy must make a Con saving throw of 12 plus your skill mod, on faliure they are staggered for 1 turn.</action_desc>
-                <action_type>Major</action_type>
             </perk>
         </perk_list>
     </skill>
@@ -446,11 +512,43 @@
             <ex_name>Fire</ex_name>
             <ex_atr>STR</ex_atr>
             <ex_focus>Area of effect and duration damage.</ex_focus>
+            <ex_1_perks>
+                <perk>
+                    <pk_name>Fire Expertise</pk_name>
+                    <lvl_req>25</lvl_req>
+                    <pk_desc>Also add STR attribute modifier to your skill modifier.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+                <perk>
+                    <pk_name>Radiating Heat</pk_name>
+                    <lvl_req>30</lvl_req>
+                    <pk_desc>Area of AOE attacks is doubled.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+            </ex_1_perks>
         </expertise_1>
         <expertise_2>
             <ex_name>Lightning</ex_name>
             <ex_atr>CON</ex_atr>
             <ex_focus>Instant damage and utility.</ex_focus>
+            <ex_2_perks>
+                <perk>
+                    <pk_name>Lightning Expertise</pk_name>
+                    <lvl_req>25</lvl_req>
+                    <pk_desc>Also add CON attribute modifier to your skill modifier.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+                <perk>
+                    <pk_name>High Voltage</pk_name>
+                    <lvl_req>30</lvl_req>
+                    <pk_desc>Bolt now deals 4d6 damage</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+            </ex_2_perks>
         </expertise_2>
         <perk_list>
             <perk>
@@ -488,27 +586,6 @@
                 <action_desc>You send a wave of energy in a 10 sphere around you dealing 1d6 damage per stack of Energize you have to anything in range.</action_desc>
                 <action_type>Major</action_type>
             </perk>
-            <perk>
-                <pk_name>Expertise</pk_name>
-                <lvl_req>25</lvl_req>
-                <pk_desc>Choose an expertise and add the appropriate attribute modifier to your skill modifier.</pk_desc>
-                <action_desc></action_desc>
-                <action_type></action_type>
-            </perk>
-            <perk>
-                <pk_name>Radiating Heat</pk_name>
-                <lvl_req>30</lvl_req>
-                <pk_desc>Area of AOE attacks is doubled.</pk_desc>
-                <action_desc></action_desc>
-                <action_type></action_type>
-            </perk>
-            <perk>
-                <pk_name>High Voltage</pk_name>
-                <lvl_req>30</lvl_req>
-                <pk_desc>Bolt now deals 4d6 damage</pk_desc>
-                <action_desc></action_desc>
-                <action_type></action_type>
-            </perk>
         </perk_list>
     </skill>
     <skill>
@@ -519,11 +596,43 @@
             <ex_name>Operative</ex_name>
             <ex_atr>WIS</ex_atr>
             <ex_focus>Blending in and deceiving people.</ex_focus>
+            <ex_1_perks>
+                <perk>
+                    <pk_name>Operative Expertise</pk_name>
+                    <lvl_req>25</lvl_req>
+                    <pk_desc>Also add WIS attribute modifier to your skill modifier.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+                <perk>
+                    <pk_name>Disguise</pk_name>
+                    <lvl_req>30</lvl_req>
+                    <pk_desc>Gain access to the Disguise action.</pk_desc>
+                    <action_desc>You diguise yourself as a fictional character. Sentients that you interact must make a Cha saving throw of 12+ skill mod. On a failure, they don't recognize you and you may interact with them as if they met you for the first time.</action_desc>
+                    <action_type>Non-Combat</action_type>
+                </perk>
+            </ex_1_perks>
         </expertise_1>
         <expertise_2>
             <ex_name>Thief</ex_name>
             <ex_atr>DEX</ex_atr>
             <ex_focus>Avoiding notice and gaining advantage in danger.</ex_focus>
+            <ex_2_perks>
+                <perk>
+                    <pk_name>Thief Expertise</pk_name>
+                    <lvl_req>25</lvl_req>
+                    <pk_desc>Also add DEX attribute modifier to your skill modifier.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+                <perk>
+                    <pk_name>In Plain Sight</pk_name>
+                    <lvl_req>30</lvl_req>
+                    <pk_desc>You may now enter sneak mode in combat, but you must be behind cover and you must pass the skill check.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+            </ex_2_perks>
         </expertise_2>
         <perk_list>
             <perk>
@@ -561,27 +670,6 @@
                 <action_desc>While sneaking, you may perform a single sneak attack to a single target with either a gun or melee weapon. You gain advantage to hit and damage dealt is increased by 50%</action_desc>
                 <action_type>Major</action_type>
             </perk>
-            <perk>
-                <pk_name>Expertise</pk_name>
-                <lvl_req>25</lvl_req>
-                <pk_desc>Choose an expertise and add the appropriate attribute modifier to your skill modifier.</pk_desc>
-                <action_desc></action_desc>
-                <action_type></action_type>
-            </perk>
-            <perk>
-                <pk_name>Disguise</pk_name>
-                <lvl_req>30</lvl_req>
-                <pk_desc>Gain access to the Disguise action.</pk_desc>
-                <action_desc>You diguise yourself as a fictional character. Sentients that you interact must make a Cha saving throw of 12+ skill mod. On a failure, they don't recognize you and you may interact with them as if they met you for the first time.</action_desc>
-                <action_type>Non-Combat</action_type>
-            </perk>
-            <perk>
-                <pk_name>In Plain Sight</pk_name>
-                <lvl_req>30</lvl_req>
-                <pk_desc>You may now enter sneak mode in combat, but you must be behind cover and you must pass the skill check.</pk_desc>
-                <action_desc></action_desc>
-                <action_type></action_type>
-            </perk>
         </perk_list>
     </skill>
     <skill>
@@ -592,11 +680,43 @@
             <ex_name>Pyromaniac</ex_name>
             <ex_atr>DEX</ex_atr>
             <ex_focus>Lots of explosions, who cares about proximity?</ex_focus>
+            <ex_1_perks>
+                <perk>
+                    <pk_name>Pyromaniac Expertise</pk_name>
+                    <lvl_req>25</lvl_req>
+                    <pk_desc>Also add DEX attribute modifier to your skill modifier.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+                <perk>
+                    <pk_name>Quick Pull</pk_name>
+                    <lvl_req>30</lvl_req>
+                    <pk_desc>May attack twice. If a target needs to make two Dex checks, they have disadvantage on the second. Not applicable to a rocket launcher.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+            </ex_1_perks>
         </expertise_1>
         <expertise_2>
             <ex_name>Trapper</ex_name>
             <ex_atr>INT</ex_atr>
             <ex_focus>Setting traps and more accurate explosions.</ex_focus>
+            <ex_2_perks>
+                <perk>
+                    <pk_name>Trapper Expertise</pk_name>
+                    <lvl_req>25</lvl_req>
+                    <pk_desc>Also add INT attribute modifier to your skill modifier.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+                <perk>
+                    <pk_name>Remote Detonation</pk_name>
+                    <lvl_req>30</lvl_req>
+                    <pk_desc>Gain access to the Remote Detonation action.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+            </ex_2_perks>
         </expertise_2>
         <perk_list>
             <perk>
@@ -634,27 +754,6 @@
                 <action_desc></action_desc>
                 <action_type></action_type>
             </perk>
-            <perk>
-                <pk_name>Expertise</pk_name>
-                <lvl_req>25</lvl_req>
-                <pk_desc>Choose an expertise and add the appropriate attribute modifier to your skill modifier.</pk_desc>
-                <action_desc></action_desc>
-                <action_type></action_type>
-            </perk>
-            <perk>
-                <pk_name>Quick Pull</pk_name>
-                <lvl_req>30</lvl_req>
-                <pk_desc>May attack twice. If a target needs to make two Dex checks, they have disadvantage on the second. Not applicable to a rocket launcher.</pk_desc>
-                <action_desc></action_desc>
-                <action_type></action_type>
-            </perk>
-            <perk>
-                <pk_name>Remote Detonation</pk_name>
-                <lvl_req>30</lvl_req>
-                <pk_desc>Gain access to the Remote Detonation action.</pk_desc>
-                <action_desc></action_desc>
-                <action_type></action_type>
-            </perk>
         </perk_list>
     </skill>
     <skill>
@@ -665,11 +764,43 @@
             <ex_name>Flood</ex_name>
             <ex_atr>STR</ex_atr>
             <ex_focus>Utilizing and attacking with liquids.</ex_focus>
+            <ex_1_perks>
+                <perk>
+                    <pk_name>Flood Expertise</pk_name>
+                    <lvl_req>25</lvl_req>
+                    <pk_desc>Also add STR attribute modifier to your skill modifier.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+                <perk>
+                    <pk_name>Part the Waters</pk_name>
+                    <lvl_req>30</lvl_req>
+                    <pk_desc>Displace woprks on a 6 foot radius sphere of fluid and deals 2d8 + mod damage.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+            </ex_1_perks>
         </expertise_1>
         <expertise_2>
             <ex_name>Ice</ex_name>
             <ex_atr>CON</ex_atr>
             <ex_focus>Barriers and status effects.</ex_focus>
+            <ex_2_perks>
+                <perk>
+                    <pk_name>Ice Expertise</pk_name>
+                    <lvl_req>25</lvl_req>
+                    <pk_desc>Also add CON attribute modifier to your skill modifier.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+                <perk>
+                    <pk_name>Ice Shield</pk_name>
+                    <lvl_req>30</lvl_req>
+                    <pk_desc>Gain access to the Ice Shield action.</pk_desc>
+                    <action_desc>You can materialize a slab of ice 4 inches thick either as a holdable shield or as a wall that is 6 feet by 6 feet. The shield grants +2 to AC and the wall acts as cover. Both have 12 HP, and the shield is hit on any missed hit roll.</action_desc>
+                    <action_type>Major</action_type>
+                </perk>
+            </ex_2_perks>
         </expertise_2>
         <perk_list>
             <perk>
@@ -707,27 +838,6 @@
                 <action_desc></action_desc>
                 <action_type></action_type>
             </perk>
-            <perk>
-                <pk_name>Expertise</pk_name>
-                <lvl_req>25</lvl_req>
-                <pk_desc>Choose an expertise and add the appropriate attribute modifier to your skill modifier.</pk_desc>
-                <action_desc></action_desc>
-                <action_type></action_type>
-            </perk>
-            <perk>
-                <pk_name>Part the Waters</pk_name>
-                <lvl_req>30</lvl_req>
-                <pk_desc>Displace woprks on a 6 foot radius sphere of fluid and deals 2d8 + mod damage.</pk_desc>
-                <action_desc></action_desc>
-                <action_type></action_type>
-            </perk>
-            <perk>
-                <pk_name>Ice Shield</pk_name>
-                <lvl_req>30</lvl_req>
-                <pk_desc>Gain access to the Ice Shield action.</pk_desc>
-                <action_desc>You can materialize a slab of ice 4 inches thick either as a holdable shield or as a wall that is 6 feet by 6 feet. The shield grants +2 to AC and the wall acts as cover. Both have 12 HP, and the shield is hit on any missed hit roll.</action_desc>
-                <action_type>Major</action_type>
-            </perk>
         </perk_list>
     </skill>
     <skill>
@@ -738,11 +848,43 @@
             <ex_name>Singularity</ex_name>
             <ex_atr>STR</ex_atr>
             <ex_focus>Moving objects or other lifeforms.</ex_focus>
+            <ex_1_perks>
+                <perk>
+                    <pk_name>Singularity Expertise</pk_name>
+                    <lvl_req>25</lvl_req>
+                    <pk_desc>Also add STR attribute modifier to your skill modifier.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+                <perk>
+                    <pk_name>Stasis Field</pk_name>
+                    <lvl_req>30</lvl_req>
+                    <pk_desc>Gain access to the Stasis Field action.</pk_desc>
+                    <action_desc>Target rolls STR saving throw of 12+ skill mod. On a failure, they are lifted into the air in a stasis field. They cannot move for two turns, and all attacks have advantage to hit against them.</action_desc>
+                    <action_type>Major</action_type>
+                </perk>
+            </ex_1_perks>
         </expertise_1>
         <expertise_2>
             <ex_name>Skyrunner</ex_name>
             <ex_atr>DEX</ex_atr>
             <ex_focus>Affecting gravity on self.</ex_focus>
+            <ex_2_perks>
+                <perk>
+                    <pk_name>Skyrunner Expertise</pk_name>
+                    <lvl_req>25</lvl_req>
+                    <pk_desc>Also add DEX attribute modifier to your skill modifier.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+                <perk>
+                    <pk_name>Fly</pk_name>
+                    <lvl_req>30</lvl_req>
+                    <pk_desc>Levitate Self is replaced with the Fly action.</pk_desc>
+                    <action_desc>On a single charge, you gain 5 minutes of flight. Your movement in combat is not lowered when flying. Be aware, you may take cold or hypoxic damage if you fly too high.</action_desc>
+                    <action_type>Major/Non-Combat</action_type>
+                </perk>
+            </ex_2_perks>
         </expertise_2>
         <perk_list>
             <perk>
@@ -780,27 +922,6 @@
                 <action_desc>You empower one of your hands to deflect laser fire, giving you a +4 to AC against guns for 5 turns or until you use another Gravity skill. You must have one hand free to do this.</action_desc>
                 <action_type>Major</action_type>
             </perk>
-            <perk>
-                <pk_name>Expertise</pk_name>
-                <lvl_req>25</lvl_req>
-                <pk_desc>Choose an expertise and add the appropriate attribute modifier to your skill modifier.</pk_desc>
-                <action_desc></action_desc>
-                <action_type></action_type>
-            </perk>
-            <perk>
-                <pk_name>Stasis Field</pk_name>
-                <lvl_req>30</lvl_req>
-                <pk_desc>Gain access to the Stasis Field action.</pk_desc>
-                <action_desc>Target rolls STR saving throw of 12+ skill mod. On a failure, they are lifted into the air in a stasis field. They cannot move for two turns, and all attacks have advantage to hit against them.</action_desc>
-                <action_type>Major</action_type>
-            </perk>
-            <perk>
-                <pk_name>Fly</pk_name>
-                <lvl_req>30</lvl_req>
-                <pk_desc>Levitate Self is replaced with the Fly action.</pk_desc>
-                <action_desc>On a single charge, you gain 5 minutes of flight. Your movement in combat is not lowered when flying. Be aware, you may take cold or hypoxic damage if you fly too high.</action_desc>
-                <action_type>Major/Non-Combat</action_type>
-            </perk>
         </perk_list>
     </skill>
     <skill>
@@ -811,11 +932,43 @@
             <ex_name>Sniper</ex_name>
             <ex_atr>WIS</ex_atr>
             <ex_focus>Low mobility, but improved crits.</ex_focus>
+            <ex_1_perks>
+                <perk>
+                    <pk_name>Sniper Expertise</pk_name>
+                    <lvl_req>25</lvl_req>
+                    <pk_desc>Also add WIS attribute modifier to your skill modifier.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+                <perk>
+                    <pk_name>Bullseye</pk_name>
+                    <lvl_req>30</lvl_req>
+                    <pk_desc>Crit requirement lowered by 3. Gain access to the Bullseye action.</pk_desc>
+                    <action_desc>If using a tripod rifle, you may decide to target a specific body part. On a hit, you deal standard damage (there is no crit bonus) and can disable the targetted body part.</action_desc>
+                    <action_type>Bonus</action_type>
+                </perk>
+            </ex_1_perks>
         </expertise_1>
         <expertise_2>
             <ex_name>Ranger</ex_name>
             <ex_atr>DEX</ex_atr>
             <ex_focus>More mobility, but lower emphasis on crits.</ex_focus>
+            <ex_2_perks>
+                <perk>
+                    <pk_name>Ranger Expertise</pk_name>
+                    <lvl_req>25</lvl_req>
+                    <pk_desc>Also add CHA attribute modifier to your skill modifier.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+                <perk>
+                    <pk_name>Hunter</pk_name>
+                    <lvl_req>30</lvl_req>
+                    <pk_desc>Can now use a non-tripod long range rifle like any other gun out of cover.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+            </ex_2_perks>
         </expertise_2>
         <perk_list>
             <perk>
@@ -853,27 +1006,6 @@
                 <action_desc></action_desc>
                 <action_type></action_type>
             </perk>
-            <perk>
-                <pk_name>Expertise</pk_name>
-                <lvl_req>25</lvl_req>
-                <pk_desc>Choose an expertise and add the appropriate attribute modifier to your skill modifier.</pk_desc>
-                <action_desc></action_desc>
-                <action_type></action_type>
-            </perk>
-            <perk>
-                <pk_name>Bullseye</pk_name>
-                <lvl_req>30</lvl_req>
-                <pk_desc>Crit requirement lowered by 3. Gain access to the Bullseye action.</pk_desc>
-                <action_desc>If using a tripod rifle, you may decide to target a specific body part. On a hit, you deal standard damage (there is no crit bonus) and can disable the targetted body part.</action_desc>
-                <action_type>Bonus</action_type>
-            </perk>
-            <perk>
-                <pk_name>Hunter</pk_name>
-                <lvl_req>30</lvl_req>
-                <pk_desc>Can now use a non-tripod long range rifle like any other gun out of cover.</pk_desc>
-                <action_desc></action_desc>
-                <action_type></action_type>
-            </perk>
         </perk_list>
     </skill>
     <skill>
@@ -884,11 +1016,43 @@
             <ex_name>Hustler</ex_name>
             <ex_atr>INT</ex_atr>
             <ex_focus>Lying and selling items at a higher price</ex_focus>
+            <ex_1_perks>
+                <perk>
+                    <pk_name>Hustler Expertise</pk_name>
+                    <lvl_req>25</lvl_req>
+                    <pk_desc>Also add INT attribute modifier to your skill modifier.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+                <perk>
+                    <pk_name>Little White Lies</pk_name>
+                    <lvl_req>30</lvl_req>
+                    <pk_desc>If you're trying to negotiate through a falsehood, you gain advantage.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+            </ex_1_perks>
         </expertise_1>
         <expertise_2>
             <ex_name>Charmer</ex_name>
             <ex_atr>WIS</ex_atr>
             <ex_focus>Persuading and buying items at a lower price.</ex_focus>
+            <ex_2_perks>
+                <perk>
+                    <pk_name>Charmer Expertise</pk_name>
+                    <lvl_req>25</lvl_req>
+                    <pk_desc>Also add WIS attribute modifier to your skill modifier.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+                <perk>
+                    <pk_name>Trustworthy</pk_name>
+                    <lvl_req>30</lvl_req>
+                    <pk_desc>If you're trying to negotiate through a telling the truth, you gain advantage.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+            </ex_2_perks>
         </expertise_2>
         <perk_list>
             <perk>
@@ -926,27 +1090,6 @@
                 <action_desc></action_desc>
                 <action_type></action_type>
             </perk>
-            <perk>
-                <pk_name>Expertise</pk_name>
-                <lvl_req>25</lvl_req>
-                <pk_desc>Choose an expertise and add the appropriate attribute modifier to your skill modifier.</pk_desc>
-                <action_desc></action_desc>
-                <action_type></action_type>
-            </perk>
-            <perk>
-                <pk_name>Little White Lies</pk_name>
-                <lvl_req>30</lvl_req>
-                <pk_desc>If you're trying to negotiate through a falsehood, you gain advantage.</pk_desc>
-                <action_desc></action_desc>
-                <action_type></action_type>
-            </perk>
-            <perk>
-                <pk_name>Trustworthy</pk_name>
-                <lvl_req>30</lvl_req>
-                <pk_desc>If you're trying to negotiate through a telling the truth, you gain advantage.</pk_desc>
-                <action_desc></action_desc>
-                <action_type></action_type>
-            </perk>
         </perk_list>
     </skill>
     <skill>
@@ -957,11 +1100,43 @@
             <ex_name>Insight</ex_name>
             <ex_atr>CHA</ex_atr>
             <ex_focus>Picking up the bigger picture in conversations or situations.</ex_focus>
+            <ex_1_perks>
+                <perk>
+                    <pk_name>Insight Expertise</pk_name>
+                    <lvl_req>25</lvl_req>
+                    <pk_desc>Also add CHA attribute modifier to your skill modifier.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+                <perk>
+                    <pk_name>Empathize</pk_name>
+                    <lvl_req>30</lvl_req>
+                    <pk_desc>Gain access to the Empathize action.</pk_desc>
+                    <action_desc>You gain insight into an intelligent lifeform's motivations, giving you advantage on any non-combat rolls related to interactions with that lifeform. </action_desc>
+                    <action_type>Non-Combat</action_type>
+                </perk>
+            </ex_1_perks>
         </expertise_1>
         <expertise_2>
             <ex_name>Perception</ex_name>
             <ex_atr>WIS</ex_atr>
             <ex_focus>Noticing the little details all around.</ex_focus>
+            <ex_2_perks>
+                <perk>
+                    <pk_name>Perception Expertise</pk_name>
+                    <lvl_req>25</lvl_req>
+                    <pk_desc>Also add WIS attribute modifier to your skill modifier.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+                <perk>
+                    <pk_name>Saw It Coming</pk_name>
+                    <lvl_req>30</lvl_req>
+                    <pk_desc>If an enemy gains a bonus round because of a sneak attack, you also get to join the bonus round with standard initiative order.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+            </ex_2_perks>
         </expertise_2>
         <perk_list>
             <perk>
@@ -999,27 +1174,6 @@
                 <action_desc>Roll plus skill mod to gain insight into a target's possible weakness. On a 0-10, you gain no knowledge. On a 10-15, you choose which piece of information to gain: current HP, elemental weakness, or weak spot. On a 16+, you also gain advantage on next three attacks against that and similar targets. Can only be done once per type of target per day.</action_desc>
                 <action_type>Minor/Non-Combat</action_type>
             </perk>
-            <perk>
-                <pk_name>Expertise</pk_name>
-                <lvl_req>25</lvl_req>
-                <pk_desc>Choose an expertise and add the appropriate attribute modifier to your skill modifier.</pk_desc>
-                <action_desc></action_desc>
-                <action_type></action_type>
-            </perk>
-            <perk>
-                <pk_name>Empathize</pk_name>
-                <lvl_req>30</lvl_req>
-                <pk_desc>Gain access to the Empathize action.</pk_desc>
-                <action_desc>You gain insight into an intelligent lifeform's motivations, giving you advantage on any non-combat rolls related to interactions with that lifeform. </action_desc>
-                <action_type>Non-Combat</action_type>
-            </perk>
-            <perk>
-                <pk_name>Saw It Coming</pk_name>
-                <lvl_req>30</lvl_req>
-                <pk_desc>If an enemy gains a bonus round because of a sneak attack, you also get to join the bonus round with standard initiative order.</pk_desc>
-                <action_desc></action_desc>
-                <action_type></action_type>
-            </perk>
         </perk_list>
     </skill>
     <skill>
@@ -1030,11 +1184,43 @@
             <ex_name>Duelist</ex_name>
             <ex_atr>CHA</ex_atr>
             <ex_focus>Fast attacks that anticipate the opponent's moves.</ex_focus>
+            <ex_1_perks>
+                <perk>
+                    <pk_name>Duelist Expertise</pk_name>
+                    <lvl_req>25</lvl_req>
+                    <pk_desc>Also add CHA attribute modifier to your skill modifier.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+                <perk>
+                    <pk_name>Draw!</pk_name>
+                    <lvl_req>30</lvl_req>
+                    <pk_desc>Quickdraw now shoots two shots and may crit. Base skill mod is now 2.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+            </ex_1_perks>
         </expertise_1>
         <expertise_2>
             <ex_name>Gunslinger</ex_name>
             <ex_atr>INT</ex_atr>
             <ex_focus>Twice the shooting, but a bit more vulnerable.</ex_focus>
+            <ex_2_perks>
+                <perk>
+                    <pk_name>Gunslinger Expertise</pk_name>
+                    <lvl_req>25</lvl_req>
+                    <pk_desc>Also add INT attribute modifier to your skill modifier.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+                <perk>
+                    <pk_name>Dual-Wield</pk_name>
+                    <lvl_req>30</lvl_req>
+                    <pk_desc>Quickdraw can now be used with two pistols on up to two targets. No damage or hit reduction from dual-wielding.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+            </ex_2_perks>
         </expertise_2>
         <perk_list>
             <perk>
@@ -1072,27 +1258,6 @@
                 <action_desc></action_desc>
                 <action_type></action_type>
             </perk>
-            <perk>
-                <pk_name>Expertise</pk_name>
-                <lvl_req>25</lvl_req>
-                <pk_desc>Choose an expertise and add the appropriate attribute modifier to your skill modifier.</pk_desc>
-                <action_desc></action_desc>
-                <action_type></action_type>
-            </perk>
-            <perk>
-                <pk_name>Draw!</pk_name>
-                <lvl_req>30</lvl_req>
-                <pk_desc>Quickdraw now shoots two shots and may crit. Base skill mod is now 2.</pk_desc>
-                <action_desc></action_desc>
-                <action_type></action_type>
-            </perk>
-            <perk>
-                <pk_name>Dual-Wield</pk_name>
-                <lvl_req>30</lvl_req>
-                <pk_desc>Quickdraw can now be used with two pistols on up to two targets. No damage or hit reduction from dual-wielding.</pk_desc>
-                <action_desc></action_desc>
-                <action_type></action_type>
-            </perk>
         </perk_list>
     </skill>
     <skill>
@@ -1103,11 +1268,43 @@
             <ex_name>Mentalist</ex_name>
             <ex_atr>CHA</ex_atr>
             <ex_focus>Forcing people to do what you want or hamper their minds and bodies.</ex_focus>
+            <ex_1_perks>
+                <perk>
+                    <pk_name>Mentalist Expertise</pk_name>
+                    <lvl_req>25</lvl_req>
+                    <pk_desc>Also add CHA attribute modifier to your skill modifier.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+                <perk>
+                    <pk_name>Commanding Presence</pk_name>
+                    <lvl_req>30</lvl_req>
+                    <pk_desc>For a charge, you can include this skill mod for any negotiation checks for 1 hour.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+            </ex_1_perks>
         </expertise_1>
         <expertise_2>
             <ex_name>Healer</ex_name>
             <ex_atr>CON</ex_atr>
             <ex_focus>Healing and buffing your team.</ex_focus>
+            <ex_2_perks>
+                <perk>
+                    <pk_name>Healer Expertise</pk_name>
+                    <lvl_req>25</lvl_req>
+                    <pk_desc>Also add CON attribute modifier to your skill modifier.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+                <perk>
+                    <pk_name>Miraculous Healing</pk_name>
+                    <lvl_req>30</lvl_req>
+                    <pk_desc>Add two more d6 dice for use with Renewal, and 2d6 healing to Homeostasis.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+            </ex_2_perks>
         </expertise_2>
         <perk_list>
             <perk>
@@ -1145,27 +1342,6 @@
                 <action_desc>You lay your hand on a single target to remove any status effects plagueing them.</action_desc>
                 <action_type>Major/Non-Combat</action_type>
             </perk>
-            <perk>
-                <pk_name>Expertise</pk_name>
-                <lvl_req>25</lvl_req>
-                <pk_desc>Choose an expertise and add the appropriate attribute modifier to your skill modifier.</pk_desc>
-                <action_desc></action_desc>
-                <action_type></action_type>
-            </perk>
-            <perk>
-                <pk_name>Commanding Presence</pk_name>
-                <lvl_req>30</lvl_req>
-                <pk_desc>For a charge, you can include this skill mod for any negotiation checks for 1 hour.</pk_desc>
-                <action_desc></action_desc>
-                <action_type></action_type>
-            </perk>
-            <perk>
-                <pk_name>Miraculous Healing</pk_name>
-                <lvl_req>30</lvl_req>
-                <pk_desc>Add two more d6 dice for use with Renewal, and 2d6 healing to Homeostasis.</pk_desc>
-                <action_desc></action_desc>
-                <action_type></action_type>
-            </perk>
         </perk_list>
     </skill>
     <skill>
@@ -1176,11 +1352,43 @@
             <ex_name>Hacker</ex_name>
             <ex_atr>WIS</ex_atr>
             <ex_focus>Working with computers and other electronic devices.</ex_focus>
+            <ex_1_perks>
+                <perk>
+                    <pk_name>Hacker Expertise</pk_name>
+                    <lvl_req>25</lvl_req>
+                    <pk_desc>Also add WIS attribute modifier to your skill modifier.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+                <perk>
+                    <pk_name>Hack</pk_name>
+                    <lvl_req>30</lvl_req>
+                    <pk_desc>Ctrl + F is replaced by the Hack action.</pk_desc>
+                    <action_desc>Roll plus skill mod to take control of a local device or any other devices connected to its server. You can get any information on the server and will not be noticed by any non-AI. You may be able to control non-AI robots, but they get to roll an INT saving throw of 12+ your skill mod.</action_desc>
+                    <action_type>Non-Combat</action_type>
+                </perk>
+            </ex_1_perks>
         </expertise_1>
         <expertise_2>
             <ex_name>Tinkerer</ex_name>
             <ex_atr>CON</ex_atr>
             <ex_focus>Building new objects or repairing damaged ones.</ex_focus>
+            <ex_2_perks>
+                <perk>
+                    <pk_name>Tinkerer Expertise</pk_name>
+                    <lvl_req>25</lvl_req>
+                    <pk_desc>Also add CON attribute modifier to your skill modifier.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+                <perk>
+                    <pk_name>Inventor</pk_name>
+                    <lvl_req>30</lvl_req>
+                    <pk_desc>Can now create advanced mods with proper components and basic mods with spare parts.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+            </ex_2_perks>
         </expertise_2>
         <perk_list>
             <perk>
@@ -1218,27 +1426,6 @@
                 <action_desc>You send out a small drone up to 300 feet away to give you simple visuals as it moves along. If it is noticed, it will be attacked and all enemies will have +2 to passive perception from then on. When attacked, it has an AC of 8 and 1 HP.</action_desc>
                 <action_type>Non-Combat</action_type>
             </perk>
-            <perk>
-                <pk_name>Expertise</pk_name>
-                <lvl_req>25</lvl_req>
-                <pk_desc>Choose an expertise and add the appropriate attribute modifier to your skill modifier.</pk_desc>
-                <action_desc></action_desc>
-                <action_type></action_type>
-            </perk>
-            <perk>
-                <pk_name>Hack</pk_name>
-                <lvl_req>30</lvl_req>
-                <pk_desc>Ctrl + F is replaced by the Hack action.</pk_desc>
-                <action_desc>Roll plus skill mod to take control of a local device or any other devices connected to its server. You can get any information on the server and will not be noticed by any non-AI. You may be able to control non-AI robots, but they get to roll an INT saving throw of 12+ your skill mod.</action_desc>
-                <action_type>Non-Combat</action_type>
-            </perk>
-            <perk>
-                <pk_name>Inventor</pk_name>
-                <lvl_req>30</lvl_req>
-                <pk_desc>Can now create advanced mods with proper components and basic mods with spare parts.</pk_desc>
-                <action_desc></action_desc>
-                <action_type></action_type>
-            </perk>
         </perk_list>
     </skill>
     <skill>
@@ -1249,11 +1436,43 @@
             <ex_name>Brawler</ex_name>
             <ex_atr>CON</ex_atr>
             <ex_focus>Giving and taking blows.</ex_focus>
+            <ex_1_perks>
+                <perk>
+                    <pk_name>Brawler Expertise</pk_name>
+                    <lvl_req>25</lvl_req>
+                    <pk_desc>Also add CON attribute modifier to your skill modifier.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+                <perk>
+                    <pk_name>Sting Like a Bee</pk_name>
+                    <lvl_req>30</lvl_req>
+                    <pk_desc>Add another attack. Any successful hit rolls may be transferred to any subsequent attacks.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+            </ex_1_perks>
         </expertise_1>
         <expertise_2>
             <ex_name>Martial Artist</ex_name>
             <ex_atr>DEX</ex_atr>
             <ex_focus>Dodging, disarming, and causing status effects.</ex_focus>
+            <ex_2_perks>
+                <perk>
+                    <pk_name>Martial Artist Expertise</pk_name>
+                    <lvl_req>25</lvl_req>
+                    <pk_desc>Also add DEX attribute modifier to your skill modifier.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+                <perk>
+                    <pk_name>Evasion</pk_name>
+                    <lvl_req>30</lvl_req>
+                    <pk_desc>If wearing no armor, your AC turns into evasion, which is Dex plus your skill mod. If you already have evasion, add this skill modifier to your evasion rating.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+            </ex_2_perks>
         </expertise_2>
         <perk_list>
             <perk>
@@ -1291,27 +1510,6 @@
                 <action_desc></action_desc>
                 <action_type></action_type>
             </perk>
-            <perk>
-                <pk_name>Expertise</pk_name>
-                <lvl_req>25</lvl_req>
-                <pk_desc>Choose an expertise and add the appropriate attribute modifier to your skill modifier.</pk_desc>
-                <action_desc></action_desc>
-                <action_type></action_type>
-            </perk>
-            <perk>
-                <pk_name>Sting Like a Bee</pk_name>
-                <lvl_req>30</lvl_req>
-                <pk_desc>Add another attack. Any successful hit rolls may be transferred to any subsequent attacks.</pk_desc>
-                <action_desc></action_desc>
-                <action_type></action_type>
-            </perk>
-            <perk>
-                <pk_name>Evasion</pk_name>
-                <lvl_req>30</lvl_req>
-                <pk_desc>If wearing no armor, your AC turns into evasion, which is Dex plus your skill mod. If you already have evasion, add this skill modifier to your evasion rating.</pk_desc>
-                <action_desc></action_desc>
-                <action_type></action_type>
-            </perk>
         </perk_list>
     </skill>
     <skill>
@@ -1322,11 +1520,43 @@
             <ex_name>Driver</ex_name>
             <ex_atr>STR</ex_atr>
             <ex_focus>Operating gravity-affected vehicles.</ex_focus>
+            <ex_1_perks>
+                <perk>
+                    <pk_name>Driver Expertise</pk_name>
+                    <lvl_req>25</lvl_req>
+                    <pk_desc>Also add STR attribute modifier to your skill modifier.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+                <perk>
+                    <pk_name>Eat My Dust</pk_name>
+                    <lvl_req>30</lvl_req>
+                    <pk_desc>You gain advantage to vehicle checks involving known planet-bound vehicles.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+            </ex_1_perks>
         </expertise_1>
         <expertise_2>
             <ex_name>Pilot</ex_name>
             <ex_atr>DEX</ex_atr>
             <ex_focus>Operating space vehicles.</ex_focus>
+            <ex_2_perks>
+                <perk>
+                    <pk_name>Pilot Expertise</pk_name>
+                    <lvl_req>25</lvl_req>
+                    <pk_desc>Also add DEX attribute modifier to your skill modifier.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+                <perk>
+                    <pk_name>Spacer</pk_name>
+                    <lvl_req>30</lvl_req>
+                    <pk_desc>You gain advantage to vehicle checks involving known space vehicles.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+            </ex_2_perks>
         </expertise_2>
         <perk_list>
             <perk>
@@ -1364,27 +1594,6 @@
                 <action_desc>All enemies must roll a dex saving throw of 12+ skill mod. On a failure, they are at a disadvantage for every hit roll against you for three turns. If they are in a vehicle, you gain advantage to hitting them for three turns.</action_desc>
                 <action_type>Major</action_type>
             </perk>
-            <perk>
-                <pk_name>Expertise</pk_name>
-                <lvl_req>25</lvl_req>
-                <pk_desc>Choose an expertise and add the appropriate attribute modifier to your skill modifier.</pk_desc>
-                <action_desc></action_desc>
-                <action_type></action_type>
-            </perk>
-            <perk>
-                <pk_name>Eat My Dust</pk_name>
-                <lvl_req>30</lvl_req>
-                <pk_desc>You gain advantage to vehicle checks involving known planet-bound vehicles.</pk_desc>
-                <action_desc></action_desc>
-                <action_type></action_type>
-            </perk>
-            <perk>
-                <pk_name>Spacer</pk_name>
-                <lvl_req>30</lvl_req>
-                <pk_desc>You gain advantage to vehicle checks involving known space vehicles.</pk_desc>
-                <action_desc></action_desc>
-                <action_type></action_type>
-            </perk>
         </perk_list>
     </skill>
     <skill>
@@ -1395,11 +1604,43 @@
             <ex_name>Light</ex_name>
             <ex_atr>DEX</ex_atr>
             <ex_focus>Creating visual illusions and changing light levels.</ex_focus>
+            <ex_1_perks>
+                <perk>
+                    <pk_name>Light Expertise</pk_name>
+                    <lvl_req>25</lvl_req>
+                    <pk_desc>Also add DEX attribute modifier to your skill modifier.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+                <perk>
+                    <pk_name>Obscure</pk_name>
+                    <lvl_req>30</lvl_req>
+                    <pk_desc>You can dim the amount of light in a 100-foot radius to any level except absolute darkness for up to 10 minutes.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+            </ex_1_perks>
         </expertise_1>
         <expertise_2>
             <ex_name>Sound</ex_name>
             <ex_atr>CON</ex_atr>
             <ex_focus>Auditory illusions and attacks.</ex_focus>
+            <ex_2_perks>
+                <perk>
+                    <pk_name>Sound Expertise</pk_name>
+                    <lvl_req>25</lvl_req>
+                    <pk_desc>Also add CON attribute modifier to your skill modifier.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+                <perk>
+                    <pk_name>Tinnitus</pk_name>
+                    <lvl_req>30</lvl_req>
+                    <pk_desc>You fill a targets ears with a painful ringing, causing 1d6 mental damage. They must make a con saving throw of 12+ skill mod each turn to try and overcome it. On a failure, they are at disadvantage for hitting targets and making saving throws. On a success, the tinnitus passes and they return to normal.</pk_desc>
+                    <action_desc></action_desc>
+                    <action_type></action_type>
+                </perk>
+            </ex_2_perks>
         </expertise_2>
         <perk_list>
             <perk>
@@ -1436,27 +1677,6 @@
                 <pk_desc>Gain access to the Harmonic Frequency action.</pk_desc>
                 <action_desc>You place a hand on the ground and radiate the grounds harmonic frequency causing the ground to shake. Everything in a 30-foot radius must make a Con saving throw of 10+. On a failure, they are knocked prone.</action_desc>
                 <action_type>Major</action_type>
-            </perk>
-            <perk>
-                <pk_name>Expertise</pk_name>
-                <lvl_req>25</lvl_req>
-                <pk_desc>Choose an expertise and add the appropriate attribute modifier to your skill modifier.</pk_desc>
-                <action_desc></action_desc>
-                <action_type></action_type>
-            </perk>
-            <perk>
-                <pk_name>Obscure</pk_name>
-                <lvl_req>30</lvl_req>
-                <pk_desc>You can dim the amount of light in a 100-foot radius to any level except absolute darkness for up to 10 minutes.</pk_desc>
-                <action_desc></action_desc>
-                <action_type></action_type>
-            </perk>
-            <perk>
-                <pk_name>Tinnitus</pk_name>
-                <lvl_req>30</lvl_req>
-                <pk_desc>You fill a targets ears with a painful ringing, causing 1d6 mental damage. They must make a con saving throw of 12+ skill mod each turn to try and overcome it. On a failure, they are at disadvantage for hitting targets and making saving throws. On a success, the tinnitus passes and they return to normal.</pk_desc>
-                <action_desc></action_desc>
-                <action_type></action_type>
             </perk>
         </perk_list>
     </skill>
