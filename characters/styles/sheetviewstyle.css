@@ -359,8 +359,7 @@ input::-webkit-inner-spin-button {
 }
 
 .item_name{
-    background-color: gainsboro;
-    color: #1C2429;
+    color: gainsboro;
     font-weight: bolder;
     font-size: 14pt;
     padding: 3px 10px;
@@ -412,10 +411,9 @@ input::-webkit-inner-spin-button {
 }
 
 .effect_box{
-    background-color: rgb(148, 148, 148);
     height: 48px;
     padding: 2px;
-    color: #1C2429;
+    color: rgb(34,162,179);
 }
 
 .item_mod_col{
