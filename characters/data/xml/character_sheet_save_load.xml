@@ -16,13 +16,6 @@
         <cha>14</cha>
         <ac>18</ac>
         <pp>10</pp>
-        <eq_helmet gear_type="helmet">None</eq_helmet>
-        <eq_armor gear_type="armor">Brown Baby Cloak</eq_armor>
-        <eq_boots gear_type="boots">None</eq_boots>
-        <eq_gloves gear_type="gloves">None</eq_gloves>
-        <eq_mainhand gear_type="gun">None</eq_mainhand>
-        <eq_offhand gear_type="gun">None</eq_offhand>
-        <eq_misc gear_type="misc">Ship Lever Knob</eq_misc>
         <psyche_stim>Jedi Mind Tricks</psyche_stim>
         <energy_stim>None</energy_stim>
         <fluid_stim>None</fluid_stim>
@@ -85,18 +78,6 @@
         <cha>20</cha>
         <ac>10</ac>
         <pp>16</pp>
-        <eq_helmet gear_type="helmet">None</eq_helmet>
-        <eq_armor gear_type="armor">Brown Baby Cloak</eq_armor>
-        <eq_boots gear_type="boots">None</eq_boots>
-        <eq_gloves gear_type="gloves">None</eq_gloves>
-        <eq_mainhand gear_type="gun">None</eq_mainhand>
-        <eq_offhand gear_type="gun">None</eq_offhand>
-        <eq_misc gear_type="misc">Ship Lever Knob</eq_misc>
-        <psyche_stim>Jedi Mind Tricks</psyche_stim>
-        <energy_stim>None</energy_stim>
-        <fluid_stim>None</fluid_stim>
-        <wave_stim>None</wave_stim>
-        <grav_stim>Force Sensitivity</grav_stim>
         <armor_level>0</armor_level>
         <armor_expertise>Light Armor</armor_expertise>
         <assault_weapon_level>0</assault_weapon_level>
