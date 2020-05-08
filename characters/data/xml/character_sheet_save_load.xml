@@ -1,41 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <saved_characters>
     <character id="000">
-        <char_name>Bender Rodriguez</char_name>
-        <race>Cyborg</race>
+        <char_name>The Mandalorian</char_name>
+        <race>Human</race>
         <gender>Male</gender>
-        <background>Deliverybot</background>
-        <alignment>Chaotic Neutral</alignment>
-        <current_HP>50</current_HP>
-        <base_HP>50</base_HP>
-        <str>20</str>
-        <dex>8</dex>
-        <con>20</con>
-        <int>14</int>
-        <wis>4</wis>
-        <cha>14</cha>
-        <ac>18</ac>
+        <background>Bounty Hunter</background>
+        <alignment>Lawful Neutral</alignment>
+        <current_HP>46</current_HP>
+        <base_HP>46</base_HP>
+        <str>10</str>
+        <dex>14</dex>
+        <con>14</con>
+        <int>12</int>
+        <wis>12</wis>
+        <cha>8</cha>
+        <ac>5</ac>
         <pp>10</pp>
-        <psyche_stim>Jedi Mind Tricks</psyche_stim>
+        <psyche_stim>None</psyche_stim>
         <energy_stim>None</energy_stim>
         <fluid_stim>None</fluid_stim>
         <wave_stim>None</wave_stim>
-        <grav_stim>Force Sensitivity</grav_stim>
-        <armor_level>0</armor_level>
-        <armor_expertise>None</armor_expertise>
-        <assault_weapon_level>0</assault_weapon_level>
+        <grav_stim>None</grav_stim>
+        <armor_level>30</armor_level>
+        <armor_expertise>Heavy Armor</armor_expertise>
+        <assault_weapon_level>10</assault_weapon_level>
         <assault_weapon_expertise>None</assault_weapon_expertise>
         <astrobiology_level>0</astrobiology_level>
         <astrobiology_expertise>None</astrobiology_expertise>
-        <athletics_level>0</athletics_level>
+        <athletics_level>8</athletics_level>
         <athletics_expertise>None</athletics_expertise>
-        <blade_level>0</blade_level>
+        <blade_level>10</blade_level>
         <blade_expertise>None</blade_expertise>
         <blunt_level>0</blunt_level>
         <blunt_expertise>None</blunt_expertise>
         <energy_level>0</energy_level>
         <energy_expertise>None</energy_expertise>
-        <espionage_level>0</espionage_level>
+        <espionage_level>1</espionage_level>
         <espionage_expertise>None</espionage_expertise>
         <explosives_level>0</explosives_level>
         <explosives_expertise>None</explosives_expertise>
@@ -43,21 +43,21 @@
         <fluids_expertise>None</fluids_expertise>
         <gravity_level>0</gravity_level>
         <gravity_expertise>None</gravity_expertise>
-        <long_range_level>0</long_range_level>
+        <long_range_level>20</long_range_level>
         <long_range_expertise>None</long_range_expertise>
         <negotiation_level>0</negotiation_level>
         <negotiation_expertise>None</negotiation_expertise>
-        <observation_level>0</observation_level>
+        <observation_level>1</observation_level>
         <observation_expertise>None</observation_expertise>
-        <pistol_level>0</pistol_level>
-        <pistol_expertise>None</pistol_expertise>
+        <pistol_level>30</pistol_level>
+        <pistol_expertise>Gunslinger</pistol_expertise>
         <psyche_level>0</psyche_level>
         <psyche_expertise>None</psyche_expertise>
         <tech_level>0</tech_level>
         <tech_expertise>None</tech_expertise>
-        <unarmed_level>0</unarmed_level>
+        <unarmed_level>10</unarmed_level>
         <unarmed_expertise>None</unarmed_expertise>
-        <vehicles_level>0</vehicles_level>
+        <vehicles_level>5</vehicles_level>
         <vehicles_expertise>None</vehicles_expertise>
         <wave_level>0</wave_level>
         <wave_expertise>None</wave_expertise>
