@@ -48,7 +48,7 @@
         <div class="menu_overflow"></div>
     </div>
 
-    <button id="save" onclick="updateSkillActions()">Test</button>
+    <button id="test" onclick="updateSkillActions()">Test</button>
 
     <!-- Character Menu -->
     <div class="character_menu">
@@ -62,10 +62,10 @@
 
     <!-- MAIN -->
     <div class="char_content" id="main_panel">
-        <!-- Top Panel-->	
+        <!-- Top Panel-->
         <div class="row">
             <div class="char_icon">
-                <img src="data/images/test_icon.jpg">
+                <img src="data/images/mando.png">
             </div>
             <div class="character_name">
                 <div id="char_name"></div>
@@ -178,51 +178,176 @@
                     <span>HEAD</span>
                     <div class="equipped_item">
                         <div class="item_name_col">
-                            <div class="item_name">Budget Envirohelm</div>
-                            <div class="item_type" id="helm_type">Light Armor</div>
+                            <div class="item_name" id="eq_helmet">Beskar Helmet</div>
+                            <div class="item_type" id="helm_type">Heavy</div>
                         </div>
                         <div class="item_ac_col">
-                            <div class="ac_label">AC:</div>
-                            <div class="ac_mod" id="helm_ac_mod">+1</div>
+                            <div class="ac_label">AC</div>
+                            <div class="barrier_label">BAR</div>
+                            <div class="cond_label">COND.</div>
                         </div>
                         <div class="item_ac_col">
-                            <div class="ac_label">Cond.</div>
+                            <div class="ac_mod" id="helm_ac_mod">+4</div>
+                            <div class="barrier_val" id="helm_barrier">5</div>
                             <div class="cond_val">100%</div>
                         </div>
                         <div class="item_effect_col">
                             <div class="effect_label">Effects:</div>
-                            <div class="effect_box">Radiation resistance</div>
+                            <div class="effect_box">
+                                <span>Radiation Resistance</span>
+                                <span>-2 Psyche</span>
+                            </div>
                         </div>
                         <div class="item_mod_col">
-                            <div class="mod_label">Mods:</div>
-                            <div class="mod_item"></div>
-                            <div class="mod_item"></div>
+                            <div class="mod_label">MODS</div>
                             <div class="mod_item"></div>
                         </div>
                     </div>
                     <span>BODY</span>
                     <div class="equipped_item">
-                        <div class="item_name" id="eq_armor"></div>
+                        <div class="item_name_col">
+                            <div class="item_name" id="eq_armor">Beskar Armor</div>
+                            <div class="item_type" id="armor_type">Heavy</div>
+                        </div>
+                        <div class="item_ac_col">
+                            <div class="ac_label">AC</div>
+                            <div class="barrier_label">BAR</div>
+                            <div class="cond_label">COND.</div>
+                        </div>
+                        <div class="item_ac_col">
+                            <div class="ac_mod" id="armor_ac_mod">+5</div>
+                            <div class="barrier_val" id="armor_barrier">40</div>
+                            <div class="cond_val">100%</div>
+                        </div>
+                        <div class="item_effect_col">
+                            <div class="effect_label">Effects:</div>
+                            <div class="effect_box">
+                                <span>Heat Resistance</span>
+
+                            </div>
+                        </div>
+                        <div class="item_mod_col">
+                            <div class="mod_label">MODS</div>
+                            <div class="mod_item"></div>
+                        </div>
                     </div>
                     <span>BOOTS</span>
                     <div class="equipped_item">
-                        <div class="item_name" id="eq_boots"></div>
+                        <div class="item_name_col">
+                            <div class="item_name" id="eq_boots">Durable Boots</div>
+                            <div class="item_type" id="boots_type">Light</div>
+                        </div>
+                        <div class="item_ac_col">
+                            <div class="ac_label">AC</div>
+                            <div class="barrier_label">BAR</div>
+                            <div class="cond_label">COND.</div>
+                        </div>
+                        <div class="item_ac_col">
+                            <div class="ac_mod" id="boots_ac_mod">+1</div>
+                            <div class="barrier_val" id="boots_barrier">0</div>
+                            <div class="cond_val">100%</div>
+                        </div>
+                        <div class="item_effect_col">
+                            <div class="effect_label">Effects:</div>
+                            <div class="effect_box">
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="item_mod_col">
+                            <div class="mod_label">MODS</div>
+                            <div class="mod_item"></div>
+                        </div>
                     </div>
                     <span>GLOVES</span>
-                    <div class="equipped_item">
-                        <div class="item_name" id="eq_gloves"></div>
+                    <div class="equipped_item" id="eq_gloves">
+                        <div class="item_name_col">
+                            <div class="item_name">Quality Combat Gloves</div>
+                            <div class="item_type" id="gloves_type">Light/Combat</div>
+                        </div>
+                        <div class="item_ac_col">
+                            <div class="ac_label">AC</div>
+                            <div class="barrier_label">BAR</div>
+                            <div class="cond_label">COND.</div>
+                        </div>
+                        <div class="item_ac_col">
+                            <div class="ac_mod" id="gloves_ac_mod">+1</div>
+                            <div class="barrier_val" id="gloves_barrier">0</div>
+                            <div class="cond_val">100%</div>
+                        </div>
+                        <div class="item_effect_col">
+                            <div class="effect_label">Effects:</div>
+                            <div class="effect_box">
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="item_mod_col">
+                            <div class="mod_label">MODS</div>
+                            <div class="mod_item" id="flamethrower"></div>
+                        </div>
                     </div>
                     <span>MAIN HAND</span>
                     <div class="equipped_item">
-                        <div class="item_name" id="eq_mainhand"></div>
+                        <div class="weapon_name_col">
+                            <div class="weapon_name" id="eq_main_hand">Mandalorian Blaster</div>
+                            <div class="weapon_type">Bolt Pistol</div>
+                        </div>
+                        <div class="weapon_damage_col">
+                            <div class="weapon_damage_row">
+                                <div class="dd_label">DD</div>
+                                <div class="damage_dice">2d8</div>
+                                <div class="damage_mod">+3</div>
+                                <div class="range_label">Range</div>
+                                <div class="range_box">10m</div>
+                                
+                            </div>
+                            <div class="weapon_ammo_row">
+                                <div class="ammo_label">AMMO</div>
+                                <div class="ammo_div">6</div>
+                                <div class="ammo_div">/</div>
+                                <div class="max_ammo">6</div>
+                                <div class="mag_label">MAGS</div>
+                                <div class="mag_val">4</div>
+                            </div>
+                        </div>
+                        <div class="item_mod_col">
+                            <div class="mod_label">MODS</div>
+                            <div class="mod_item"></div>
+                        </div>
                     </div>
                     <span>OFF HAND</span>
                     <div class="equipped_item">
-                        <div class="item_name" id="eq_offhand"></div>
+                        <div class="weapon_name_col">
+                            <div class="weapon_name" id="eq_off_hand">
+                                Quality Combat Gloves
+                            </div>
+                            <div class="weapon_type">Combat Glove</div>
+                        </div>
+                        <div class="weapon_damage_col">
+                            <div class="weapon_damage_row">
+                                <div class="dd_label">DD</div>
+                                <div class="damage_dice">2d6</div>
+                                <div class="damage_mod">+0</div>
+                                <div class="range_label">Range</div>
+                                <div class="range_box">0m</div>
+                                
+                            </div>
+                            <div class="weapon_ammo_row">
+                                <div class="ammo_label">AMMO</div>
+                                <div class="ammo_div">0</div>
+                                <div class="ammo_div">/</div>
+                                <div class="max_ammo">0</div>
+                                <div class="mag_label">MAGS</div>
+                                <div class="mag_val"></div>
+                            </div>
+                        </div>
+                        <div class="item_mod_col">
+                            <div class="mod_label">MODS</div>
+                            <div class="mod_item"></div>
+                        </div>
                     </div>
                     <span>MISC.</span>
-                    <div class="equipped_item">
-                        <div class="item_name" id="eq_misc"></div>
+                    <div class="equipped_item" id="eq_misc">
+                        </div>
                     </div>
                 </div>
                 <div class="body_panel_content" id="stimplant_panel">
@@ -1796,7 +1921,7 @@
         </div>
     </div>
 
-    <!-- Inventory -->
+    <!-- Inventory 
     <div class="char_content" id="inventory_panel">
         <div class="panel_title">ACTIONS</div>
         <div class="inv_filters">
@@ -1819,7 +1944,7 @@
                 </tr>
             </table>
         </div>
-    </div>
+    </div>-->
 
 
     <script>
@@ -1829,8 +1954,8 @@
         
 
         //Retrieve saved key
-        var char_id = localStorage.getItem("char_ID");
-        getXmlForLoad(char_id);
+        //var char_id = localStorage.getItem("char_ID");
+        getXmlForLoad("000");
         getPerkActionXML();
     </script>
 </body>
