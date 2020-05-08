@@ -552,6 +552,7 @@ function updateSkillActions(){
                     if(actionCheck.hasChildNodes()){
                         var actionDesc = actionCheck.childNodes[0].nodeValue;
                         var actionCat = perk.childNodes[4].childNodes[0].nodeValue;
+
                         pushNewAction(actionName, actionDesc, actionCat);
                     }
                 }
