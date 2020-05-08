@@ -4,7 +4,7 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-#save{
+#test{
     position: fixed;
     height: 50px;
     width: 400px;
@@ -344,14 +344,6 @@ input::-webkit-inner-spin-button {
     border: solid 1px #E8903B;
 }
 
-.item_label{
-    background-color: rgb(34,162,179);
-    color: #1C2429;
-    text-align: center;
-    height: 20px;
-    padding: 5px 0px;
-}
-
 .item_name_col{
     float:left;
     width: 150px;
@@ -359,61 +351,102 @@ input::-webkit-inner-spin-button {
 }
 
 .item_name{
-    color: gainsboro;
+    background-color: rgb(148,148,148);
+    color: #1C2429;
     font-weight: bolder;
-    font-size: 14pt;
-    padding: 3px 10px;
+    font-size: 12pt;
+    height: 45px;
+    padding: 5px 10px;
 }
 
 .item_type{
     background-color: rgb(148,148,148);
     text-align: center;
-    padding: 3px 0px;
+    padding: 1px 0px;
+    font-size: 12pt;
 }
 
 .item_ac_col{
     float:left;
     width: 55px;
-    border: solid 0.5px rgb(148,148,148);
 }
 
 .ac_label{
-    background-color: rgb(34,162,179);
+    background-color: firebrick;
+    color: gainsboro;
+    text-align: center;
+    height: 20px;
+    padding: 2px 3px;
+    font-size: 10pt;
+    font-weight: bold;
+}
+.barrier_label{
+    background-color: #0070B5;
+    color: gainsboro;
+    text-align: center;
+    height: 20px;
+    padding: 3px 0px;
+    font-size: 10pt;
+    font-weight: bold;
+}
+.cond_label{
+    background-color: #E8903B;
     color: #1C2429;
     text-align: center;
     height: 20px;
     padding: 2px 0px;
-}
-
-.ac_mod{
-    padding: 14px 15px;
-    color: #E8903B;
-    font-size: 18px;
+    font-size: 10pt;
     font-weight: bold;
 }
 
-.cond_val{
-    padding: 14px 3px;
+.ac_mod{
     color: gainsboro;
-    font-size: 18px;
+    text-align: center;
+    height: 20px;
+    padding: 2px 0px;
+    font-size: 10pt;
+    font-weight: bold;
+}
+.barrier_val{
+    color: gainsboro;
+    text-align: center;
+    height: 20px;
+    padding: 3px 0px;
+    font-size: 10pt;
+    font-weight: bold;
+}
+.cond_val{
+    color: gainsboro;
+    text-align: center;
+    height: 20px;
+    padding: 2px 0px;
+    font-size: 10pt;
     font-weight: bold;
 }
 
 .item_effect_col{
     float:left;
-    width: 180px;
-    border: solid 0.5px rgb(148,148,148);
+    width: 182px;
+    font-size: 10pt;
 }
 
 .effect_label{
-    background-color: #823b8a;
-    padding: 2px 5px;
+    color: rgb(34, 162, 179);
+    padding-top: 2px;
+    padding-left: 10px;
+    font-weight: bold;
 }
 
 .effect_box{
     height: 48px;
-    padding: 2px;
-    color: rgb(34,162,179);
+    padding-top: 2px;
+    padding-left: 10px;
+    color: gainsboro;
+}
+
+.effect_box span{
+    display: block;
+    margin-bottom: 2px;
 }
 
 .item_mod_col{
@@ -431,8 +464,129 @@ input::-webkit-inner-spin-button {
 }
 
 .mod_label{
+    background-color: #502255;
+    padding: 2px;
+    text-align: center;
+}
+
+.weapon_name_col{
+    float:left;
+    width: 150px;
+    height: 50px;
+}
+
+.weapon_name{
+    background-color: rgb(148,148,148);
+    color: #1C2429;
+    font-weight: bolder;
+    font-size: 12pt;
+    height: 45px;
+    padding: 5px 10px;
+}
+
+.weapon_type{
+    background-color: rgb(148,148,148);
+    text-align: center;
+    padding: 1px 0px;
+    font-size: 12pt;
+}
+
+.weapon_damage_col{
+    float:left;
+    width: 292px;
+}
+
+.weapon_damage_row{
+    display: block;
+    height: 45px;
+    border: solid 1px rgb(148, 148, 148);
+}
+
+.weapon_ammo_row{
+    display: block;
+    height: 26px;
+    border: solid 1px rgb(148, 148, 148);
+}
+
+.dd_label{
+    float: left;
+    padding: 15px 16px;
     background-color: firebrick;
-    padding: 2px 5px;
+    font-weight: bold;
+    font-size: 10pt;
+}
+
+.damage_dice{
+    float: left;
+    padding: 11px 15px;
+    font-weight: bold;
+    font-size: 14pt;
+}
+
+.damage_mod{
+    float: left;
+    border: solid 2px rgb(34,162,179);
+    border-radius: 50%;
+    margin-top: 5px;
+    margin-right: 10px;
+    padding: 7px;
+    background-color: gainsboro;
+    color: #1C2429; 
+    font-weight: bold;
+}
+
+.range_label{
+    float: left;
+    padding: 15px 8px;
+    background-color: rgb(34,162,179);
+    font-weight: bold;
+    font-size: 10pt;
+}
+
+.range_box{
+    float: left;
+    padding: 11px 12px;
+    font-size: 14pt;
+}
+
+.ammo_label{
+    float: left;
+    padding: 6px 4px;
+    background-color: #E8903B;
+    color: #1C2429;
+    font-weight: bold;
+    font-size: 10pt;
+    margin-right: 10px;
+}
+
+.ammo_div{
+    float: left;
+    padding: 2px 8px;
+    font-size: 14pt;
+}
+
+.max_ammo{
+    float: left;
+    padding: 2px 8px;
+    font-size: 14pt;
+    color: rgb(148,148,148)
+}
+
+.mag_label{
+    float: left;
+    padding: 6px 8px;
+    background-color: #0070B5;
+    color: #1C2429;
+    font-weight: bold;
+    font-size: 10pt;
+    margin-left: 25px;
+    margin-right: 10px;
+}
+
+.mag_val{
+    float: left;
+    padding: 2px 8px;
+    font-size: 14pt;
 }
 
 .stim_item{
