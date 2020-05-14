@@ -307,9 +307,9 @@
                 <action_type></action_type>
             </perk>
             <perk>
-                <pk_name>Building Stamina</pk_name>
+                <pk_name>Weight Training</pk_name>
                 <lvl_req>5</lvl_req>
-                <pk_desc>HP die is now a d8.</pk_desc>
+                <pk_desc>Able to carry extra 30 lbs</pk_desc>
                 <action_desc></action_desc>
                 <action_type></action_type>
             </perk>
@@ -321,9 +321,9 @@
                 <action_type></action_type>
             </perk>
             <perk>
-                <pk_name>Weight Training</pk_name>
+                <pk_name>Building Stamina</pk_name>
                 <lvl_req>15</lvl_req>
-                <pk_desc>Able to carry extra 30 lbs</pk_desc>
+                <pk_desc>HP die is now a d8.</pk_desc>
                 <action_desc></action_desc>
                 <action_type></action_type>
             </perk>
