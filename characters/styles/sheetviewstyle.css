@@ -25,13 +25,11 @@ input::-webkit-inner-spin-button {
 
 .char_menu_tab{
     background-color: #1C2429;
-    width: 50%;
-    min-width: 600px;
-    max-width: 1200px;
+    width: 1000px;
     margin:auto;
 }
 
-.char_menu_tab button{
+.char_menu_button{
     margin: auto;
     background-color: #E8903B ;
     float: left;
@@ -43,13 +41,191 @@ input::-webkit-inner-spin-button {
     font-size: 12pt;
 }
 
-.char_menu_tab button:hover{
+.char_menu_button:hover{
     background-color: gainsboro;
     color: #1C2429;
 }
 
-.char_menu_tab button.active{
-    border: solid 1px #E8903B;
+.option_menu{
+    width: 123px;
+    background-color: rgb(100,100,100);
+    float: left;
+    border: solid 1px gainsboro;
+    border-bottom: none;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 12pt;
+    padding: 10px 0px;
+}
+
+.option_menu:hover{
+    background-color: gainsboro;
+    color: #1C2429;
+}
+
+.option_dropdown{
+    display: none;
+    margin-top: 10px;
+    position: absolute;
+    background-color: rgb(148, 148, 148);
+    color: #1C2429;
+    z-index: 1;
+}
+
+.option_menu:hover .option_dropdown{
+    display: block;
+    cursor: pointer;
+}
+
+.option{
+    padding: 10px;
+    border: solid 0.5px rgb(148, 148, 148);
+    font-size: 12pt;
+}
+
+.option:hover{
+    background-color: gainsboro;
+}
+
+.option_popup{
+    position: absolute;
+    display: none;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.option_pup_bg{
+    background-color: rgb(200, 200, 200, 0.4);
+    height: 100%;
+    width: 1000px;
+    margin: auto;
+    padding-top: 150px;
+    transform: translateX(-10px);
+}
+
+.option_window{
+    display: none;
+    position: absolute;
+    width: 400px;
+    min-height: 250px;
+    margin: auto;
+    padding: 5px;
+    background-color: #1C2429;
+    border: solid 1px gainsboro;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.option_title{
+    float: left;
+    color: gainsboro;
+    font-weight: bold;
+    font-size: 16pt;
+    width: 100%;
+    text-align: center;
+}
+
+.close_option{
+    position: absolute;
+    right: 0;
+    height: 30px;
+    width: 30px;
+    background-color: firebrick;
+    color: #1C2429;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.option_text{
+    position: relative;
+    margin:auto;
+    margin-top: 40px;
+    width: 90%;
+}
+
+.option_choices{
+    width: 100%;
+    padding: 10px 15px;
+}
+
+.heal_but{
+    float: left;
+    width: 100px;
+    height: 50px;
+    margin-left: 20px;
+    background-color: #7ecc89;
+    color: #1C2429;
+    font-size: 12pt;
+}
+
+.charge_but{
+    float: left;
+    width: 100px;
+    height: 50px;
+    margin-left: 20px;
+    background-color: #0070B5;
+    color: #1C2429;
+    font-size: 12pt;
+}
+
+.sleep_but{
+    float: left;
+    width: 100px;
+    height: 50px;
+    margin-left: 20px;
+    background-color: #E8903B;
+    color: #1C2429;
+    font-size: 12pt;
+}
+
+#sleep_panel{
+    display: none;
+    margin-top: 20px;
+    padding: 5px 10px;
+}
+
+#sleep_panel > *{
+    float: left;
+    margin: 0px 5px;
+}
+
+#sleep_panel input{
+    height: 20px;
+    width: 40px;
+    font-size: 12pt;
+    text-align: center;
+}
+
+#sleep_panel button{
+    padding: 5px;
+    background-color: rgb(34, 162, 179);
+}
+
+#sleepHP{
+    padding: 2px;
+    color: #7ecc89;
+    height: 20px;
+    width: 30px;
+}
+
+.lvl_up_confirm{
+    width: 100px;
+    height: 50px;
+    margin-left: 100px;
+    background-color: #7ecc89;
+    color: #1C2429;
+    font-size: 12pt;
+}
+
+.reload_confirm{
+    width: 100px;
+    height: 50px;
+    margin-left: 100px;
+    background-color: firebrick;
+    color: gainsboro;
+    font-size: 12pt;
 }
 
 .char_content{
@@ -71,11 +247,13 @@ input::-webkit-inner-spin-button {
 }
 
 .char_icon{
-    width: 15%;
-    max-width: 175px;
-    max-height: 175px;
+    float: left;
+    width: 120px;
+    height: 120px;
+    padding: 5px;
     float:left;
     text-align: center;
+    margin-left: 25px;
 }
 
 .char_icon img{
@@ -83,6 +261,15 @@ input::-webkit-inner-spin-button {
     max-width: 120px;
     border: solid 2px #E8903B;
     border-radius: 50%;
+}
+
+.level_disp{
+    float:left;
+    width: 100%;
+    margin-top: 5px;
+    color: gainsboro;
+    font-size: 16pt;
+    font-weight: bold;
 }
 
 .character_name{
@@ -112,11 +299,10 @@ input::-webkit-inner-spin-button {
 
 
 .character_info_row{
-    display: block;
     float: left;
-    width: 35%;
     height: 50%;
     min-height: 150px;
+    padding-top: 10px;
 }
 
 .char_info{
@@ -132,7 +318,6 @@ input::-webkit-inner-spin-button {
     text-align: center;
     height: 25px;
     font-size: 12pt;
-    margin: 3% 0;
     vertical-align: middle;
     border: solid 1px #E8903B;
     border-radius: 20%;
@@ -147,28 +332,52 @@ input::-webkit-inner-spin-button {
 .health_panel{
     padding: 1px;
     position: relative;
-    overflow: hidden;
     min-height: 150px;
-    text-align: center;
-    font-size: 20pt;
+    font-size: 16pt;
 }
 
 .HP_panel{
     display:inline-block;
-    height: 40px;
-    width: 40%;
+    height: 32px;
+    width: 40px;
     max-width: 50px;
-    margin-top: 25%;
-    margin-bottom: 2%;
-    font-size: 20pt;
+    font-size: 16pt;
     border: solid 1px #E8903B;
     border-radius: 20%;
     padding-top: 8px;
+    margin-top:10px;
+    margin-bottom: 2px;
+    text-align: center;
+}
+
+.bar_panel{
+    display:inline-block;
+    height: 32px;
+    width: 40px;
+    max-width: 50px;
+    font-size: 16pt;
+    border: solid 1px #0070B5;
+    border-radius: 20%;
+    padding-top: 8px;
+    margin-top: 10px;
+    margin-bottom: 2px;
+    text-align: center;
+}
+
+.hp_label{
+    padding-left: 35px;
+    color: #E8903B;
+}
+
+.bar_label{
+    padding-left: 30px;
+    color: #0070B5;
 }
 
 .attr_container{
     float: left;
     width: 500px;
+    margin-left: 25px;
 }
 
 .attr_item{
@@ -221,7 +430,6 @@ input::-webkit-inner-spin-button {
 }
 
 .status_cat{
-    width: 100%;
     text-align: center;
     padding:5px;
     background-color: rgb(148,148,148);
@@ -233,9 +441,64 @@ input::-webkit-inner-spin-button {
 .status_info{
     background-color: gainsboro;
     color: #1C2429;
-    overflow: hidden;
-    height: 50px;
+    width: 100%;
+    min-height: 40px;
+    padding-top: 10px; 
+}
+
+.add_status_but{
+    text-align: center;
+    width: 100%;
+    padding:5px;
     margin-bottom: 25px;
+    background-color: #502255;
+    color: gainsboro;
+    cursor: pointer;
+}
+
+.active_effect{
+    display: inline-block;
+    width: 100%;
+    padding-left: 20px;
+    height: 18px;
+    margin-bottom: 10px;
+}
+
+.remove_effect{
+    float: right;
+    padding: 2px;
+    width: 75px;
+    transform: translateX(-30px);
+    border: solid 1px #1C2429;
+    background-color: #E8903B; 
+    color: #1C2429; 
+    cursor: pointer;
+}
+
+.popup{
+    display: none;
+    position: absolute;
+    border: solid 1px #502255;
+    width: 250px;
+    min-height: 250px;
+    background-color: gainsboro;
+    transform: translateX(300px);
+    z-index: 1;
+    cursor: pointer;
+}
+
+.popup span{
+    display: block;
+    height: 25px;
+    padding-top: 5px;
+    text-align: center;
+    color: #1C2429;
+    border: solid 1px #1C2429;
+}
+
+.popup span:hover{
+    background-color: #502255;
+    color: gainsboro;
 }
 
 .passives_col{
@@ -590,17 +853,41 @@ input::-webkit-inner-spin-button {
 }
 
 .stim_item{
-    margin: 3px;
-    height: 100px;
+    margin: 5px;
+    height: 75px;
     width: 100%;
     display: inline-block;
-    border: solid 1px #E8903B;
+    border: solid 1px #0070B5;
 }
 
 .stim_item img{
     float:left;
     height:100px;
     width: 100px;
+}
+
+.stim_name{
+    float: left;
+    background-color: rgb(148,148,148);
+    color: #1C2429;
+    padding: 28px 5px;
+    width: 100px;
+    font-weight: bolder;
+    font-size: 12pt;
+    text-align: center;
+}
+
+.charges{
+    float: left;
+    height: 100%;
+    width: 400px;
+}
+
+.add_charge{
+    height: 40px;
+    width: 40px;
+    margin-top: 15px;
+    text-align: center;
 }
 
 .panel_title{
@@ -619,12 +906,15 @@ input::-webkit-inner-spin-button {
     margin-top: 25px;
 }
 
-.skill_points input{
-    height: 25px;
-    width: 50px;
+.skill_points div{
+    display: inline-block;
+    padding: 3px 20px;
     text-align: center;
     font-weight: bolder;
     font-size: 16pt;
+    background-color: gainsboro;
+    color: #1C2429;
+    border-radius: 20%;
 }
 
 .skill_header{
