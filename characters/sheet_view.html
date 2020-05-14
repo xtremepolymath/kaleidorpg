@@ -53,10 +53,79 @@
     <!-- Character Menu -->
     <div class="character_menu">
         <div class="char_menu_tab">
-            <button class="char_menu_button" id="defaultOpen_char" onclick="charPanelSwitch(event, 'main_panel')">Main</button>
-            <button class="char_menu_button" onclick="charPanelSwitch(event, 'actions_panel')">Actions</button>
-            <button class="char_menu_button" onclick="charPanelSwitch(event, 'skills_panel')">Skills</button>
-            <button class="char_menu_button" onclick="charPanelSwitch(event, 'inventory_panel')">Inventory</button>
+            <button class="char_menu_button" id="defaultOpen_char" onclick="charPanelSwitch(event, 'main_panel')">MAIN</button>
+            <button class="char_menu_button" onclick="charPanelSwitch(event, 'actions_panel')">ACTIONS</button>
+            <button class="char_menu_button" onclick="charPanelSwitch(event, 'skills_panel')">SKILLS</button>
+            <!--<button class="char_menu_button" onclick="charPanelSwitch(event, 'inventory_panel')">Inventory</button>-->
+            <div class="option_menu">
+                <span class="option_but">OPTIONS</span>
+                <div class="option_dropdown">
+                    <div class="option" onclick="openOptionWindow('rest')">Rest</div>
+                    <div class="option" onclick="openOptionWindow('lvl_up')">Level Up</div>
+                    <div class="option" onclick="openOptionWindow('save_view')">Save</div>
+                    <div class="option" onclick="openOptionWindow('reload')">Reload</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Option Window -->
+    <div class="option_popup" id="option_win">
+        <div class="option_pup_bg">
+            <div class="option_window" id="rest">
+                <div class="option_title">Rest</div>
+                <button class="close_option" onclick="closeOptionWindow()">X</button>
+                <div class="option_text">
+                    <p>A rest requires a period of at least 4 uninterrupted hours. If you have access to a medical center or stim station, you can fully heal and recharge your stims. Otherwise, you restore 1 HP per level per four hours asleep.</p>
+                    <p>Choose the appropriate option(s) below:</p>
+                </div>
+                <div class="option_choices">
+                    <button class="heal_but" onclick="fullHeal()">Full Heal</button>
+                    <button class="charge_but">Charge Stims</button>
+                    <button class="sleep_but" onclick="showSleepPanel()">Sleep<br></button>
+                </div>
+                <div id="sleep_panel"> 
+                    <span>How many hours?</span>
+                    <input type="number" onchange="calcSleep(this)"></input>
+                    <span>HP gain: </span>
+                    <div id="sleepHP">0</div>
+                    <button onclick="submitSleep()">Submit</button>
+                </div>
+            </div>
+            <div class="option_window" id="lvl_up">
+                <div class="option_title">Level Up</div>
+                <button class="close_option" onclick="closeOptionWindow()">X</button>
+                <div class="option_text">
+                    <p>Confirm with your GM that levelling up is appropriate. Levelling up will grant you 10 skill points and also let you increase your max HP.</p>
+                    <p>Current HP per level: <span id="hp_incr">2</span></p>
+                    <p>Confirm level up?</p>
+                </div>
+                <div class="option_choices">
+                    <button class="lvl_up_confirm" onclick="levelUp()">Confirm</button>
+                </div>
+            </div>
+            <div class="option_window" id="save_view">
+                <div class="option_title">Save</div>
+                <button class="close_option" onclick="closeOptionWindow()">X</button>
+                <div class="option_text">
+                    <p>Currently, saving requires downloading a text file and e-mailing that to the website admin. This will not take effect immediately and any changes that happen from here on out will not be saved.</p>
+                    <p>Are you sure you want to save?</p>
+                </div>
+                <div class="option_choices">
+                    <button class="lvl_up_confirm" onclick="getXmlForSave('000')">Confirm</button>
+                </div>
+            </div>
+            <div class="option_window" id="reload">
+                <div class="option_title">Reload</div>
+                <button class="close_option" onclick="closeOptionWindow()">X</button>
+                <div class="option_text">
+                    <p>Reloading your character will return everything to the state it was in from the last time a save file was created. This cannot be undone once you hit "confirm".</p>
+                    <p>Are you sure you want to reload?</p>
+                </div>
+                <div class="option_choices">
+                    <button class="reload_confirm">Confirm</button>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -66,7 +135,12 @@
         <div class="row">
             <div class="char_icon">
                 <img src="data/images/mando.png">
+                <div class="level_disp">
+                    <span>Level</span>
+                    <span id="lvl"></span>
+                </div>
             </div>
+            
             <div class="character_name">
                 <div id="char_name"></div>
                 <span>NAME</span>
@@ -92,14 +166,22 @@
                 </div>
             </div>
             <div class="health_panel">
-                <div class="HP_panel" id="current_HP"></div>
-                /
-                <div class="HP_panel" id="base_HP"></div><br>
-                <span>HP</span>
+                <div class="hp_bar_row">
+                    <div class="HP_panel" id="current_HP"></div>
+                    /
+                    <div class="HP_panel" id="base_HP"></div><br>
+                    <span class="hp_label">HP</span>
+                </div>
+                <div class="hp_bar_row">
+                    <div class="bar_panel" id="current_bar">10</div>
+                    /
+                    <div class="bar_panel" id="base_bar">10</div><br>
+                    <span class="bar_label">BAR.</span>
+                </div>
             </div>
         </div>
 
-        <!-- Attributes and status -->
+        <!-- Attributes and passives -->
         <div class="row">
             <div class="attr_container">
                 <div class="attr_item">
@@ -154,19 +236,83 @@
             </div>
         </div>
 
-        <!-- Passives and equipment -->
+        <!-- Status and equipment -->
         <div class="row">
             <div class="status_container">
-                <button class="status_cat">Status Effects</button>
-                <div class="status_info" id="se_info">
+                <div class="status_box">
+                    <div class="popup" id="status_popup">
+                        <span onclick="addStatusEffect(this, 'se_info', 'status_popup')">Bleeding</span>
+                        <span onclick="addStatusEffect(this, 'se_info', 'status_popup')">Blind - Partial</span>
+                        <span onclick="addStatusEffect(this, 'se_info', 'status_popup')">Blind - Complete</span>
+                        <span onclick="addStatusEffect(this, 'se_info', 'status_popup')">Crippled - Arm</span>
+                        <span onclick="addStatusEffect(this, 'se_info', 'status_popup')">Crippled - Leg</span>
+                        <span onclick="addStatusEffect(this, 'se_info', 'status_popup')">Deaf</span>
+                        <span onclick="addStatusEffect(this, 'se_info', 'status_popup')">Disguised</span>
+                        <span onclick="addStatusEffect(this, 'se_info', 'status_popup')">Invisible</span>
+                        <span onclick="addStatusEffect(this, 'se_info', 'status_popup')">Paralyzed</span>
+                        <span onclick="addStatusEffect(this, 'se_info', 'status_popup')">Poisoned</span>
+                        <span onclick="addStatusEffect(this, 'se_info', 'status_popup')">Prone</span>
+                        <span onclick="addStatusEffect(this, 'se_info', 'status_popup')">Restrained</span>
+                        <span onclick="addStatusEffect(this, 'se_info', 'status_popup')">Stunned</span>
+                    </div>
+                    <div class="status_cat">Status Effects</div>
+                    <div class="status_info" id="se_info">
+                        <div class="active_effect" style="display: none;">
+                            <span>Blind - Partial</span>
+                            <button class="remove_effect" onclick="removeStatusEffect(this, 'se_info')">Remove</button>
+                        </div>
+                    </div>
+                    <button class="add_status_but" onclick="showStatusEffects('status_popup')">Add Status Effect</button>
+                </div>
+                
+                <div class="status_box">
+                    <div class="popup" id="weak_popup">
+                        <span onclick="addStatusEffect(this, 'weak_info', 'weak_popup')">Bludgeoning</span>
+                        <span onclick="addStatusEffect(this, 'weak_info', 'weak_popup')">Cold</span>
+                        <span onclick="addStatusEffect(this, 'weak_info', 'weak_popup')">Electricity</span>
+                        <span onclick="addStatusEffect(this, 'weak_info', 'weak_popup')">Force</span>
+                        <span onclick="addStatusEffect(this, 'weak_info', 'weak_popup')">Heat</span>
+                        <span onclick="addStatusEffect(this, 'weak_info', 'weak_popup')">Laser</span>
+                        <span onclick="addStatusEffect(this, 'weak_info', 'weak_popup')">Posion</span>
+                        <span onclick="addStatusEffect(this, 'weak_info', 'weak_popup')">Radiation</span>
+                        <span onclick="addStatusEffect(this, 'weak_info', 'weak_popup')">Psychic</span>
+                        <span onclick="addStatusEffect(this, 'weak_info', 'weak_popup')">Slashing</span>
+                        <span onclick="addStatusEffect(this, 'weak_info', 'weak_popup')">Sound</span>
+                        <span onclick="addStatusEffect(this, 'weak_info', 'weak_popup')">Water</span>
+                    </div>
+                    <div class="status_cat">Weaknesses</div>
+                    <div class="status_info" id="weak_info">
+                        <div class="active_effect" style="display: none;">
+                            <span>Blind - Partial</span>
+                            <button class="remove_effect" onclick="removeStatusEffect(this, 'weak_info')">Remove</button>
+                        </div>
+                    </div>
+                    <button class="add_status_but" onclick="showStatusEffects('weak_popup')">Add Weakness</button>
                 </div>
 
-                <button class="status_cat">Weaknesses</button>
-                <div class="status_info" id="weakness_info">
-                </div>
-
-                <button class="status_cat">Resistances</button>
-                <div class="status_info" id="resistance_info">
+                <div class="status_box">
+                    <div class="popup" id="res_popup">
+                        <span onclick="addStatusEffect(this, 'res_info', 'res_popup')">Bludgeoning</span>
+                        <span onclick="addStatusEffect(this, 'res_info', 'res_popup')">Cold</span>
+                        <span onclick="addStatusEffect(this, 'res_info', 'res_popup')">Electricity</span>
+                        <span onclick="addStatusEffect(this, 'res_info', 'res_popup')">Force</span>
+                        <span onclick="addStatusEffect(this, 'res_info', 'res_popup')">Heat</span>
+                        <span onclick="addStatusEffect(this, 'res_info', 'res_popup')">Laser</span>
+                        <span onclick="addStatusEffect(this, 'res_info', 'res_popup')">Posion</span>
+                        <span onclick="addStatusEffect(this, 'res_info', 'res_popup')">Radiation</span>
+                        <span onclick="addStatusEffect(this, 'res_info', 'res_popup')">Psychic</span>
+                        <span onclick="addStatusEffect(this, 'res_info', 'res_popup')">Slashing</span>
+                        <span onclick="addStatusEffect(this, 'res_info', 'res_popup')">Sound</span>
+                        <span onclick="addStatusEffect(this, 'res_info', 'res_popup')">Water</span>
+                    </div>
+                    <div class="status_cat">Resistances</div>
+                    <div class="status_info" id="res_info">
+                        <div class="active_effect" style="display: none;">
+                            <span>Blind - Partial</span>
+                            <button class="remove_effect" onclick="removeStatusEffect(this, 'res_info')">Remove</button>
+                        </div>
+                    </div>
+                    <button class="add_status_but" onclick="showStatusEffects('res_popup')">Add Resistance</button>
                 </div>
             </div>
             <div class="body_panel_col">
@@ -347,28 +493,31 @@
                     </div>
                     <span>MISC.</span>
                     <div class="equipped_item" id="eq_misc">
-                        </div>
                     </div>
                 </div>
                 <div class="body_panel_content" id="stimplant_panel">
-                    <div class="stim_item">
-                        <img src="data/images/psyche_icon.png">
-                        <div class="item_name" id="psyche_stim"></div>
+                    <div class="charge_row">
+                        <div id="charge_avail"></div>
                     </div>
                     <div class="stim_item">
-                        <img src="data/images/energy_icon.jpg">
-                        <div class="item_name" id="energy_stim"></div>
+                        <div class="stim_name" id="psyche_stim">Psyche</div>
+                        <div class="charges"></div>
+                        <button class="add_charge">ADD</button>
                     </div>
                     <div class="stim_item">
-                        <img src="data/images/fluid_icon.jpg">
-                        <div class="item_name" id="fluid_stim"></div>
+                        <div class="stim_name" id="energy_stim">Psyche</div>
+                        <div class="charges"></div>
+                        <button class="add_charge">ADD</button>
                     </div>
                     <div class="stim_item">
-                        <img src="data/images/wave_icon.png">
+                        <div class="stim_name" id="fluid_stim">Fluid</div>
+                        <div class="charges"></div>
+                        <button class="add_charge">ADD</button>
+                    </div>
+                    <div class="stim_item">
                         <div class="item_name" id="wave_stim"></div>
                     </div>
                     <div class="stim_item">
-                        <img src="data/images/grav_icon.jpg">
                         <div class="item_name" id="grav_stim"></div>
                     </div>
                 </div>
@@ -433,8 +582,8 @@
     <div class="char_content" id="skills_panel">
         <div class="panel_title">SKILLS</div>
         <div class="skill_points">
-            <label for="skill_points_avail">Skill Points:</label>
-            <input id="skill_points_avail" type="number" value="0">
+            <span>Skill Points:</span>
+            <div id="skill_points_avail">0</div>
         </div>
 
         <!-- Pop-Up with Perk Info -->
@@ -1945,8 +2094,6 @@
             </table>
         </div>
     </div>-->
-
-
     <script>
         //Load at beginning
         document.getElementById("defaultOpen_body").click();
@@ -1954,7 +2101,7 @@
         
 
         //Retrieve saved key
-        //var char_id = localStorage.getItem("char_ID");
+        var char_id = localStorage.getItem("char_ID");
         getXmlForLoad("000");
         getPerkActionXML();
     </script>
