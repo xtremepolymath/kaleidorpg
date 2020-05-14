@@ -2,11 +2,12 @@
 <saved_characters>
     <character id="000">
         <char_name>The Mandalorian</char_name>
+        <lvl>10</lvl>
         <race>Human</race>
         <gender>Male</gender>
         <background>Bounty Hunter</background>
         <alignment>Lawful Neutral</alignment>
-        <current_HP>46</current_HP>
+        <current_HP>20</current_HP>
         <base_HP>46</base_HP>
         <str>10</str>
         <dex>14</dex>
@@ -64,6 +65,7 @@
     </character>
     <character id="001">
         <char_name>Baby Yoda</char_name>
+        <lvl>3</lvl>
         <race>Unknown</race>
         <gender>Unknown</gender>
         <background>Force User</background>
