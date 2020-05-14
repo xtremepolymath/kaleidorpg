@@ -286,11 +286,27 @@ function updateSkillChart(){
     }
 
     recalculateSkillMods();
+    updateSheetInfo();
+}
+
+function updateSheetInfo(){
+    var skLvls = document.getElementsByClassName("skill_level_value");
+    var skillMods = document.getElementsByClassName("skill_mod_val");
+
+    for(var i=0; i < skLvls.length; i++){
+        var skillName = skillMods[i].parentElement.children[0].children[0].innerHTML;
+
+        var currentLVL = skLvls[i].children[0].innerHTML;
+
+        if(skillName == "Athletics" && currentLVL >= 15){
+            document.getElementById("hp_incr").innerHTML = 4;
+        }
+    }
 }
 
 function increaseSkill(skillVal){
     var expertise = document.getElementById(skillVal).parentElement.parentElement.children[7].children[0].innerHTML;
-    var ptsAvail = document.getElementById('skill_points_avail').value;
+    var ptsAvail = document.getElementById('skill_points_avail').innerHTML;
 
     if(ptsAvail > 0){
         var skillInt = parseInt(document.getElementById(skillVal).innerHTML);
@@ -310,11 +326,11 @@ function increaseSkill(skillVal){
         updateSkillActions();
     }
 
-    document.getElementById('skill_points_avail').value = ptsAvail;
+    document.getElementById('skill_points_avail').innerHTML = ptsAvail;
 }
 
 function decreaseSkill(skillVal){
-    var ptsAvail = parseInt(document.getElementById('skill_points_avail').value);
+    var ptsAvail = parseInt(document.getElementById('skill_points_avail').innerHTML);
     var skillInt = parseInt(document.getElementById(skillVal).innerHTML);
     var newLvl = skillInt - 1;
 
@@ -325,7 +341,7 @@ function decreaseSkill(skillVal){
 
     updateSkillChart();
 
-    document.getElementById('skill_points_avail').value = ptsAvail;
+    document.getElementById('skill_points_avail').innerHTML = ptsAvail;
 }
 
 function recalculateSkillMods(){
@@ -497,6 +513,76 @@ function filterActions(event, table){
     }
 }
 
+function showStatusEffects(popup){
+    var pop = document.getElementById(popup);
+    if(pop.style.display === "block"){
+        pop.style.display = "none";
+    }
+    else{
+        pop.style.display = "block";
+    }
+}
+
+function addStatusEffect(evt, type, popup){
+    var effects = document.getElementById(type);
+    var base_ele = effects.children[0];
+
+    if(base_ele.style.display == "none"){
+        base_ele.style.display = "inline-block";
+        base_ele.children[0].innerHTML = evt.innerHTML;
+    }
+    else{
+        var new_effect = base_ele.cloneNode(true);
+        new_effect.children[0].innerHTML = evt.innerHTML;
+        document.getElementById(type).appendChild(new_effect);
+    }
+    
+    var pop = document.getElementById(popup);
+    if(pop.style.display === "block"){
+        pop.style.display = "none";
+    }
+    else{
+        pop.style.display = "block";
+    }
+
+    document.getElementById("test").innerHTML = effects.children.length;
+}
+
+function removeStatusEffect(evt, type){
+    var effects = document.getElementById(type);
+    var effect = evt.parentElement;
+
+    if(effects.children.length == 1){
+        effects.children[0].style.display = "none";
+    }
+    else{
+        effect.remove();
+    }
+}
+
+function openOptionWindow(option){
+    var win = document.getElementById("option_win");
+    var option = document.getElementById(option)
+    
+    win.style.display = "block";
+    option.style.display = "block";
+}
+
+function closeOptionWindow(){
+    var options = document.getElementsByClassName("option_window");
+
+    for(var i=0; i<options.length;i++){
+        if(options[i].style.display == "block"){
+            options[i].style.display = "none";
+        }
+    }
+
+    var win = document.getElementById("option_win");
+    if(win.style.display == "block"){
+        win.style.display = "none";
+    }
+}
+
 //Automated calculations
 function setDefaultActions(){
 
@@ -625,4 +711,65 @@ function updateAllCalculations(){
     updateAttrModView();
     setDefaultActions();
     updateSkillActions();
+}
+
+function levelUp(){
+    var level = parseInt(document.getElementById("lvl").innerHTML);
+    level = level + 1;
+    document.getElementById("lvl").innerHTML = level;
+
+    var maxHP = parseInt(document.getElementById("base_HP").innerHTML);
+    var curHP = parseInt(document.getElementById("current_HP").innerHTML);
+    var hpIncr = parseInt(document.getElementById("hp_incr").innerHTML);
+
+    maxHP = maxHP + hpIncr;
+    document.getElementById("base_HP").innerHTML = maxHP;
+    curHP = curHP + hpIncr;
+    document.getElementById("current_HP").innerHTML = curHP;
+
+    
+
+    var skillPts = parseInt(document.getElementById("skill_points_avail").innerHTML);
+    skillPts = skillPts + 10;
+    document.getElementById("skill_points_avail").innerHTML = skillPts;
+
+    closeOptionWindow();
+}
+
+function fullHeal(){
+    document.getElementById("current_HP").innerHTML = document.getElementById("base_HP").innerHTML;
+    closeOptionWindow();
+}
+
+function fullCharge(){
+
+}
+
+function showSleepPanel(){
+    document.getElementById("sleep_panel").style.display = "inline-block";
+}
+
+function calcSleep(evt){
+    var slpAmt = evt.value;
+    var lvl = document.getElementById("lvl").innerHTML;
+
+    document.getElementById("sleepHP").innerHTML = Math.floor(slpAmt/4) * lvl;
+}
+
+function submitSleep(){
+    var HPgain = parseInt(document.getElementById("sleepHP").innerHTML);
+    if(document.getElementById("sleepHP").innerHTML > 0){
+        var newHP = parseInt(document.getElementById("current_HP").innerHTML) + HPgain
+        if(newHP <= document.getElementById("base_HP").innerHTML){
+            document.getElementById("current_HP").innerHTML = newHP;
+        }
+        else{
+            document.getElementById("current_HP").innerHTML = document.getElementById("base_HP").innerHTML;
+        }
+
+        document.getElementById("sleep_panel").children[1].value = "";
+        document.getElementById("sleepHP").innerHTML = 0;
+        document.getElementById("sleep_panel").style.display = "none";
+        closeOptionWindow();
+    }
 }
