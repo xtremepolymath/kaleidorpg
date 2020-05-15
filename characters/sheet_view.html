@@ -81,7 +81,7 @@
                 </div>
                 <div class="option_choices">
                     <button class="heal_but" onclick="fullHeal()">Full Heal</button>
-                    <button class="charge_but">Charge Stims</button>
+                    <button class="charge_but" onclick="fullCharge()">Charge Stims</button>
                     <button class="sleep_but" onclick="showSleepPanel()">Sleep<br></button>
                 </div>
                 <div id="sleep_panel"> 
@@ -497,28 +497,93 @@
                 </div>
                 <div class="body_panel_content" id="stimplant_panel">
                     <div class="charge_row">
-                        <div id="charge_avail"></div>
+                        <span>Batteries</span>
+                        <div id="charges_avail"></div>
                     </div>
+                    <span>Energy</span>
                     <div class="stim_item">
-                        <div class="stim_name" id="psyche_stim">Psyche</div>
-                        <div class="charges"></div>
+                        <div class="stim_name" id="energy_stim"></div>
+                        <span class="stim_charge" id="energy_charges"></span>
+                        <div class="charges">
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                        </div>
+                        <button class="use_charge" onclick="useStimCharge(this)">USE</button>
                         <button class="add_charge">ADD</button>
                     </div>
+                    <span>Fluid</span>
                     <div class="stim_item">
-                        <div class="stim_name" id="energy_stim">Psyche</div>
-                        <div class="charges"></div>
+                        <div class="stim_name" id="fluid_stim"></div>
+                        <span class="stim_charge" id="fluid_charges"></span>
+                        <div class="charges">
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                        </div>
+                        <button class="use_charge" onclick="">USE</button>
                         <button class="add_charge">ADD</button>
                     </div>
+                    <span>Grav</span>
                     <div class="stim_item">
-                        <div class="stim_name" id="fluid_stim">Fluid</div>
-                        <div class="charges"></div>
+                        <div class="stim_name" id="grav_stim"></div>
+                        <span class="stim_charge" id="grav_charges"></span>
+                        <div class="charges">
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                        </div>
+                        <button class="use_charge" onclick="useStimCharge(this)">USE</button>
+                        <button class="add_charge" onclick="rechargeStim(this)">ADD</button>
+                    </div>
+                    <span>Psyche</span>
+                    <div class="stim_item">
+                        <div class="stim_name" id="psyche_stim"></div>
+                        <span class="stim_charge" id="psyche_charges"></span>
+                        <div class="charges">
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                        </div>
+                        <button class="use_charge" onclick="">USE</button>
                         <button class="add_charge">ADD</button>
                     </div>
+                    <span>Wave</span>
                     <div class="stim_item">
-                        <div class="item_name" id="wave_stim"></div>
-                    </div>
-                    <div class="stim_item">
-                        <div class="item_name" id="grav_stim"></div>
+                        <div class="stim_name" id="wave_stim"></div>
+                        <span class="stim_charge" id="wave_charges"></span>
+                        <div class="charges">
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                        </div>
+                        <button class="use_charge" onclick="">USE</button>
+                        <button class="add_charge">ADD</button>
                     </div>
                 </div>
             </div>
