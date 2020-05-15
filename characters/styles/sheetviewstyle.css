@@ -421,8 +421,8 @@ input::-webkit-inner-spin-button {
     position: absolute;
     padding: 5px;
     font-size: 12pt;
-    background-color: firebrick;
-    color: gainsboro;
+    background-color: rgb(148, 148, 148);
+    color: #1C2429;
     transform: translate(-5px, 10px);
 }
 
