@@ -125,6 +125,7 @@ function saveSheetInfo(loadedXml, char_ID){
 }
 //Download a text file with new save info
 function outputSave(outputData){
+    
     var textToBLOB = new Blob([outputData], {type: 'text/plain'});
     var sFileName = 'KaleidoRPG_save' + toString(char_ID) + '.txt';
     var newLink = document.createElement("a");
