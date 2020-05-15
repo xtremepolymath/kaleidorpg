@@ -798,6 +798,21 @@ function updateAllCalculations(){
     updateAcBarStims();
 }
 
+function takeDamage(event){
+    var damAmount = event.parentElement.parentElement.children[3].children[1].value;
+    var curHP = parseInt(document.getElementById("current_HP").innerHTML);
+    
+    if(curHP - damAmount > 0){
+        document.getElementById("current_HP").innerHTML = curHP - damAmount;
+    }
+    else{
+        document.getElementById("current_HP").innerHTML = 0;
+    }
+
+    closeOptionWindow();
+    
+}
+
 function levelUp(){
     var level = parseInt(document.getElementById("lvl").innerHTML);
     level = level + 1;
