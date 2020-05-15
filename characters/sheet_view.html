@@ -63,7 +63,6 @@
                     <div class="option" onclick="openOptionWindow('rest')">Rest</div>
                     <div class="option" onclick="openOptionWindow('lvl_up')">Level Up</div>
                     <div class="option" onclick="openOptionWindow('save_view')">Save</div>
-                    <div class="option" onclick="openOptionWindow('reload')">Reload</div>
                 </div>
             </div>
         </div>
@@ -126,6 +125,18 @@
                     <button class="reload_confirm">Confirm</button>
                 </div>
             </div>
+            <div class="option_window" id="take_damage_win">
+                <div class="option_title">Take Damage</div>
+                <button class="close_option" onclick="closeOptionWindow()">X</button>
+                <br>
+                <div class="option_text">
+                    <p>How much damage are you taking?</p>
+                    <input class="dmg_input" type="number"></input>
+                </div>
+                <div class="option_choices">
+                    <button class="damage_confirm" onclick="takeDamage(this)">Confirm</button>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -178,7 +189,9 @@
                     <div class="bar_panel" id="base_bar">10</div><br>
                     <span class="bar_label">BAR.</span>
                 </div>
+                <button class="damage_button" onclick="openOptionWindow('take_damage_win')">Take Damage</button>
             </div>
+            
         </div>
 
         <!-- Attributes and passives -->
@@ -222,12 +235,12 @@
             </div>
             <div class="passives_col">
                 <div class="passive_item">
-                    <span>Armor<br>Class</span>
-                    <div class="passive_value" id="ac"></div>
-                </div>
-                <div class="passive_item">
                     <span>Passive<br>Perception</span>
                     <div class="passive_value" id="pp"></div>
+                </div>
+                <div class="passive_item">
+                    <span>Armor<br>Class</span>
+                    <div class="passive_value" id="ac"></div>
                 </div>
                 <div class="movement_item">
                     <span>Movement</span>
