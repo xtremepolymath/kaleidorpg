@@ -220,23 +220,47 @@ input::-webkit-inner-spin-button {
     font-size: 12pt;
 }
 
+.damage_text{
+    padding: 20px;
+    margin-top: 15px;
+}
+
 .dmg_input{
+    float: right;
     height: 30px;
     width: 120px;
-    margin-top: 20px;
-    margin-left: 120px;
     text-align: center;
     font-size: 16pt;
 }
 
-.damage_confirm{
-    width: 100px;
-    height: 50px;
-    margin-left: 130px;
-    margin-top: 30px;
-    background-color: #E8903B;
+.bar_dam_confirm{
+    float: right;
+    width: 80px;
+    height: 30px;
+    background-color: #0070B5;
     color: #1C2429;
     font-size: 12pt;
+    margin: 3px 15px;
+}
+
+.damage_confirm{
+    float: right;
+    width: 80px;
+    height: 30px;
+    background-color: firebrick;
+    color: #1C2429;
+    font-size: 12pt;
+    margin: 3px 15px;
+}
+
+.heal_confirm{
+    float: right;
+    width: 80px;
+    height: 30px;
+    background-color: #7ecc89;
+    color: #1C2429;
+    font-size: 12pt;
+    margin: 3px 15px;
 }
 
 .reload_confirm{
