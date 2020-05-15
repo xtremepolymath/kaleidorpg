@@ -48,7 +48,7 @@
         <div class="menu_overflow"></div>
     </div>
 
-    <button id="test" onclick="updateSkillActions()">Test</button>
+    <!--<button id="test" onclick="updateSkillActions()">Test</button>-->
 
     <!-- Character Menu -->
     <div class="character_menu">
@@ -2163,11 +2163,10 @@
         //Load at beginning
         document.getElementById("defaultOpen_body").click();
         document.getElementById("defaultOpen_char").click();
-        
 
         //Retrieve saved key
         var char_id = localStorage.getItem("char_ID");
-        getXmlForLoad("000");
+        getXmlForLoad(char_id);
         getPerkActionXML();
     </script>
 </body>
