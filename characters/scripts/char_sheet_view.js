@@ -129,13 +129,14 @@ function saveSheetInfo(loadedXml, char_ID){
         eleArray[i] = document.getElementById(charNodes[i].nodeName).innerHTML;
     }
 
-    outputSave(eleArray);
+    outputSave(eleArray, char_ID);
 }
 //Download a text file with new save info
-function outputSave(outputData){
+function outputSave(outputData, char_ID){
 
     var textToBLOB = new Blob([outputData], {type: 'text/plain'});
-    var sFileName = 'KaleidoRPG_save' + toString(char_ID) + '.txt';
+
+    var sFileName = 'KaleidoRPG_save' + char_ID + '.txt';
     var newLink = document.createElement("a");
     newLink.download = sFileName;
 
@@ -148,6 +149,8 @@ function outputSave(outputData){
         newLink.style.display = "none";
         document.body.appendChild(newLink);
     }
+
+    closeOptionWindow();
 
     newLink.click();
 }
@@ -285,7 +288,6 @@ function rechargeStim(stim){
         var chargeAvail = parseInt(stim.parentElement.children[1].innerHTML);
         chargeAvail += 1;
 
-        document.getElementById("test").innerHTML = chargeAvail;
         for(var i=0; i<chargeAvail; i++){
             stim.parentElement.children[2].children[i].style.backgroundColor = "#7ecc89";
         }
@@ -577,8 +579,6 @@ function addStatusEffect(evt, type, popup){
     else{
         pop.style.display = "block";
     }
-
-    document.getElementById("test").innerHTML = effects.children.length;
 }
 
 function removeStatusEffect(evt, type){
