@@ -17,11 +17,17 @@
         <cha>8</cha>
         <ac>5</ac>
         <pp>10</pp>
+        <charges_avail>4</charges_avail>
         <psyche_stim>None</psyche_stim>
+        <psyche_charges>0</psyche_charges>
         <energy_stim>None</energy_stim>
+        <energy_charges>0</energy_charges>
         <fluid_stim>None</fluid_stim>
+        <fluid_charges>0</fluid_charges>
         <wave_stim>None</wave_stim>
-        <grav_stim>None</grav_stim>
+        <wave_charges>0</wave_charges>
+        <grav_stim>Novice</grav_stim>
+        <grav_charges>2</grav_charges>
         <armor_level>30</armor_level>
         <armor_expertise>Heavy Armor</armor_expertise>
         <assault_weapon_level>10</assault_weapon_level>
