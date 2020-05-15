@@ -232,7 +232,6 @@ input::-webkit-inner-spin-button {
 .char_content{
     display: none;
     width: 1000px;
-    min-height: 1100px;
     margin: auto;
     margin-bottom: 100px;
     padding-bottom: 50px;
@@ -240,7 +239,7 @@ input::-webkit-inner-spin-button {
 }
 
 .row{
-    float: left;
+    display: inline-block;
     width: 100%;
     border: solid 5px none;
     padding:10px;
