@@ -129,14 +129,58 @@
                 <div class="option_title">Take Damage</div>
                 <button class="close_option" onclick="closeOptionWindow()">X</button>
                 <br>
+                <div class="damage_text">
+                    <span>Barrier Damage</span>
+                    <button class="bar_dam_confirm" onclick="takeBarDamage(this)">Confirm</button>
+                    <input class="dmg_input" type="number"></input>
+                </div>
+                <div class="damage_text">
+                    <span>Health Damage</span>
+                    <button class="damage_confirm" onclick="takeHPDamage(this)">Confirm</button>
+                    <input class="dmg_input" type="number"></input>
+                </div>
+                <div class="damage_text">
+                    <span>Heal HP</span>
+                    <button class="heal_confirm" onclick="healHP(this)">Confirm</button>
+                    <input class="dmg_input" type="number"></input>
+                </div>
+            </div>
+            <!--<div class="option_window" id="take_damage_win">
+                <div class="option_title">Take Damage</div>
+                <button class="close_option" onclick="closeOptionWindow()">X</button>
                 <div class="option_text">
                     <p>How much damage are you taking?</p>
                     <input class="dmg_input" type="number"></input>
+                    <p>Choose all applicable damage types</p>
+                    <div class="status_box">
+                        <div class="popup" id="weak_popup">
+                            <span onclick="addStatusEffect(this, 'weak_info', 'weak_popup')">Bludgeoning</span>
+                            <span onclick="addStatusEffect(this, 'weak_info', 'weak_popup')">Cold</span>
+                            <span onclick="addStatusEffect(this, 'weak_info', 'weak_popup')">Electricity</span>
+                            <span onclick="addStatusEffect(this, 'weak_info', 'weak_popup')">Force</span>
+                            <span onclick="addStatusEffect(this, 'weak_info', 'weak_popup')">Heat</span>
+                            <span onclick="addStatusEffect(this, 'weak_info', 'weak_popup')">Laser</span>
+                            <span onclick="addStatusEffect(this, 'weak_info', 'weak_popup')">Posion</span>
+                            <span onclick="addStatusEffect(this, 'weak_info', 'weak_popup')">Radiation</span>
+                            <span onclick="addStatusEffect(this, 'weak_info', 'weak_popup')">Psychic</span>
+                            <span onclick="addStatusEffect(this, 'weak_info', 'weak_popup')">Slashing</span>
+                            <span onclick="addStatusEffect(this, 'weak_info', 'weak_popup')">Sound</span>
+                            <span onclick="addStatusEffect(this, 'weak_info', 'weak_popup')">Water</span>
+                        </div>
+                        <div class="status_cat">Damage Types</div>
+                        <div class="status_info" id="weak_info">
+                            <div class="damage_type" style="display: none;">
+                                <span></span>
+                                <button class="remove_effect" onclick="removeStatusEffect(this, 'weak_info')">Remove</button>
+                            </div>
+                        </div>
+                        <button class="add_status_but" onclick="showStatusEffects('weak_popup')">Options</button>
+                    </div>
                 </div>
                 <div class="option_choices">
                     <button class="damage_confirm" onclick="takeDamage(this)">Confirm</button>
                 </div>
-            </div>
+            </div>-->
         </div>
     </div>
 
