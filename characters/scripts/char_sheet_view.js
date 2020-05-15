@@ -113,6 +113,7 @@ function saveSheetInfo(loadedXml, char_ID){
 
     //Save cleaned up list of characters as an array
     var charArray = cleanXML.getElementsByTagName('character');
+    var charNodes;
     
     //Get child nodes for current character
     for(var i = 0; i < charArray.length; i++){
@@ -123,17 +124,16 @@ function saveSheetInfo(loadedXml, char_ID){
 
     var eleArray = [];
 
-    //document.getElementById('save').innerHTML = document.getElementById(charNodes[7].nodeName).tagName;
-
     //Find corresponding HTML elements
     for(var i = 0; i < charNodes.length; i++){
-        eleArray[i] = document.getElementById(charNodes[i].nodeName).value;
+        eleArray[i] = document.getElementById(charNodes[i].nodeName).innerHTML;
     }
 
     outputSave(eleArray);
 }
 //Download a text file with new save info
 function outputSave(outputData){
+
     var textToBLOB = new Blob([outputData], {type: 'text/plain'});
     var sFileName = 'KaleidoRPG_save' + toString(char_ID) + '.txt';
     var newLink = document.createElement("a");
@@ -260,6 +260,39 @@ function showHideStatusInfo(id){
     } 
     else {
         info.style.display = "block";
+    }
+}
+
+function useStimCharge(stim){
+    var chargeAvail = stim.parentElement.children[1].innerHTML;
+    if(chargeAvail > 0){
+        for(var i=0; i< stim.parentElement.children[2].children.length; i++){
+            stim.parentElement.children[2].children[i].style.backgroundColor = "";
+        }
+
+        chargeAvail -= 1;
+
+        for(var i=0; i<chargeAvail; i++){
+            stim.parentElement.children[2].children[i].style.backgroundColor = "#7ecc89";
+        }
+        stim.parentElement.children[1].innerHTML = chargeAvail;
+    }
+}
+
+function rechargeStim(stim){
+    var rechargeAvail = parseInt(document.getElementById("charges_avail").innerHTML);
+    if(rechargeAvail > 0 && stim.parentElement.children[2].children[0].style.display != ""){
+        var chargeAvail = parseInt(stim.parentElement.children[1].innerHTML);
+        chargeAvail += 1;
+
+        document.getElementById("test").innerHTML = chargeAvail;
+        for(var i=0; i<chargeAvail; i++){
+            stim.parentElement.children[2].children[i].style.backgroundColor = "#7ecc89";
+        }
+
+        stim.parentElement.children[1].innerHTML = chargeAvail;
+
+        document.getElementById("charges_avail").innerHTML = rechargeAvail - 1;
     }
 }
 
@@ -584,6 +617,57 @@ function closeOptionWindow(){
 }
 
 //Automated calculations
+function updateAcBarStims(){
+
+    //AC
+    var baseAc = 5;
+    var acMods = document.getElementsByClassName("ac_mod");
+    var acBoost = 0;
+    for(var i=0; i < acMods.length; i++){
+        acBoost = acBoost + parseInt(acMods[i].innerHTML);
+    }
+    var newAc = baseAc + acBoost;
+    document.getElementById("ac").innerHTML = newAc;
+
+    //Bar
+    var barMods = document.getElementsByClassName("barrier_val");
+    var barVal = 0;
+    for(var i=0; i<barMods.length;i++){
+        barVal += parseInt(barMods[i].innerHTML);
+    }
+    document.getElementById("base_bar").innerHTML = barVal;
+    document.getElementById("current_bar").innerHTML = barVal;
+
+    //Stim
+    var eqStims = document.getElementsByClassName("stim_item");
+
+    for(var i=0; i<eqStims.length;i++){
+        var numCharges = 0;
+
+        if(eqStims[i].children[0].innerHTML == "Master"){
+            numCharges = 8;
+        }
+        else if(eqStims[i].children[0].innerHTML == "Expert"){
+            numCharges = 6;
+        }
+        else if(eqStims[i].children[0].innerHTML == "Adept"){
+            numCharges = 4;
+        }
+        else if(eqStims[i].children[0].innerHTML == "Novice"){
+            numCharges = 2;
+        }
+
+        for(var j=0; j < numCharges; j++){
+            eqStims[i].children[2].children[j].style.display = "inline-block";
+        }
+
+        var chargeAvail = eqStims[i].children[1].innerHTML;
+        for(var j=0; j < chargeAvail; j++){
+            eqStims[i].children[2].children[j].style.backgroundColor = "#7ecc89";
+        }
+    }
+}
+
 function setDefaultActions(){
 
     //Major Actions
@@ -711,6 +795,7 @@ function updateAllCalculations(){
     updateAttrModView();
     setDefaultActions();
     updateSkillActions();
+    updateAcBarStims();
 }
 
 function levelUp(){
@@ -742,7 +827,13 @@ function fullHeal(){
 }
 
 function fullCharge(){
-
+    var stimCharges = document.getElementsByClassName("charge_item");
+    for(var i=0; i< stimCharges.length; i++){
+        if(stimCharges[i].style.display =="inline-block" && stimCharges[i].style.backgroundColor == ""){
+            stimCharges[i].style.backgroundColor = "#7ecc89";
+            stimCharges[i].parentElement.parentElement.children[1].innerHTML = parseInt(stimCharges[i].parentElement.parentElement.children[1].innerHTML) + 1;
+        }
+    }
 }
 
 function showSleepPanel(){
