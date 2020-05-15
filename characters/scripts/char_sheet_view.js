@@ -798,15 +798,86 @@ function updateAllCalculations(){
     updateAcBarStims();
 }
 
-function takeDamage(event){
-    var damAmount = event.parentElement.parentElement.children[3].children[1].value;
+function takeBarDamage(event){
+    var dmgAmt = event.parentElement.children[2].value;
+    var curBar = parseInt(document.getElementById("current_bar").innerHTML);
     var curHP = parseInt(document.getElementById("current_HP").innerHTML);
-    
-    if(curHP - damAmount > 0){
-        document.getElementById("current_HP").innerHTML = curHP - damAmount;
+    var leftoverDam = 0;
+
+    if(curBar - dmgAmt > 0){
+        document.getElementById("current_bar").innerHTML = curBar - dmgAmt;
+    }
+    else{
+        document.getElementById("current_bar").innerHTML = 0;
+        leftoverDam = dmgAmt - curBar;
+        document.getElementById("current_HP").innerHTML = curHP - leftoverDam;
+    }
+
+    event.parentElement.children[2].value = "";
+    closeOptionWindow();
+}
+
+function takeHPDamage(event){
+    var dmgAmt = event.parentElement.children[2].value;
+    var curHP = parseInt(document.getElementById("current_HP").innerHTML);
+
+    if(curHP - dmgAmt > 0){
+        document.getElementById("current_HP").innerHTML = curHP - dmgAmt;
     }
     else{
         document.getElementById("current_HP").innerHTML = 0;
+    }
+
+    event.parentElement.children[2].value = "";
+    closeOptionWindow();
+}
+
+function healHP(event){
+    var healAmt = parseInt(event.parentElement.children[2].value);
+    var curHP = parseInt(document.getElementById("current_HP").innerHTML);
+    var maxHP = parseInt(document.getElementById("base_HP").innerHTML);
+
+    if(curHP + healAmt < maxHP){
+        document.getElementById("current_HP").innerHTML = curHP + healAmt;
+    }
+    else{
+        document.getElementById("current_HP").innerHTML = maxHP;
+    }
+
+    event.parentElement.children[2].value = "";
+    closeOptionWindow();
+}
+
+function takeDamage(event){
+    var damAmount = event.parentElement.parentElement.children[2].children[1].value;
+    var damEle = document.getElementsByClassName("damage_type");
+    var damTypes = [];
+    var curHP = parseInt(document.getElementById("current_HP").innerHTML);
+    var curBar = parseInt(document.getElementById("current_bar").innerHTML);
+    var leftoverDam = 0;
+    //var totalDamage;
+
+    for(var i=0; i<damEle.length; i++){
+        damTypes[i] = damEle[i].children[0].innerHTML;
+    }
+
+    if(damTypes.includes("Laser")){
+        if(curBar - damAmount > 0){
+            document.getElementById("current_bar").innerHTML = curBar - damAmount;
+        }
+        else{
+            document.getElementById("current_bar").innerHTML = 0;
+            leftoverDam = damAmount - curBar;
+            document.getElementById("current_HP").innerHTML = curHP - leftoverDam;
+        }
+    }
+    else{
+        if(curHP - damAmount > 0){
+            document.getElementById("current_HP").innerHTML = curHP - damAmount;
+        }
+        else{
+            document.getElementById("current_HP").innerHTML = 0;
+        }
     }
 
     closeOptionWindow();
