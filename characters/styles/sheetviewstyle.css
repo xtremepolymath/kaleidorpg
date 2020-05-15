@@ -214,8 +214,27 @@ input::-webkit-inner-spin-button {
 .lvl_up_confirm{
     width: 100px;
     height: 50px;
-    margin-left: 100px;
+    margin-left: 120px;
     background-color: #7ecc89;
+    color: #1C2429;
+    font-size: 12pt;
+}
+
+.dmg_input{
+    height: 30px;
+    width: 120px;
+    margin-top: 20px;
+    margin-left: 120px;
+    text-align: center;
+    font-size: 16pt;
+}
+
+.damage_confirm{
+    width: 100px;
+    height: 50px;
+    margin-left: 130px;
+    margin-top: 30px;
+    background-color: #E8903B;
     color: #1C2429;
     font-size: 12pt;
 }
@@ -374,9 +393,17 @@ input::-webkit-inner-spin-button {
     color: #0070B5;
 }
 
+.damage_button{
+    position: absolute;
+    padding: 5px;
+    font-size: 12pt;
+    background-color: firebrick;
+    color: gainsboro;
+    transform: translate(-5px, 10px);
+}
+
 .attr_container{
     float: left;
-    width: 500px;
     margin-left: 25px;
 }
 
@@ -517,14 +544,15 @@ input::-webkit-inner-spin-button {
 }
 
 .passive_value{
-    height: 60px;
-    width: 60px;
+    padding: 3px 0px;
+    height: 38px;
+    width: 45px;
     margin: auto;
     margin-top: 2px;
     border: solid 5px rgb(34,162,179);
     border-radius: 20%;
     text-align: center;
-    font-size: 200%;
+    font-size: 18pt;
     font-weight: bolder;
     background-color:none;
     color: gainsboro;
@@ -535,22 +563,23 @@ input::-webkit-inner-spin-button {
     float: left;
     text-align: center;
     margin-left: 40px;
-    padding-top: 10px;
+    padding-top: 25px;
 }
 
 .movement_item span{
+    display: block;
     font-size: 14pt;
 }
 
 .movement_value{
-    height: 60px;
-    width: 100px;
+    height: 40px;
+    width: 60px;
     margin: auto;
-    margin-top: 15px;
+    margin-top: 2px;
     border: solid 5px rgb(34,162,179);
     border-radius: 20%;
     text-align: center;
-    font-size: 200%;
+    font-size: 18pt;
     font-weight: bolder;
     background-color:none;
     color: gainsboro;
