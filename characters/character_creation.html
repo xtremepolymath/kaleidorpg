@@ -6,7 +6,6 @@
   <title>Kaleido RPG</title>
   <!--<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'> -->
   <link rel='local stylesheet' href='styles/charcreationstyle.css'>
-  <script src="scripts/character_creation.js"></script>
   <script src="scripts/character_creator.js"></script>
 
   <link rel='local stylesheet' href="../main_menu.css">
@@ -52,1455 +51,1864 @@
     <div class="character_menu">
         <div class="char_menu_tab">
             <button class="char_menu_button" id="defaultOpen_char" onclick="charPanelSwitch(event, 'main_panel')">RACE</button>
-            <button class="char_menu_button" onclick="charPanelSwitch(event, 'actions_panel')">INFO</button>
+            <button class="char_menu_button" onclick="charPanelSwitch(event, 'info_panel')">INFO</button>
+            <button class="char_menu_button" onclick="charPanelSwitch(event, 'attr_panel')">ATTRIBUTES</button>
             <button class="char_menu_button" onclick="charPanelSwitch(event, 'skills_panel')">SKILLS</button>
-            <button class="char_menu_button" onclick="charPanelSwitch(event, 'skills_panel')">ACTIONS</button>
-            <button class="char_menu_button" onclick="charPanelSwitch(event, 'skills_panel')">INVENTORY</button>
+            <button class="char_menu_button" onclick="charPanelSwitch(event, 'actions_panel')">ACTIONS</button>
         </div>
     </div>
 
     <!-- RACE -->
     <div class="char_content" id="main_panel">
+        <div clas="row">
+            <!-- Race List-->	
+            <div class="race_menu">
+                <div class="race_item" onmousedown="switchRacePanel('human')">HUMAN</div>
+                <div class="race_item" onmousedown="switchRacePanel('cyborg')">CYBORG</div>
+                <div class="race_item" onmousedown="switchRacePanel('quexi')">QUEXI</div>
+                <div class="race_item" onmousedown="switchRacePanel('aerhza')">AERHZA</div>
+                <div class="race_item" onmousedown="switchRacePanel('muhmin')">MUHMIN</div>
+                <div class="race_item" onmousedown="switchRacePanel('kozaid')">KOZ'AID</div>
+                <div class="race_item" onmousedown="switchRacePanel('veith')">VEITH</div>
+                <div class="race_item" onmousedown="switchRacePanel('tstsen')">TS'TSEN</div>
+            </div>
 
-        <!-- Background Info 1-->	
-        <div class="race_menu">
-            <div class="race_item" onmousedown="switchRacePanel('human')">HUMAN</div>
-            <div class="race_item" onmousedown="switchRacePanel('cyborg')">CYBORG</div>
-            <div class="race_item" onmousedown="switchRacePanel('quexi')">QUEXI</div>
-            <div class="race_item" onmousedown="switchRacePanel('aerhza')">AERHZA</div>
-            <div class="race_item" onmousedown="switchRacePanel('muhmin')">MUHMIN</div>
-            <div class="race_item" onmousedown="switchRacePanel('kozaid')">KOZ'AID</div>
-            <div class="race_item" onmousedown="switchRacePanel('veith')">VEITH</div>
-            <div class="race_item" onmousedown="switchRacePanel('tstsen')">TS'TSEN</div>
-        </div>
-
-        <!-- Ability Scores -->
-        <div class="race_panel" id="human">
-            <div class="race_panel_title">HUMAN</div>
-            <div class="race_info_row">
-                <div class="race_info_type">Size</div>
-                <div class="race_info_content">
-                    Males:  1.70 - 1.95m<br>
-                    Females:  1.55 - 1.8m
+            <!-- Race Info Panels -->
+            <div class="race_panel" id="human">
+                <div class="race_panel_title">HUMAN</div>
+                <div class="race_info_row">
+                    <div class="race_info_type">Size</div>
+                    <div class="race_info_content">
+                        Males:  1.70 - 1.95m<br>
+                        Females:  1.55 - 1.8m
+                    </div>
                 </div>
-            </div>
-            <div class="race_info_row">
-                <div class="race_info_type">Appearance</div>
-                <div class="race_info_content">
-                    Bipedal and slender-framed. They are covered in smooth skin ranging from pale pink to dark brown. They grow hair mostly on the top of their heads, which can be shades of blonde, red, brown, black.
+                <div class="race_info_row">
+                    <div class="race_info_type">Appearance</div>
+                    <div class="race_info_content">
+                        Bipedal and slender-framed. They are covered in smooth skin ranging from pale pink to dark brown. They grow hair mostly on the top of their heads, which can be shades of blonde, red, brown, black.
+                    </div>
                 </div>
-            </div>
-            <div class="race_info_row">
-                <div class="race_info_type">Homeworld</div>
-                <div class="race_info_content">
-                    Earth
+                <div class="race_info_row">
+                    <div class="race_info_type">Homeworld</div>
+                    <div class="race_info_content">
+                        Earth
+                    </div>
                 </div>
-            </div>
-            <div class="race_info_row">
-                <div class="race_info_type">Behavior</div>
-                <div class="race_info_content">
-                    There is great variation in the behavior of humans compared to other species. Some may be docile while others may be aggressive. However, most have individualistic tendencies.
+                <div class="race_info_row">
+                    <div class="race_info_type">Behavior</div>
+                    <div class="race_info_content">
+                        There is great variation in the behavior of humans compared to other species. Some may be docile while others may be aggressive. However, most have individualistic tendencies.
+                    </div>
                 </div>
-            </div>
-            <div class="race_info_row">
-                <div class="race_info_type">Galactic Role</div>
-                <div class="race_info_content">
-                    Humans are newer to space travel, but are very ambitious. They don’t excel in any specific area, but are capable of adapting and learning quickly in almost any scenario.
+                <div class="race_info_row">
+                    <div class="race_info_type">Galactic Role</div>
+                    <div class="race_info_content">
+                        Humans are newer to space travel, but are very ambitious. They don’t excel in any specific area, but are capable of adapting and learning quickly in almost any scenario.
+                    </div>
                 </div>
-            </div>
-            <div class="race_info_row">
-                <div class="race_info_type">Attributes</div>
-                <div class="race_info_content">
-                    +1 to two of your choice
+                <div class="race_info_row">
+                    <div class="race_info_type">Attributes</div>
+                    <div class="race_info_content">
+                        +1 to two of your choice
+                    </div>
                 </div>
-            </div>
-            <div class="race_info_row">
-                <div class="race_info_type">Skills</div>
-                <div class="race_info_content">
-                    +5 to five of your choice
+                <div class="race_info_row">
+                    <div class="race_info_type">Skills</div>
+                    <div class="race_info_content">
+                        +5 to five of your choice
+                    </div>
                 </div>
-            </div>
-            <div class="race_info_row">
-                <div class="race_info_type">Unique Trait</div>
-                <div class="race_info_content">
-                    None
+                <div class="race_info_row">
+                    <div class="race_info_type">Unique Trait</div>
+                    <div class="race_info_content">
+                        None
+                    </div>
                 </div>
+                <button class="confirm_race" onclick="confirmRace('Human')">Choose this race</button>
             </div>
-        </div>
-        <div class="race_panel" id="cyborg">
-            <div class="race_panel_title">CYBORG</div>
-            <div class="race_info_row">
-                <div class="race_info_type">Size</div>
-                <div class="race_info_content">
-                    Males:  1.70 - 1.95m<br>
-                    Females:  1.55 - 1.8m
+            <div class="race_panel" id="cyborg">
+                <div class="race_panel_title">CYBORG</div>
+                <div class="race_info_row">
+                    <div class="race_info_type">Size</div>
+                    <div class="race_info_content">
+                        Males:  1.70 - 1.95m<br>
+                        Females:  1.55 - 1.8m
+                    </div>
                 </div>
-            </div>
-            <div class="race_info_row">
-                <div class="race_info_type">Appearance</div>
-                <div class="race_info_content">
-                    Bipedal and slender-framed. They resemble humans, but have metallic augmentations ranging from single body parts to their entire body.
+                <div class="race_info_row">
+                    <div class="race_info_type">Appearance</div>
+                    <div class="race_info_content">
+                        Bipedal and slender-framed. They resemble humans, but have metallic augmentations ranging from single body parts to their entire body.
+                    </div>
                 </div>
-            </div>
-            <div class="race_info_row">
-                <div class="race_info_type">Homeworld</div>
-                <div class="race_info_content">
-                    Earth
+                <div class="race_info_row">
+                    <div class="race_info_type">Homeworld</div>
+                    <div class="race_info_content">
+                        Earth
+                    </div>
                 </div>
-            </div>
-            <div class="race_info_row">
-                <div class="race_info_type">Behavior</div>
-                <div class="race_info_content">
-                    Cyborgs will either behave exactly like humans or in a more robotic and calculated manner depending on the nature of their augmentations.
+                <div class="race_info_row">
+                    <div class="race_info_type">Behavior</div>
+                    <div class="race_info_content">
+                        Cyborgs will either behave exactly like humans or in a more robotic and calculated manner depending on the nature of their augmentations.
+                    </div>
                 </div>
-            </div>
-            <div class="race_info_row">
-                <div class="race_info_type">Galactic Role</div>
-                <div class="race_info_content">
-                    Cyborgs are more specialized than humans, though that speciality anything depending on their augmentations. Some cyborgs see themselves as a better version of humans, but they can experience animosity from other races who consider them "unatural".
+                <div class="race_info_row">
+                    <div class="race_info_type">Galactic Role</div>
+                    <div class="race_info_content">
+                        Cyborgs are more specialized than humans, though that speciality anything depending on their augmentations. Some cyborgs see themselves as a better version of humans, but they can experience animosity from other races who consider them "unatural".
+                    </div>
                 </div>
-            </div>
-            <div class="race_info_row">
-                <div class="race_info_type">Attributes</div>
-                <div class="race_info_content">
-                    +2 to one of your choice
+                <div class="race_info_row">
+                    <div class="race_info_type">Attributes</div>
+                    <div class="race_info_content">
+                        +2 to one of your choice
+                    </div>
                 </div>
-            </div>
-            <div class="race_info_row">
-                <div class="race_info_type">Skills</div>
-                <div class="race_info_content">
-                    +10 to two that relate to your augmentations <br>+5 to Tech
+                <div class="race_info_row">
+                    <div class="race_info_type">Skills</div>
+                    <div class="race_info_content">
+                        +10 to two that relate to your augmentations <br>+5 to Tech
+                    </div>
                 </div>
-            </div>
-            <div class="race_info_row">
-                <div class="race_info_type">Unique Trait</div>
-                <div class="race_info_content">
-                    You may heal up to 25% of your own HP using the Patch Up action.
+                <div class="race_info_row">
+                    <div class="race_info_type">Unique Trait</div>
+                    <div class="race_info_content">
+                        You may heal up to 25% of your own HP using the Patch Up action.
+                    </div>
                 </div>
+                <button class="confirm_race" onclick="confirmRace('Cyborg')">Choose this race</button>
             </div>
-        </div>
-        <div class="race_panel" id="quexi">
-            <div class="race_panel_title">QUEXI</div>
-            <div class="race_info_row">
-                <div class="race_info_type">Size</div>
-                <div class="race_info_content">
-                    Males:  1.80 - 2.14m<br>
-                    Females:  1.72 - 1.85m
+            <div class="race_panel" id="quexi">
+                <div class="race_panel_title">QUEXI</div>
+                <div class="race_info_row">
+                    <div class="race_info_type">Size</div>
+                    <div class="race_info_content">
+                        Males:  1.80 - 2.14m<br>
+                        Females:  1.72 - 1.85m
+                    </div>
                 </div>
-            </div>
-            <div class="race_info_row">
-                <div class="race_info_type">Appearance</div>
-                <div class="race_info_content">
-                    Bipedal, tall, and very slender. They are hairless and have a waxy skin that ranges from nearly white to yellow and orange.
+                <div class="race_info_row">
+                    <div class="race_info_type">Appearance</div>
+                    <div class="race_info_content">
+                        Bipedal, tall, and very slender. They are hairless and have a waxy skin that ranges from nearly white to yellow and orange.
+                    </div>
                 </div>
-            </div>
-            <div class="race_info_row">
-                <div class="race_info_type">Homeworld</div>
-                <div class="race_info_content">
-                    Quexond
+                <div class="race_info_row">
+                    <div class="race_info_type">Homeworld</div>
+                    <div class="race_info_content">
+                        Quexond
+                    </div>
                 </div>
-            </div>
-            <div class="race_info_row">
-                <div class="race_info_type">Behavior</div>
-                <div class="race_info_content">
-                    Quexi are extremely intelligent but also very individualistic. Their tendencies and early spaceflight have led them to prefer space-bound over planetary habitation.
+                <div class="race_info_row">
+                    <div class="race_info_type">Behavior</div>
+                    <div class="race_info_content">
+                        Quexi are extremely intelligent but also very individualistic. Their tendencies and early spaceflight have led them to prefer space-bound over planetary habitation.
+                    </div>
                 </div>
-            </div>
-            <div class="race_info_row">
-                <div class="race_info_type">Galactic Role</div>
-                <div class="race_info_content">
-                    Quexi are very scientifically and technologically focused, making them excellent pilots and and gatherers of information. To compensate for evolving in a low-gravity environment, they are adept with Grav stimplants.
+                <div class="race_info_row">
+                    <div class="race_info_type">Galactic Role</div>
+                    <div class="race_info_content">
+                        Quexi are very scientifically and technologically focused, making them excellent pilots and and gatherers of information. To compensate for evolving in a low-gravity environment, they are adept with Grav stimplants.
+                    </div>
                 </div>
-            </div>
-            <div class="race_info_row">
-                <div class="race_info_type">Attributes</div>
-                <div class="race_info_content">
-                    +1 Int, +1 Dex
+                <div class="race_info_row">
+                    <div class="race_info_type">Attributes</div>
+                    <div class="race_info_content">
+                        +1 Int, +1 Dex
+                    </div>
                 </div>
-            </div>
-            <div class="race_info_row">
-                <div class="race_info_type">Skills</div>
-                <div class="race_info_content">
-                    +10 Tech, +5 Vehicles, +5 Pistol, and +5 Grav
+                <div class="race_info_row">
+                    <div class="race_info_type">Skills</div>
+                    <div class="race_info_content">
+                        +10 Tech, +5 Vehicles, +5 Pistol, and +5 Grav
+                    </div>
                 </div>
-            </div>
-            <div class="race_info_row">
-                <div class="race_info_type">Unique Trait</div>
-                <div class="race_info_content">
-                    Not at disadvantage for skill checks in zero gravity.
+                <div class="race_info_row">
+                    <div class="race_info_type">Unique Trait</div>
+                    <div class="race_info_content">
+                        Not at disadvantage for skill checks in zero gravity.
+                    </div>
                 </div>
+                <button class="confirm_race" onclick="confirmRace('Quexi')">Choose this race</button>
             </div>
-        </div>
-        <div class="race_panel" id="aerhza">
-            <div class="race_panel_title">AERHZA</div>
-            <div class="race_info_row">
-                <div class="race_info_type">Size</div>
-                <div class="race_info_content">
-                    Males:  1.80 - 2.14m<br>
-                    Females:  1.72 - 1.85m
+            <div class="race_panel" id="aerhza">
+                <div class="race_panel_title">AERHZA</div>
+                <div class="race_info_row">
+                    <div class="race_info_type">Size</div>
+                    <div class="race_info_content">
+                        Males:  1.80 - 2.14m<br>
+                        Females:  1.72 - 1.85m
+                    </div>
                 </div>
-            </div>
-            <div class="race_info_row">
-                <div class="race_info_type">Appearance</div>
-                <div class="race_info_content">
-                    Bipedal, tall, and very slender. They are hairless and have a waxy skin that ranges from nearly white to yellow and orange.
+                <div class="race_info_row">
+                    <div class="race_info_type">Appearance</div>
+                    <div class="race_info_content">
+                        Bipedal, tall, and very slender. They are hairless and have a waxy skin that ranges from nearly white to yellow and orange.
+                    </div>
                 </div>
-            </div>
-            <div class="race_info_row">
-                <div class="race_info_type">Homeworld</div>
-                <div class="race_info_content">
-                    Quexond
+                <div class="race_info_row">
+                    <div class="race_info_type">Homeworld</div>
+                    <div class="race_info_content">
+                        Quexond
+                    </div>
                 </div>
-            </div>
-            <div class="race_info_row">
-                <div class="race_info_type">Behavior</div>
-                <div class="race_info_content">
-                    Quexi are extremely intelligent but also very individualistic. Their tendencies and early spaceflight have led them to prefer space-bound over planetary habitation.
+                <div class="race_info_row">
+                    <div class="race_info_type">Behavior</div>
+                    <div class="race_info_content">
+                        Quexi are extremely intelligent but also very individualistic. Their tendencies and early spaceflight have led them to prefer space-bound over planetary habitation.
+                    </div>
                 </div>
-            </div>
-            <div class="race_info_row">
-                <div class="race_info_type">Galactic Role</div>
-                <div class="race_info_content">
-                    Quexi are very scientifically and technologically focused, making them excellent pilots and and gatherers of information. To compensate for evolving in a low-gravity environment, they are adept with Grav stimplants.
+                <div class="race_info_row">
+                    <div class="race_info_type">Galactic Role</div>
+                    <div class="race_info_content">
+                        Quexi are very scientifically and technologically focused, making them excellent pilots and and gatherers of information. To compensate for evolving in a low-gravity environment, they are adept with Grav stimplants.
+                    </div>
                 </div>
-            </div>
-            <div class="race_info_row">
-                <div class="race_info_type">Attributes</div>
-                <div class="race_info_content">
-                    +1 Int, +1 Dex
+                <div class="race_info_row">
+                    <div class="race_info_type">Attributes</div>
+                    <div class="race_info_content">
+                        +1 Int, +1 Dex
+                    </div>
                 </div>
-            </div>
-            <div class="race_info_row">
-                <div class="race_info_type">Skills</div>
-                <div class="race_info_content">
-                    +10 Tech, +5 Vehicles, +5 Pistol, and +5 Grav
+                <div class="race_info_row">
+                    <div class="race_info_type">Skills</div>
+                    <div class="race_info_content">
+                        +10 Tech, +5 Vehicles, +5 Pistol, and +5 Grav
+                    </div>
                 </div>
-            </div>
-            <div class="race_info_row">
-                <div class="race_info_type">Unique Trait</div>
-                <div class="race_info_content">
-                    Not at disadvantage for skill checks in zero gravity.
+                <div class="race_info_row">
+                    <div class="race_info_type">Unique Trait</div>
+                    <div class="race_info_content">
+                        Not at disadvantage for skill checks in zero gravity.
+                    </div>
                 </div>
+                <button class="confirm_race" onclick="confirmRace('Aerhza')">Choose this race</button>
             </div>
-        </div>
-        <div class="race_panel" id="muhmin">
-            <div class="race_panel_title">MUHMIN</div>
-        </div>
-        <div class="race_panel" id="kozaid">
-            <div class="race_panel_title">KOZ'AID</div>
-        </div>
-        <div class="race_panel" id="veith">
-            <div class="race_panel_title">VEITH</div>
-        </div>
-        <div class="race_panel" id="tstsen">
-            <div class="race_panel_title">TS'TSEN</div>
+            <div class="race_panel" id="muhmin">
+                <div class="race_panel_title">MUHMIN</div>
+            </div>
+            <div class="race_panel" id="kozaid">
+                <div class="race_panel_title">KOZ'AID</div>
+            </div>
+            <div class="race_panel" id="veith">
+                <div class="race_panel_title">VEITH</div>
+            </div>
+            <div class="race_panel" id="tstsen">
+                <div class="race_panel_title">TS'TSEN</div>
+            </div>
         </div>
     </div>
-    <div class="char_content" id="actions_panel">
+    <!-- Char Info -->
+    <div class="char_content" id="info_panel">
+        <div class="row">
+            <span class="info_section">NAME & GENDER</span>
+            <div class="info_desc">
+                <p>You are welcome to give your character any name you want. If you would like to try and fit within canonical game system, try and use a name that is appropriate for your chosen race.</p>
+                <p>Your race is <span id="rc"></span>. Names for this race are based on <span id="race_lang"></span></p>
+                <p><a href="https://www.fantasynamegenerators.com/#realNames" id="random_name" target="_blank">Use this link</a> if you would like to find a random name for your character.</p>
+            </div>
+            <div class="inputs">
+                <label>Name:</label>
+                <input id="char_name">
+                <br>
+                <label>Gender:</label>
+                <input id="char_gend">
+            </div>
+        </div>
+        <div class="row">
+            <span class="info_section">BACKGROUND</span>
+            <div class="info_desc">
+                <p>Your character's background is a simple description of what they are or do up to the start of the campaign. This could be a career, an occupation, a title, or something else. This may have little or no impact on gameplay but will help give your character some color.</p>
+                <p>Feel free to use one of the backgrounds from the provided list or come up with one of your own.</p>
+            </div>
+            <div class="inputs">
+                <label>Background</label>
+                <input id="char_bg">
+                <div class="bg_box">
+                    <div class="popup" id="bg_popup">
+                        <span onclick="chooseBG(this)">Colonist</span>
+                        <span onclick="chooseBG(this)">Criminal</span>
+                        <span onclick="chooseBG(this)">Doctor</span>
+                        <span onclick="chooseBG(this)">Figurehead</span>
+                        <span onclick="chooseBG(this)">Gladiator</span>
+                        <span onclick="chooseBG(this)">Mechanic</span>
+                        <span onclick="chooseBG(this)">Mercenary</span>
+                        <span onclick="chooseBG(this)">Merchant</span>
+                        <span onclick="chooseBG(this)">Researcher</span>
+                        <span onclick="chooseBG(this)">Savant</span>
+                        <span onclick="chooseBG(this)">Soldier</span>
+                        <span onclick="chooseBG(this)">Spiritualist</span>
+                        <span onclick="chooseBG(this)">Techie</span>
+                    </div>
+                    <button class="add_bg_but" onclick="showBGs('bg_popup')">Pre-Made Backgrounds</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <p class="info_section" style="width: 100%; text-align: center;">ALIGNMENT</p>
+            <table class="align_table">
+                <tr>
+                    <td class="align" data-active="false" onclick="chooseAlign(this)">Lawful Good</td>
+                    <td class="align" data-active="false" onclick="chooseAlign(this)">Lawful Neutral</td>
+                    <td class="align" data-active="false" onclick="chooseAlign(this)">Lawful Evil</td>
+                </tr>
+                <tr>
+                    <td class="align" data-active="false" onclick="chooseAlign(this)">Neutral Good</td>
+                    <td class="align" data-active="false" onclick="chooseAlign(this)">True Neutral</td>
+                    <td class="align" data-active="false" onclick="chooseAlign(this)">Neutral Evil</td>
+                </tr>
+                <tr>
+                    <td class="align" data-active="false" onclick="chooseAlign(this)">Chaotic Good</td>
+                    <td class="align" data-active="false" onclick="chooseAlign(this)">Chaotic Neutral</td>
+                    <td class="align" data-active="false" onclick="chooseAlign(this)">Chaotic Evil</td>
+                </tr>
+            </table>
+        </div>
+        <div class="row">
+            <button class="confirm_info" onclick="saveInfo()">Save Info</button>
+        </div>
     </div>
+    <!-- Attributes -->
+    <div class="char_content" id="attr_panel">
+
+    </div>
+    <!-- Skills -->
     <div class="char_content" id="skills_panel">
         <div class="panel_title">SKILLS</div>
         <div class="skill_points">
-            <label for="skill_points_avail">Skill Points:</label>
-            <input id="skill_points_avail" type="number" value="0">
+            <span>Skills remaining</span>
+            <div id="skills_avail">0</div>
         </div>
+
+        <!-- Pop-Up with Perk Info -->
+        <div id="perk_info_box">
+            <h1 id="pk_name">Perk Name</h1>
+            <p>Skill Level Requirement&#58; <span id="lvl_req">Level Requirement</span></p>
+            <p>Perk Description&#58; <br>
+                <span id="pk_desc">Perk Description</span>
+            </p>
+            <p>Action Description&#58;<br>
+                <span id="action_desc"></span>
+            </p>
+            <p>Action Type&#58; <span id="action_type"></span></p>
+        </div>
+
+        <div class="skill_explanation">Choose which skills you would like to put skill points towards. Your race may have already determined some skills for you.</div>
         <div class="skill_header">
-            <div style="margin-left: 20px;">Skill<br>Name</div>
-            <div style="margin-left: 65px;">Main<br>Attr</div>
-            <div style="margin-left: 55px;">Skill<br>Level</div>
-            <div style="margin-left: 200px;"><br>Perks</div>
-            <div style="margin-left: 250px;"><br>Expertise</div>
+            <div style="margin-left: 115px;">Skill<br>Name</div>
+            <div style="margin-left: 73px;">Main<br>Attr</div>
+            <div style="margin-left: 15px;">Skill<br>Level</div>
+            <div style="margin-left: 210px;"><br>Perks</div>
+            <div style="margin-left: 300px;"><br>Expertise</div>
         </div>
         <div class="skill_row" id="armor_row">
+            <button class="choose_skill" onclick="chooseSkill(this)">Select</button>
             <div class="skill_name">
                 <div>Armor</div>
             </div>
+            <div class="skill_mod_val"></div>
             <div class="skill_mod">
-                <div>Con</div>
+                <div>CON</div>
             </div>
-            <button class="minus_skill" onclick="decreaseSkill('armor_level')">-</button>
-            <button class="plus_skill" onclick="increaseSkill('armor_level')">+</button>
             <div class="skill_level_value">
                 <div id="armor_level">0</div>
             </div>
             <div class="skill_level_chart" id="armor_chart">
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Armor', 1)" onmouseout="hidePerkInfo()" ontouchstart="showPerkInfo(event, 'Armor', 1)" ontouchend="hidePerkInfo()"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Armor', 5)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Armor', 10)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Armor', 15)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Armor', 20)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Armor', 25)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Armor', 30)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Armor', 35)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Armor', 40)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Armor', 45)" onmouseout="hidePerkInfo()"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Armor', 50)" onmouseout="hidePerkInfo()"></div>
             </div>
-            <div class="expertise">
-                <div>Light Armor</div>
+            <div class="expertise_container">
+                <span id="armor_expertise">Light Armor</span>
+                <div class="expertise_dropdown">
+                    <div class="expertise_item" onclick="setExpertise(this)"></div>
+                    <div class="expertise_item" onclick="setExpertise(this)"></div>
+                </div>
             </div>
         </div>
         <div class="skill_row" id="assault_weapon_row">
+            <button class="choose_skill" onclick="chooseSkill(this)">Select</button>
             <div class="skill_name">
                 <div>Assault Weapons</div>
             </div>
+            <div class="skill_mod_val"></div>
             <div class="skill_mod">
-                <div>Con</div>
+                <div>STR</div>
             </div>
-            <button class="minus_skill" onclick="decreaseSkill('assault_weapon_level')">-</button>
-            <button class="plus_skill" onclick="increaseSkill('assault_weapon_level')">+</button>
             <div class="skill_level_value">
                 <div id="assault_weapon_level">0</div>
             </div>
             <div class="skill_level_chart" id="assault_weapon_chart">
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Assault Weapons', 1)" onmouseout="hidePerkInfo()"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Assault Weapons', 5)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Assault Weapons', 10)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Assault Weapons', 15)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Assault Weapons', 20)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Assault Weapons', 25)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Assault Weapons', 30)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Assault Weapons', 35)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Assault Weapons', 40)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Assault Weapons', 45)" onmouseout="hidePerkInfo()"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Assault Weapons', 50)" onmouseout="hidePerkInfo()"></div>
             </div>
-            <div class="expertise">
-                <div>Spec Ops</div>
+            <div class="expertise_container">
+                <span id="assault_weapon_expertise">Bullet Hell</span>
+                <div class="expertise_dropdown">
+                    <div class="expertise_item" onclick="setExpertise(this)"></div>
+                    <div class="expertise_item" onclick="setExpertise(this)"></div>
+                </div>
             </div>
         </div>
         <div class="skill_row" id="astrobiology_row">
+            <button class="choose_skill" onclick="chooseSkill(this)">Select</button>
             <div class="skill_name">
-                <div>Astro-<br>Biology</div>
+                <div>Astrobiology</div>
             </div>
+            <div class="skill_mod_val"></div>
             <div class="skill_mod">
-                <div>Con</div>
+                <div>INT</div>
             </div>
-            <button class="minus_skill" onclick="decreaseSkill('astrobiology_level')">-</button>
-            <button class="plus_skill" onclick="increaseSkill('astrobiology_level')">+</button>
             <div class="skill_level_value">
                 <div id="astrobiology_level">0</div>
             </div>
             <div class="skill_level_chart" id="astrobiology_chart">
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Astrobiology', 1)" onmouseout="hidePerkInfo()"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Astrobiology', 5)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Astrobiology', 10)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Astrobiology', 15)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Astrobiology', 20)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Astrobiology', 25)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Astrobiologyr', 30)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Astrobiology', 35)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Astrobiology', 40)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Astrobiology', 45)" onmouseout="hidePerkInfo()"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Astrobiology', 50)" onmouseout="hidePerkInfo()"></div>
             </div>
-            <div class="expertise">
-                <div>Light Armor</div>
+            <div class="expertise_container">
+                <span id="astrobiology_expertise">Botanist</span>
+                <div class="expertise_dropdown">
+                    <div class="expertise_item" onclick="setExpertise(this)"></div>
+                    <div class="expertise_item" onclick="setExpertise(this)"></div>
+                </div>
             </div>
         </div>
         <div class="skill_row" id="athletics_row">
+            <button class="choose_skill" onclick="chooseSkill(this)">Select</button>
             <div class="skill_name">
                 <div>Athletics</div>
             </div>
+            <div class="skill_mod_val"></div>
             <div class="skill_mod">
-                <div>Con</div>
+                <div>STR</div>
             </div>
-            <button class="minus_skill" onclick="decreaseSkill('athletics_level')">-</button>
-            <button class="plus_skill" onclick="increaseSkill('athletics_level')">+</button>
             <div class="skill_level_value">
                 <div id="athletics_level">0</div>
             </div>
             <div class="skill_level_chart" id="athletics_chart">
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Athletics', 1)" onmouseout="hidePerkInfo()"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Athletics', 5)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Athletics', 10)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Athletics', 15)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Athletics', 20)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Athletics', 25)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Athletics', 30)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Athletics', 35)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Athletics', 40)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Athletics', 45)" onmouseout="hidePerkInfo()"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Athletics', 50)" onmouseout="hidePerkInfo()"></div>
             </div>
-            <div class="expertise">
-                <div>Light Armor</div>
+            <div class="expertise_container">
+                <span id="athletics_expertise">Sprinter</span>
+                <div class="expertise_dropdown">
+                    <div class="expertise_item" onclick="setExpertise(this)"></div>
+                    <div class="expertise_item" onclick="setExpertise(this)"></div>
+                </div>
             </div>
         </div>
         <div class="skill_row" id="blade_row">
+            <button class="choose_skill" onclick="chooseSkill(this)">Select</button>
             <div class="skill_name">
                 <div>Blade</div>
             </div>
+            <div class="skill_mod_val"></div>
             <div class="skill_mod">
-                <div>Con</div>
+                <div>DEX</div>
             </div>
-            <button class="minus_skill" onclick="decreaseSkill('blade_level')">-</button>
-            <button class="plus_skill" onclick="increaseSkill('blade_level')">+</button>
             <div class="skill_level_value">
                 <div id="blade_level">0</div>
             </div>
             <div class="skill_level_chart" id="blade_chart">
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Blade', 1)" onmouseout="hidePerkInfo()"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Blade', 5)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Blade', 10)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Blade', 15)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Blade', 20)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Blade', 25)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Blade', 30)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Blade', 35)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Blade', 40)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Blade', 45)" onmouseout="hidePerkInfo()"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Blade', 50)" onmouseout="hidePerkInfo()"></div>
             </div>
-            <div class="expertise">
-                <div>Spec Ops</div>
+            <div class="expertise_container">
+                <span id="blade_expertise">Fencer</span>
+                <div class="expertise_dropdown">
+                    <div class="expertise_item" onclick="setExpertise(this)"></div>
+                    <div class="expertise_item" onclick="setExpertise(this)"></div>
+                </div>
             </div>
         </div>
         <div class="skill_row" id="blunt_row">
+            <button class="choose_skill" onclick="chooseSkill(this)">Select</button>
             <div class="skill_name">
                 <div>Blunt</div>
             </div>
+            <div class="skill_mod_val"></div>
             <div class="skill_mod">
-                <div>Con</div>
+                <div>STR</div>
             </div>
-            <button class="minus_skill" onclick="decreaseSkill('blunt_level')">-</button>
-            <button class="plus_skill" onclick="increaseSkill('blunt_level')">+</button>
             <div class="skill_level_value">
                 <div id="blunt_level">0</div>
             </div>
             <div class="skill_level_chart" id="blunt_chart">
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Blunt', 1)" onmouseout="hidePerkInfo()"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Blunt', 5)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Blunt', 10)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Blunt', 15)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Blunt', 20)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Armor', 25)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Blunt', 30)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Blunt', 35)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Blunt', 40)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Blunt', 45)" onmouseout="hidePerkInfo()"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Blunt', 50)" onmouseout="hidePerkInfo()"></div>
             </div>
-            <div class="expertise">
-                <div>Light Armor</div>
+            <div class="expertise_container">
+                <span id="blunt_expertise">Bruiser</span>
+                <div class="expertise_dropdown">
+                    <div class="expertise_item" onclick="setExpertise(this)"></div>
+                    <div class="expertise_item" onclick="setExpertise(this)"></div>
+                </div>
             </div>
         </div>
         <div class="skill_row" id="energy_row">
+            <button class="choose_skill" onclick="chooseSkill(this)">Select</button>
             <div class="skill_name">
                 <div>Energy</div>
             </div>
+            <div class="skill_mod_val"></div>
             <div class="skill_mod">
-                <div>Con</div>
+                <div>WIS</div>
             </div>
-            <button class="minus_skill" onclick="decreaseSkill('energy_level')">-</button>
-            <button class="plus_skill" onclick="increaseSkill('energy_level')">+</button>
             <div class="skill_level_value">
                 <div id="energy_level">0</div>
             </div>
             <div class="skill_level_chart" id="energy_chart">
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Energy', 1)" onmouseout="hidePerkInfo()"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Energy', 5)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Energy', 10)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Energy', 15)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Energy', 20)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Energy', 25)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Energy', 30)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Energy', 35)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Energy', 40)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Energy', 45)" onmouseout="hidePerkInfo()"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Energy', 50)" onmouseout="hidePerkInfo()"></div>
             </div>
-            <div class="expertise">
-                <div>Spec Ops</div>
+            <div class="expertise_container">
+                <span id="energy_expertise">Fire</span>
+                <div class="expertise_dropdown">
+                    <div class="expertise_item" onclick="setExpertise(this)"></div>
+                    <div class="expertise_item" onclick="setExpertise(this)"></div>
+                </div>
             </div>
         </div>
         <div class="skill_row" id="espionage_row">
+            <button class="choose_skill" onclick="chooseSkill(this)">Select</button>
             <div class="skill_name">
                 <div>Espionage</div>
             </div>
+            <div class="skill_mod_val"></div>
             <div class="skill_mod">
-                <div>Con</div>
+                <div>CHA</div>
             </div>
-            <button class="minus_skill" onclick="decreaseSkill('espionage_level')">-</button>
-            <button class="plus_skill" onclick="increaseSkill('espionage_level')">+</button>
             <div class="skill_level_value">
                 <div id="espionage_level">0</div>
             </div>
             <div class="skill_level_chart" id="espionage_chart">
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Espionage', 1)" onmouseout="hidePerkInfo()"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Espionage', 5)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Espionage', 10)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Espionage', 15)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Espionage', 20)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Espionage', 25)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Espionage', 30)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Espionage', 35)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Espionage', 40)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Espionage', 45)" onmouseout="hidePerkInfo()"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Espionage', 50)" onmouseout="hidePerkInfo()"></div>
             </div>
-            <div class="expertise">
-                <div>Light Armor</div>
+            <div class="expertise_container">
+                <span id="espionage_expertise">Operative</span>
+                <div class="expertise_dropdown">
+                    <div class="expertise_item" onclick="setExpertise(this)"></div>
+                    <div class="expertise_item" onclick="setExpertise(this)"></div>
+                </div>
             </div>
         </div>
         <div class="skill_row" id="explosives_row">
+            <button class="choose_skill" onclick="chooseSkill(this)">Select</button>
             <div class="skill_name">
                 <div>Explosives</div>
             </div>
+            <div class="skill_mod_val"></div>
             <div class="skill_mod">
-                <div>Con</div>
+                <div>CON</div>
             </div>
-            <button class="minus_skill" onclick="decreaseSkill('explosives_level')">-</button>
-            <button class="plus_skill" onclick="increaseSkill('explosives_level')">+</button>
             <div class="skill_level_value">
                 <div id="explosives_level">0</div>
             </div>
             <div class="skill_level_chart" id="explosives_chart">
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Explosives', 1)" onmouseout="hidePerkInfo()"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Explosives', 5)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Explosives', 10)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Explosives', 15)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Explosives', 20)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Explosives', 25)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Explosives', 30)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Explosives', 35)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Explosives', 40)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Explosives', 45)" onmouseout="hidePerkInfo()"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Explosives', 50)" onmouseout="hidePerkInfo()"></div>
             </div>
-            <div class="expertise">
-                <div>Spec Ops</div>
+            <div class="expertise_container">
+                <span id="explosives_expertise">Pyromaniac</span>
+                <div class="expertise_dropdown">
+                    <div class="expertise_item" onclick="setExpertise(this)"></div>
+                    <div class="expertise_item" onclick="setExpertise(this)"></div>
+                </div>
             </div>
         </div>
         <div class="skill_row" id="fluids_row">
+            <button class="choose_skill" onclick="chooseSkill(this)">Select</button>
             <div class="skill_name">
                 <div>Fluids</div>
             </div>
+            <div class="skill_mod_val"></div>
             <div class="skill_mod">
-                <div>Con</div>
+                <div>WIS</div>
             </div>
-            <button class="minus_skill" onclick="decreaseSkill('fluids_level')">-</button>
-            <button class="plus_skill" onclick="increaseSkill('fluids_level')">+</button>
             <div class="skill_level_value">
                 <div id="fluids_level">0</div>
             </div>
             <div class="skill_level_chart" id="fluids_chart">
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Fluids', 1)" onmouseout="hidePerkInfo()"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Fluids', 5)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Fluids', 10)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Fluids', 15)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Fluids', 20)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Fluids', 25)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Fluids', 30)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Fluids', 35)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Fluids', 40)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Fluids', 45)" onmouseout="hidePerkInfo()"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Fluids', 50)" onmouseout="hidePerkInfo()"></div>
             </div>
-            <div class="expertise">
-                <div>Light Armor</div>
+            <div class="expertise_container">
+                <span id="fluids_expertise">Flood</span>
+                <div class="expertise_dropdown">
+                    <div class="expertise_item" onclick="setExpertise(this)"></div>
+                    <div class="expertise_item" onclick="setExpertise(this)"></div>
+                </div>
             </div>
         </div>
         <div class="skill_row" id="gravity_row">
+            <button class="choose_skill" onclick="chooseSkill(this)">Select</button>
             <div class="skill_name">
                 <div>Gravity</div>
             </div>
+            <div class="skill_mod_val"></div>
             <div class="skill_mod">
-                <div>Con</div>
+                <div>WIS</div>
             </div>
-            <button class="minus_skill" onclick="decreaseSkill('gravity_level')">-</button>
-            <button class="plus_skill" onclick="increaseSkill('gravity_level')">+</button>
             <div class="skill_level_value">
                 <div id="gravity_level">0</div>
             </div>
             <div class="skill_level_chart" id="gravity_chart">
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Gravity', 1)" onmouseout="hidePerkInfo()"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Gravity', 5)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Gravity', 10)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Gravity', 15)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Gravity', 20)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Gravity', 25)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Gravity', 30)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Gravity', 35)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Gravity', 40)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Gravity', 45)" onmouseout="hidePerkInfo()"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Gravity', 50)" onmouseout="hidePerkInfo()"></div>
             </div>
-            <div class="expertise">
-                <div>Spec Ops</div>
+            <div class="expertise_container">
+                <span id="gravity_expertise">Singularity</span>
+                <div class="expertise_dropdown">
+                    <div class="expertise_item" onclick="setExpertise(this)"></div>
+                    <div class="expertise_item" onclick="setExpertise(this)"></div>
+                </div>
             </div>
         </div>
         <div class="skill_row" id="long_range_row">
+            <button class="choose_skill" onclick="chooseSkill(this)">Select</button>
             <div class="skill_name">
                 <div>Long Range</div>
             </div>
+            <div class="skill_mod_val"></div>
             <div class="skill_mod">
-                <div>Con</div>
+                <div>INT</div>
             </div>
-            <button class="minus_skill" onclick="decreaseSkill('long_range_level')">-</button>
-            <button class="plus_skill" onclick="increaseSkill('long_range_level')">+</button>
             <div class="skill_level_value">
                 <div id="long_range_level">0</div>
             </div>
             <div class="skill_level_chart" id="long_range_chart">
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Long Range', 1)" onmouseout="hidePerkInfo()"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Long Range', 5)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Long Range', 10)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Long Range', 15)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Long Range', 20)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Long Range', 25)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Long Range', 30)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Long Range', 35)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Long Range', 40)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Long Range', 45)" onmouseout="hidePerkInfo()"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Long Range', 50)" onmouseout="hidePerkInfo()"></div>
             </div>
-            <div class="expertise">
-                <div>Light Armor</div>
+            <div class="expertise_container">
+                <span id="long_range_expertise">Sniper</span>
+                <div class="expertise_dropdown">
+                    <div class="expertise_item" onclick="setExpertise(this)"></div>
+                    <div class="expertise_item" onclick="setExpertise(this)"></div>
+                </div>
             </div>
         </div>
         <div class="skill_row" id="negotiation_row">
+            <button class="choose_skill" onclick="chooseSkill(this)">Select</button>
             <div class="skill_name">
                 <div>Negotiation</div>
             </div>
+            <div class="skill_mod_val"></div>
             <div class="skill_mod">
-                <div>Con</div>
+                <div>CHA</div>
             </div>
-            <button class="minus_skill" onclick="decreaseSkill('negotiation_level')">-</button>
-            <button class="plus_skill" onclick="increaseSkill('negotiation_level')">+</button>
             <div class="skill_level_value">
                 <div id="negotiation_level">0</div>
             </div>
             <div class="skill_level_chart" id="negotiation_chart">
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Negotiation', 1)" onmouseout="hidePerkInfo()"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Negotiation', 5)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Negotiation', 10)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Negotiation', 15)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Negotiation', 20)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Negotiation', 25)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Negotiation', 30)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Negotiation', 35)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Negotiation', 40)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Negotiation', 45)" onmouseout="hidePerkInfo()"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Negotiation', 50)" onmouseout="hidePerkInfo()"></div>
             </div>
-            <div class="expertise">
-                <div>Spec Ops</div>
+            <div class="expertise_container">
+                <span id="negotiation_expertise">Hustler</span>
+                <div class="expertise_dropdown">
+                    <div class="expertise_item" onclick="setExpertise(this)"></div>
+                    <div class="expertise_item" onclick="setExpertise(this)"></div>
+                </div>
             </div>
         </div>
         <div class="skill_row" id="observation_row">
+            <button class="choose_skill" onclick="chooseSkill(this)">Select</button>
             <div class="skill_name">
                 <div>Observation</div>
             </div>
+            <div class="skill_mod_val"></div>
             <div class="skill_mod">
-                <div>Con</div>
+                <div>INT</div>
             </div>
-            <button class="minus_skill" onclick="decreaseSkill('observation_level')">-</button>
-            <button class="plus_skill" onclick="increaseSkill('observation_level')">+</button>
             <div class="skill_level_value">
                 <div id="observation_level">0</div>
             </div>
             <div class="skill_level_chart" id="observation_chart">
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Observation', 1)" onmouseout="hidePerkInfo()"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Observation', 5)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Observation', 10)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Observation', 15)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Observation', 20)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Observation', 25)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Observation', 30)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Observation', 35)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Observation', 40)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Observation', 45)" onmouseout="hidePerkInfo()"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Observation', 50)" onmouseout="hidePerkInfo()"></div>
             </div>
-            <div class="expertise">
-                <div>Light Armor</div>
+            <div class="expertise_container">
+                <span id="observation_expertise">Insight</span>
+                <div class="expertise_dropdown">
+                    <div class="expertise_item" onclick="setExpertise(this)"></div>
+                    <div class="expertise_item" onclick="setExpertise(this)"></div>
+                </div>
             </div>
         </div>
         <div class="skill_row" id="pistol_row">
+            <button class="choose_skill" onclick="chooseSkill(this)">Select</button>
             <div class="skill_name">
                 <div>Pistol</div>
             </div>
+            <div class="skill_mod_val"></div>
             <div class="skill_mod">
-                <div>Con</div>
+                <div>DEX</div>
             </div>
-            <button class="minus_skill" onclick="decreaseSkill('pistol_level')">-</button>
-            <button class="plus_skill" onclick="increaseSkill('pistol_level')">+</button>
             <div class="skill_level_value">
                 <div id="pistol_level">0</div>
             </div>
             <div class="skill_level_chart" id="pistol_chart">
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Pistol', 1)" onmouseout="hidePerkInfo()"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Pistol', 5)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Pistol', 10)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Pistol', 15)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Pistol', 20)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Pistol', 25)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Pistol', 30)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Pistol', 35)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Pistol', 40)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Pistol', 45)" onmouseout="hidePerkInfo()"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Pistol', 50)" onmouseout="hidePerkInfo()"></div>
             </div>
-            <div class="expertise">
-                <div>Spec Ops</div>
+            <div class="expertise_container">
+                <span id="pistol_expertise">Duelist</span>
+                <div class="expertise_dropdown">
+                    <div class="expertise_item" onclick="setExpertise(this)"></div>
+                    <div class="expertise_item" onclick="setExpertise(this)"></div>
+                </div>
             </div>
         </div>
         <div class="skill_row" id="psyche_row">
+            <button class="choose_skill" onclick="chooseSkill(this)">Select</button>
             <div class="skill_name">
                 <div>Psyche</div>
             </div>
+            <div class="skill_mod_val"></div>
             <div class="skill_mod">
-                <div>Con</div>
+                <div>WIS</div>
             </div>
-            <button class="minus_skill" onclick="decreaseSkill('psyche_level')">-</button>
-            <button class="plus_skill" onclick="increaseSkill('psyche_level')">+</button>
             <div class="skill_level_value">
                 <div id="psyche_level">0</div>
             </div>
             <div class="skill_level_chart" id="psyche_chart">
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Psyche', 1)" onmouseout="hidePerkInfo()"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Psyche', 5)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Psyche', 10)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Psyche', 15)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Psyche', 20)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Psyche', 25)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Psyche', 30)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Psyche', 35)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Psyche', 40)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Psyche', 45)" onmouseout="hidePerkInfo()"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Psyche', 50)" onmouseout="hidePerkInfo()"></div>
             </div>
-            <div class="expertise">
-                <div>Light Armor</div>
+            <div class="expertise_container">
+                <span id="psyche_expertise">Manipulator</span>
+                <div class="expertise_dropdown">
+                    <div class="expertise_item" onclick="setExpertise(this)"></div>
+                    <div class="expertise_item" onclick="setExpertise(this)"></div>
+                </div>
             </div>
         </div>
         <div class="skill_row" id="tech_row">
+            <button class="choose_skill" onclick="chooseSkill(this)">Select</button>
             <div class="skill_name">
                 <div>Tech</div>
             </div>
+            <div class="skill_mod_val"></div>
             <div class="skill_mod">
-                <div>Con</div>
+                <div>INT</div>
             </div>
-            <button class="minus_skill" onclick="decreaseSkill('tech_level')">-</button>
-            <button class="plus_skill" onclick="increaseSkill('tech_level')">+</button>
             <div class="skill_level_value">
                 <div id="tech_level">0</div>
             </div>
             <div class="skill_level_chart" id="tech_chart">
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Tech', 1)" onmouseout="hidePerkInfo()"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Tech', 5)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Tech', 10)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Tech', 15)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Tech', 20)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Tech', 25)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Tech', 30)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Tech', 35)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Tech', 40)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Tech', 45)" onmouseout="hidePerkInfo()"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Tech', 50)" onmouseout="hidePerkInfo()"></div>
             </div>
-            <div class="expertise">
-                <div>Spec Ops</div>
+            <div class="expertise_container">
+                <span id="tech_expertise">Hacker</span>
+                <div class="expertise_dropdown">
+                    <div class="expertise_item" onclick="setExpertise(this)"></div>
+                    <div class="expertise_item" onclick="setExpertise(this)"></div>
+                </div>
             </div>
         </div>
         <div class="skill_row" id="unarmed_row">
+            <button class="choose_skill" onclick="chooseSkill(this)">Select</button>
             <div class="skill_name">
                 <div>Unarmed</div>
             </div>
+            <div class="skill_mod_val"></div>
             <div class="skill_mod">
-                <div>Con</div>
+                <div>STR</div>
             </div>
-            <button class="minus_skill" onclick="decreaseSkill('unarmed_level')">-</button>
-            <button class="plus_skill" onclick="increaseSkill('unarmed_level')">+</button>
             <div class="skill_level_value">
                 <div id="unarmed_level">0</div>
             </div>
             <div class="skill_level_chart" id="unarmed_chart">
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Unarmed', 1)" onmouseout="hidePerkInfo()"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Unarmed', 5)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Unarmed', 10)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Unarmed', 15)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Unarmed', 20)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Unarmed', 25)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Unarmed', 30)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Unarmed', 35)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Unarmed', 40)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Unarmed', 45)" onmouseout="hidePerkInfo()"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Unarmed', 50)" onmouseout="hidePerkInfo()"></div>
             </div>
-            <div class="expertise">
-                <div>Light Armor</div>
+            <div class="expertise_container">
+                <span id="unarmed_expertise">Brawler</span>
+                <div class="expertise_dropdown">
+                    <div class="expertise_item" onclick="setExpertise(this)"></div>
+                    <div class="expertise_item" onclick="setExpertise(this)"></div>
+                </div>
             </div>
         </div>
         <div class="skill_row" id="vehicles_row">
+            <button class="choose_skill" onclick="chooseSkill(this)">Select</button>
             <div class="skill_name">
                 <div>Vehicles</div>
             </div>
+            <div class="skill_mod_val"></div>
             <div class="skill_mod">
-                <div>Con</div>
+                <div>CON</div>
             </div>
-            <button class="minus_skill" onclick="decreaseSkill('vehicles_level')">-</button>
-            <button class="plus_skill" onclick="increaseSkill('vehicles_level')">+</button>
             <div class="skill_level_value">
                 <div id="vehicles_level">0</div>
             </div>
             <div class="skill_level_chart" id="vehicles_chart">
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Vehicles', 1)" onmouseout="hidePerkInfo()"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Vehicles', 5)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Vehicles', 10)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Vehicles', 15)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Vehicles', 20)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Vehicles', 25)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Vehicles', 30)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Vehicles', 35)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Vehicles', 40)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Vehicles', 45)" onmouseout="hidePerkInfo()"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Vehicles', 50)" onmouseout="hidePerkInfo()"></div>
             </div>
-            <div class="expertise">
-                <div>Spec Ops</div>
+            <div class="expertise_container">
+                <span id="vehicles_expertise">Driver</span>
+                <div class="expertise_dropdown">
+                    <div class="expertise_item" onclick="setExpertise(this)"></div>
+                    <div class="expertise_item" onclick="setExpertise(this)"></div>
+                </div>
             </div>
         </div>
         <div class="skill_row" id="wave_row">
+            <button class="choose_skill" onclick="chooseSkill(this)">Select</button>
             <div class="skill_name">
                 <div>Wave</div>
             </div>
+            <div class="skill_mod_val"></div>
             <div class="skill_mod">
-                <div>Con</div>
+                <div>WIS</div>
             </div>
-            <button class="minus_skill" onclick="decreaseSkill('wave_level')">-</button>
-            <button class="plus_skill" onclick="increaseSkill('wave_level')">+</button>
             <div class="skill_level_value">
                 <div id="wave_level">0</div>
             </div>
             <div class="skill_level_chart" id="wave_chart">
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Wave', 1)" onmouseout="hidePerkInfo()"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Wave', 5)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Wave', 10)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Wave', 15)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Wave', 20)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Wave', 25)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Wave', 30)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Wave', 35)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Wave', 40)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Wave', 45)" onmouseout="hidePerkInfo()"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_mark"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Wave', 50)" onmouseout="hidePerkInfo()"></div>
             </div>
-            <div class="expertise">
-                <div>Spec Ops</div>
+            <div class="expertise_container">
+                <span id="wave_expertise">Light</span>
+                <div class="expertise_dropdown">
+                    <div class="expertise_item" onclick="setExpertise(this)"></div>
+                    <div class="expertise_item" onclick="setExpertise(this)"></div>
+                </div>
             </div>
+        </div>
+        <div class="row">
+            <button class="confirm_info" onclick="saveInfo()">Save Info</button>
+        </div>
+    </div>
+    <!-- ACTIONS -->
+    <div class="char_content" id="actions_panel">
+        <div class="panel_title">ACTIONS</div>
+        <div class="action_filters">
+            <span id="current_filter">All</span>
+            <div class="filter_dropdown">
+                <div class="filter" onclick="filterActions(this, 'all')">All</div>
+                <div class="filter" onclick="filterActions(this, 'major_action_table')">Major</div>
+                <div class="filter" onclick="filterActions(this, 'minor_action_table')">Minor</div>
+                <div class="filter" onclick="filterActions(this, 'move_action_table')">Move</div>
+                <div class="filter" onclick="filterActions(this, 'extra_action_table')">Extra</div>
+                <div class="filter" onclick="filterActions(this, 'noncombat_action_table')">Non-Combat</div>
+            </div>
+        </div>
+        <div id="action_container">
+            <table class="action_category" id="major_action_table">
+                <tr>
+                    <td class="action_table_title">
+                        MAJOR
+                    </td>
+                </tr>
+            </table>
+            <table class="action_category" id="minor_action_table">
+                <tr>
+                    <td class="action_table_title">
+                        MINOR
+                    </td>
+                </tr>
+            </table>
+            <table class="action_category" id="move_action_table">
+                <tr>
+                    <td class="action_table_title">
+                        MOVEMENT
+                    </td>
+                </tr>
+            </table>
+            <table class="action_category" id="extra_action_table">
+                <tr>
+                    <td class="action_table_title">
+                        EXTRA
+                    </td>
+                </tr>
+            </table>
+            <table class="action_category" id="noncombat_action_table">
+                <tr>
+                    <td class="action_table_title">
+                        NON-COMBAT
+                    </td>
+                </tr>
+            </table>
         </div>
     </div>
 
     <div id="save_output"></div>
 
-    <button id="save" onclick="getXmlForSave(char_ID)">SAVE</button>
+    <button id="test" onclick="viewSave()">Test</button>
     <script>
         var char_ID = 001;
         //Set default body tab
         document.getElementById("defaultOpen_char").click();
-        document.getElementById("defaultOpen_body").click();
+        getPerkActionXML();
+        setDefaultActions();
     </script>
 </body>
 </html>
