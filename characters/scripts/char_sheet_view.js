@@ -298,6 +298,22 @@ function rechargeStim(stim){
     }
 }
 
+function useAmmo(event){
+    var curAmmo = parseInt(event.parentElement.children[1].children[1].innerHTML);
+    if(curAmmo > 0){
+        event.parentElement.children[1].children[1].innerHTML -= 1;
+    }
+}
+
+function reloadAmmo(event){
+    var maxAmmo = parseInt(event.parentElement.children[1].children[3].innerHTML);
+    var curMags = parseInt(event.parentElement.children[1].children[5].innerHTML);
+    if(curMags > 0 && parseInt(event.parentElement.children[1].children[1].innerHTML) < maxAmmo){
+        event.parentElement.children[1].children[1].innerHTML = maxAmmo;
+        event.parentElement.children[1].children[5].innerHTML -= 1;
+    }
+}
+
 function updateSkillChart(){
     var skillValNodes = document.getElementsByClassName("skill_level_value");
     var skillCharts = document.getElementsByClassName("skill_level_chart");
@@ -811,6 +827,22 @@ function takeBarDamage(event){
         document.getElementById("current_bar").innerHTML = 0;
         leftoverDam = dmgAmt - curBar;
         document.getElementById("current_HP").innerHTML = curHP - leftoverDam;
+    }
+
+    event.parentElement.children[2].value = "";
+    closeOptionWindow();
+}
+
+function restoreBar(event){
+    var restoreAmt = parseInt(event.parentElement.children[2].value);
+    var curBar = parseInt(document.getElementById("current_bar").innerHTML);
+    var maxBar = parseInt(document.getElementById("base_bar").innerHTML);
+
+    if(curBar + restoreAmt < maxBar){
+        document.getElementById("current_bar").innerHTML = curBar + restoreAmt;
+    }
+    else{
+        document.getElementById("current_bar").innerHTML = maxBar;
     }
 
     event.parentElement.children[2].value = "";
