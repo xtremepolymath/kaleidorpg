@@ -4,7 +4,7 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-#save{
+#test{
     position: fixed;
     height: 50px;
     width: 400px;
@@ -54,14 +54,20 @@ input::-webkit-inner-spin-button {
 
 .char_content{
     display: none;
-    width: 50%;
-    min-width: 900px;
-    max-width: 1200px;
-    min-height: 1100px;
+    width: 1000px;
+    min-height: 800px;
     margin: auto;
     margin-bottom: 100px;
     padding-bottom: 50px;
     background-color: #1C2429;
+}
+
+.row{
+    display: inline-block;
+    width: 100%;
+    border: solid 5px none;
+    padding:10px;
+    margin-top: 20px;
 }
 
 .race_menu{
@@ -88,14 +94,13 @@ input::-webkit-inner-spin-button {
 }
 
 .race_panel{
+    visibility: hidden;
     float: left;
-    overflow: hidden;
     position: absolute;
-    height: 0px;
-    min-width: 680px;
+    width: 680px;
+    padding: 20px;
     background-color: gainsboro;
     margin-top: 10px;
-    margin-right: 10px;
     margin-left:210px;
     font-size: 24pt;
     color: #1C2429;
@@ -105,7 +110,6 @@ input::-webkit-inner-spin-button {
 .race_panel_title{
     width: 100%;
     text-align: center;
-    margin-top: 15px;
 }
 
 .race_info_row{
@@ -131,12 +135,135 @@ input::-webkit-inner-spin-button {
     margin-top: 20px;
 }
 
+.confirm_race{
+    height: 30px;
+    width: 200px;
+    margin-top: 30px;
+    margin-left: 250px;
+    font-size: 12pt;
+    background-color: #E8903B;
+}
+
+.info_section{
+    border: none;
+    font-weight: bold;
+    font-size: 14pt;
+    color: #E8903B;
+}
+
+.info_desc{
+    float: left;
+    padding: 20px;
+    width: 400px;
+}
+
+.inputs{
+    float:left;
+    width: 500px;
+    padding: 20px;
+    padding-left: 40px;
+}
+
+.inputs input{
+    margin-top: 30px;
+    text-align: center;
+    margin-left: 20px;
+}
+
+#char_name{
+    width: 300px;
+    height: 30px;
+    font-size: 14pt;
+}
+
+#char_gend{
+    width: 140px;
+    height: 30px;
+    font-size: 14pt;
+}
+
+#random_name{
+    color: rgb(34,162,179);
+    text-decoration: underline;
+}
+
+#char_bg{
+    width: 300px;
+    height: 30px;
+    font-size: 14pt;
+}
+
+.add_bg_but{
+    text-align: center;
+    width: 200px;
+    padding:10px;
+    margin-top: 25px;
+    background-color: #502255;
+    color: gainsboro;
+    cursor: pointer;
+}
+
+.popup{
+    display: none;
+    position: absolute;
+    border: solid 1px #502255;
+    width: 250px;
+    background-color: gainsboro;
+    transform: translateX(200px);
+    z-index: 1;
+    cursor: pointer;
+}
+
+.popup span{
+    display: block;
+    height: 25px;
+    padding-top: 5px;
+    text-align: center;
+    color: #1C2429;
+    border: solid 1px #1C2429;
+}
+
+.popup span:hover{
+    background-color: #502255;
+    color: gainsboro;
+}
+
 .panel_title{
     position: relative;
     float:left;
     margin: 20px;
     font-size: 24pt;
     color: rgb(34,162,179);
+}
+
+.align_table{
+    margin: auto;
+    margin-top: 20px;
+}
+
+.align_table td{
+    width: 200px;
+    height: 120px;
+    border: solid 1px gainsboro;
+    text-align: center;
+    font-size: 14pt;
+    cursor: pointer;
+}
+
+.align_table td:hover{
+    background-color: gainsboro;
+    border: solid 1px rgb(34,162,179);
+    color: #1C2429;
+}
+
+.confirm_info{
+    height: 50px;
+    width: 200px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    font-size: 14pt;
+    font-weight: bold;
+    background-color: #E8903B;
 }
 
 .skill_points{
@@ -147,12 +274,22 @@ input::-webkit-inner-spin-button {
     margin-top: 25px;
 }
 
-.skill_points input{
-    height: 25px;
-    width: 50px;
+.skill_points div{
+    display: inline-block;
+    padding: 3px 20px;
     text-align: center;
     font-weight: bolder;
     font-size: 16pt;
+    background-color: #1C2429;
+    color: gainsboro;
+    border: solid 1px gainsboro;
+    border-radius: 20%;
+}
+
+.skill_explanation{
+    width: 100%;
+    float: left;
+    padding: 20px;
 }
 
 .skill_header{
@@ -185,15 +322,16 @@ input::-webkit-inner-spin-button {
 }
 
 .skill_row button{
-    height: 20px;
-    width: 20px;
+    height: 30px;
+    width: 75px;
     background-color: #E8903B;
-    margin-left: 10px;
-    margin-top: 15px;
+    margin-left: 20px;
+    margin-top: 10px;
+    font-weight: bold;
 }
 .skill_level_value{
     width: 25px;
-    margin: 0px 10px;
+    margin: 0px 20px;
     margin-top: 10px;
     height: 60%;
     background-color: gainsboro;
@@ -291,37 +429,95 @@ input::-webkit-inner-spin-button {
     margin-right: 3px;
 }
 
-.expertise{
-    float: right;
-    height: 40px;
-    width: 100px;
-    margin: 5px 0px;
-    margin-right: 20px;
-    background-color: gainsboro;
-    color: #1C2429;
-    text-align: center;
-}
-
-.expertise div{
-    top: -50%;
-    transform: translate(0, 50%);
-}
-
-#update_actions{
-    height: 25px;
-    width: 70px;
-    margin-left: 25px;
-    margin-top: 25px;
-    background-color: #823b8a;
-    color: gainsboro;
-}
-
-.action_filter{
-    overflow: hidden;
+.expertise_container{
     position: relative;
     float: right;
+    width: 120px;
+    height: 30px;
+    margin-right: 10px;
+    margin-top: 5px;
+    padding-top:10px;
+    background-color: rgb(34, 162, 179);
+    color: gainsboro;
+    font-weight: bold;
+    text-align: center;
+    font-size: 14pt;
+    border-radius: 10%;
+}
+
+.expertise_container span{
+    font-size: 12pt;
+}
+
+
+.expertise_dropdown{
+    display: none;
+    position: absolute;
+    width: 100%;
+    background-color: rgb(148, 148, 148);
+    color: #1C2429;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.expertise_container:hover .expertise_dropdown{
+    display: block;
+    cursor: pointer;
+}
+
+.expertise_item{
+    padding: 10px;
+    border: solid 0.5px rgb(148, 148, 148);
+    font-size: 12pt;
+}
+
+.expertise_item:hover{
+    background-color: gainsboro;
+}
+
+.action_filters{
+    position: relative;
+    float: right;
+    width: 120px;
+    height: 30px;
     margin-right: 25px;
     margin-top: 25px;
+    padding-top:10px;
+    background-color: gainsboro;
+    color: #1C2429;
+    border: solid 1px #823b8a;
+    text-align: center;
+    font-size: 14pt;
+}
+
+.action_filters span{
+    font-size: 12pt;
+}
+
+
+.filter_dropdown{
+    display: none;
+    position: absolute;
+    width: 100%;
+    background-color: rgb(148, 148, 148);
+    color: #1C2429;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.action_filters:hover .filter_dropdown{
+    display: block;
+    cursor: pointer;
+}
+
+.filter{
+    padding: 10px;
+    border: solid 0.5px rgb(148, 148, 148);
+    font-size: 12pt;
+}
+
+.filter:hover{
+    background-color: gainsboro;
 }
 
 .action_category{
@@ -335,27 +531,5 @@ input::-webkit-inner-spin-button {
     border: none;
     font-weight: bold;
     font-size: 14pt;
-    color: #E8903B;
-}
-
-.inv_filter{
-    overflow: hidden;
-    position: relative;
-    float: right;
-    margin-right: 25px;
-    margin-top: 25px;
-}
-
-.inv_category{
-    display: table;
-    width: 100%;
-    padding: 0 20px;
-    margin-bottom:20px;
-}
-
-.inv_table_title{
-    border: none;
-    font-weight: bold;
-    font-size: 12pt;
     color: #E8903B;
 }
