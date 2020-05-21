@@ -243,6 +243,16 @@ input::-webkit-inner-spin-button {
     margin: 3px 15px;
 }
 
+.bar_restore{
+    float: right;
+    width: 80px;
+    height: 30px;
+    background-color: #823b8a;
+    color: #1C2429;
+    font-size: 12pt;
+    margin: 3px 15px;
+}
+
 .damage_confirm{
     float: right;
     width: 80px;
@@ -886,6 +896,26 @@ input::-webkit-inner-spin-button {
     padding: 2px 8px;
     font-size: 14pt;
     color: rgb(148,148,148)
+}
+
+.use_ammo{
+    position: absolute;
+    height: 20px;
+    width: 50px;
+    font-size: 11px;
+    margin-left: 50px;
+    background-color: #E8903B;
+    color: #1C2429;
+}
+
+.reload_ammo{
+    position: absolute;
+    height: 20px;
+    width: 60px;
+    font-size: 11px;
+    margin-left: 100px;
+    background-color: rgb(148, 148, 148);
+    color: #1C2429;
 }
 
 .mag_label{
