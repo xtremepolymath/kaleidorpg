@@ -135,6 +135,11 @@
                     <input class="dmg_input" type="number"></input>
                 </div>
                 <div class="damage_text">
+                    <span>Restore Barrier</span>
+                    <button class="bar_restore" onclick="restoreBar(this)">Confirm</button>
+                    <input class="dmg_input" type="number"></input>
+                </div>
+                <div class="damage_text">
                     <span>Health Damage</span>
                     <button class="damage_confirm" onclick="takeHPDamage(this)">Confirm</button>
                     <input class="dmg_input" type="number"></input>
@@ -404,6 +409,7 @@
                         <div class="item_mod_col">
                             <div class="mod_label">MODS</div>
                             <div class="mod_item"></div>
+                            <div class="mod_item"></div>
                         </div>
                     </div>
                     <span>BODY</span>
@@ -431,6 +437,7 @@
                         </div>
                         <div class="item_mod_col">
                             <div class="mod_label">MODS</div>
+                            <div class="mod_item"></div>
                             <div class="mod_item"></div>
                         </div>
                     </div>
@@ -501,7 +508,6 @@
                                 <div class="damage_mod">+3</div>
                                 <div class="range_label">Range</div>
                                 <div class="range_box">10m</div>
-                                
                             </div>
                             <div class="weapon_ammo_row">
                                 <div class="ammo_label">AMMO</div>
@@ -511,9 +517,12 @@
                                 <div class="mag_label">MAGS</div>
                                 <div class="mag_val">4</div>
                             </div>
+                            <button class="use_ammo" onclick="useAmmo(this)">USE</button>
+                            <button class="reload_ammo" onclick="reloadAmmo(this)">RELOAD</button>
                         </div>
                         <div class="item_mod_col">
                             <div class="mod_label">MODS</div>
+                            <div class="mod_item"></div>
                             <div class="mod_item"></div>
                         </div>
                     </div>
@@ -704,7 +713,7 @@
     <div class="char_content" id="skills_panel">
         <div class="panel_title">SKILLS</div>
         <div class="skill_points">
-            <span>Skill Points:</span>
+            <span>Skill Points</span>
             <div id="skill_points_avail">0</div>
         </div>
 
@@ -2222,7 +2231,8 @@
         document.getElementById("defaultOpen_char").click();
 
         //Retrieve saved key
-        var char_id = localStorage.getItem("char_ID");
+        //var char_id = localStorage.getItem("char_ID");
+        var char_id = "000";
         getXmlForLoad(char_id);
         getPerkActionXML();
     </script>
