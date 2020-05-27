@@ -59,6 +59,8 @@ function charPanelSwitch(evt, tabName) {
         }
     }
 
+    updateInfoSkills();
+
     var i, tabLinks;
     tabContent = document.getElementsByClassName("char_content");
     for (i = 0; i < tabContent.length; i++) {
@@ -80,6 +82,32 @@ function switchRacePanel(race){
 
     document.getElementById(race).style.visibility = "visible";
 
+}
+
+function selectRaceAttr(attr){
+    if(attr.style.backgroundColor != "rgb(126, 204, 137)"){
+        if(parseInt(attr.parentElement.children[0].innerHTML) > 0){
+            var att = document.getElementById(attr.innerHTML.toLowerCase());
+            if(attr.parentElement.parentElement.parentElement.id == "human"){
+                att.innerHTML = 11;
+            }
+            else if(attr.parentElement.parentElement.parentElement.id == "cyborg"){
+                att.innerHTML = 12;
+            }
+            att.style.backgroundColor = "#7ecc89";
+            attr.style.backgroundColor = "#7ecc89";
+            attr.parentElement.children[0].innerHTML = parseInt(attr.parentElement.children[0].innerHTML) - 1;
+        }
+    }
+    else{
+        var att = document.getElementById(attr.innerHTML.toLowerCase());
+        att.innerHTML = 10;
+        att.style.backgroundColor = "";
+        attr.style.backgroundColor = "rgb(100,100,100)";
+        attr.parentElement.children[0].innerHTML = parseInt(attr.parentElement.children[0].innerHTML) + 1;
+    }
+
+    updateAttrModView();
 }
 
 function confirmRace(race){
@@ -107,14 +135,36 @@ function updateInfoSkills(){
             document.getElementById("pistol_level").innerHTML = 5;
             document.getElementById("gravity_level").innerHTML = 5;
             document.getElementById("skills_avail").innerHTML = 1;
+            document.getElementById("int").innerHTML = 11;
+            document.getElementById("int").style.backgroundColor = "#7ecc89";
+            document.getElementById("dex").innerHTML = 12;
+            document.getElementById("dex").style.backgroundColor = "#7ecc89";
+            document.getElementById("str").innerHTML = 9;
+            document.getElementById("str").style.backgroundColor = "#E8903B";
             break;
         case "Aerhza":
             lang.innerHTML = "the ancient Edo language.";
             document.getElementById("random_name").href = "https://www.fantasynamegenerators.com/edo-japanese-names.php";
+            document.getElementById("tech_level").innerHTML = 10;
+            document.getElementById("pistol_level").innerHTML = 5;
+            document.getElementById("gravity_level").innerHTML = 5;
+            document.getElementById("skills_avail").innerHTML = 1;
+            document.getElementById("int").innerHTML = 11;
+            document.getElementById("int").style.backgroundColor = "#7ecc89";
+            document.getElementById("dex").innerHTML = 11;
+            document.getElementById("dex").style.backgroundColor = "#7ecc89";
             break;
         case "Muhmin":
             lang.innerHTML = "the Amazigh/Berber language.";
             document.getElementById("random_name").href = "https://www.fantasynamegenerators.com/amazigh-names.php";
+            document.getElementById("tech_level").innerHTML = 10;
+            document.getElementById("pistol_level").innerHTML = 5;
+            document.getElementById("gravity_level").innerHTML = 5;
+            document.getElementById("skills_avail").innerHTML = 1;
+            document.getElementById("int").innerHTML = 11;
+            document.getElementById("int").style.backgroundColor = "#7ecc89";
+            document.getElementById("dex").innerHTML = 11;
+            document.getElementById("dex").style.backgroundColor = "#7ecc89";
             break;
         case "Koz'aid":
             lang.innerHTML = "the ancient Assyrian language.";
@@ -132,6 +182,7 @@ function updateInfoSkills(){
 
     updateSkillChart();
     updateSkillActions();
+    updateAttrModView();
 }
 
 function showBGs(id){
@@ -501,4 +552,142 @@ function viewSave(){
     }
 
     alert(string);
+}
+
+function updateAttrModView(){
+    atts = document.getElementsByClassName("attr_value");
+    
+    for(var i = 0; i < atts.length; i++){
+        attVal = atts[i].innerHTML;
+
+        if(attVal == 2|| attVal == 3){
+            document.getElementsByClassName("attr_mod")[i].innerHTML = -4;
+        }
+        else if(attVal == 4|| attVal == 5){
+            document.getElementsByClassName("attr_mod")[i].innerHTML = -3;
+        }
+        else if(attVal == 6|| attVal == 7){
+            document.getElementsByClassName("attr_mod")[i].innerHTML = -2;
+        }
+        else if(attVal == 8|| attVal == 9){
+            document.getElementsByClassName("attr_mod")[i].innerHTML = -1;
+        }
+        else if(attVal == 10|| attVal == 11){
+            document.getElementsByClassName("attr_mod")[i].innerHTML = -0;
+        }
+        else if(attVal == 12|| attVal == 13){
+            document.getElementsByClassName("attr_mod")[i].innerHTML = 1;
+        }
+        else if(attVal == 14|| attVal == 15){
+            document.getElementsByClassName("attr_mod")[i].innerHTML = 2;
+        }
+        else if(attVal == 16|| attVal == 17){
+            document.getElementsByClassName("attr_mod")[i].innerHTML = 3;
+        }
+        else if(attVal == 18|| attVal == 19){
+            document.getElementsByClassName("attr_mod")[i].innerHTML = 4;
+        }
+        else if(attVal == 20|| attVal == 21){
+            document.getElementsByClassName("attr_mod")[i].innerHTML = 5;
+        }
+        else if(attVal == 22|| attVal == 23){
+            document.getElementsByClassName("attr_mod")[i].innerHTML = 6;
+        }
+        else if(attVal == 24|| attVal == 25){
+            document.getElementsByClassName("attr_mod")[i].innerHTML = 7;
+        }
+        else if(attVal == 26|| attVal == 27){
+            document.getElementsByClassName("attr_mod")[i].innerHTML = 8;
+        }
+        else if(attVal == 28|| attVal == 29){
+            document.getElementsByClassName("attr_mod")[i].innerHTML = 9;
+        }
+        else if(attVal == 30){
+            document.getElementsByClassName("attr_mod")[i].innerHTML = 10;
+        }
+    }
+
+    updateAttrButtons();
+}
+
+function updateAttrButtons(){
+    var attrButs = document.getElementsByClassName("change_attr");
+    var attrAvail = parseInt(document.getElementById("attr_points").innerHTML);
+    var minusButs = [];
+    var plusButs = [];
+
+    for(var i=0;i<attrButs.length;i++){
+        minusButs.push(attrButs[i].children[0]);
+        plusButs.push(attrButs[i].children[1]);
+    }
+
+    for(var i=0;i<minusButs.length;i++){
+        if(minusButs[i].parentElement.parentElement.children[1].children[2].innerHTML == 2){
+            minusButs[i].style.backgroundColor = "rgb(100,100,100)";
+        }
+        else{
+            minusButs[i].style.backgroundColor = "#E8903B";
+        }
+    }
+
+    for(var i=0; i<plusButs.length;i++){
+        if(attrAvail > 0){
+            plusButs[i].style.backgroundColor = "#7ecc89";
+        }
+        else{
+            plusButs[i].style.backgroundColor = "rgb(100,100,100)";
+        }
+    }
+}
+
+function getAttrMod(attr){
+    var atts = document.getElementsByClassName("attr_item");
+    var attrMod;
+
+    updateAttrModView();
+
+    for(var i=0; i < atts.length; i++){
+        if(atts[i].children[0].innerHTML == attr){
+            attrMod = atts[i].children[4].innerHTML;
+        }
+    }
+
+    return parseInt(attrMod);
+}
+
+function decreaseAttr(but, attr){
+    var att = parseInt(document.getElementById(attr).innerHTML);
+    var attPts = parseInt(document.getElementById("attr_points").innerHTML);
+
+    if(att > 2){
+        att -= 1;
+        document.getElementById(attr).innerHTML = att;
+        attPts += 1;
+        document.getElementById("attr_points").innerHTML = attPts;
+    }
+
+    if(att == 2){
+        but.style.backgroundColor = "rgb(100,100,100)";
+    }
+    else{
+        but.style.backgroundColor = "#E8903B";
+    }
+
+    updateAttrModView();
+    updateAttrButtons();
+}
+
+function increaseAttr(attr){
+    var att = parseInt(document.getElementById(attr).innerHTML);
+    var attPts = parseInt(document.getElementById("attr_points").innerHTML);
+
+    if(attPts > 0){
+        att += 1;
+        document.getElementById(attr).innerHTML = att;
+        attPts -= 1;
+        document.getElementById("attr_points").innerHTML = attPts;
+    }
+
+    updateAttrModView();
+    updateAttrButtons();
 }
