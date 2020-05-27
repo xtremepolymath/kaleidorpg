@@ -100,7 +100,7 @@ input::-webkit-inner-spin-button {
     width: 680px;
     padding: 20px;
     background-color: gainsboro;
-    margin-top: 10px;
+    margin-top:87px;
     margin-left:210px;
     font-size: 24pt;
     color: #1C2429;
@@ -133,6 +133,18 @@ input::-webkit-inner-spin-button {
     width: 420px;
     font-weight: normal;
     margin-top: 20px;
+}
+
+.attr_options{
+    float: left;
+    padding-left: 205px;
+    margin-top:10px;
+}
+
+.attr_options button{
+    padding:5px;
+    background-color: rgb(100, 100, 100);
+    color: gainsboro;
 }
 
 .confirm_race{
@@ -264,6 +276,77 @@ input::-webkit-inner-spin-button {
     font-size: 14pt;
     font-weight: bold;
     background-color: #E8903B;
+}
+
+.attr_info{
+    float:left;
+    padding:20px;
+    margin-left: 50px;
+    width: 500px;
+}
+
+.attr_desc{
+    padding: 0px 50px;
+}
+
+.attr_item{
+    float:left;
+    text-align: center;
+    width: 100px;
+    top: -15px;
+    max-width: 150px;
+    margin-bottom: 20px;
+}
+
+.attr_item span{
+    font-size: 20pt;
+    font-weight: bold;
+}
+
+.attr_value{
+    height: 60px;
+    width: 70px;
+    margin: auto;
+    border: solid 5px rgb(34,162,179);
+    border-radius: 50%;
+    text-align: center;
+    font-size: 24pt;
+    font-weight: bolder;
+    background-color:none;
+    color: gainsboro;
+    line-height: 150%;
+    padding-top:10px;
+}
+
+.attr_mod{
+    margin:auto;
+    margin-top: -88px;
+    margin-left: 75px;
+    width: 55px;
+    padding: 15px 0px;
+    background-color: gainsboro;
+    color: black;
+    border: solid 2px rgb(34, 162, 179);
+    border-radius: 50%;
+    text-align: center;
+    font-size: 18pt;
+    font-weight: bold;
+}
+
+.change_attr{
+    float: left;
+    padding: 20px;
+    margin-left: 50px;
+}
+
+.change_attr button{
+    height: 60px;
+    width: 60px;
+    background-color: #E8903B;
+    margin-left: 10px;
+    margin-top: 15px;
+    border-radius: 20%;
+    font-size: 24pt;
 }
 
 .skill_points{
