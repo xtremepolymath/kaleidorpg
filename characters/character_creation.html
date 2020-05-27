@@ -60,6 +60,7 @@
 
     <!-- RACE -->
     <div class="char_content" id="main_panel">
+        <div class="panel_title" style="width:100%;">RACE</div>
         <div clas="row">
             <!-- Race List-->	
             <div class="race_menu">
@@ -110,7 +111,16 @@
                 <div class="race_info_row">
                     <div class="race_info_type">Attributes</div>
                     <div class="race_info_content">
-                        +1 to two of your choice
+                        +1 to two of your choice:
+                    </div>
+                    <div class="attr_options">
+                        <span style="visibility: hidden;">2</span>
+                        <button onclick="selectRaceAttr(this)">STR</button>
+                        <button onclick="selectRaceAttr(this)">DEX</button>
+                        <button onclick="selectRaceAttr(this)">CON</button>
+                        <button onclick="selectRaceAttr(this)">INT</button>
+                        <button onclick="selectRaceAttr(this)">WIS</button>
+                        <button onclick="selectRaceAttr(this)">CHA</button>
                     </div>
                 </div>
                 <div class="race_info_row">
@@ -163,7 +173,16 @@
                 <div class="race_info_row">
                     <div class="race_info_type">Attributes</div>
                     <div class="race_info_content">
-                        +2 to one of your choice
+                        +2 to one of your choice:
+                    </div>
+                    <div class="attr_options">
+                        <span style="visibility: hidden;">1</span>
+                        <button onclick="selectRaceAttr(this)">STR</button>
+                        <button onclick="selectRaceAttr(this)">DEX</button>
+                        <button onclick="selectRaceAttr(this)">CON</button>
+                        <button onclick="selectRaceAttr(this)">INT</button>
+                        <button onclick="selectRaceAttr(this)">WIS</button>
+                        <button onclick="selectRaceAttr(this)">CHA</button>
                     </div>
                 </div>
                 <div class="race_info_row">
@@ -302,6 +321,7 @@
     </div>
     <!-- Char Info -->
     <div class="char_content" id="info_panel">
+        <div class="panel_title">INFO</div>
         <div class="row">
             <span class="info_section">NAME & GENDER</span>
             <div class="info_desc">
@@ -372,7 +392,149 @@
     </div>
     <!-- Attributes -->
     <div class="char_content" id="attr_panel">
-
+        <div class="panel_title">ATTRIBUTES</div>
+        <div class="row">
+            <p class="attr_desc">
+                Attributes are used for skill modifiers and some saving throws. Each attribute will have a modifier based on its level. 
+                This modifier may be added to skill depending on the skill and an unlocked expertise.
+            </p>
+            <p class="attr_desc">
+                All attributes start out as 10 and have a modifier of 0. The race you chose will affect your attributes, and then you can subtract or add from each attribute as you like. You cannot have an attribute go lower than 2 or higher than 30.
+            </p>
+            <span style="visibility: hidden;" id="attr_points">0</span>
+        </div>
+        <div class="row">
+            <div class="attr_info">
+                <p>
+                    Strength (STR) dictates your ability to lift, move, and control objects.
+                </p>
+                <p>
+                    Primary Skills: Assault Weapon, Athletics, Blunt, Unarmed
+                </p>
+                <p>
+                    Expertise: Armor, Fire, Fluids, Gravity, Vehicles
+                </p>
+            </div>
+            <div class="attr_item">
+                <span>STR</span><br>
+                <div class="attr_value" id="str">10</div><br>
+                <div class="attr_mod" id="str_mod"></div>
+            </div>
+            <div class="change_attr">
+                <button onclick="decreaseAttr(this, 'str')">-</button>
+                <button onclick="increaseAttr('str')">+</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="attr_info">
+                <p>
+                    Dexterity (DEX) is a measure of your quickness and reflexes.
+                </p>
+                <p>
+                    Primary Skills: Blade, Pistol
+                </p>
+                <p>
+                    Expertise: Armor, Assault Weapon, Athletics, Espionage, Explosives, Gravity, Long Range, Unarmed, Vehicles, Wave
+                </p>
+            </div>
+            <div class="attr_item">
+                <span>DEX</span><br>
+                <div class="attr_value" id="dex">10</div><br>
+                <div class="attr_mod" id="dex_mod"></div>
+            </div>
+            <div class="change_attr">
+                <button onclick="decreaseAttr(this, 'dex')">-</button>
+                <button onclick="increaseAttr('dex')">+</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="attr_info">
+                <p>
+                    Constitution (CON) is your ability to withstand damage and act under pressure.
+                </p>
+                <p>
+                    Primary Skills: Armor, Explosives, Vehicles
+                </p>
+                <p>
+                    Expertise: Astrobiology, Athletics, Blunt, Energy, Fluids, Psyche, Tech, Unarmed
+                </p>
+            </div>
+            <div class="attr_item">
+                <span>CON</span><br>
+                <div class="attr_value" id="con">10</div><br>
+                <div class="attr_mod" id="con_mod"></div>
+            </div>
+            <div class="change_attr">
+                <button onclick="decreaseAttr(this, 'con')">-</button>
+                <button onclick="increaseAttr('con')">+</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="attr_info">
+                <p>
+                    Intelligence (INT) determines your ability to recall learned and glean new information.
+                </p>
+                <p>
+                    Primary Skills: Astrobiology, Long Range, Observation, Tech
+                </p>
+                <p>
+                    Expertise: Blade, Blunt, Explosives, Negotiation, Pistol
+                </p>
+            </div>  
+            <div class="attr_item">
+                <span>INT</span><br>
+                <div class="attr_value" id="int">10</div><br>
+                <div class="attr_mod" id="int_mod"></div>
+            </div>
+            <div class="change_attr">
+                <button onclick="decreaseAttr(this, 'int')">-</button>
+                <button onclick="increaseAttr('int')">+</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="attr_info">
+                <p>
+                    Wisdom (WIS) is your awareness of the world around you and how to manipulate it.
+                </p>
+                <p>
+                    Primary Skills: Energy, Fluid, Gravity, Psyche, Wave
+                </p>
+                <p>
+                    Expertise: Assault Weapon, Espionage, Long Range, Observation, Tech
+                </p>
+            </div>
+            <div class="attr_item">
+                <span>WIS</span><br>
+                <div class="attr_value" id="wis">10</div><br>
+                <div class="attr_mod" id="wis_mod"></div>
+            </div>
+            <div class="change_attr">
+                <button onclick="decreaseAttr(this, 'wis')">-</button>
+                <button onclick="increaseAttr('wis')">+</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="attr_info">
+                <p>
+                    Charisma (CHA) aids you as you interact with society and sentient species.
+                </p>
+                <p>
+                    Primary Skills: Espionage, Negotiation
+                </p>
+                <p>
+                    Expertise: Astrobiology, Blade, Observation, Pistol, Psyche, 
+                </p>
+            </div>
+            <div class="attr_item">
+                <span>CHA</span><br>
+                <div class="attr_value" id="cha">10</div><br>
+                <div class="attr_mod" id="cha_mod"></div>
+            </div>
+            <div class="change_attr">
+                <button onclick="decreaseAttr(this, 'cha')">-</button>
+                <button onclick="increaseAttr('cha')">+</button>
+            </div>
+        </div>
     </div>
     <!-- Skills -->
     <div class="char_content" id="skills_panel">
@@ -1902,7 +2064,7 @@
 
     <div id="save_output"></div>
 
-    <button id="test" onclick="viewSave()">Test</button>
+    <!--<button id="test" onclick="viewSave()">Test</button>-->
     <script>
         var char_ID = 001;
         //Set default body tab
