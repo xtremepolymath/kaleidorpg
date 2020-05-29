@@ -46,16 +46,47 @@ function loadSkillPerks(savedXml){
 //SAVE FEATURE
 textToSave = new Array(67);
 
+function outputSave(outputData){
 
+    var textToBLOB = new Blob([outputData], {type: 'text/plain'});
+
+    var sFileName = 'KaleidoRPG_save' + char_ID + '.txt';
+    var newLink = document.createElement("a");
+    newLink.download = sFileName;
+
+    if (window.webkitURL != null){
+        newLink.href = window.webkitURL.createObjectURL(textToBLOB);
+    }
+
+    else{
+        newLink.href = window.URL.createObjectURL(textToBLOB);
+        newLink.style.display = "none";
+        document.body.appendChild(newLink);
+    }
+
+    closeOptionWindow();
+
+    newLink.click();
+}
+
+var racePanelCounter = 0;
 
 function charPanelSwitch(evt, tabName) {
     if(tabName != "main_panel"){
         if(textToSave[2] == undefined){
-            alert("Please select a race before proceeding! You can come back and change this if you want to.");
+            alert("Please select a race before proceeding! If you change your mind later, you can just reload the page and start over.");
             return;
         }
         else{
             updateInfoSkills();
+        }
+    }
+    else{
+        racePanelCounter += 1;
+        if(racePanelCounter > 1){
+
+            openOptionWindow("change_race");
+            return;
         }
     }
 
@@ -72,6 +103,43 @@ function charPanelSwitch(evt, tabName) {
     }
     document.getElementById(tabName).style.display = "block";
     evt.currentTarget.className += " active";
+}
+
+function confirmRefresh(){
+    location.reload();
+}
+
+function closeOptionWindow(){ 
+    var options = document.getElementsByClassName("option_window");
+    for(var i=0; i<options.length;i++){
+        if(options[i].style.display == "block"){
+            options[i].style.display = "none";
+        }
+    }
+
+    var win = document.getElementById("option_win");
+    if(win.style.display == "block"){
+        win.style.display = "none";
+    }
+}
+
+function openOptionWindow(option){
+    if(option == "save_character"){
+        var complete = checkForCompletion();
+        if(complete == false){
+            alert("You still have unfinished business! Please make sure everything is complete before saving.");
+            return;
+        }
+    }
+
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+
+    var win = document.getElementById("option_win");
+    var option = document.getElementById(option)
+    
+    win.style.display = "block";
+    option.style.display = "block";
 }
 
 function switchRacePanel(race){
@@ -111,14 +179,23 @@ function selectRaceAttr(attr){
 }
 
 function confirmRace(race){
-    textToSave[2] = race;
-    document.getElementsByClassName("char_menu_button")[1].click();
-}
+    if(race == "Human"){
+        if(document.getElementById("attr_choice_human").innerHTML != 0){
+            alert("Please choose two attributes to increase before proceeding!");
+            return;
+        }
+    }
 
-function updateInfoSkills(){
-    document.getElementById("rc").innerHTML = textToSave[2];
+    if(race == "Cyborg"){
+        if(document.getElementById("attr_choice_cyborg").innerHTML != 0){
+            alert("Please choose an attribute to increase before proceeding!");
+            return;
+        }
+    }
+
     var lang = document.getElementById("race_lang");
-    switch(textToSave[2]){
+
+    switch(race){
         case "Human":
             lang.innerHTML = "whatever Earthly language you would like.";
             document.getElementById("skills_avail").innerHTML = 5;
@@ -179,10 +256,16 @@ function updateInfoSkills(){
             document.getElementById("random_name").href = "https://www.fantasynamegenerators.com/quechua-names.php";
             break;
     }
+    textToSave[2] = race;
+    document.getElementsByClassName("char_menu_button")[1].click();
+}
 
+function updateInfoSkills(){
     updateSkillChart();
     updateSkillActions();
     updateAttrModView();
+    saveInfo();
+    updateReviewPanel();
 }
 
 function showBGs(id){
@@ -217,6 +300,10 @@ function chooseAlign(event){
 
 function saveInfo(){
     textToSave[1] = 1;
+    textToSave[6] = 10;
+    textToSave[7] = 10;
+    textToSave[14] = 5;
+    textToSave[15] = 10;
     var char_name = document.getElementById("char_name").value;
     var char_gend = document.getElementById("char_gend").value;
     var char_bg = document.getElementById("char_bg").value;
@@ -233,6 +320,12 @@ function saveInfo(){
     textToSave[3] = char_gend;
     textToSave[4] = char_bg;
     textToSave[5] = char_align;
+
+    var attrs = document.getElementsByClassName("attr_value");
+
+    for(var i=0; i<attrs.length;i++){
+        textToSave[8+i] = attrs[i].innerHTML;
+    }
 
     var charSkillArray = [];
     var skillLvls = document.getElementsByClassName("skill_level_value");
@@ -286,6 +379,75 @@ function updateSkillChart(){
             skillCharts[x].children[y].style.backgroundColor = "red";
         }
     }
+
+    recalculateSkillMods();
+}
+
+function recalculateSkillMods(){
+    var skLvls = document.getElementsByClassName("skill_level_value");
+    var skillMods = document.getElementsByClassName("skill_mod_val");
+    var skillAtts = document.getElementsByClassName("skill_mod");
+
+    for(var i=0; i < 20; i++){
+        var skillName = document.getElementsByClassName("skill_name")[i].children[0].innerHTML;
+        var newMod;
+
+        currentSkillIndex = i;
+        currentLVL = skLvls[i].children[0].innerHTML;
+
+        //Set base to either -2 or 0 based on lvl
+        if(currentLVL === '0'){
+            newMod = -2;
+        }
+        else{
+            newMod = 0;
+        }
+
+        document.getElementById("test").innerHTML = skillName;
+
+        //Make Perk-specific adjustments
+        if(skillName == "Astrobiology" && currentLVL >= 10){
+            newMod = 1;
+        }
+        else if(skillName == "Athletics" && currentLVL >= 10){
+            newMod = 1;
+        }
+        else if(skillName == "Espionage" && currentLVL >= 10){
+            newMod = 1;
+        }
+        else if(skillName == "Negotiation" && currentLVL >= 10 && currentLVL < 20){
+            newMod = 1;
+        }
+        else if(skillName == "Negotiation" && currentLVL >= 20){
+            newMod = 2;
+        }
+        else if(skillName == "Observation" && currentLVL >= 10){
+            newMod = 1;
+        }
+        else if(skillName == "Tech" && currentLVL >= 10){
+            newMod = 1;
+        }
+        else if(skillName == "Vehicles" && currentLVL >= 10){
+            newMod = 1;
+        }
+
+        skillMods[i].innerHTML = newMod + getAttrMod(skillAtts[i].children[0].innerHTML);
+    }
+}
+
+function getAttrMod(attr){
+    var atts = document.getElementsByClassName("attr_item");
+    var attrMod;
+
+    updateAttrModView();
+
+    for(var i=0; i < atts.length; i++){
+        if(atts[i].children[0].innerHTML == attr){
+            attrMod = atts[i].children[4].innerHTML;
+        }
+    }
+
+    return parseInt(attrMod);
 }
 
 function showPerkInfo(evt, skill, lvl){
@@ -539,11 +701,11 @@ function showAvailableActions(){
     }
 }
 
-function viewSave(){
+function saveCharacter(){
     var string = "";
 
     for(var i=0;i<textToSave.length;i++){
-        if(textToSave[i] == "undefined"){
+        if(textToSave[i] == undefined){
             string = string + "" + ",";
         }
         else{
@@ -551,7 +713,7 @@ function viewSave(){
         }
     }
 
-    alert(string);
+    outputSave(string);
 }
 
 function updateAttrModView(){
@@ -690,4 +852,58 @@ function increaseAttr(attr){
 
     updateAttrModView();
     updateAttrButtons();
+}
+
+function bodyPanelSwitch(evt, tabName) {
+    var i, tabLinks;
+    tabContent = document.getElementsByClassName("body_panel_content");
+    for (i = 0; i < tabContent.length; i++) {
+        tabContent[i].style.display = "none";
+    }
+    tabLinks = document.getElementsByClassName("body_panel_button");
+    for (i = 0; i < tabLinks.length; i++) {
+        tabLinks[i].className = tabLinks[i].className.replace(" active", "");
+    }
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+function updateReviewPanel(){
+    document.getElementById("name_review").innerHTML = textToSave[0];
+    document.getElementById("race_review").innerHTML = textToSave[2];
+    document.getElementById("gender_review").innerHTML = textToSave[3];
+    document.getElementById("background_review").innerHTML = textToSave[4];
+    document.getElementById("alignment_review").innerHTML = textToSave[5];
+    document.getElementById("str_review").innerHTML = textToSave[8];
+    document.getElementById("dex_review").innerHTML = textToSave[9];
+    document.getElementById("con_review").innerHTML = textToSave[10];
+    document.getElementById("int_review").innerHTML = textToSave[11];
+    document.getElementById("wis_review").innerHTML = textToSave[12];
+    document.getElementById("cha_review").innerHTML = textToSave[13];
+    for(var i=0;i<6;i++){
+        document.getElementsByClassName("attr_mod_review")[i].innerHTML = document.getElementsByClassName("attr_mod")[i].innerHTML;
+    }
+    for(var i=0;i<20;i++){
+        document.getElementsByClassName("skill_name_review")[i].innerHTML = document.getElementsByClassName("skill_name")[i].children[0].innerHTML;
+        document.getElementsByClassName("skill_val_review")[i].innerHTML = document.getElementsByClassName("skill_level_value")[i].children[0].innerHTML;
+        document.getElementsByClassName("skill_mod_review")[i].innerHTML = document.getElementsByClassName("skill_mod_val")[i].innerHTML;
+    }
+}
+
+function checkForCompletion(){
+    for(var i=0;i<16;i++){
+        if(textToSave[i] == undefined){
+            return false;
+        }
+    }
+
+    if(parseInt(document.getElementById("attr_points").innerHTML) > 0){
+        return false;
+    }
+    else if(parseInt(document.getElementById("skills_avail").innerHTML) > 0){
+        return false;
+    }
+    else {
+        return true;
+    }
 }
