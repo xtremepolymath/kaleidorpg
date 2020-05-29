@@ -55,6 +55,34 @@
             <button class="char_menu_button" onclick="charPanelSwitch(event, 'attr_panel')">ATTRIBUTES</button>
             <button class="char_menu_button" onclick="charPanelSwitch(event, 'skills_panel')">SKILLS</button>
             <button class="char_menu_button" onclick="charPanelSwitch(event, 'actions_panel')">ACTIONS</button>
+            <button class="char_menu_button" onclick="charPanelSwitch(event, 'review_panel')" style="background-color:rgb(34, 162, 179)">REVIEW/CONFIRM</button>
+        </div>
+    </div>
+
+    <div class="option_popup" id="option_win">
+        <div class="option_pup_bg">
+            <div class="option_window" id="change_race">
+                <div class="option_title">Warning!</div>
+                <div class="option_text">
+                    <p>In order to change your race, or race options, you will have to start your character creation over from the beginning.</p>
+                    <p>Are you sure you want to continue?</p>
+                </div>
+                <div class="option_choices">
+                    <button class="cancel_but" onclick="closeOptionWindow()">Nevermind</button>
+                    <button class="confirm_but" onclick="confirmRefresh()">I'm Sure</button>
+                </div>
+            </div>
+            <div class="option_window" id="save_character">
+                <div class="option_title">Warning!</div>
+                <div class="option_text">
+                    <p>Currently, we are unable to have your character saved automatically. In order to save your character, you will need to download a data file and e-mail it to the administrator so they can add your character to the server.</p>
+                    <p>Are you sure you want to continue?</p>
+                </div>
+                <div class="option_choices">
+                    <button class="cancel_but" onclick="closeOptionWindow()">Not Yet</button>
+                    <button class="confirm_but" onclick="saveCharacter()">I'm Sure</button>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -114,7 +142,7 @@
                         +1 to two of your choice:
                     </div>
                     <div class="attr_options">
-                        <span style="visibility: hidden;">2</span>
+                        <span style="visibility: hidden;" id="attr_choice_human">2</span>
                         <button onclick="selectRaceAttr(this)">STR</button>
                         <button onclick="selectRaceAttr(this)">DEX</button>
                         <button onclick="selectRaceAttr(this)">CON</button>
@@ -176,7 +204,7 @@
                         +2 to one of your choice:
                     </div>
                     <div class="attr_options">
-                        <span style="visibility: hidden;">1</span>
+                        <span style="visibility: hidden;" id="attr_choice_cyborg">1</span>
                         <button onclick="selectRaceAttr(this)">STR</button>
                         <button onclick="selectRaceAttr(this)">DEX</button>
                         <button onclick="selectRaceAttr(this)">CON</button>
@@ -368,6 +396,8 @@
         </div>
         <div class="row">
             <p class="info_section" style="width: 100%; text-align: center;">ALIGNMENT</p>
+            <p class="attr_desc">Your allignment is how your character treats morals and ethics. A lawful character will try to stick to a set of rules, be they good or evil. A chaotic character will prefer to bend or break the rules, either for the common good or for their own benefit.</p>
+            <p class="attr_desc">Choose the alignment that best suits your character:</p>
             <table class="align_table">
                 <tr>
                     <td class="align" data-active="false" onclick="chooseAlign(this)">Lawful Good</td>
@@ -386,9 +416,6 @@
                 </tr>
             </table>
         </div>
-        <div class="row">
-            <button class="confirm_info" onclick="saveInfo()">Save Info</button>
-        </div>
     </div>
     <!-- Attributes -->
     <div class="char_content" id="attr_panel">
@@ -399,7 +426,8 @@
                 This modifier may be added to skill depending on the skill and an unlocked expertise.
             </p>
             <p class="attr_desc">
-                All attributes start out as 10 and have a modifier of 0. The race you chose will affect your attributes, and then you can subtract or add from each attribute as you like. You cannot have an attribute go lower than 2 or higher than 30.
+                All attributes start out as 10 and have a modifier of 0. Every two levels, you will be able to increase one of your attributes by 1. 
+                For creating a character, the race you chose will affect your attributes, and then you can subtract or add from each attribute as you like. You cannot have an attribute go lower than 2 or higher than 30.
             </p>
             <span style="visibility: hidden;" id="attr_points">0</span>
         </div>
@@ -559,11 +587,12 @@
 
         <div class="skill_explanation">Choose which skills you would like to put skill points towards. Your race may have already determined some skills for you.</div>
         <div class="skill_header">
-            <div style="margin-left: 115px;">Skill<br>Name</div>
-            <div style="margin-left: 73px;">Main<br>Attr</div>
-            <div style="margin-left: 15px;">Skill<br>Level</div>
+            <div style="margin-left: 120px;">Skill<br>Name</div>
+            <div style="margin-left: 55px;">Skill<br>Mod</div>
+            <div style="margin-left: 15px;">Main<br>Attr</div>
+            <div style="margin-left: 10px;">Skill<br>Level</div>
             <div style="margin-left: 210px;"><br>Perks</div>
-            <div style="margin-left: 300px;"><br>Expertise</div>
+            <div style="margin-left: 290px;"><br>Expertise</div>
         </div>
         <div class="skill_row" id="armor_row">
             <button class="choose_skill" onclick="chooseSkill(this)">Select</button>
@@ -2005,9 +2034,7 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <button class="confirm_info" onclick="saveInfo()">Save Info</button>
-        </div>
+        
     </div>
     <!-- ACTIONS -->
     <div class="char_content" id="actions_panel">
@@ -2061,13 +2088,501 @@
             </table>
         </div>
     </div>
+    <!-- Review -->
+    <div class="char_content" id="review_panel">
+        <div class="panel_title">Review</div>
+        <div class="row">
+            <p class="attr_desc">
+                Review your character information below to make sure it all looks correct. You can go back to any panel, except Race, and change your choices as you desire. Changing your race will require you to start the character creation over again. Once you're ready to save your character, click the save info button and follow the directions.
+            </p>
+        </div>
+        <div class="row">
+            <div class="character_name_review">
+                <div id="name_review"></div>
+                <span>NAME</span>
+            </div>
+            <div class="character_info_box">
+                <div class="char_info">
+                    <div id="gender_review"></div>
+                    <span>GENDER</span>
+                </div>
+        
+                <div class="char_info">
+                    <div id="background_review"></div>
+                    <span>BACKGROUND</span>
+                </div>
+                <div class="char_info">
+                    <div id="race_review"></div>
+                    <span>RACE</span>
+                </div>
+        
+                <div class="char_info">
+                    <div id="alignment_review"></div>
+                    <span>ALIGNMENT</span>
+                </div>
+            </div>
+            <div class="health_panel">
+                <div class="hp_bar_row">
+                    <div class="HP_panel" id="current_HP">10</div>
+                    /
+                    <div class="HP_panel" id="base_HP">10</div>
+                    <span class="hp_label">HP</span>
+                </div>
+                <div class="hp_bar_row">
+                    <div class="bar_panel" id="current_bar">0</div>
+                    /
+                    <div class="bar_panel" id="base_bar">0</div><br>
+                    <span class="bar_label">BAR.</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="attr_container">
+                <div class="attr_item">
+                    <span>STR</span><br>
+                    <div class="attr_value_review" id="str_review"></div><br>
+                    <div class="attr_mod_review" id="str_mod_review"></div>
+                </div>
 
-    <div id="save_output"></div>
+                <div class="attr_item">
+                    <span>DEX</span><br>
+                    <div class="attr_value_review" id="dex_review"></div><br>
+                    <div class="attr_mod_review" id="dex_mod_review"></div>
+                </div>
 
-    <!--<button id="test" onclick="viewSave()">Test</button>-->
+                <div class="attr_item">
+                    <span>CON</span><br>
+                    <div class="attr_value_review" id="con_review"></div><br>
+                    <div class="attr_mod_review" id="con_mod_review"></div>
+                </div>
+
+                <div class="attr_item">
+                    <span>INT</span><br>
+                    <div class="attr_value_review" id="int_review"></div><br>
+                    <div class="attr_mod_review" id="int_mod_review"></div>
+                </div>
+
+                <div class="attr_item">
+                    <span>WIS</span><br>
+                    <div class="attr_value_review" id="wis_review"></div><br>
+                    <div class="attr_mod_review" id="wis_mod_review"></div>
+                </div>
+
+                <div class="attr_item">
+                    <span>CHA</span><br>
+                    <div class="attr_value_review" id="cha_review"></div><br>
+                    <div class="attr_mod_review" id="cha_mod_review"></div>
+                </div>
+            </div>
+            <div class="passives_col">
+                <div class="passive_item">
+                    <span>Passive<br>Perception</span>
+                    <div class="passive_value" id="pp"></div>
+                </div>
+                <div class="passive_item">
+                    <span>Armor<br>Class</span>
+                    <div class="passive_value" id="ac"></div>
+                </div>
+                <div class="movement_item">
+                    <span>Movement</span>
+                    <div class="movement_value" id="mvmt">10m</div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="skill_header">
+                <div style="margin-left: 80px;">Skill<br>Name</div>
+                <div style="margin-left: 95px;">Skill<br>Level</div>
+                <div style="margin-left: 20px;">Skill<br>Mod</div>
+            </div>
+            <div class="skill_review">
+                <div class="skill_review_row">
+                    <div class="skill_name_review"></div>
+                    <div class="skill_val_review"></div>
+                    <div class="skill_mod_review"></div>
+                </div>
+                <div class="skill_review_row">
+                    <div class="skill_name_review"></div>
+                    <div class="skill_val_review"></div>
+                    <div class="skill_mod_review"></div>
+                </div>
+                <div class="skill_review_row">
+                    <div class="skill_name_review"></div>
+                    <div class="skill_val_review"></div>
+                    <div class="skill_mod_review"></div>
+                </div>
+                <div class="skill_review_row">
+                    <div class="skill_name_review"></div>
+                    <div class="skill_val_review"></div>
+                    <div class="skill_mod_review"></div>
+                </div>
+                <div class="skill_review_row">
+                    <div class="skill_name_review"></div>
+                    <div class="skill_val_review"></div>
+                    <div class="skill_mod_review"></div>
+                </div>
+                <div class="skill_review_row">
+                    <div class="skill_name_review"></div>
+                    <div class="skill_val_review"></div>
+                    <div class="skill_mod_review"></div>
+                </div>
+                <div class="skill_review_row">
+                    <div class="skill_name_review"></div>
+                    <div class="skill_val_review"></div>
+                    <div class="skill_mod_review"></div>
+                </div>
+                <div class="skill_review_row">
+                    <div class="skill_name_review"></div>
+                    <div class="skill_val_review"></div>
+                    <div class="skill_mod_review"></div>
+                </div>
+                <div class="skill_review_row">
+                    <div class="skill_name_review"></div>
+                    <div class="skill_val_review"></div>
+                    <div class="skill_mod_review"></div>
+                </div>
+                <div class="skill_review_row">
+                    <div class="skill_name_review"></div>
+                    <div class="skill_val_review"></div>
+                    <div class="skill_mod_review"></div>
+                </div>
+                <div class="skill_review_row">
+                    <div class="skill_name_review"></div>
+                    <div class="skill_val_review"></div>
+                    <div class="skill_mod_review"></div>
+                </div>
+                <div class="skill_review_row">
+                    <div class="skill_name_review"></div>
+                    <div class="skill_val_review"></div>
+                    <div class="skill_mod_review"></div>
+                </div>
+                <div class="skill_review_row">
+                    <div class="skill_name_review"></div>
+                    <div class="skill_val_review"></div>
+                    <div class="skill_mod_review"></div>
+                </div>
+                <div class="skill_review_row">
+                    <div class="skill_name_review"></div>
+                    <div class="skill_val_review"></div>
+                    <div class="skill_mod_review"></div>
+                </div>
+                <div class="skill_review_row">
+                    <div class="skill_name_review"></div>
+                    <div class="skill_val_review"></div>
+                    <div class="skill_mod_review"></div>
+                </div>
+                <div class="skill_review_row">
+                    <div class="skill_name_review"></div>
+                    <div class="skill_val_review"></div>
+                    <div class="skill_mod_review"></div>
+                </div>
+                <div class="skill_review_row">
+                    <div class="skill_name_review"></div>
+                    <div class="skill_val_review"></div>
+                    <div class="skill_mod_review"></div>
+                </div>
+                <div class="skill_review_row">
+                    <div class="skill_name_review"></div>
+                    <div class="skill_val_review"></div>
+                    <div class="skill_mod_review"></div>
+                </div>
+                <div class="skill_review_row">
+                    <div class="skill_name_review"></div>
+                    <div class="skill_val_review"></div>
+                    <div class="skill_mod_review"></div>
+                </div>
+                <div class="skill_review_row">
+                    <div class="skill_name_review"></div>
+                    <div class="skill_val_review"></div>
+                    <div class="skill_mod_review"></div>
+                </div>
+            </div>
+            <div class="body_panel_col">
+                <div class="body_panel_tab">
+                    <button class="body_panel_button" id="defaultOpen_body" onclick="bodyPanelSwitch(event, 'gear_panel')">GEAR</button>
+                    <button class="body_panel_button" onclick="bodyPanelSwitch(event, 'stimplant_panel')">STIMS</button>
+                </div>
+                <div class="body_panel_content" id="gear_panel">
+                    <span>HEAD</span>
+                    <div class="equipped_item">
+                        <div class="item_name_col">
+                            <div class="item_name" id="eq_helmet">Beskar Helmet</div>
+                            <div class="item_type" id="helm_type">Heavy</div>
+                        </div>
+                        <div class="item_ac_col">
+                            <div class="ac_label">AC</div>
+                            <div class="barrier_label">BAR</div>
+                            <div class="cond_label">COND.</div>
+                        </div>
+                        <div class="item_ac_col">
+                            <div class="ac_mod" id="helm_ac_mod">+4</div>
+                            <div class="barrier_val" id="helm_barrier">5</div>
+                            <div class="cond_val">100%</div>
+                        </div>
+                        <div class="item_effect_col">
+                            <div class="effect_label">Effects:</div>
+                            <div class="effect_box">
+                                <span>Radiation Resistance</span>
+                                <span>-2 Psyche</span>
+                            </div>
+                        </div>
+                        <div class="item_mod_col">
+                            <div class="mod_label">MODS</div>
+                            <div class="mod_item"></div>
+                            <div class="mod_item"></div>
+                        </div>
+                    </div>
+                    <span>BODY</span>
+                    <div class="equipped_item">
+                        <div class="item_name_col">
+                            <div class="item_name" id="eq_armor">Beskar Armor</div>
+                            <div class="item_type" id="armor_type">Heavy</div>
+                        </div>
+                        <div class="item_ac_col">
+                            <div class="ac_label">AC</div>
+                            <div class="barrier_label">BAR</div>
+                            <div class="cond_label">COND.</div>
+                        </div>
+                        <div class="item_ac_col">
+                            <div class="ac_mod" id="armor_ac_mod">+5</div>
+                            <div class="barrier_val" id="armor_barrier">40</div>
+                            <div class="cond_val">100%</div>
+                        </div>
+                        <div class="item_effect_col">
+                            <div class="effect_label">Effects:</div>
+                            <div class="effect_box">
+                                <span>Heat Resistance</span>
+
+                            </div>
+                        </div>
+                        <div class="item_mod_col">
+                            <div class="mod_label">MODS</div>
+                            <div class="mod_item"></div>
+                            <div class="mod_item"></div>
+                        </div>
+                    </div>
+                    <span>BOOTS</span>
+                    <div class="equipped_item">
+                        <div class="item_name_col">
+                            <div class="item_name" id="eq_boots">Durable Boots</div>
+                            <div class="item_type" id="boots_type">Light</div>
+                        </div>
+                        <div class="item_ac_col">
+                            <div class="ac_label">AC</div>
+                            <div class="barrier_label">BAR</div>
+                            <div class="cond_label">COND.</div>
+                        </div>
+                        <div class="item_ac_col">
+                            <div class="ac_mod" id="boots_ac_mod">+1</div>
+                            <div class="barrier_val" id="boots_barrier">0</div>
+                            <div class="cond_val">100%</div>
+                        </div>
+                        <div class="item_effect_col">
+                            <div class="effect_label">Effects:</div>
+                            <div class="effect_box">
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="item_mod_col">
+                            <div class="mod_label">MODS</div>
+                            <div class="mod_item"></div>
+                        </div>
+                    </div>
+                    <span>GLOVES</span>
+                    <div class="equipped_item" id="eq_gloves">
+                        <div class="item_name_col">
+                            <div class="item_name">Quality Combat Gloves</div>
+                            <div class="item_type" id="gloves_type">Light/Combat</div>
+                        </div>
+                        <div class="item_ac_col">
+                            <div class="ac_label">AC</div>
+                            <div class="barrier_label">BAR</div>
+                            <div class="cond_label">COND.</div>
+                        </div>
+                        <div class="item_ac_col">
+                            <div class="ac_mod" id="gloves_ac_mod">+1</div>
+                            <div class="barrier_val" id="gloves_barrier">0</div>
+                            <div class="cond_val">100%</div>
+                        </div>
+                        <div class="item_effect_col">
+                            <div class="effect_label">Effects:</div>
+                            <div class="effect_box">
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="item_mod_col">
+                            <div class="mod_label">MODS</div>
+                            <div class="mod_item" id="flamethrower"></div>
+                        </div>
+                    </div>
+                    <span>MAIN HAND</span>
+                    <div class="equipped_item">
+                        <div class="weapon_name_col">
+                            <div class="weapon_name" id="eq_main_hand">Mandalorian Blaster</div>
+                            <div class="weapon_type">Bolt Pistol</div>
+                        </div>
+                        <div class="weapon_damage_col">
+                            <div class="weapon_damage_row">
+                                <div class="dd_label">DD</div>
+                                <div class="damage_dice">2d8</div>
+                                <div class="damage_mod">+3</div>
+                                <div class="range_label">Range</div>
+                                <div class="range_box">10m</div>
+                            </div>
+                            <div class="weapon_ammo_row">
+                                <div class="ammo_label">AMMO</div>
+                                <div class="ammo_div">6</div>
+                                <div class="ammo_div">/</div>
+                                <div class="max_ammo">6</div>
+                                <div class="mag_label">MAGS</div>
+                                <div class="mag_val">4</div>
+                            </div>
+                            <button class="use_ammo" onclick="useAmmo(this)">USE</button>
+                            <button class="reload_ammo" onclick="reloadAmmo(this)">RELOAD</button>
+                        </div>
+                        <div class="item_mod_col">
+                            <div class="mod_label">MODS</div>
+                            <div class="mod_item"></div>
+                            <div class="mod_item"></div>
+                        </div>
+                    </div>
+                    <span>OFF HAND</span>
+                    <div class="equipped_item">
+                        <div class="weapon_name_col">
+                            <div class="weapon_name" id="eq_off_hand">
+                                Quality Combat Gloves
+                            </div>
+                            <div class="weapon_type">Combat Glove</div>
+                        </div>
+                        <div class="weapon_damage_col">
+                            <div class="weapon_damage_row">
+                                <div class="dd_label">DD</div>
+                                <div class="damage_dice">2d6</div>
+                                <div class="damage_mod">+0</div>
+                                <div class="range_label">Range</div>
+                                <div class="range_box">0m</div>
+                                
+                            </div>
+                            <div class="weapon_ammo_row">
+                                <div class="ammo_label">AMMO</div>
+                                <div class="ammo_div">0</div>
+                                <div class="ammo_div">/</div>
+                                <div class="max_ammo">0</div>
+                                <div class="mag_label">MAGS</div>
+                                <div class="mag_val"></div>
+                            </div>
+                        </div>
+                        <div class="item_mod_col">
+                            <div class="mod_label">MODS</div>
+                            <div class="mod_item"></div>
+                        </div>
+                    </div>
+                    <span>MISC.</span>
+                    <div class="equipped_item" id="eq_misc">
+                    </div>
+                </div>
+                <div class="body_panel_content" id="stimplant_panel">
+                    <div class="charge_row">
+                        <span>Batteries</span>
+                        <div id="charges_avail"></div>
+                    </div>
+                    <span>Energy</span>
+                    <div class="stim_item">
+                        <div class="stim_name" id="energy_stim"></div>
+                        <span class="stim_charge" id="energy_charges"></span>
+                        <div class="charges">
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                        </div>
+                        <button class="use_charge" onclick="useStimCharge(this)">USE</button>
+                        <button class="add_charge">ADD</button>
+                    </div>
+                    <span>Fluid</span>
+                    <div class="stim_item">
+                        <div class="stim_name" id="fluid_stim"></div>
+                        <span class="stim_charge" id="fluid_charges"></span>
+                        <div class="charges">
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                        </div>
+                        <button class="use_charge" onclick="">USE</button>
+                        <button class="add_charge">ADD</button>
+                    </div>
+                    <span>Grav</span>
+                    <div class="stim_item">
+                        <div class="stim_name" id="grav_stim"></div>
+                        <span class="stim_charge" id="grav_charges"></span>
+                        <div class="charges">
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                        </div>
+                        <button class="use_charge" onclick="useStimCharge(this)">USE</button>
+                        <button class="add_charge" onclick="rechargeStim(this)">ADD</button>
+                    </div>
+                    <span>Psyche</span>
+                    <div class="stim_item">
+                        <div class="stim_name" id="psyche_stim"></div>
+                        <span class="stim_charge" id="psyche_charges"></span>
+                        <div class="charges">
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                        </div>
+                        <button class="use_charge" onclick="">USE</button>
+                        <button class="add_charge">ADD</button>
+                    </div>
+                    <span>Wave</span>
+                    <div class="stim_item">
+                        <div class="stim_name" id="wave_stim"></div>
+                        <span class="stim_charge" id="wave_charges"></span>
+                        <div class="charges">
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                            <div class="charge_item"></div>
+                        </div>
+                        <button class="use_charge" onclick="">USE</button>
+                        <button class="add_charge">ADD</button>
+                    </div>
+                </div>
+        </div>
+        <div class="row">
+            <button class="confirm_info" onclick="openOptionWindow('save_character')">Save Info</button>
+        </div>
+    </div>
+
+    <!--<button id="test" onclick="saveCharacter()">Test</button>-->
     <script>
         var char_ID = 001;
         //Set default body tab
+        document.getElementById("defaultOpen_body").click();
         document.getElementById("defaultOpen_char").click();
         getPerkActionXML();
         setDefaultActions();
