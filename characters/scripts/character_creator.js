@@ -212,48 +212,82 @@ function confirmRace(race){
             document.getElementById("pistol_level").innerHTML = 5;
             document.getElementById("gravity_level").innerHTML = 5;
             document.getElementById("skills_avail").innerHTML = 1;
-            document.getElementById("int").innerHTML = 11;
-            document.getElementById("int").style.backgroundColor = "#7ecc89";
-            document.getElementById("dex").innerHTML = 12;
+            document.getElementById("dex").innerHTML = 11;
             document.getElementById("dex").style.backgroundColor = "#7ecc89";
+            document.getElementById("int").innerHTML = 12;
+            document.getElementById("int").style.backgroundColor = "#7ecc89";
             document.getElementById("str").innerHTML = 9;
             document.getElementById("str").style.backgroundColor = "#E8903B";
             break;
         case "Aerhza":
             lang.innerHTML = "the ancient Edo language.";
             document.getElementById("random_name").href = "https://www.fantasynamegenerators.com/edo-japanese-names.php";
-            document.getElementById("tech_level").innerHTML = 10;
-            document.getElementById("pistol_level").innerHTML = 5;
-            document.getElementById("gravity_level").innerHTML = 5;
+            document.getElementById("negotiation_level").innerHTML = 10;
+            document.getElementById("astrobiology_level").innerHTML = 5;
+            document.getElementById("psyche_level").innerHTML = 5;
             document.getElementById("skills_avail").innerHTML = 1;
             document.getElementById("int").innerHTML = 11;
             document.getElementById("int").style.backgroundColor = "#7ecc89";
-            document.getElementById("dex").innerHTML = 11;
-            document.getElementById("dex").style.backgroundColor = "#7ecc89";
+            document.getElementById("cha").innerHTML = 12;
+            document.getElementById("cha").style.backgroundColor = "#7ecc89";
+            document.getElementById("dex").innerHTML = 9;
+            document.getElementById("dex").style.backgroundColor = "#E8903B";
             break;
         case "Muhmin":
             lang.innerHTML = "the Amazigh/Berber language.";
             document.getElementById("random_name").href = "https://www.fantasynamegenerators.com/amazigh-names.php";
-            document.getElementById("tech_level").innerHTML = 10;
-            document.getElementById("pistol_level").innerHTML = 5;
-            document.getElementById("gravity_level").innerHTML = 5;
+            document.getElementById("athletics_level").innerHTML = 10;
+            document.getElementById("assault_weapon_level").innerHTML = 5;
+            document.getElementById("fluids_level").innerHTML = 5;
             document.getElementById("skills_avail").innerHTML = 1;
-            document.getElementById("int").innerHTML = 11;
-            document.getElementById("int").style.backgroundColor = "#7ecc89";
             document.getElementById("dex").innerHTML = 11;
             document.getElementById("dex").style.backgroundColor = "#7ecc89";
+            document.getElementById("str").innerHTML = 12;
+            document.getElementById("str").style.backgroundColor = "#7ecc89";
+            document.getElementById("cha").innerHTML = 9;
+            document.getElementById("cha").style.backgroundColor = "#E8903B";
             break;
-        case "Koz'aid":
+        case "Kozaid":
             lang.innerHTML = "the ancient Assyrian language.";
             document.getElementById("random_name").href = "https://www.fantasynamegenerators.com/assyrian-names.php";
+            document.getElementById("armor_level").innerHTML = 10;
+            document.getElementById("observation_level").innerHTML = 5;
+            document.getElementById("unarmed_level").innerHTML = 5;
+            document.getElementById("skills_avail").innerHTML = 1;
+            document.getElementById("str").innerHTML = 11;
+            document.getElementById("str").style.backgroundColor = "#7ecc89";
+            document.getElementById("con").innerHTML = 12;
+            document.getElementById("con").style.backgroundColor = "#7ecc89";
+            document.getElementById("wis").innerHTML = 9;
+            document.getElementById("wis").style.backgroundColor = "#E8903B";
             break;
         case "Veith":
             lang.innerHTML = "the Samoan language.";
             document.getElementById("random_name").href = "https://www.fantasynamegenerators.com/samoan-names.php";
+            document.getElementById("energy_level").innerHTML = 10;
+            document.getElementById("wave_level").innerHTML = 5;
+            document.getElementById("vehicles_level").innerHTML = 5;
+            document.getElementById("skills_avail").innerHTML = 1;
+            document.getElementById("con").innerHTML = 11;
+            document.getElementById("con").style.backgroundColor = "#7ecc89";
+            document.getElementById("wis").innerHTML = 12;
+            document.getElementById("wis").style.backgroundColor = "#7ecc89";
+            document.getElementById("int").innerHTML = 9;
+            document.getElementById("int").style.backgroundColor = "#E8903B";
             break;
         case "Ts’Tsen":
             lang.innerHTML = "the Quechua language. You only need to use one surname and may simplify complex names to make them easier.";
             document.getElementById("random_name").href = "https://www.fantasynamegenerators.com/quechua-names.php";
+            document.getElementById("espionage_level").innerHTML = 10;
+            document.getElementById("long_range_level").innerHTML = 5;
+            document.getElementById("blade_level").innerHTML = 5;
+            document.getElementById("skills_avail").innerHTML = 1;
+            document.getElementById("cha").innerHTML = 11;
+            document.getElementById("cha").style.backgroundColor = "#7ecc89";
+            document.getElementById("dex").innerHTML = 12;
+            document.getElementById("dex").style.backgroundColor = "#7ecc89";
+            document.getElementById("con").innerHTML = 9;
+            document.getElementById("con").style.backgroundColor = "#E8903B";
             break;
     }
     textToSave[2] = race;
@@ -402,8 +436,6 @@ function recalculateSkillMods(){
         else{
             newMod = 0;
         }
-
-        document.getElementById("test").innerHTML = skillName;
 
         //Make Perk-specific adjustments
         if(skillName == "Astrobiology" && currentLVL >= 10){
