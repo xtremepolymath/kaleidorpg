@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Kaleido RPG</title>
+
+  <link rel='local stylesheet' href="../../main_menu.css">
+  <link rel='local stylesheet' href="styles/wikiStyles.css">
+  <script src="scripts/wiki.js"></script>
+
+</head>
+
+<body>
+    <!--Main Menu-->
+    <div class="main_menu">
+        <img id="logo" src="../../data/Kaleido Logo/page06.jpg">
+        <a class="no_submenu" href="https://kaleidorpg.com">HOME</a>
+        <div class="submenu_container">
+            <button class="submenu_button">CAMPAIGNS</button>
+            <div class="submenu_items">
+                <a href="https://kaleidorpg.com/campaigns/create_campaign.html">New Campaign</a>
+                <a href="https://kaleidorpg.com/campaigns/current_campaigns.html">Current Campaigns</a>
+            </div>
+        </div>
+        <div class="submenu_container">
+            <button class="submenu_button">CHARACTERS</button>
+            <div class="submenu_items">
+                <a href="https://kaleidorpg.com/characters/character_creation.html">Create Character</a>
+                <a href="https://kaleidorpg.com/characters/view_sheet.html">Current Characters</a>
+            </div>
+        </div>
+        <div class="submenu_container">
+            <button class="submenu_button">ARCHIVE</button>
+            <div class="submenu_items">
+                <a href="https://kaleidorpg.com/codex/codex.html">Codex</a>
+                <a href="https://kaleidorpg.com/codex/starmap.html">Starmap</a>
+            </div>
+        </div>
+        <div class="submenu_container">
+            <button class="submenu_button">ABOUT</button>
+            <div class="submenu_items">
+                <a href="https://kaleidorpg.com/about.html">About</a>
+                <a href="https://kaleidorpg.com/contact.html">Contact</a>
+            </div>
+        </div>
+        <div class="menu_overflow"></div>
+    </div>
+    
+    <div class="wiki_content">
+        <div class="wikiSidebar">
+            <div class="sidebarCat" onclick="updateWikiContent('main.html')">Wiki Home</div>
+            <div class="sidebarCat" onclick="updateWikiContent('aboutMain.html')">About</div>
+            <div class="sidebarCat" onclick="wikiDropdown('raceSubmenu')">Races</div>
+            <div class="sidebarContainer" id="raceSubmenu">
+                <div class="sidebarSubcatHidden">Human</div>
+                <div class="sidebarSubcatHidden">Cyborg</div>
+                <div class="sidebarSubcatHidden">Quexi</div>
+                <div class="sidebarSubcatHidden">Aerhza</div>
+                <div class="sidebarSubcatHidden">Muhmin</div>
+                <div class="sidebarSubcatHidden">Koz'Aid</div>
+                <div class="sidebarSubcatHidden">Veith</div>
+                <div class="sidebarSubcatHidden">Ts'tsen</div>
+            </div>
+            <div class="sidebarCat">Skills</div>
+        </div>
+        <div class="wikiPage">
+            <div id="wikiNav"><a href="title.html">Home</a> > </div>
+            <iframe id="wikiFrame" src="pages/main.html" onload="resizeIframe(this)"></iframe>
+        </div>
+    </div>
+</body>
+</html>
