@@ -478,13 +478,20 @@ function getAttrMod(attr){
 }
 
 function showPerkInfo(evt, skill, lvl){
+    //Temporarily block viewing anything above level 30
+    if(lvl > 30){
+        return;
+    }
+
+    //Get bounding box of perk
+    var perkRect = evt.currentTarget.getBoundingClientRect();
 
     //Show perk info box and move its location to mouse location
     var pib = document.getElementById("perk_info_box");
     pib.style.display = "block";
     pib.style.position = "absolute";
-    pib.style.left = evt.clientX+"px";
-    pib.style.top = evt.clientY+"px";
+    pib.style.left = perkRect.right+"px";
+    pib.style.top = perkRect.top+"px";
 
     //Find current skill based on skill input and save it in the s variable
     var s;
@@ -497,8 +504,6 @@ function showPerkInfo(evt, skill, lvl){
     var perk;
     var p_list = [];
     var expertise = evt.currentTarget.parentElement.parentElement.children[7].children[0].innerHTML;
-
-    
 
     if(lvl < 25){
         p_list = s[5].childNodes;
@@ -526,7 +531,6 @@ function showPerkInfo(evt, skill, lvl){
             }
         }
     }
-    
 
     //Clear any old information
     for(var i=0;i<perk.length;i++){
@@ -536,7 +540,11 @@ function showPerkInfo(evt, skill, lvl){
     //Insert updated perk information into the perk info window
     for(var i=0;i<perk.length;i++){
         var ele = document.getElementById(perk[i].nodeName);
-        ele.innerHTML = perk[i].childNodes[0].nodeValue;
+        if(perk[i].childNodes[0] === undefined){
+            ele.innerHTML = "";
+        }else{
+            ele.innerHTML = perk[i].childNodes[0].nodeValue;
+        }
     }
 }
 
@@ -981,4 +989,53 @@ function submitSleep(){
         document.getElementById("sleep_panel").style.display = "none";
         closeOptionWindow();
     }
+}
+
+function showRollPanel(optID, confID){
+    document.getElementById(optID).style.display = "inline-block";
+    document.getElementById(confID).style.display = "inline-block";
+}
+
+function chooseDieOption(evt, disp){
+    document.getElementById(disp).innerHTML = "";
+    document.getElementById(disp).innerHTML = evt.innerHTML;
+}
+
+function calcCustomRoll(){
+    var num = parseInt(document.getElementById("dice_num").innerHTML),
+        type = parseInt(document.getElementById("dice_type").innerHTML),
+        mod = parseInt(document.getElementById("dice_mod").innerHTML);
+
+    if(num === "" || type === "" || mod === ""){
+        alert("Please make sure all options have a value!");
+        return;
+    }
+
+    var dieResults = [];
+
+    for(let i=0; i<num; i++){
+        let rand = Math.floor(Math.random() * Math.floor(type));
+        let result = rand + 1 + mod;
+        dieResults.push(result);
+    }
+
+    var finalResult = 0;
+
+    if(dieResults.length == 1){
+        finalResult = dieResults[0];
+    }
+    else{
+        for(let i=0; i<dieResults.length;i++){
+            finalResult += dieResults[i];
+        }
+    }
+
+    document.getElementById("custom_roll_result").innerHTML = finalResult;
+
+
+
+}
+
+function diceDisplay(){
+    
 }
