@@ -46,6 +46,23 @@ input::-webkit-inner-spin-button {
     color: #1C2429;
 }
 
+.dice_button{
+    margin: auto;
+    background-color: rgb(34, 162, 179);
+    float: right;
+    border: solid 1px gainsboro;
+    border-bottom: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 12pt;
+}
+
+.dice_button:hover{
+    background-color: gainsboro;
+    color: #1C2429;
+}
+
 .option_menu{
     width: 123px;
     background-color: rgb(100,100,100);
@@ -280,6 +297,108 @@ input::-webkit-inner-spin-button {
     background-color: firebrick;
     color: gainsboro;
     font-size: 12pt;
+}
+
+.roll_options{
+    display: inline-block;
+    width: 100%;
+    padding: 10px 15px;
+}
+
+.roll_option{
+    float: left;
+    width: 100px;
+    height: 50px;
+    margin-left: 20px;
+    margin-top: 10px;
+    background-color: #E8903B;
+    color: #1C2429;
+    font-size: 12pt;
+}
+
+.custom_roll_field{
+    width: 80px;
+    height: 40px;
+    background-color: rgb(100,100,100);
+    float: left;
+    border: solid 1px gainsboro;
+    border-bottom: none;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 12pt;
+    margin:10px 20px;
+}
+
+.roll_field_title{
+    position: absolute;
+    transform: translate(-40px,-20px);
+}
+
+.custom_roll_field p{
+    line-height: 0;
+    padding-top:5px;
+}
+
+.custom_roll_field:hover{
+    background-color: gainsboro;
+    color: #1C2429;
+}
+
+.custom_roll_dd{
+    display: none;
+    width: 80px;
+    margin-top: 0px;
+    position: absolute;
+    background-color: gainsboro;
+    color: #1C2429;
+    z-index: 1;
+}
+
+.custom_roll_field:hover .custom_roll_dd{
+    display: block;
+    cursor: pointer;
+}
+
+.die_choice{
+    height: 20px;
+    padding: 10px;
+    border: solid 0.5px rgb(148, 148, 148);
+    font-size: 12pt;
+}
+
+.die_choice:hover{
+    background-color: rgb(148, 148, 148);
+}
+
+.roll_confirm{
+    float: left;
+    width: 80px;
+    height: 30px;
+    background-color: #7ecc89;
+    color: #1C2429;
+    font-size: 12pt;
+    margin: 3px 15px;
+}
+
+#custom_roll_result{
+    float: left;
+    height: 20px;
+    width: 40px;
+    background-color: gainsboro;
+    border: 1px solid rgb(34, 162, 179);
+    color: #1C2429;
+    text-align: center;
+    padding:10px;
+    font-weight: bold;
+}
+
+#custom_roll_options{
+    display: none;
+}
+
+#custom_roll_confirm{
+    display: none;
 }
 
 .char_content{
