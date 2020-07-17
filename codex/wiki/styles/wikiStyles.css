@@ -1,0 +1,99 @@
+a {
+    color: #1C2429;
+    text-decoration: underline;
+}
+
+p {
+    word-wrap: normal;
+}
+
+.wiki_content{
+    overflow: hidden;
+    position: relative;
+    width: 85%;
+    min-width:1000px;
+    min-height: 1000px;
+    background-color: whitesmoke;
+    margin: auto;
+}
+
+.wikiSidebar{
+    position: absolute;
+    float: left;
+    width: 200px;
+    height: 100%;
+    background-color: blanchedalmond;
+    color: #1C2429;
+}
+
+.sidebarCat{
+    display: block;
+    text-align: center;
+    padding: 20px 0px;
+    border: 1px solid tan;
+}
+
+.sidebarCat:hover{
+    background-color: tan;
+    border: 1px solid blanchedalmond;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.sidebarContainer{
+    display: block;
+    background-color: whitesmoke;
+    height: 0px;
+}
+
+.sidebarSubcatHidden{
+    visibility: hidden;
+    text-align: center;
+    padding: 0px 0px;
+    border: 1px solid tan;
+    background-color: whitesmoke;
+    transform: scaleY(0);
+    transition: all 0.1s linear;
+}
+
+.sidebarSubcatActive{
+    visibility: visible;
+    text-align: center;
+    padding: 20px 0px;
+    border: 1px solid tan;
+    background-color: whitesmoke;
+    transform: scaleY(1);
+    transition: all 0.2s linear;
+}
+
+.sidebarSubcatActive:hover{
+    background-color: rgb(175,175,175);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.wikiPage{
+    overflow: hidden;
+    float: left;
+    width: 100%;
+    margin-left: 200px;
+}
+
+#wikiNav{
+    float: left;
+    width: 100%;
+    height: 20px;
+    padding: 10px 20px;
+    color: rgb(100,100,100);
+}
+
+#wikiNav a{
+    color: rgb(100,100,100);
+}
+
+#wikiFrame{
+    float: left;
+    width: 78%;
+    border: none;
+    padding: 10px;
+}
