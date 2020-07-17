@@ -1,3 +1,9 @@
+<!--TO DO
+    - Fix level up system to include attribute increases
+    - Add dice mechanic
+    - Add inventory and item shop
+-->
+
 <!DOCTYPE html>
 <html lang="en" >
 
@@ -15,7 +21,7 @@
 <body>
     <!--Main Menu-->
     <div class="main_menu">
-        <img id="logo" src="https://res.cloudinary.com/teepublic/image/private/s--jGfS3rOf--/c_fit,g_north_west,h_774,w_840/co_36538b,e_outline:40/co_36538b,e_outline:inner_fill:1/co_ffffff,e_outline:40/co_ffffff,e_outline:inner_fill:1/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_jpg,h_630,q_90,w_630/v1475865828/production/designs/720040_1.jpg">
+        <img id="logo" src="../data/Kaleido Logo/page06.jpg">
         <a class="no_submenu" href="https://kaleidorpg.com">HOME</a>
         <div class="submenu_container">
             <button class="submenu_button">CAMPAIGNS</button>
@@ -65,6 +71,7 @@
                     <div class="option" onclick="openOptionWindow('save_view')">Save</div>
                 </div>
             </div>
+            <button class="dice_button" id="rollDice" onclick="openOptionWindow('dice_win')">ROLL DICE</button>
         </div>
     </div>
 
@@ -99,6 +106,15 @@
                     <p>Current HP per level: <span id="hp_incr">2</span></p>
                     <p>Confirm level up?</p>
                 </div>
+                <div id="add_attr">
+                    <span style="visibility: hidden;" id="attr_choice_human">2</span>
+                    <button onclick="selectRaceAttr(this)">STR</button>
+                    <button onclick="selectRaceAttr(this)">DEX</button>
+                    <button onclick="selectRaceAttr(this)">CON</button>
+                    <button onclick="selectRaceAttr(this)">INT</button>
+                    <button onclick="selectRaceAttr(this)">WIS</button>
+                    <button onclick="selectRaceAttr(this)">CHA</button>
+                </div>
                 <div class="option_choices">
                     <button class="lvl_up_confirm" onclick="levelUp()">Confirm</button>
                 </div>
@@ -114,7 +130,7 @@
                     <button class="lvl_up_confirm" onclick="getXmlForSave('000')">Confirm</button>
                 </div>
             </div>
-            <div class="option_window" id="reload">
+            <!--<div class="option_window" id="reload">
                 <div class="option_title">Reload</div>
                 <button class="close_option" onclick="closeOptionWindow()">X</button>
                 <div class="option_text">
@@ -124,7 +140,7 @@
                 <div class="option_choices">
                     <button class="reload_confirm">Confirm</button>
                 </div>
-            </div>
+            </div>-->
             <div class="option_window" id="take_damage_win">
                 <div class="option_title">Take Damage</div>
                 <button class="close_option" onclick="closeOptionWindow()">X</button>
@@ -150,42 +166,65 @@
                     <input class="dmg_input" type="number"></input>
                 </div>
             </div>
-            <!--<div class="option_window" id="take_damage_win">
-                <div class="option_title">Take Damage</div>
+            <div class="option_window" id="dice_win">
+                <div class="option_title">Roll Dice</div>
                 <button class="close_option" onclick="closeOptionWindow()">X</button>
-                <div class="option_text">
-                    <p>How much damage are you taking?</p>
-                    <input class="dmg_input" type="number"></input>
-                    <p>Choose all applicable damage types</p>
-                    <div class="status_box">
-                        <div class="popup" id="weak_popup">
-                            <span onclick="addStatusEffect(this, 'weak_info', 'weak_popup')">Bludgeoning</span>
-                            <span onclick="addStatusEffect(this, 'weak_info', 'weak_popup')">Cold</span>
-                            <span onclick="addStatusEffect(this, 'weak_info', 'weak_popup')">Electricity</span>
-                            <span onclick="addStatusEffect(this, 'weak_info', 'weak_popup')">Force</span>
-                            <span onclick="addStatusEffect(this, 'weak_info', 'weak_popup')">Heat</span>
-                            <span onclick="addStatusEffect(this, 'weak_info', 'weak_popup')">Laser</span>
-                            <span onclick="addStatusEffect(this, 'weak_info', 'weak_popup')">Posion</span>
-                            <span onclick="addStatusEffect(this, 'weak_info', 'weak_popup')">Radiation</span>
-                            <span onclick="addStatusEffect(this, 'weak_info', 'weak_popup')">Psychic</span>
-                            <span onclick="addStatusEffect(this, 'weak_info', 'weak_popup')">Slashing</span>
-                            <span onclick="addStatusEffect(this, 'weak_info', 'weak_popup')">Sound</span>
-                            <span onclick="addStatusEffect(this, 'weak_info', 'weak_popup')">Water</span>
+                <br>
+                <div class="roll_options">
+                    <button class="roll_option" onclick="">Skill Roll</button>
+                    <button class="roll_option" onclick="">Attr Roll</button>
+                    <button class="roll_option" onclick="showRollPanel('custom_roll_options', 'custom_roll_confirm')">Custom Roll</button>
+                </div>
+                <div class="roll_options" id="custom_roll_options">
+                    <div class="custom_roll_field">
+                        <span class="roll_field_title">Num. of Dice</span>
+                        <p id="dice_num"></p>
+                        <div class="custom_roll_dd">
+                            <div class="die_choice" onclick="chooseDieOption(this, 'dice_num')">1</div>
+                            <div class="die_choice" onclick="chooseDieOption(this, 'dice_num')">2</div>
+                            <div class="die_choice" onclick="chooseDieOption(this, 'dice_num')">3</div>
+                            <div class="die_choice" onclick="chooseDieOption(this, 'dice_num')">4</div>
+                            <div class="die_choice" onclick="chooseDieOption(this, 'dice_num')">5</div>
+                            <div class="die_choice" onclick="chooseDieOption(this, 'dice_num')">6</div>
                         </div>
-                        <div class="status_cat">Damage Types</div>
-                        <div class="status_info" id="weak_info">
-                            <div class="damage_type" style="display: none;">
-                                <span></span>
-                                <button class="remove_effect" onclick="removeStatusEffect(this, 'weak_info')">Remove</button>
-                            </div>
+                    </div>
+                    <div class="custom_roll_field">
+                        <span class="roll_field_title">Dice Type</span>
+                        <p id="dice_type"></p>
+                        <div class="custom_roll_dd">
+                            <div class="die_choice" onclick="chooseDieOption(this, 'dice_type')">2</div>
+                            <div class="die_choice" onclick="chooseDieOption(this, 'dice_type')">4</div>
+                            <div class="die_choice" onclick="chooseDieOption(this, 'dice_type')">6</div>
+                            <div class="die_choice" onclick="chooseDieOption(this, 'dice_type')">8</div>
+                            <div class="die_choice" onclick="chooseDieOption(this, 'dice_type')">10</div>
+                            <div class="die_choice" onclick="chooseDieOption(this, 'dice_type')">12</div>
+                            <div class="die_choice" onclick="chooseDieOption(this, 'dice_type')">20</div>
+                            <div class="die_choice" onclick="chooseDieOption(this, 'dice_type')">100</div>
                         </div>
-                        <button class="add_status_but" onclick="showStatusEffects('weak_popup')">Options</button>
+                    </div>
+                    <div class="custom_roll_field" >
+                        <span class="roll_field_title">Dice Mod</span>
+                        <p id="dice_mod"></p>
+                        <div class="custom_roll_dd">
+                            <div class="die_choice" onclick="chooseDieOption(this, 'dice_mod')">-4</div>
+                            <div class="die_choice" onclick="chooseDieOption(this, 'dice_mod')">-3</div>
+                            <div class="die_choice" onclick="chooseDieOption(this, 'dice_mod')">-2</div>
+                            <div class="die_choice" onclick="chooseDieOption(this, 'dice_mod')">-1</div>
+                            <div class="die_choice" onclick="chooseDieOption(this, 'dice_mod')">0</div>
+                            <div class="die_choice" onclick="chooseDieOption(this, 'dice_mod')">1</div>
+                            <div class="die_choice" onclick="chooseDieOption(this, 'dice_mod')">2</div>
+                            <div class="die_choice" onclick="chooseDieOption(this, 'dice_mod')">3</div>
+                        </div>
                     </div>
                 </div>
-                <div class="option_choices">
-                    <button class="damage_confirm" onclick="takeDamage(this)">Confirm</button>
+                <div class="roll_options" id="custom_roll_confirm">
+                    <button class="roll_confirm" onclick="calcCustomRoll()">Roll</button>
+                    <div id="custom_roll_result"></div>
                 </div>
-            </div>-->
+                <div class="roll_options" id="dice_display">
+                    
+                </div>
+            </div>
         </div>
     </div>
 
@@ -928,7 +967,7 @@
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Astrobiologyr', 30)" onmouseout="hidePerkInfo()"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Astrobiology', 30)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
@@ -1142,7 +1181,7 @@
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
-                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Armor', 25)" onmouseout="hidePerkInfo()"></div>
+                <div class="skill_checkpoint" onmouseover="showPerkInfo(event, 'Blunt', 25)" onmouseout="hidePerkInfo()"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
                 <div class="skill_mark"></div>
