@@ -10,9 +10,10 @@ p {
 .wiki_content{
     overflow: hidden;
     position: relative;
+    height: 100%;
     width: 85%;
     min-width:1000px;
-    min-height: 1000px;
+    min-height: 1200px;
     background-color: whitesmoke;
     margin: auto;
 }
@@ -29,7 +30,7 @@ p {
 .sidebarCat{
     display: block;
     text-align: center;
-    padding: 20px 0px;
+    padding: 10px 0px;
     border: 1px solid tan;
 }
 
@@ -59,7 +60,7 @@ p {
 .sidebarSubcatActive{
     visibility: visible;
     text-align: center;
-    padding: 20px 0px;
+    padding: 10px 0px;
     border: 1px solid tan;
     background-color: whitesmoke;
     transform: scaleY(1);
@@ -97,3 +98,57 @@ p {
     border: none;
     padding: 10px;
 }
+
+.skillTable{
+    width: 49%;
+    min-width: 500px;
+    background-color: rgb(175,175,175);
+    margin:auto;
+}
+
+.skillTable td{
+    border: solid 1px #1C2429;
+    padding: 5px;
+}
+
+.skillTableHeader td{
+    border: solid 1px #1C2429;
+    background-color: rgb(100,100,100);
+    font-weight: bold;
+}
+
+.expertiseTable{
+    width: 48%;
+    float: left;
+    margin-left: 10px;
+}
+
+.expertiseTable td{
+    border: solid 1px #1C2429;
+    padding: 5px;
+}
+
+.expInfo{
+    text-align: center;
+}
+
+#exp1Table{
+    background-color: burlywood;
+}
+
+#exp1TableHeader td{
+    border: solid 1px #1C2429;
+    background-color: #E8903B;
+    font-weight: bold;
+}
+
+#exp2Table{
+    background-color: paleturquoise;
+}
+
+#exp2TableHeader td{
+    border: solid 1px #1C2429;
+    background-color: rgb(34, 162, 179);
+    font-weight: bold;
+}
+
