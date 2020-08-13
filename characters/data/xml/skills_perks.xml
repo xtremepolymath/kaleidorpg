@@ -309,21 +309,21 @@
             <perk>
                 <pk_name>Weight Training</pk_name>
                 <lvl_req>5</lvl_req>
-                <pk_desc>Able to carry extra 30 lbs</pk_desc>
+                <pk_desc>Maximum carrying capacity increased by 10kg.</pk_desc>
                 <action_desc></action_desc>
                 <action_type></action_type>
             </perk>
             <perk>
                 <pk_name>Kip Up</pk_name>
                 <lvl_req>10</lvl_req>
-                <pk_desc>Base skill mod is now 1. Getting up only uses 10 feet of movement.</pk_desc>
+                <pk_desc>Base skill mod is now 1. Getting up only uses 5m of movement.</pk_desc>
                 <action_desc></action_desc>
                 <action_type></action_type>
             </perk>
             <perk>
                 <pk_name>Building Stamina</pk_name>
                 <lvl_req>15</lvl_req>
-                <pk_desc>HP die is now a d8.</pk_desc>
+                <pk_desc>Your maximum HP increases by 4 per level instead of 2</pk_desc>
                 <action_desc></action_desc>
                 <action_type></action_type>
             </perk>
@@ -398,9 +398,9 @@
                 <action_type>Non-Combat</action_type>
             </perk>
             <perk>
-                <pk_name>Machetes</pk_name>
+                <pk_name>Short Blades</pk_name>
                 <lvl_req>10</lvl_req>
-                <pk_desc>Damage die is now a d6. Able to use machetes.</pk_desc>
+                <pk_desc>Damage die is now a d6. Able to use short blades.</pk_desc>
                 <action_desc></action_desc>
                 <action_type></action_type>
             </perk>
@@ -412,9 +412,9 @@
                 <action_type></action_type>
             </perk>
             <perk>
-                <pk_name>Katanas</pk_name>
+                <pk_name>Long Blades</pk_name>
                 <lvl_req>20</lvl_req>
-                <pk_desc>Damage die is now a d8. Able to use katanas.</pk_desc>
+                <pk_desc>Damage die is now a d8. Able to use long blades.</pk_desc>
                 <action_desc></action_desc>
                 <action_type></action_type>
             </perk>
@@ -491,7 +491,7 @@
             <perk>
                 <pk_name>Weighted Ends</pk_name>
                 <lvl_req>15</lvl_req>
-                <pk_desc>Base saving throw for Bash increased to 12.</pk_desc>
+                <pk_desc>Base saving throw for Bash increased to 10.</pk_desc>
                 <action_desc></action_desc>
                 <action_type></action_type>
             </perk>
