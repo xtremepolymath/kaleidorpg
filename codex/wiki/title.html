@@ -50,7 +50,15 @@
     <div class="wiki_content">
         <div class="wikiSidebar">
             <div class="sidebarCat" onclick="updateWikiContent('main.html')">Wiki Home</div>
-            <div class="sidebarCat" onclick="updateWikiContent('aboutMain.html')">About</div>
+            <div class="sidebarCat" onclick="updateWikiContent('aboutMain.html')">About the RPG</div>
+            <div class="sidebarCat" onclick="wikiDropdown('backgroundSubmenu')">Background</div>
+            <div class="sidebarContainer" id="backgroundSubmenu">
+                <div class="sidebarSubcatHidden">History</div>
+                <div class="sidebarSubcatHidden">Timeline</div>
+                <div class="sidebarSubcatHidden">Politics</div>
+                <div class="sidebarSubcatHidden" onclick="updateWikiContent('spaceTransportation.html')">Travel</div>
+                <div class="sidebarSubcatHidden">Economy</div>
+            </div>
             <div class="sidebarCat" onclick="wikiDropdown('raceSubmenu')">Races</div>
             <div class="sidebarContainer" id="raceSubmenu">
                 <div class="sidebarSubcatHidden">Human</div>
@@ -62,7 +70,29 @@
                 <div class="sidebarSubcatHidden">Veith</div>
                 <div class="sidebarSubcatHidden">Ts'tsen</div>
             </div>
-            <div class="sidebarCat">Skills</div>
+            <div class="sidebarCat" onclick="wikiDropdown('skillSubmenu')">Skills</div>
+            <div class="sidebarContainer" id="skillSubmenu">
+                <div class="sidebarSubcatHidden" onclick="updateWikiContent('armor.html')">Armor</div>
+                <div class="sidebarSubcatHidden" onclick="updateWikiContent('assaultWeapons.html')">Assault Weapons</div>
+                <div class="sidebarSubcatHidden" onclick="updateWikiContent('astrobiology.html')">Astrobiology</div>
+                <div class="sidebarSubcatHidden">Athletics</div>
+                <div class="sidebarSubcatHidden">Blade</div>
+                <div class="sidebarSubcatHidden">Blunt</div>
+                <div class="sidebarSubcatHidden">Energy</div>
+                <div class="sidebarSubcatHidden">Espionage</div>
+                <div class="sidebarSubcatHidden">Explosives</div>
+                <div class="sidebarSubcatHidden">Fluids</div>
+                <div class="sidebarSubcatHidden">Gravity</div>
+                <div class="sidebarSubcatHidden">Long Range</div>
+                <div class="sidebarSubcatHidden">Negotiation</div>
+                <div class="sidebarSubcatHidden">Observation</div>
+                <div class="sidebarSubcatHidden">Pistol</div>
+                <div class="sidebarSubcatHidden">Psyche</div>
+                <div class="sidebarSubcatHidden">Tech</div>
+                <div class="sidebarSubcatHidden">Unarmed</div>
+                <div class="sidebarSubcatHidden">Vehicles</div>
+                <div class="sidebarSubcatHidden">Wave</div>
+            </div>
         </div>
         <div class="wikiPage">
             <div id="wikiNav"><a href="title.html">Home</a> > </div>
