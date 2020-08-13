@@ -10,14 +10,20 @@ function updateWikiContent(fileName){
 function wikiDropdown(targ){
     var submenu = document.getElementById(targ);
     if(submenu.children[0].classList.contains("sidebarSubcatActive")){
-        console.log("here!");
         dropdownOut(submenu);
     }
     else{dropdownIn(submenu);}
 }
 
 function dropdownIn(ele){
-    for(var i=0;i<ele.children.length;i++){
+    //Remove any dropdowns already there
+    dropdowns = document.getElementsByClassName("sidebarSubcatActive");
+    if(dropdowns.length > 0){
+        dropdownOut(dropdowns[0].parentElement);
+    }
+
+    //Now activate the desired dropdown
+    for(let i=0;i<ele.children.length;i++){
         ele.children[i].classList.remove("sidebarSubcatHidden");
         ele.children[i].classList.add("sidebarSubcatActive");
     }
@@ -30,6 +36,4 @@ function dropdownOut(ele){
         ele.children[i].classList.add("sidebarSubcatHidden");
     }
     ele.style.height = "0px";
-
-    console.log(ele.style.height);
 }
