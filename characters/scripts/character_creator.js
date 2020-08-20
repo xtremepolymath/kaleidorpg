@@ -142,6 +142,11 @@ function openOptionWindow(option){
     option.style.display = "block";
 }
 
+function clickTab(index){
+    let tabs = document.getElementsByClassName("char_menu_button");
+    console.log(tabs[index].click());
+}
+
 function switchRacePanel(race){
     var racePans = document.getElementsByClassName("race_panel");
     for(var i=0;i<racePans.length;i++){
