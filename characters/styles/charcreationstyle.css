@@ -271,8 +271,7 @@ input::-webkit-inner-spin-button {
     width: 200px;
     padding:10px;
     margin-top: 25px;
-    background-color: #502255;
-    color: gainsboro;
+    background-color: rgb(34, 162, 179);
     cursor: pointer;
 }
 
@@ -329,14 +328,36 @@ input::-webkit-inner-spin-button {
     color: #1C2429;
 }
 
-.confirm_info{
+.prev_button{
+    float: left;
+    margin: 0% 20%;
     height: 50px;
     width: 200px;
-    margin-left: 50%;
-    transform: translateX(-50%);
     font-size: 14pt;
     font-weight: bold;
-    background-color: #E8903B;
+    background-color: #823b8a;
+    border-top-left-radius: 25%;
+    border-bottom-left-radius: 25%;
+}
+
+.next_button{
+    float:left;
+    height: 50px;
+    width: 200px;
+    font-size: 14pt;
+    font-weight: bold;
+    background-color: #823b8a;
+    border-top-right-radius: 25%;
+    border-bottom-right-radius: 25%;
+}
+
+.confirm_info{
+    float: left;
+    height: 50px;
+    width: 200px;
+    font-size: 14pt;
+    font-weight: bold;
+    background-color: #7ecc89;
 }
 
 .attr_info{
