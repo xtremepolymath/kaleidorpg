@@ -369,7 +369,7 @@
                 <div class="race_info_row">
                     <div class="race_info_type">Attributes</div>
                     <div class="race_info_content">
-                        +2 STR, +1 DEX, =1 CHA
+                        +2 STR, +1 DEX, -1 CHA
                     </div>
                 </div>
                 <div class="race_info_row">
@@ -616,6 +616,10 @@
                 </tr>
             </table>
         </div>
+        <div class="row">
+            <button class="prev_button" onclick="clickTab(0)">PREV</button>
+            <button class="next_button" onclick="clickTab(2)">NEXT</button>
+        </div>
     </div>
     <!-- Attributes -->
     <div class="char_content" id="attr_panel">
@@ -762,6 +766,10 @@
                 <button onclick="decreaseAttr(this, 'cha')">-</button>
                 <button onclick="increaseAttr('cha')">+</button>
             </div>
+        </div>
+        <div class="row">
+            <button class="prev_button" onclick="clickTab(1)">PREV</button>
+            <button class="next_button" onclick="clickTab(3)">NEXT</button>
         </div>
     </div>
     <!-- Skills -->
@@ -2234,7 +2242,10 @@
                 </div>
             </div>
         </div>
-        
+        <div class="row">
+            <button class="prev_button" onclick="clickTab(2)">PREV</button>
+            <button class="next_button" onclick="clickTab(4)">NEXT</button>
+        </div>
     </div>
     <!-- ACTIONS -->
     <div class="char_content" id="actions_panel">
@@ -2286,6 +2297,10 @@
                     </td>
                 </tr>
             </table>
+        </div>
+        <div class="row">
+            <button class="prev_button" onclick="clickTab(3)">PREV</button>
+            <button class="next_button" onclick="clickTab(5)">NEXT</button>
         </div>
     </div>
     <!-- Review -->
@@ -2775,6 +2790,7 @@
             </div>
         </div>
         <div class="row">
+            <button class="prev_button" onclick="clickTab(4)">PREV</button>
             <button class="confirm_info" onclick="openOptionWindow('save_character')">Save Info</button>
         </div>
     </div>
