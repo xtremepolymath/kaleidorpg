@@ -730,7 +730,7 @@
                 <pk_name>Trip Wire</pk_name>
                 <lvl_req>5</lvl_req>
                 <pk_desc>Gain access to the Trip Wire action.</pk_desc>
-                <action_desc>You can use an explosive ammo from your inventory as a trap, having it go off when something enters its explosive radius.</action_desc>
+                <action_desc>You can use a single explosive ammo from your inventory as a trap, having it go off when anything gets within 2m of it. It will go unnoticed by hostiles unless they pass an Observation saving throw of 10 + your Espionage skill.</action_desc>
                 <action_type>Major/Non-Combat</action_type>
             </perk>
             <perk>
@@ -807,14 +807,14 @@
                 <pk_name>Hydrate</pk_name>
                 <lvl_req>1</lvl_req>
                 <pk_desc>Base skill mod is now 0. Gain access to the Hydrate action.</pk_desc>
-                <action_desc>You can create a small jet of water. It does not cause damage, but can be used to douse fires, water plants, or refill water containers. Does not use a charge.</action_desc>
+                <action_desc>You can create a small jet of water originating from one of your hands out up to 10m. It does not cause damage, but can be used to douse fires, water plants, or refill water containers. Does not use a charge.</action_desc>
                 <action_type>Major/Non-Combat</action_type>
             </perk>
             <perk>
                 <pk_name>Displace Liquid</pk_name>
                 <lvl_req>5</lvl_req>
                 <pk_desc>Gain access to the Displace Liquid action.</pk_desc>
-                <action_desc>You can manipulate a 3-foot radius sphere of nearby liquid within 30 feet of your current position. This could be used to create an air-bubble or to bombard a target with a fluid.  If used as an attack, you deal 1d8 + skill mod damage.</action_desc>
+                <action_desc>You can manipulate a 1m radius sphere of nearby liquid within 10m of your current position. This could be used to create an air-bubble or to bombard a target with a fluid.  If used as an attack, you deal 1d8 + skill mod damage.</action_desc>
                 <action_type>Major/Non-Combat</action_type>
             </perk>
             <perk>
@@ -828,7 +828,7 @@
                 <pk_name>Fog</pk_name>
                 <lvl_req>15</lvl_req>
                 <pk_desc>Gain access to the Fog action.</pk_desc>
-                <action_desc>You cause atmospheric liquid to condense and create a fog that covers a cube 60 ft wide and long and 12 feet tall.</action_desc>
+                <action_desc>You cause atmospheric liquid to condense and create a fog that covers a cube 20m wide and long and 5m tall.</action_desc>
                 <action_type>Major/Non-Combat</action_type>
             </perk>
             <perk>
@@ -878,9 +878,9 @@
                     <action_type></action_type>
                 </perk>
                 <perk>
-                    <pk_name>Fly</pk_name>
+                    <pk_name>Flight</pk_name>
                     <lvl_req>30</lvl_req>
-                    <pk_desc>Levitate Self is replaced with the Fly action.</pk_desc>
+                    <pk_desc>Levitate Self is replaced with the Flight action.</pk_desc>
                     <action_desc>On a single charge, you gain 5 minutes of flight. Your movement in combat is not lowered when flying. Be aware, you may take cold or hypoxic damage if you fly too high.</action_desc>
                     <action_type>Major/Non-Combat</action_type>
                 </perk>
@@ -891,27 +891,28 @@
                 <pk_name>Move Object</pk_name>
                 <lvl_req>1</lvl_req>
                 <pk_desc>Base skill mod is now 0. Gain access to the Move Object action.</pk_desc>
-                <action_desc>You can levitate and move an object weighing under 40 lbs to a location of your choice. If used as an attack, you use a charge and can deal 1d8 plus mod damage.</action_desc>
+                <action_desc>You can levitate and move an object weighing under 20kg to a location of your choice. 
+                If used as an attack, you use a charge and can deal 1d8 plus mod damage.</action_desc>
                 <action_type>Major/Non-Combat</action_type>
             </perk>
             <perk>
                 <pk_name>Levitate Self</pk_name>
                 <lvl_req>5</lvl_req>
                 <pk_desc>Gain access to the Levitate Self action.</pk_desc>
-                <action_desc>You levitate yourself 1 foot off the ground. Your movement is limited to 10 feet per turn. Ends after 5 minutes or if you use another Gravity skill.</action_desc>
+                <action_desc>You levitate yourself up to 1m off the ground. Your movement is limited to 0.5m per turn. Ends after 5 minutes or if you use another Gravity skill.</action_desc>
                 <action_type>Major/Non-Combat</action_type>
             </perk>
             <perk>
                 <pk_name>Slow Momentum</pk_name>
                 <lvl_req>10</lvl_req>
                 <pk_desc>Gain access to the Slow Momentum action.</pk_desc>
-                <action_desc>Able to slow down the movement of an object/creature weighing under 300 lbs by 20 feet per turn (20 seconds). If a creature is brought to a full stop, it must make a STR saving throw of 10 plus your mod to try and break your control.</action_desc>
+                <action_desc>Able to slow down the movement of an object/creature weighing under 150kg by 5m per turn. If a creature is brought to a full stop, it must make a STR saving throw of 10+ your mod to try and break your control.</action_desc>
                 <action_type>Major/Non-Combat</action_type>
             </perk>
             <perk>
                 <pk_name>Telekinesis</pk_name>
                 <lvl_req>15</lvl_req>
-                <pk_desc>Can use move object up to 100 lbs for 2d6 damage and slow momentum up to 500 lbs</pk_desc>
+                <pk_desc>Move Object now works on objects up to 50 kg, and it deals 2d8 damage as an attack. Also, Slow Momentum works on objects up to 250kg.</pk_desc>
                 <action_desc></action_desc>
                 <action_type></action_type>
             </perk>
@@ -919,7 +920,7 @@
                 <pk_name>Deflect</pk_name>
                 <lvl_req>20</lvl_req>
                 <pk_desc>Gain access to the Deflect action.</pk_desc>
-                <action_desc>You empower one of your hands to deflect laser fire, giving you a +4 to AC against guns for 5 turns or until you use another Gravity skill. You must have one hand free to do this.</action_desc>
+                <action_desc></action_desc>
                 <action_type>Major</action_type>
             </perk>
         </perk_list>
@@ -1066,7 +1067,7 @@
                 <pk_name>Haggle</pk_name>
                 <lvl_req>5</lvl_req>
                 <pk_desc>Gain access to the Haggle action.</pk_desc>
-                <action_desc>Roll plus skill mod against a character's Cha. On a success, you can either buy an item at -20% the offer or swell for +20% the offer.</action_desc>
+                <action_desc>Roll plus skill mod against a character's Cha. On a success, you can either buy an item at -20% the offer or sell for +20% the offer.</action_desc>
                 <action_type>Non-Combat</action_type>
             </perk>
             <perk>
@@ -1147,7 +1148,7 @@
                 <action_type>Non-Combat</action_type>
             </perk>
             <perk>
-                <pk_name>Shinies</pk_name>
+                <pk_name>Keen-Eyed</pk_name>
                 <lvl_req>5</lvl_req>
                 <pk_desc>You collect more money and items from fallen enemies</pk_desc>
                 <action_desc></action_desc>
