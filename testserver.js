@@ -3,12 +3,12 @@ var fs = require('fs');
 var express = require('express');
 var app = express();
 
-app.use(express.static('../Documents/GitHub/kaleidorpg'));
+app.use(express.static('C:/Users/Nick/Documents/GitHub/kaleidorpg'));
 
 var portNum = 5000;
 
 app.get('/', function (req, res) {
-    res.sendFile(__dirname + '../Documents/GitHub/kalediorpg/index.html');
+    res.sendFile(__dirname + 'index.html');
 });
 
 var server = app.listen(portNum, function () {
