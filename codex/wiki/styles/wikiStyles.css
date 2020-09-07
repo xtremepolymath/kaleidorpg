@@ -1,3 +1,5 @@
+
+
 a {
     color: #1C2429;
     text-decoration: underline;
@@ -8,13 +10,16 @@ p {
 }
 
 .wiki_content{
+    font-family: 'Courier New', Courier, monospace;
     overflow: hidden;
     position: relative;
     height: 100%;
     width: 85%;
     min-width:1000px;
     min-height: 1200px;
-    background-color: whitesmoke;
+    background-color: #1C2429;
+    color: rgb(34, 162, 179);
+    border: 1px solid gainsboro;
     margin: auto;
 }
 
@@ -23,27 +28,28 @@ p {
     float: left;
     width: 200px;
     height: 100%;
-    background-color: blanchedalmond;
-    color: #1C2429;
+    background-color: rgb(50,50,50);
+    color: gainsboro;
 }
 
 .sidebarCat{
     display: block;
     text-align: center;
     padding: 10px 0px;
-    border: 1px solid tan;
+    border: 1px solid rgb(100,100,100);
 }
 
 .sidebarCat:hover{
-    background-color: tan;
-    border: 1px solid blanchedalmond;
+    background-color: rgb(100,100,100);
+    border: 1px solid rgb(50,50,50);
     font-weight: bold;
     cursor: pointer;
 }
 
 .sidebarContainer{
     display: block;
-    background-color: whitesmoke;
+    background-color: rgb(175,175,175);
+    color: #1C2429;
     height: 0px;
 }
 
@@ -51,7 +57,7 @@ p {
     visibility: hidden;
     text-align: center;
     padding: 0px 0px;
-    border: 1px solid tan;
+    border: 1px solid rgb(50,50,50);
     background-color: whitesmoke;
     transform: scaleY(0);
     transition: all 0.1s linear;
@@ -61,7 +67,7 @@ p {
     visibility: visible;
     text-align: center;
     padding: 10px 0px;
-    border: 1px solid tan;
+    border: 1px solid rgb(100,100,100);
     background-color: whitesmoke;
     transform: scaleY(1);
     transition: all 0.2s linear;
@@ -85,11 +91,11 @@ p {
     width: 100%;
     height: 20px;
     padding: 10px 20px;
-    color: rgb(100,100,100);
+    color: #E8903B;
 }
 
 #wikiNav a{
-    color: rgb(100,100,100);
+    color: #E8903B;
 }
 
 #wikiFrame{
@@ -99,22 +105,46 @@ p {
     padding: 10px;
 }
 
+.iframeContent{
+    color: gainsboro;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.iframeContent h1{
+    width: 100%;
+    text-align: center;
+    font-size: 36pt;
+    color: rgb(34, 162, 179);
+}
+
+.iframeContent h2{
+    color: #823b8a;
+}
+
+.iframeContent p{
+    font-size: 13pt;
+}
+
+.iframeContent b{
+    color: #E8903B;
+}
+
 .skillTable{
     width: 49%;
     min-width: 500px;
-    background-color: rgb(175,175,175);
     margin:auto;
+    border: 1px solid gainsboro;
 }
 
 .skillTable td{
-    border: solid 1px #1C2429;
+    border: solid 1px rgb(100,100,100);
     padding: 5px;
 }
 
 .skillTableHeader td{
-    border: solid 1px #1C2429;
-    background-color: rgb(100,100,100);
     font-weight: bold;
+    font-size: 15pt;
+    color: rgb(34, 162, 179);
 }
 
 .expertiseTable{
@@ -128,27 +158,49 @@ p {
     padding: 5px;
 }
 
-.expInfo{
+.exp1Info{
     text-align: center;
+    font-size: 15pt;
+}
+
+.exp1Info b{
+    color: #7ecc89;
 }
 
 #exp1Table{
-    background-color: burlywood;
+    border: 1px solid #7ecc89;
+}
+
+#exp1Table td{
+    border: solid 1px rgb(100,100,100);
 }
 
 #exp1TableHeader td{
-    border: solid 1px #1C2429;
-    background-color: #E8903B;
     font-weight: bold;
+    font-size: 15pt;
+    color: #7ecc89;
+}
+
+.exp2Info{
+    text-align: center;
+    font-size: 15pt;
+}
+
+.exp2Info b{
+    color: #0070B5;
 }
 
 #exp2Table{
-    background-color: paleturquoise;
+    border: 1px solid #0070B5;
+}
+
+#exp2Table td{
+    border: solid 1px rgb(100,100,100);
 }
 
 #exp2TableHeader td{
-    border: solid 1px #1C2429;
-    background-color: rgb(34, 162, 179);
     font-weight: bold;
+    font-size: 15pt;
+    color: #0070B5;
 }
 
