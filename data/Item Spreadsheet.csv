@@ -1,4 +1,4 @@
-Weapon Name,Weapon Type,Weapon Class,Requirement,DD,Range,Mag Size,Num of Mods,Weight,Cost,Rarity ,AOE,
+Weapon Name,Weapon Type,Weapon Class,Requirement,DD,Range,Mag Size,Num of Mods,Weight,Cost,Rarity ,AOE,Notes
 AstroStock Budget Gloves,Unarmed,Glove,None,1,null,null,0,1,20,Common,0,
 IPF Pillot Gloves,Unarmed,Glove,None,1,null,null,1,1,40,Common,0,
 IPF Utility Dagger,Blade,Dagger,None,1,null,null,0,1,40,Common,0,
@@ -28,5 +28,5 @@ Gladiator Champion Club,Blunt,Warhammer,Blunt 20,3,null,null,3,15,"10,000",Rare,
 IPF Commando RPG,Explosive,RPG,Explosive 20,3,40,1,3,15,"10,000",Rare,0,
 IPF Assassainator,Long Range,Tripod Rifle,Long Range 20,3,100,2,3,8,"12,000",Rare,0,
 Muhmin Berserker Chain Gun,Assault Weapon,Chain Gun,Assault Weapon 20,3,15,30,3,20,"12,000",Rare,0,
-Koz'aid Claw,Unarmed,Glove,None,1,null,null,1,0,0,Unique,0,
+Koz'aid Claw,Unarmed,Glove,None,1,null,null,1,0,0,Unique,0,Must be Koz'Aid
 ,,,,,,,,,,,,
