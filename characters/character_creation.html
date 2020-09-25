@@ -2303,6 +2303,24 @@
             <button class="next_button" onclick="clickTab(5)">NEXT</button>
         </div>
     </div>
+    <!-- Equipment -->
+    <div class="char_content" id="review_panel">
+        <div class="panel_title">Review</div>
+        <div class="equipment_filters">
+            <span id="eq_current_filter">All</span>
+            <div class="eq_filter_dropdown">
+                <div class="eq_filter" onclick="filterEquipment(this, 'all')">All</div>
+                <div class="eq_filter" onclick="filterEquipment(this, 'major_action_table')">Major</div>
+                <div class="eq_filter" onclick="filterEquipment(this, 'minor_action_table')">Minor</div>
+                <div class="eq_filter" onclick="filterEquipment(this, 'move_action_table')">Move</div>
+                <div class="eq_filter" onclick="filterEquipment(this, 'extra_action_table')">Extra</div>
+                <div class="eq_filter" onclick="filterEquipment(this, 'noncombat_action_table')">Non-Combat</div>
+            </div>
+        </div>
+    </div>
+
+
+
     <!-- Review -->
     <div class="char_content" id="review_panel">
         <div class="panel_title">Review</div>
