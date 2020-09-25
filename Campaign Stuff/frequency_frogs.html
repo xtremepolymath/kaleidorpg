@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script>
+            var frogs = [];
+            var num_frogs = 12;
+
+            function generateFrogs(){
+                for(let i=0; i<num_frogs;i++){
+                    frogs.push("Empty");
+                }
+
+                var rand_locker_code = Math.floor(Math.random()*num_frogs);
+                var rand_datapad = rand_locker_code;
+                while(rand_datapad == rand_locker_code){
+                    rand_datapad = Math.floor(Math.random()*num_frogs);
+                    break;
+                }
+
+                console.log(rand_datapad, rand_locker_code);
+
+                frogs[rand_datapad] = "Datapad";
+                frogs[rand_locker_code] = "Code: 954206";
+            }
+
+            function checkNextFrog(){
+                var randChoice = Math.floor(Math.random()*frogs.length);
+                document.getElementById("result").innerHTML = frogs[randChoice];
+                frogs.splice(randChoice,1);
+                console.log(frogs.length);
+            }
+        </script>
+    </head>
+    <body>
+        <script>
+            generateFrogs();
+        </script>
+        <button id="next" style="width: 150px;height: 50px; margin-left: 200px; margin-top: 200px;" onclick="checkNextFrog()">NEXT</button>
+        <div id="result" style="height:75px;width:200px;margin-left: 200px; margin-top: 20px; border:solid 1px black; font-size: 24pt; text-align:center; padding-top: 25px;">
+        </div>
+    </body>
+</html>
