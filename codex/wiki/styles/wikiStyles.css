@@ -115,10 +115,19 @@ p {
     text-align: center;
     font-size: 36pt;
     color: rgb(34, 162, 179);
+    margin-bottom: -20px;
 }
 
 .iframeContent h2{
     color: #823b8a;
+}
+
+.iframeContent h3{
+    width: 100%;
+    text-align: center;
+    font-size: 20pt;
+    color: rgb(34, 162, 179);
+    margin-bottom: -20px;
 }
 
 .iframeContent p{
@@ -127,6 +136,32 @@ p {
 
 .iframeContent b{
     color: #E8903B;
+}
+
+.race_info_row{
+    display: block;
+    width: 95%;
+    font-size: 14pt;
+    padding: 20px;
+    
+}
+
+.race_info_type{
+    float: left;
+    width: 22%;
+    min-width: 180px;
+    padding-left: 50px;
+    color: #823b8a;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.race_info_content{
+    float: left;
+    width: 66%;
+    min-width: 420px;
+    font-weight: normal;
+    margin-top: 20px;
 }
 
 .skillTable{

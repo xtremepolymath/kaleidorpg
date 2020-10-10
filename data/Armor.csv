@@ -1,0 +1,22 @@
+Armor Name,Equipment Type,Expertise,AC,BAR,Notes,Mod slots,Weight (kg),Cost (uc),Rarity
+IPF Pillot Gloves,Gloves,Light Armor,1,0,,0,1,40,Common
+IPF Combat Gloves,Combat Gloves,Light Armor,1,2,,1,2,300,Uncommon
+Merc Berserker Gaunlet,Power Gaunlet,Heavy Armor,2,4,"One mod is Steel Claws, which puts two dagger-type blades on the ends of the glove. Deals one dice of damage based on your blade skill and can cause bleed.",3,4,8000,Rare
+IPF Expedition Suit,Body Armor,Light Armor,3,10,,2,5,150,Common
+IPF Expedition Boots,Boots,Light Armor,1,0,,1,3,40,Common
+IPF Expedition Helm,Helmet,Light Armor,2,5,,2,2,50,Common
+IPF Combat Suit,Body Armor,Heavy Armor,5,25,,2,10,800,Uncommon
+IPF Combat Boots,Boots,Heavy Armor,2,0,,1,5,200,Uncommon
+IPF Tactical Helm,Helmet,Heavy Armor,3,10,,2,3,400,Uncommon
+AstroStock Budget Gloves,Gloves,Light Armor,1,0,,0,1,20,Common
+AstroStock Budget Envirosuit,Body Armor,Light Armor,3,10,,1,5,125,Common
+AstroStock Budget Boots,Boots,Light Armor,1,0,,0,3,25,Common
+Astrostock Budget Helm,Helmet,Light Armor,2,5,,1,2,30,Common
+AstroStock Premium Envirosuit,Body Armor,Heavy Armor,5,30,,1,10,500,Common
+AstroStock Premium Boots,Boots,Heavy Armor,3,0,,0,5,150,Common
+AstroStock Premuim Helm,Helmet,Heavy Armor,3,10,,1,3,250,Common
+Koz'Aid Carapace,Body Armor,Heavy Armor,6,0,,0,5,0,Unique
+Koz'Aid Scaled Feet,Boots,Heavy Armor,2,0,,0,3,0,Unique
+Koz'Aid Claw,Gloves,Heavy Armor,2,0,"The mod is automatically Poison Gland, and can't be equipped.",1,3,0,Unique
+Koz'Aid Head Shell,Helmet,Heavy Armor,3,0,,0,2,0,Unique
+,,,,,,,,,

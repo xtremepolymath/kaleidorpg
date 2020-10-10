@@ -710,6 +710,50 @@ input::-webkit-inner-spin-button {
     color: #E8903B;
 }
 
+.equipment_filters{
+    position: relative;
+    float: right;
+    width: 120px;
+    height: 30px;
+    margin-right: 25px;
+    margin-top: 25px;
+    padding-top:10px;
+    background-color: gainsboro;
+    color: #1C2429;
+    border: solid 1px #823b8a;
+    text-align: center;
+    font-size: 14pt;
+}
+
+.equipment_filters span{
+    font-size: 12pt;
+}
+
+.eq_filter_dropdown{
+    display: none;
+    position: absolute;
+    width: 100%;
+    background-color: rgb(148, 148, 148);
+    color: #1C2429;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.eq_filters:hover .filter_dropdown{
+    display: block;
+    cursor: pointer;
+}
+
+.eq_filter{
+    padding: 10px;
+    border: solid 0.5px rgb(148, 148, 148);
+    font-size: 12pt;
+}
+
+.eq_filter:hover{
+    background-color: gainsboro;
+}
+
 .character_name_review{
     float: left;
     width: 300px;
