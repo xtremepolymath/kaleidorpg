@@ -10,6 +10,18 @@ const hack1Goal = 340;
 const hack2Goal = 740;
 const hack3Goal = 570;
 
+document.addEventListener('keypress', function(event){
+    if(event.key == "`"){
+        toggleFullScreen();
+    }
+});
+
+function toggleFullScreen(){
+    if(!document.fullscreenElement){
+        document.documentElement.requestFullscreen();
+    }
+}
+
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min) ) + min;
   }
@@ -97,7 +109,7 @@ function increaseDangerLevel(){
     }
 
     if(current_danger === 100){
-        window.location.href = 'timeout.html';
+        window.location.href = 'timeout' + hackNumber + '.html';
     }
 }
 
@@ -112,12 +124,12 @@ function reset(){
     current_danger = 0;
 }
 
-function startCountdown(){
+function startCountdown(hack){
     document.getElementById('timer').innerHTML = countdown;
     var timer = setInterval(function(){
         if(countdown <= 0){
             clearInterval(timer);
-            window.location.href = 'hack' + hackNumber + '.html';
+            window.location.href = 'hack' + hack + '.html';
             countdown = 60;
         }
         countdown -= 1;
