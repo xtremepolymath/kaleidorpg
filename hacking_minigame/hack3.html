@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="script.js"></script>
+</head>
+<body onload="setGoal(3)">
+    <div class="redOverlay" id="redOverlay"></div>
+    <h1 class="hack-title">Vulnerability 3</h1>
+    <div class="hack" id="first-hack">
+        <div class="danger-level">
+            <h1>DANGER LEVEL</h1>
+            <div class="danger-frame">
+                <div class="danger-fill" id="danger-fill"></div>
+            </div>
+        </div>
+        <div class="hack-container">
+            <div class="hack-progress">
+                <img src="blueTriangle.png" class="progress-icon" id="progress-icon">
+                <div>|------------------------------------------------------------------------------------------------------------------------|</div>
+                <img src="yellowTriangle.png" class="goal-icon" id="goal-icon">
+                <p>The final action must be: <span id="lastActionGoal">Jailbreak</span></p>
+            </div>
+        </div>
+        </div>
+        <div class="actions">
+            <button onclick="moveProgress(-400, event)" value="Jailbreak"><<<<<br>Jailbreak</button>
+            <button onclick="moveProgress(-150, event)" value="Falsify"><<<<br>Falsify</button>
+            <button onclick="moveProgress(-80, event)" value="Conceal"><<<br>Conceal</button>
+            <button onclick="moveProgress(-10, event)" value="Backtrack"><<br>Backtrack</button>
+            <button onclick="moveProgress(10, event)" value="Advance">><br>Advance</button>
+            <button onclick="moveProgress(80, event)" value="Decrypt">>><br>Decrypt</button>
+            <button onclick="moveProgress(150, event)" value="Exploit">>>><br>Exploit</button>
+            <button onclick="moveProgress(400, event)" value="Implant">>>>><br>Implant</button>
+        </div>
+        <div class="navigation">
+            <button class="reset" onclick="reset()">RESET</button>
+        </div>
+    </div>
+</body>
+</html>
