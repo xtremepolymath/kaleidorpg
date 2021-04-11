@@ -1,0 +1,115 @@
+@font-face {
+    font-family: 'alienScript';
+    src: url('Cybertronianfinal-Regular.ttf');
+}
+
+body {
+    background: black;
+    text-align: center;
+}
+
+.win-panel {
+    display: none;
+}
+
+.win-bg {
+    margin-top: -50px;
+    width: 100%;
+}
+
+.win-text {
+    font-family: Arial, Helvetica, sans-serif;
+    position: fixed;
+    top: 25%;
+    left: 33%;
+    font-size: 90pt;
+    color: yellow;
+    width: 33%;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.timeout-body {
+    background: black;
+    display: flex;
+    flex-direction: row;
+    font-family: monospace;
+}
+
+.timeout-body div:first-child{
+    flex: 1 50%;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.timout-body div:last-child{
+    flex: 1 50%;
+    text-align: center;
+    vertical-align: middle;
+}
+
+input{
+    text-transform: uppercase;
+}
+
+.timer {
+    position: absolute;
+    color: #85edff;
+    font-size: 6rem;
+    top:38%;
+    left: 17%;
+    z-index: 0;
+}
+
+.glitch{
+    height:100%;
+    width: 100%;
+    opacity: 0.5;
+}
+
+#bgNoise{
+    position: fixed;
+    z-index: 5;
+}
+
+.screen-border {
+    width: 100%;
+    margin: -20px 0px;
+    height: 970px;
+}
+
+.innerScreen {
+    position: absolute;
+    width: 48%;
+    height: 91%;
+    right: 49px;
+    top: 20px;
+    border-radius: 20px;
+    text-align: center;
+    color: white;
+}
+
+.innerScreen h1{
+    color: red;
+    font-size: 2rem;
+}
+
+.alien-script {
+    font-size: 2.4rem;
+    letter-spacing: 0.8rem;
+    font-family: 'alienScript';
+    line-height: 0rem;
+}
+
+.letter-input{
+    height: 40px;
+    width: 25px;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: bold;
+    outline: none;
+    margin: -10px 10px;
+    border: solid 1px lightskyblue;
+    background: none;
+    color: white;
+}
